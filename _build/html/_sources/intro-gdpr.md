@@ -1,0 +1,96 @@
+# Introduction and GDPR
+
+## Basic privacy principles
+- Privacy is a fundamental human right:
+	- Article 12, Universal Declaration of Human Rights
+	- Articles 7 and 8, Charter of Fundamental Rights of the EU
+- However, in the digital world
+	- Data collectors determine what and how data are collected and processed.
+	- Data subjects whose privacy is at stake need privacy protection.
+- It is an ethical principle to do no harm.
+	- Leakage of personal data may lead to, on the one hand, attempt against the fundamental rights of people and, on the other hand, lead to further damage:
+		- Leakages of personal data are a great tool for (cyber-)criminals.
+		- Some private information may lead to discrimination.
+		- Lack of privacy may lead to lack of autonomy.
+- Thus, technologies must not only be designed to collect and process more data more efficiently but also to protect privacy.
+	- People must not be put under risk just for the sake of discovery.
+- Privacy-enhancing techniques (PETs) seek to minimize the processing of personal data.
+- Yet, privacy cannot be guaranteed only with technology. 
+	- A legal framework is needed.
+	
+## General Data Protection Regulation
+- The General Data Protection Regulation (GDPR) lays down rules relating to the protection of natural persons w.r.t. the processing of personal data.
+- GDPR protects fundamental rights and freedoms of natural persons and in particular their right to the protection of personal data.
+- Since the GDPR harmonizes the regulation in all member states, personal data can be freely transferred between EU countries.
+	- Additionally, all entities collecting data from European citizens must adhere to the regulation, making the GDPR a sort of worldwide standard for privacy protection.
+
+### Definitions
+- **Personal data** is any information relating to an identified or identifiable natural person (‘data subject’).
+- An identifiable **data subject** is one who can be identified, directly or indirectly:
+	- To an **identifier** such as a name, an identification number, location data, an online identifier, etc.
+	- To one or more **factors** specific to the physical, physiological, genetic, mental, economic, cultural, or social identity **of that natural person** (confidential attributes).
+- A **data subject** is a natural person.
+- A **controller** is an entity that determines the purposes and means of the processing of personal data.
+- A **processor** is an entity that processes personal data on behalf of the controller.
+- **Processing** is any operation or set of operations that are performed on personal data or on sets of personal data, whether or not by automated means.
+	- collection, recording, organization, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction.
+- **Consent** of the data subject means any freely given, specific, informed, and unambiguous indication of the data subject’s agreement to the processing of personal data relating to him or her.
+- **Genetic** data relate to the inherited or acquired genetic characteristics of a person which give unique information about their physiology or their health and which result from an analysis of their biological sample.
+- **Biometric data** result from specific technical processing relating to the physical, physiological, or behavioral characteristics of a person, which allow or confirm their unique identification.
+- **Data concerning health** relate to the physical or mental health of a person, including the provision of health care services, which reveal information about their health status.
+- **Pseudonymisation** means the processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organizational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.
+- **Data anonymization** is the process of transforming or removing personally identifiable information (PII) from data sets, so that the individuals who contributed the data cannot be identified.
+
+### Principles of the regulation
+- Any processing of personal data must be performed under the principles of **lawfulness**, **fairness**, **transparency**, **purpose limitation**, **data minimization**, **accuracy**, **storage limitation**, **integrity**, **confidentiality**, and **accountability**.
+- It is considered lawful if it is consented, necessary to fulfill a contract, obliged by law, necessary to protect vital interests of the subject or another person, for the public interest, or in the legitimate interest of the controller.
+	- The controller must be able to clearly **demonstrate the consent** of the data subject.
+	- Consent can be withdrawn at any time.
+	- Children under 16 cannot consent.
+- Processing of personal data revealing 
+	- racial or ethnic origin, 
+	- political opinions, 
+	- religious or philosophical beliefs, 
+	- or trade union membership,
+- and the processing of 
+	- genetic data, 
+	- biometric data for the purpose of uniquely identifying a natural person,
+	- data concerning health, 
+	- or data concerning a natural person’s sex life or sexual orientation 
+- shall be prohibited.
+- Exceptions:
+	- explicit consent or manifestly made public by the data subject;
+	- provision and management of employment, social security, and healthcare services;
+	- public interest in the area of public health, such as protecting against pandemics or ensuring high quality and safety of health care and medicinal products or devices;
+	- archiving purposes in the public interest, research purposes.
+	- protect vital interests and cannot consent;
+	- legitimate activities of a foundation, or not-for-profit body;
+	- courts acting in their capacity;
+	- substantial public interest;
+
+### Rights of the data subject
+- Articles 12 to 14 refer to privacy policies and what information the controller has to give the data subject, including the identity of the controller, the purpose for the data collection, and the rights of the subject.
+- The rest of the chapter describes several rights of the subjects, such as:
+	- Right of access, rectification, and erasure (‘right to be forgotten’).
+	- Right to restriction of processing.
+	- Right to data portability.
+
+### Controller and processors
+- Ensure the rights of data subjects.
+- Conduct continuous privacy risk and data protection impact assessments.
+- Apply privacy-by-design and privacy-by-default principles and use appropriate technical and organizational measures.
+- Record processing activities.
+- Appoint a Data Protection Officer.
+- Communicate and collaborate with authorities (and data subjects) in cases of data breaches.
+
+### Data Protection Officer
+- Inform and advice controllers and processors of their obligations.
+- Monitor compliance.
+- Advice on data protection impact assessment.
+- Act as a contact point and cooperate with the supervisory authority.
+
+### Other chapters
+- Description of supervisory authorities.
+- Codes of conduct and privacy certifications.
+- Transfers of data to third countries.
+- Remedies, liability, and penalties.

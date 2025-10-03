@@ -1,0 +1,698 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction and GDPR &#8212; Privacy Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'intro-gdpr';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Privacy by design" href="privacy-by-design.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo_v01-original.png" class="logo__image only-light" alt="Privacy Book - Home"/>
+    <script>document.write(`<img src="_static/logo_v01-original.png" class="logo__image only-dark" alt="Privacy Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction and GDPR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privacy-by-design.html">Privacy by design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pets.html">Privacy enhancing techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Privacy in databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unstructured.html">Privacy in unstructured data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privacy-ml.html">Privacy in machine learning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro-gdpr.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/intro-gdpr.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction and GDPR</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-privacy-principles">Basic privacy principles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-data-protection-regulation">General Data Protection Regulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-of-the-regulation">Principles of the regulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rights-of-the-data-subject">Rights of the data subject</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#controller-and-processors">Controller and processors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-protection-officer">Data Protection Officer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-chapters">Other chapters</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-and-gdpr">
+<h1>Introduction and GDPR<a class="headerlink" href="#introduction-and-gdpr" title="Link to this heading">#</a></h1>
+<section id="basic-privacy-principles">
+<h2>Basic privacy principles<a class="headerlink" href="#basic-privacy-principles" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Privacy is a fundamental human right:</p>
+<ul>
+<li><p>Article 12, Universal Declaration of Human Rights</p></li>
+<li><p>Articles 7 and 8, Charter of Fundamental Rights of the EU</p></li>
+</ul>
+</li>
+<li><p>However, in the digital world</p>
+<ul>
+<li><p>Data collectors determine what and how data are collected and processed.</p></li>
+<li><p>Data subjects whose privacy is at stake need privacy protection.</p></li>
+</ul>
+</li>
+<li><p>It is an ethical principle to do no harm.</p>
+<ul>
+<li><p>Leakage of personal data may lead to, on the one hand, attempt against the fundamental rights of people and, on the other hand, lead to further damage:</p>
+<ul>
+<li><p>Leakages of personal data are a great tool for (cyber-)criminals.</p></li>
+<li><p>Some private information may lead to discrimination.</p></li>
+<li><p>Lack of privacy may lead to lack of autonomy.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Thus, technologies must not only be designed to collect and process more data more efficiently but also to protect privacy.</p>
+<ul>
+<li><p>People must not be put under risk just for the sake of discovery.</p></li>
+</ul>
+</li>
+<li><p>Privacy-enhancing techniques (PETs) seek to minimize the processing of personal data.</p></li>
+<li><p>Yet, privacy cannot be guaranteed only with technology.</p>
+<ul>
+<li><p>A legal framework is needed.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="general-data-protection-regulation">
+<h2>General Data Protection Regulation<a class="headerlink" href="#general-data-protection-regulation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The General Data Protection Regulation (GDPR) lays down rules relating to the protection of natural persons w.r.t. the processing of personal data.</p></li>
+<li><p>GDPR protects fundamental rights and freedoms of natural persons and in particular their right to the protection of personal data.</p></li>
+<li><p>Since the GDPR harmonizes the regulation in all member states, personal data can be freely transferred between EU countries.</p>
+<ul>
+<li><p>Additionally, all entities collecting data from European citizens must adhere to the regulation, making the GDPR a sort of worldwide standard for privacy protection.</p></li>
+</ul>
+</li>
+</ul>
+<section id="definitions">
+<h3>Definitions<a class="headerlink" href="#definitions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Personal data</strong> is any information relating to an identified or identifiable natural person (‘data subject’).</p></li>
+<li><p>An identifiable <strong>data subject</strong> is one who can be identified, directly or indirectly:</p>
+<ul>
+<li><p>To an <strong>identifier</strong> such as a name, an identification number, location data, an online identifier, etc.</p></li>
+<li><p>To one or more <strong>factors</strong> specific to the physical, physiological, genetic, mental, economic, cultural, or social identity <strong>of that natural person</strong> (confidential attributes).</p></li>
+</ul>
+</li>
+<li><p>A <strong>data subject</strong> is a natural person.</p></li>
+<li><p>A <strong>controller</strong> is an entity that determines the purposes and means of the processing of personal data.</p></li>
+<li><p>A <strong>processor</strong> is an entity that processes personal data on behalf of the controller.</p></li>
+<li><p><strong>Processing</strong> is any operation or set of operations that are performed on personal data or on sets of personal data, whether or not by automated means.</p>
+<ul>
+<li><p>collection, recording, organization, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction.</p></li>
+</ul>
+</li>
+<li><p><strong>Consent</strong> of the data subject means any freely given, specific, informed, and unambiguous indication of the data subject’s agreement to the processing of personal data relating to him or her.</p></li>
+<li><p><strong>Genetic</strong> data relate to the inherited or acquired genetic characteristics of a person which give unique information about their physiology or their health and which result from an analysis of their biological sample.</p></li>
+<li><p><strong>Biometric data</strong> result from specific technical processing relating to the physical, physiological, or behavioral characteristics of a person, which allow or confirm their unique identification.</p></li>
+<li><p><strong>Data concerning health</strong> relate to the physical or mental health of a person, including the provision of health care services, which reveal information about their health status.</p></li>
+<li><p><strong>Pseudonymisation</strong> means the processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organizational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.</p></li>
+<li><p><strong>Data anonymization</strong> is the process of transforming or removing personally identifiable information (PII) from data sets, so that the individuals who contributed the data cannot be identified.</p></li>
+</ul>
+</section>
+<section id="principles-of-the-regulation">
+<h3>Principles of the regulation<a class="headerlink" href="#principles-of-the-regulation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Any processing of personal data must be performed under the principles of <strong>lawfulness</strong>, <strong>fairness</strong>, <strong>transparency</strong>, <strong>purpose limitation</strong>, <strong>data minimization</strong>, <strong>accuracy</strong>, <strong>storage limitation</strong>, <strong>integrity</strong>, <strong>confidentiality</strong>, and <strong>accountability</strong>.</p></li>
+<li><p>It is considered lawful if it is consented, necessary to fulfill a contract, obliged by law, necessary to protect vital interests of the subject or another person, for the public interest, or in the legitimate interest of the controller.</p>
+<ul>
+<li><p>The controller must be able to clearly <strong>demonstrate the consent</strong> of the data subject.</p></li>
+<li><p>Consent can be withdrawn at any time.</p></li>
+<li><p>Children under 16 cannot consent.</p></li>
+</ul>
+</li>
+<li><p>Processing of personal data revealing</p>
+<ul>
+<li><p>racial or ethnic origin,</p></li>
+<li><p>political opinions,</p></li>
+<li><p>religious or philosophical beliefs,</p></li>
+<li><p>or trade union membership,</p></li>
+</ul>
+</li>
+<li><p>and the processing of</p>
+<ul>
+<li><p>genetic data,</p></li>
+<li><p>biometric data for the purpose of uniquely identifying a natural person,</p></li>
+<li><p>data concerning health,</p></li>
+<li><p>or data concerning a natural person’s sex life or sexual orientation</p></li>
+</ul>
+</li>
+<li><p>shall be prohibited.</p></li>
+<li><p>Exceptions:</p>
+<ul>
+<li><p>explicit consent or manifestly made public by the data subject;</p></li>
+<li><p>provision and management of employment, social security, and healthcare services;</p></li>
+<li><p>public interest in the area of public health, such as protecting against pandemics or ensuring high quality and safety of health care and medicinal products or devices;</p></li>
+<li><p>archiving purposes in the public interest, research purposes.</p></li>
+<li><p>protect vital interests and cannot consent;</p></li>
+<li><p>legitimate activities of a foundation, or not-for-profit body;</p></li>
+<li><p>courts acting in their capacity;</p></li>
+<li><p>substantial public interest;</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="rights-of-the-data-subject">
+<h3>Rights of the data subject<a class="headerlink" href="#rights-of-the-data-subject" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Articles 12 to 14 refer to privacy policies and what information the controller has to give the data subject, including the identity of the controller, the purpose for the data collection, and the rights of the subject.</p></li>
+<li><p>The rest of the chapter describes several rights of the subjects, such as:</p>
+<ul>
+<li><p>Right of access, rectification, and erasure (‘right to be forgotten’).</p></li>
+<li><p>Right to restriction of processing.</p></li>
+<li><p>Right to data portability.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="controller-and-processors">
+<h3>Controller and processors<a class="headerlink" href="#controller-and-processors" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Ensure the rights of data subjects.</p></li>
+<li><p>Conduct continuous privacy risk and data protection impact assessments.</p></li>
+<li><p>Apply privacy-by-design and privacy-by-default principles and use appropriate technical and organizational measures.</p></li>
+<li><p>Record processing activities.</p></li>
+<li><p>Appoint a Data Protection Officer.</p></li>
+<li><p>Communicate and collaborate with authorities (and data subjects) in cases of data breaches.</p></li>
+</ul>
+</section>
+<section id="data-protection-officer">
+<h3>Data Protection Officer<a class="headerlink" href="#data-protection-officer" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Inform and advice controllers and processors of their obligations.</p></li>
+<li><p>Monitor compliance.</p></li>
+<li><p>Advice on data protection impact assessment.</p></li>
+<li><p>Act as a contact point and cooperate with the supervisory authority.</p></li>
+</ul>
+</section>
+<section id="other-chapters">
+<h3>Other chapters<a class="headerlink" href="#other-chapters" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Description of supervisory authorities.</p></li>
+<li><p>Codes of conduct and privacy certifications.</p></li>
+<li><p>Transfers of data to third countries.</p></li>
+<li><p>Remedies, liability, and penalties.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="privacy-by-design.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Privacy by design</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-privacy-principles">Basic privacy principles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-data-protection-regulation">General Data Protection Regulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-of-the-regulation">Principles of the regulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rights-of-the-data-subject">Rights of the data subject</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#controller-and-processors">Controller and processors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-protection-officer">Data Protection Officer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-chapters">Other chapters</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Alberto Blanco-Justicia
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
