@@ -242,7 +242,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/ablancoj/privacy-course" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -259,7 +259,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdatabases.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ablancoj/privacy-course/issues/new?title=Issue%20on%20page%20%2Fdatabases.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -920,7 +920,7 @@ The protection interval is the narrowest interval estimate of the sensitive cell
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">count</span><span class="p">()</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">.</span><span class="mi">000</span>
 <span class="k">Result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">Salary</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Sector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HC</span>
-<span class="k">Result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">482</span><span class="p">.</span><span class="mi">000</span><span class="w"> </span><span class="err">€</span>
+<span class="k">Result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">482</span><span class="p">.</span><span class="mi">000</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="k">count</span><span class="p">()</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Sector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IT</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">Region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TGN</span>
 <span class="k">Result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="k">count</span><span class="p">()</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Sector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Fin</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">Region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TGN</span>
@@ -991,8 +991,8 @@ For example:</p>
 <p>The Laplace mechanism is a fundamental technique for achieving differential privacy.
 Given a function <span class="math notranslate nohighlight">\(f: D \rightarrow R^d, where \)</span>D<span class="math notranslate nohighlight">\( is the domain of the dataset and \)</span>d<span class="math notranslate nohighlight">\( is the dimension of the output, the Laplace mechanism \)</span>M_{Laplace}<span class="math notranslate nohighlight">\( adds Laplace noise to the output of \)</span>f<span class="math notranslate nohighlight">\(. That is \)</span>M_{Laplace}(D)=f(D)+Lap(\Delta/\epsilon)<span class="math notranslate nohighlight">\( 
 Let \)</span>b<span class="math notranslate nohighlight">\( be the scale parameter of the Laplace distribution, which is given by:
-\)</span><span class="math notranslate nohighlight">\(Lap(b)=\frac{1}{2b} e^{-\frac{|x|}{b}}\)</span>$
-<img alt="alt text" src="_images/laplace.png" /></p>
+\)</span><span class="math notranslate nohighlight">\(Lap(b)=\frac{1}{2b} e^{-\frac{|x|}{b}}\)</span>$</p>
+<p><img alt="alt text" src="_images/laplace.png" /></p>
 </section>
 <section id="properties-of-dp">
 <h5>Properties of DP<a class="headerlink" href="#properties-of-dp" title="Link to this heading">#</a></h5>

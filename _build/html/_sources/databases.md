@@ -296,7 +296,7 @@ $𝑋_{11}+𝑋_{21}+3=9  \rightarrow 𝑋_{11} \ge 3$.
 The feasibility interval must contain the protection interval. 
 The protection interval is computed according to the chosen sensitivity rule $[𝐶𝑉−𝑃𝐿, 𝐶𝑉+𝑃𝐿]$.
 
-![alt text](protection_levels.png)
+![alt text](figs/protection_levels.png)
 
 #### Controlled rounding and Controlled tabular adjustment
 
@@ -324,7 +324,7 @@ The protection interval is the narrowest interval estimate of the sensitive cell
 
 ## Interactive databases
 
-![alt text](interactive_db.png)
+![alt text](figs/interactive_db.png)
 
 ### Issues
 
@@ -350,7 +350,7 @@ The protection interval is the narrowest interval estimate of the sensitive cell
 SELECT count() FROM table WHERE Salary > 100.000
 Result = 5
 SELECT sum(Salary) FROM table WHERE Sector = HC
-Result = 482.000 €
+Result = 482.000
 SELECT count() FROM table WHERE Sector = IT and Region = TGN
 Result = 3
 SELECT count() FROM table WHERE Sector = Fin and Region = TGN
@@ -427,7 +427,8 @@ The Laplace mechanism is a fundamental technique for achieving differential priv
 Given a function $f: D \rightarrow R^d, where $D$ is the domain of the dataset and $d$ is the dimension of the output, the Laplace mechanism $M_{Laplace}$ adds Laplace noise to the output of $f$. That is $M_{Laplace}(D)=f(D)+Lap(\Delta/\epsilon)$ 
 Let $b$ be the scale parameter of the Laplace distribution, which is given by:
 $$Lap(b)=\frac{1}{2b} e^{-\frac{|x|}{b}}$$
-![alt text](laplace.png)
+
+![alt text](figs/laplace.png)
 
 ##### Properties of DP
 
@@ -456,7 +457,7 @@ If query perturbation is used according to a privacy model like $\epsilon$-diffe
 
 A microdata file $X$ with $s$ respondents and $t$ attributes is an $s \times t$ matrix where $X_{ij}$ is the value of attribute $j$ for respondent $i$.
 
-![alt text](microdata_approaches.png)
+![alt text](figs/microdata_approaches.png)
 
 
 ### Non-perturbative masking
@@ -473,13 +474,13 @@ There are two general types of recoding: global recoding and top and bottom codi
 
 Global recoding combines several categories of a categorical variables or constructs intervals for continuous variables.
 
-![alt text](global_recoding.png)
+![alt text](figs/global_recoding.png)
 
 ##### Top/bottom coding
 
 Top and bottom coding are similar to global recoding, but instead of recoding all values, only the top and/or bottom values of the distribution or categories are recoded. 
 
-![alt text](top_coding.png)
+![alt text](figs/top_coding.png)
 
 ##### Rounding
 
@@ -496,7 +497,7 @@ Recoding reduces the number of necessary suppressions as well as the computation
 Local suppression is not suitable for continuous variables or variables with a very high number of categories. 
 A possible solution in those cases might be to first recode to produce fewer categories.
 
-![alt text](local_suppression.png)
+![alt text](figs/local_suppression.png)
 
 ##### Recoding, suppression, and 𝑘-anonymity
 

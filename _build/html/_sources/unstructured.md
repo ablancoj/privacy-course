@@ -12,26 +12,26 @@ Besides identifying a person from a photo, their location can be found out from 
 Metadata can also reveal the time a photo was taken, the type of camera, whether there is any manipulation, etc.
 Even artifacts in an image, such as dead pixels, can be used to link two photos taken with the same device.
 
-![alt text](osint.png)
-![alt text](deadpixel.png)
-![alt text](metadata.png)
+![alt text](figs/osint.png)
+![alt text](figs/deadpixel.png)
+![alt text](figs/metadata.png)
 
 Historically, the identity of people appearing in images has been protected by blurring or pixelating regions of the images (the background can be blurred, too) manually.
 
-![alt text](faces.png)
-![alt text](mrbean.png)
-![alt text](obama.png)
+![alt text](figs/faces.png)
+![alt text](figs/mrbean.png)
+![alt text](figs/obama.png)
 
 Automatic object detection and image segmentation can be used to ease this process. 
 The combination of language models capable of describing images with image segmentation models makes this process even easier.
 
-![alt text](object_detection.png)
+![alt text](figs/object_detection.png)
 
 Some studies might require clean images.
 Generative models, such as GANs or diffusion models, can generate whole or partial images (inpainting) of objects that share the properties of the original but that do not exist.
 
-![alt text](gan.png)
-![alt text](diffusion.png)
+![alt text](figs/gan.png)
+![alt text](figs/diffusion.png)
 
 In the case of medical images, while it is possible to generate synthetic data, it is not always desirable.
 Additionally, medical images, such as X-Rays, are not really disclosive, except for any metadata shipped along the image data.
@@ -63,13 +63,13 @@ Patient’s Mother’s Birth Name
 
 Additionally, images might contain burned-in annotations, which must be removed.
 
-![alt text](dicom.png)
+![alt text](figs/dicom.png)
 
 DICOM libraries and editor software include tools to anonymize DICOM images.
 DICOM Library, https://www.dicomlibrary.com
 Sante DICOM Editor, https://www.santesoft.com/win/sante-dicom-editor/howto/anonymize.html
 
-![alt text](dicom_metadata.png)
+![alt text](figs/dicom_metadata.png)
 
 
 ## Privacy of text data
@@ -79,7 +79,7 @@ Whatever the name, it consists of two steps:
 detecting (potentially) disclosive pieces of text, and
 masking those pieces appropriately.
 
-![alt text](manual_redaction.png)
+![alt text](figs/manual_redaction.png)
 
 For many years textual data protection has been a highly manual process, and it still is.
 Usually, several human experts review the text and mask all items they deem usable to re-identify individuals and/or disclose confidential data on them.
@@ -93,13 +93,13 @@ With the development of deep learning neural networks, recurrent neural networks
 
 ### Named entity recognition
 
-![alt text](ner.png)
+![alt text](figs/ner.png)
 
 State of the art is based on transformers like BERT and ELMo.
 These are pre-rained on large amounts of data and characterize words according to their context.
 These are general-purpose NLP models, that can be tailored or fine-tuned to solve multiple tasks including NER, but also sentiment analysis, text  generation, question answering, summarization, or machine translation.
 
-![alt text](transformer.png)
+![alt text](figs/transformer.png)
 
 Hassan et al. (2023) propose a more general and flexible solution for textual data protection.
 By means of word embeddings they build vectors that numerically capture the semantic relationships of the textual terms appearing in a collection of documents.
@@ -112,9 +112,9 @@ Trajectory data is highly unique and regular.
 Additionally, all points in a trajectory are both quasi-identifiers and sensitive information.
 Knowing only a few locations may allow attackers to re-identify persons and to infer additional information.
 
-![alt text](location_reid.png)
+![alt text](figs/location_reid.png)
 
-![alt text](location_protection.png)
+![alt text](figs/location_protection.png)
 
 ## Privacy of genetic data
 
@@ -129,11 +129,11 @@ Although most SNP’s have no effect on health, they can be important tools for 
 For example, SNPs are the basis for genome wide association studies (GWAS) that allow researchers to determine regions of the genome that may be important in disease development.
 Since SNPS are hereditary and shared by individuals of common descent, they can also be used to track ancestry.
 
-![alt text](fastq.png)
+![alt text](figs/fastq.png)
 
 Privacy risks of genomic data processing:
 Re-identification. Sharing individual-level genomic data, even without explicit identifiers, creates an opportunity for re-identification. For example, a data recipient could infer phenotypic information from genomic data (or vice versa) that may be leveraged for re-identification purposes.
 Membership inference. In genome–phenome investigations, such as GWAS, researchers commonly publish only summary statistics that are useful for meta-analyses. However, these might be vulnerable to membership inference attacks, whereby it is possible to discover an identified target’s participation in the GWAS as part of a potentially sensitive group.
 Reconstruction and familial search. Due to the similarity of relatives’ genomic records, even if someone’s genomic record has never been shared or even generated, their genotypes and predispositions to certain diseases can be inferred to a certain degree from their relatives’ shared genotypes.
 
-![alt text](genomic_nature.png)
+![alt text](figs/genomic_nature.png)
