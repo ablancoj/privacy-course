@@ -13,3 +13,5 @@ chapters:
 - file: databases
 - file: unstructured
 - file: privacy-ml
+- file: test_anonymization.ipynb
+

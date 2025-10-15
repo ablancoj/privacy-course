@@ -1,5 +1,110 @@
 # Introduction and GDPR
 
+
+## Ethical principles
+
+- Security
+- Fairness and non-discrimination
+- Autonomy
+
+
+## Legal principles
+
+
+## Personal data
+
+```{Example}
+Barack Hussein Obama II (born en Hawaii on August 4th 1961) es an american lawyer and politician who served as the 44nd President of the United States, from January 20th 2009 until January 20th 2017. He is a member of the Democratic Party, and was the first african-american to serve as President. Previously, he had been a Senator for the State of Illinois.
+```
+
+| Direct identifiers | Indirect identifiers | Confidential information     |
+|--------------------|----------------------|------------------------------|
+| Name               | Age                  | Transactions (e.g. purchases)| 
+| Email address      | Gender               | Salary                       |
+| Mobile phone number| Race                 | Credit ranking               |
+| National ID number | Date of birth        | Insurance policy             |
+| Passport number    | Address              | Medical status               |
+| Account number     | Postal code          | Vaccination status           |
+| SSN number         | Job title            | Sexual orientation           |
+| Social media name  | Company name         | Religious beliefs            |
+|                    | Marital status       |                              |
+|                    | Height               |                              |
+|                    | Weight               |                              |
+|                    | IP address           |                              |
+|                    | GPS location         |                              |
+
+## Relevant cases
+
+### Prism
+
+PRISM es un programa secreto de la NSA que fue revelado por Snowden. A través de PRISM, la NSA obtenía acceso a los servidores de compañías tecnológicas estadounidenses, como Google, Facebook, Apple, Microsoft, Yahoo!, entre otras.
+PRISM estaba diseñado para monitorear las actividades de personas consideradas "amenazas" o "sospechosas", pero la magnitud de la recolección de datos era mucho mayor, ya que afectaba a millones de personas alrededor del mundo.
+El programa UPSTREAM permitía a la NSA recopilar información de los routers en buena parte del mundo.
+Xkeyscore era una interfaz que permitía el acceso a los datos privados recolectados a partir de algún identificador.
+
+![alt text](figs/snowden.png)
+![alt text](figs/prism.png)
+
+### Cambridge analytica
+
+![alt text](figs/cambridge-analytica.png)
+
+Cambridge Analytica obtuvo datos de 87 millones de usuarios de Facebook sin su consentimiento.
+Los datos fueron usados para crear perfiles psicológicos y influir en elecciones, como las de EE. UU. en 2016.
+El caso reveló cómo los datos personales pueden ser explotados para manipular la opinión pública.
+Facebook fue multado con 5 mil millones de dólares y el caso impulsó la creación de regulaciones de privacidad, como el RGPD.
+
+
+## Threats to privacy
+
+Vigilancia masiva
+Perfilado y recomendaciones
+Seguimiento en línea (tracking)
+Dispositivos inteligentes (smartphones e IoT)
+Recolección excesiva de datos
+Redes sociales y sobreexposición
+Compartición, venta y publicación de datos
+Brechas de datos
+
+
+### Mass surveillance
+
+### Profiling and recommendations
+
+La información personal recogida puede ser utilizada para crear perfiles de usuario.
+Identificadores, actividad en la red, fotografías, localización, contactos, likes, clicks, mensajes, pagos…
+Uniendo, enlazando y analizando estos datos se nos pueden sugerir productos, nuevos contactos, viajes, películas, etc.
+Las cookies y el browser fingerprinting son herramientas comunes para este fin.
+
+
+### Browsing patterns
+
+#### Cookies
+#### Browser fingerprinting
+
+### Smartphone Apps
+
+### Smart devices (IoT)
+
+### Excessive data requests
+
+### Social media overexposure
+
+![alt text](figs/elf-name.png)
+
+### Sharing, sale, and publishing
+
+Es habitual que empresas compartan datos privados de sus clientes. Estas comparticiones se suelen hacer al amparo de acuerdos de confidencialidad.
+Otros datos, especialmente de agencias estadísticas, pueden ser compartidos a terceros con fines de investigación.
+Los data brokers se dedican a recolectar y vender datos personales.
+Una protección incorrecta podría llevar a la revelación de datos personales.
+
+
+### Data breaches
+
+
+
+
 ## Basic privacy principles
 - Privacy is a fundamental human right:
 	- Article 12, Universal Declaration of Human Rights

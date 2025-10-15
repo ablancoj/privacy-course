@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -186,6 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="databases.html">Privacy in databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unstructured.html">Privacy in unstructured data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="privacy-ml.html">Privacy in machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test_anonymization.html">Anonymization examples</a></li>
 </ul>
 
     </div>
@@ -381,6 +382,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethical-principles">Ethical principles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#legal-principles">Legal principles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#personal-data">Personal data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relevant-cases">Relevant cases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prism">Prism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cambridge-analytica">Cambridge analytica</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threats-to-privacy">Threats to privacy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mass-surveillance">Mass surveillance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-and-recommendations">Profiling and recommendations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#browsing-patterns">Browsing patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cookies">Cookies</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#browser-fingerprinting">Browser fingerprinting</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smartphone-apps">Smartphone Apps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-devices-iot">Smart devices (IoT)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#excessive-data-requests">Excessive data requests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#social-media-overexposure">Social media overexposure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-sale-and-publishing">Sharing, sale, and publishing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-breaches">Data breaches</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-privacy-principles">Basic privacy principles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-data-protection-regulation">General Data Protection Regulation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a></li>
@@ -404,6 +429,156 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-and-gdpr">
 <h1>Introduction and GDPR<a class="headerlink" href="#introduction-and-gdpr" title="Link to this heading">#</a></h1>
+<section id="ethical-principles">
+<h2>Ethical principles<a class="headerlink" href="#ethical-principles" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Security</p></li>
+<li><p>Fairness and non-discrimination</p></li>
+<li><p>Autonomy</p></li>
+</ul>
+</section>
+<section id="legal-principles">
+<h2>Legal principles<a class="headerlink" href="#legal-principles" title="Link to this heading">#</a></h2>
+</section>
+<section id="personal-data">
+<h2>Personal data<a class="headerlink" href="#personal-data" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Direct identifiers</p></th>
+<th class="head"><p>Indirect identifiers</p></th>
+<th class="head"><p>Confidential information</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>Age</p></td>
+<td><p>Transactions (e.g. purchases)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Email address</p></td>
+<td><p>Gender</p></td>
+<td><p>Salary</p></td>
+</tr>
+<tr class="row-even"><td><p>Mobile phone number</p></td>
+<td><p>Race</p></td>
+<td><p>Credit ranking</p></td>
+</tr>
+<tr class="row-odd"><td><p>National ID number</p></td>
+<td><p>Date of birth</p></td>
+<td><p>Insurance policy</p></td>
+</tr>
+<tr class="row-even"><td><p>Passport number</p></td>
+<td><p>Address</p></td>
+<td><p>Medical status</p></td>
+</tr>
+<tr class="row-odd"><td><p>Account number</p></td>
+<td><p>Postal code</p></td>
+<td><p>Vaccination status</p></td>
+</tr>
+<tr class="row-even"><td><p>SSN number</p></td>
+<td><p>Job title</p></td>
+<td><p>Sexual orientation</p></td>
+</tr>
+<tr class="row-odd"><td><p>Social media name</p></td>
+<td><p>Company name</p></td>
+<td><p>Religious beliefs</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>Marital status</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Height</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>Weight</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>IP address</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>GPS location</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="relevant-cases">
+<h2>Relevant cases<a class="headerlink" href="#relevant-cases" title="Link to this heading">#</a></h2>
+<section id="prism">
+<h3>Prism<a class="headerlink" href="#prism" title="Link to this heading">#</a></h3>
+<p>PRISM es un programa secreto de la NSA que fue revelado por Snowden. A través de PRISM, la NSA obtenía acceso a los servidores de compañías tecnológicas estadounidenses, como Google, Facebook, Apple, Microsoft, Yahoo!, entre otras.
+PRISM estaba diseñado para monitorear las actividades de personas consideradas “amenazas” o “sospechosas”, pero la magnitud de la recolección de datos era mucho mayor, ya que afectaba a millones de personas alrededor del mundo.
+El programa UPSTREAM permitía a la NSA recopilar información de los routers en buena parte del mundo.
+Xkeyscore era una interfaz que permitía el acceso a los datos privados recolectados a partir de algún identificador.</p>
+<p><img alt="alt text" src="_images/snowden.png" />
+<img alt="alt text" src="_images/prism.png" /></p>
+</section>
+<section id="cambridge-analytica">
+<h3>Cambridge analytica<a class="headerlink" href="#cambridge-analytica" title="Link to this heading">#</a></h3>
+<p><img alt="alt text" src="_images/cambridge-analytica.png" /></p>
+<p>Cambridge Analytica obtuvo datos de 87 millones de usuarios de Facebook sin su consentimiento.
+Los datos fueron usados para crear perfiles psicológicos y influir en elecciones, como las de EE. UU. en 2016.
+El caso reveló cómo los datos personales pueden ser explotados para manipular la opinión pública.
+Facebook fue multado con 5 mil millones de dólares y el caso impulsó la creación de regulaciones de privacidad, como el RGPD.</p>
+</section>
+</section>
+<section id="threats-to-privacy">
+<h2>Threats to privacy<a class="headerlink" href="#threats-to-privacy" title="Link to this heading">#</a></h2>
+<p>Vigilancia masiva
+Perfilado y recomendaciones
+Seguimiento en línea (tracking)
+Dispositivos inteligentes (smartphones e IoT)
+Recolección excesiva de datos
+Redes sociales y sobreexposición
+Compartición, venta y publicación de datos
+Brechas de datos</p>
+<section id="mass-surveillance">
+<h3>Mass surveillance<a class="headerlink" href="#mass-surveillance" title="Link to this heading">#</a></h3>
+</section>
+<section id="profiling-and-recommendations">
+<h3>Profiling and recommendations<a class="headerlink" href="#profiling-and-recommendations" title="Link to this heading">#</a></h3>
+<p>La información personal recogida puede ser utilizada para crear perfiles de usuario.
+Identificadores, actividad en la red, fotografías, localización, contactos, likes, clicks, mensajes, pagos…
+Uniendo, enlazando y analizando estos datos se nos pueden sugerir productos, nuevos contactos, viajes, películas, etc.
+Las cookies y el browser fingerprinting son herramientas comunes para este fin.</p>
+</section>
+<section id="browsing-patterns">
+<h3>Browsing patterns<a class="headerlink" href="#browsing-patterns" title="Link to this heading">#</a></h3>
+<section id="cookies">
+<h4>Cookies<a class="headerlink" href="#cookies" title="Link to this heading">#</a></h4>
+</section>
+<section id="browser-fingerprinting">
+<h4>Browser fingerprinting<a class="headerlink" href="#browser-fingerprinting" title="Link to this heading">#</a></h4>
+</section>
+</section>
+<section id="smartphone-apps">
+<h3>Smartphone Apps<a class="headerlink" href="#smartphone-apps" title="Link to this heading">#</a></h3>
+</section>
+<section id="smart-devices-iot">
+<h3>Smart devices (IoT)<a class="headerlink" href="#smart-devices-iot" title="Link to this heading">#</a></h3>
+</section>
+<section id="excessive-data-requests">
+<h3>Excessive data requests<a class="headerlink" href="#excessive-data-requests" title="Link to this heading">#</a></h3>
+</section>
+<section id="social-media-overexposure">
+<h3>Social media overexposure<a class="headerlink" href="#social-media-overexposure" title="Link to this heading">#</a></h3>
+<p><img alt="alt text" src="_images/elf-name.png" /></p>
+</section>
+<section id="sharing-sale-and-publishing">
+<h3>Sharing, sale, and publishing<a class="headerlink" href="#sharing-sale-and-publishing" title="Link to this heading">#</a></h3>
+<p>Es habitual que empresas compartan datos privados de sus clientes. Estas comparticiones se suelen hacer al amparo de acuerdos de confidencialidad.
+Otros datos, especialmente de agencias estadísticas, pueden ser compartidos a terceros con fines de investigación.
+Los data brokers se dedican a recolectar y vender datos personales.
+Una protección incorrecta podría llevar a la revelación de datos personales.</p>
+</section>
+<section id="data-breaches">
+<h3>Data breaches<a class="headerlink" href="#data-breaches" title="Link to this heading">#</a></h3>
+</section>
+</section>
 <section id="basic-privacy-principles">
 <h2>Basic privacy principles<a class="headerlink" href="#basic-privacy-principles" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -631,6 +806,30 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethical-principles">Ethical principles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#legal-principles">Legal principles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#personal-data">Personal data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relevant-cases">Relevant cases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prism">Prism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cambridge-analytica">Cambridge analytica</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threats-to-privacy">Threats to privacy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mass-surveillance">Mass surveillance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-and-recommendations">Profiling and recommendations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#browsing-patterns">Browsing patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cookies">Cookies</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#browser-fingerprinting">Browser fingerprinting</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smartphone-apps">Smartphone Apps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-devices-iot">Smart devices (IoT)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#excessive-data-requests">Excessive data requests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#social-media-overexposure">Social media overexposure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-sale-and-publishing">Sharing, sale, and publishing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-breaches">Data breaches</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-privacy-principles">Basic privacy principles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-data-protection-regulation">General Data Protection Regulation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a></li>
