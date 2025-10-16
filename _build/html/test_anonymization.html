@@ -1,0 +1,1719 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Anonymization examples &#8212; Privacy Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"069f82931b504867802c6dd38ce80e90": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "27b8e61ca1934c768482693d5e34ddf4": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "8bb66daa819d4f498078d0c93daf398c": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_069f82931b504867802c6dd38ce80e90", "max": 10.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_27b8e61ca1934c768482693d5e34ddf4", "tabbable": null, "tooltip": null, "value": 10.0}}, "282dcf9e62e04e2a988c31e3aa65e18e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f5c534313ac14823a4ae527ed176bea2": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "cc7a8a08fbf94727b88dc2bf65e99727": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_282dcf9e62e04e2a988c31e3aa65e18e", "placeholder": "\u200b", "style": "IPY_MODEL_f5c534313ac14823a4ae527ed176bea2", "tabbable": null, "tooltip": null, "value": "100%"}}, "6697f928670f4270a1f032bdd4849450": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "473e920aaf844b678914751af7b23bec": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "4e1da0ad102d4baa8a106b95e265d9b3": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_6697f928670f4270a1f032bdd4849450", "placeholder": "\u200b", "style": "IPY_MODEL_473e920aaf844b678914751af7b23bec", "tabbable": null, "tooltip": null, "value": "\u200710/10\u2007[00:00&lt;00:00,\u2007996.53it/s]"}}, "e4facf2dc2d14a4fa64207705fda41f8": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c55ce1da937a45a8967bb4b8f8913177": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_cc7a8a08fbf94727b88dc2bf65e99727", "IPY_MODEL_8bb66daa819d4f498078d0c93daf398c", "IPY_MODEL_4e1da0ad102d4baa8a106b95e265d9b3"], "layout": "IPY_MODEL_e4facf2dc2d14a4fa64207705fda41f8", "tabbable": null, "tooltip": null}}, "c9022dd96b0e416fbcfdb710a2d8e6c7": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "387c739ae3984346ae264d8f9ff21b8e": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "7216c1445cbe46fb9e70bb21fc7f18f1": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_c9022dd96b0e416fbcfdb710a2d8e6c7", "max": 10.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_387c739ae3984346ae264d8f9ff21b8e", "tabbable": null, "tooltip": null, "value": 10.0}}, "7184608a4aa6479caf17771d28f178d0": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f99207d3df934640aae37ed6b3aa2fc3": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "053f2a5fcd764e0d840eb55451b30beb": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_7184608a4aa6479caf17771d28f178d0", "placeholder": "\u200b", "style": "IPY_MODEL_f99207d3df934640aae37ed6b3aa2fc3", "tabbable": null, "tooltip": null, "value": "100%"}}, "835d6b221ecc433eb22634650b058c28": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "42cedb51726d4672b7284f86cc936268": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "73ca53a585f445168d755e773b1b5322": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_835d6b221ecc433eb22634650b058c28", "placeholder": "\u200b", "style": "IPY_MODEL_42cedb51726d4672b7284f86cc936268", "tabbable": null, "tooltip": null, "value": "\u200710/10\u2007[00:00&lt;00:00,\u20071661.83it/s]"}}, "4e5d5c49ef1148fe8ca1100b45a6f936": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "0542db4957a34b74a46e689304e454a9": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_053f2a5fcd764e0d840eb55451b30beb", "IPY_MODEL_7216c1445cbe46fb9e70bb21fc7f18f1", "IPY_MODEL_73ca53a585f445168d755e773b1b5322"], "layout": "IPY_MODEL_4e5d5c49ef1148fe8ca1100b45a6f936", "tabbable": null, "tooltip": null}}, "12546ca011f446219804ee1149264b3a": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "376280a5d17748328a7cbd50e910115f": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "d7db7090611449bbaf27d188526f41b5": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_12546ca011f446219804ee1149264b3a", "max": 10.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_376280a5d17748328a7cbd50e910115f", "tabbable": null, "tooltip": null, "value": 10.0}}, "0985fe65fa274d93a76dc0e58be085c7": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7a944027ee7f42beae2b29cb89c67be9": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "762647570eb049bd8853bfe343a62995": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_0985fe65fa274d93a76dc0e58be085c7", "placeholder": "\u200b", "style": "IPY_MODEL_7a944027ee7f42beae2b29cb89c67be9", "tabbable": null, "tooltip": null, "value": "100%"}}, "b5a96831191d4374b5e44b68702ec065": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b1a5e54fc7734e8fb5877d79984d193a": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "1e655c7dda7d4356a28b32c5b2b2b6db": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_b5a96831191d4374b5e44b68702ec065", "placeholder": "\u200b", "style": "IPY_MODEL_b1a5e54fc7734e8fb5877d79984d193a", "tabbable": null, "tooltip": null, "value": "\u200710/10\u2007[00:00&lt;00:00,\u2007450.70it/s]"}}, "3764f9156a514aa6a93c13abe2981c96": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d4ed671ae68f414285c5067a53a137b3": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_762647570eb049bd8853bfe343a62995", "IPY_MODEL_d7db7090611449bbaf27d188526f41b5", "IPY_MODEL_1e655c7dda7d4356a28b32c5b2b2b6db"], "layout": "IPY_MODEL_3764f9156a514aa6a93c13abe2981c96", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'test_anonymization';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Privacy in machine learning" href="privacy-ml.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo_v01-original.png" class="logo__image only-light" alt="Privacy Book - Home"/>
+    <script>document.write(`<img src="_static/logo_v01-original.png" class="logo__image only-dark" alt="Privacy Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro-gdpr.html">Introduction and GDPR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privacy-by-design.html">Privacy by design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pets.html">Privacy enhancing techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Privacy in databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unstructured.html">Privacy in unstructured data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privacy-ml.html">Privacy in machine learning</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Anonymization examples</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ablancoj/privacy-course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ablancoj/privacy-course/issues/new?title=Issue%20on%20page%20%2Ftest_anonymization.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/test_anonymization.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Anonymization examples</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#josep-domingo-ferrer-and-vicenc-torra-ordinal-continuous-and-heterogeneous-k-anonymity-through-microaggregation-data-mining-and-knowledge-discovery-vol-11-pp-195-212-sep-2005-doi-https-doi-org-10-1007-s10618-005-0007-5">[1] Josep Domingo-Ferrer and Vicenç Torra, “Ordinal, continuous and heterogeneous k-anonymity through microaggregation”, Data Mining and Knowledge Discovery, Vol. 11, pp. 195-212, Sep 2005. DOI: https://doi.org/10.1007/s10618-005-0007-5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jordi-soria-comas-josep-domingo-ferrer-david-sanchez-and-sergio-martinez-t-closeness-through-microaggregation-strict-privacy-with-enhanced-utility-preservation-ieee-transactions-on-knowledge-and-data-engineering-vol-27-no-11-pp-3098-3110-oct-2015-doi-https-doi-org-10-1109-tkde-2015-2435777">[2] Jordi Soria-Comas, Josep Domingo-Ferrer, David Sánchez and Sergio Martínez, “t-Closeness through microaggregation: strict privacy with enhanced utility preservation”, IEEE Transactions on Knowledge and Data Engineering, Vol. 27, no. 11, pp. 3098-3110, Oct 2015. DOI: https://doi.org/10.1109/TKDE.2015.2435777</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jordi-soria-comas-josep-domingo-ferrer-david-sanchez-and-sergio-martinez-enhancing-data-utility-in-differential-privacy-via-microaggregation-based-k-anonymity-the-vldb-journal-vol-23-no-5-pp-771-794-sep-2014-doi-https-doi-org-10-1007-s00778-014-0351-4">[3] Jordi Soria-Comas, Josep Domingo-Ferrer, David Sánchez and Sergio Martínez, “Enhancing data utility in differential privacy via microaggregation-based k-anonymity”, The VLDB Journal, Vol. 23, no. 5, pp. 771-794, Sep 2014. DOI: https://doi.org/10.1007/s00778-014-0351-4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#josep-domingo-ferrer-and-vicenc-torra-disclosure-risk-assessment-in-statistical-data-protection-journal-of-computational-and-applied-mathematics-vol-164-pp-285-293-mar-2004-doi-https-doi-org-10-1016-s0377-0427-03-00643-5">[4] Josep Domingo-Ferrer and Vicenç Torra, “Disclosure risk assessment in statistical data protection”, Journal of Computational and Applied Mathematics, Vol. 164, pp. 285-293, Mar 2004. DOI: https://doi.org/10.1016/S0377-0427(03)00643-5</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-example">1. Basic example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymizing-a-toy-data-set-that-includes-all-available-attribute-types-applying-k-anomymity-via-mdav">Anonymizing a Toy data set that includes all available attribute types applying k-Anomymity via MDAV</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-it-is-necessary-to-install-the-anonymization-library-in-the-active-environment">1.1 First it is necessary to install the anonymization library in the active environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-classes-and-methods">1.2 Import classes and methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#following-it-is-indicated-the-path-to-the-csv-file-containing-the-data-set-and-the-path-to-the-xml-file-describing-the-attributes-in-the-data-set-inside-the-xml-file-there-is-a-detailed-descritpion-about-how-to-fill-this-xml-file-in-order-to-properly-configure-the-different-attribute-types-in-the-data-set">1.3 Following, it is indicated the path to the csv file containing the data set and the path to the xml file describing the attributes in the data set. Inside the xml file, there is a detailed descritpion about how to fill this xml file in order to properly configure the different attribute types in the data set</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-set-is-loaded-from-a-dataframe-passed-as-parameter">1.4 The data set is loaded from a DataFrame passed as parameter</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-set-is-anonymized-in-this-case-applying-k-anonymity-via-mdav-with-a-privacy-level-of-k-3">1.5 The data set is anonymized, in this case, applying k_anonymity via MDAV with a privacy level of k=3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#information-loss-metrics-are-calculated-by-comparing-original-and-anonymized-data-set">1.6 Information loss metrics are calculated by comparing original and anonymized data set</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-is-calculated-via-record-linkage-between-anonymized-and-original-data-set">1.7 Disclosure risk is calculated via record linkage between anonymized and original data set</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-can-be-saved-to-a-csv-formated-file">1.8 The anonymized data set can be saved to a csv formated file</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-can-be-converted-to-dataframe">1.9 The anonymized data set can be converted to DataFrame</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-previously-saved-anonymized-and-original-data-sets-can-be-loaded-in-order-to-calculate-the-privacy-metrics-a-posteriori">1.10 The previously saved anonymized and original data sets can be loaded in order to calculate the privacy metrics a posteriori</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#the-original-data-set-is-loaded">The original data set is loaded</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-is-loaded-from-the-previously-saved-data">The anonymized data set is loaded (from the previously saved data)</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#information-loss-and-disclosure-risk-metrics-are-calculated">Information loss and disclosure risk metrics are calculated</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="anonymization-examples">
+<h1>Anonymization examples<a class="headerlink" href="#anonymization-examples" title="Link to this heading">#</a></h1>
+<section id="references">
+<h2>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<section id="josep-domingo-ferrer-and-vicenc-torra-ordinal-continuous-and-heterogeneous-k-anonymity-through-microaggregation-data-mining-and-knowledge-discovery-vol-11-pp-195-212-sep-2005-doi-https-doi-org-10-1007-s10618-005-0007-5">
+<h3>[1] Josep Domingo-Ferrer and Vicenç Torra, “Ordinal, continuous and heterogeneous k-anonymity through microaggregation”, Data Mining and Knowledge Discovery, Vol. 11, pp. 195-212, Sep 2005. DOI: <a class="reference external" href="https://doi.org/10.1007/s10618-005-0007-5">https://doi.org/10.1007/s10618-005-0007-5</a><a class="headerlink" href="#josep-domingo-ferrer-and-vicenc-torra-ordinal-continuous-and-heterogeneous-k-anonymity-through-microaggregation-data-mining-and-knowledge-discovery-vol-11-pp-195-212-sep-2005-doi-https-doi-org-10-1007-s10618-005-0007-5" title="Link to this heading">#</a></h3>
+</section>
+<section id="jordi-soria-comas-josep-domingo-ferrer-david-sanchez-and-sergio-martinez-t-closeness-through-microaggregation-strict-privacy-with-enhanced-utility-preservation-ieee-transactions-on-knowledge-and-data-engineering-vol-27-no-11-pp-3098-3110-oct-2015-doi-https-doi-org-10-1109-tkde-2015-2435777">
+<h3>[2] Jordi Soria-Comas, Josep Domingo-Ferrer, David Sánchez and Sergio Martínez, “t-Closeness through microaggregation: strict privacy with enhanced utility preservation”, IEEE Transactions on Knowledge and Data Engineering, Vol. 27, no. 11, pp. 3098-3110, Oct 2015. DOI: <a class="reference external" href="https://doi.org/10.1109/TKDE.2015.2435777">https://doi.org/10.1109/TKDE.2015.2435777</a><a class="headerlink" href="#jordi-soria-comas-josep-domingo-ferrer-david-sanchez-and-sergio-martinez-t-closeness-through-microaggregation-strict-privacy-with-enhanced-utility-preservation-ieee-transactions-on-knowledge-and-data-engineering-vol-27-no-11-pp-3098-3110-oct-2015-doi-https-doi-org-10-1109-tkde-2015-2435777" title="Link to this heading">#</a></h3>
+</section>
+<section id="jordi-soria-comas-josep-domingo-ferrer-david-sanchez-and-sergio-martinez-enhancing-data-utility-in-differential-privacy-via-microaggregation-based-k-anonymity-the-vldb-journal-vol-23-no-5-pp-771-794-sep-2014-doi-https-doi-org-10-1007-s00778-014-0351-4">
+<h3>[3] Jordi Soria-Comas, Josep Domingo-Ferrer, David Sánchez and Sergio Martínez, “Enhancing data utility in differential privacy via microaggregation-based k-anonymity”, The VLDB Journal, Vol. 23, no. 5, pp. 771-794, Sep 2014. DOI: <a class="reference external" href="https://doi.org/10.1007/s00778-014-0351-4">https://doi.org/10.1007/s00778-014-0351-4</a><a class="headerlink" href="#jordi-soria-comas-josep-domingo-ferrer-david-sanchez-and-sergio-martinez-enhancing-data-utility-in-differential-privacy-via-microaggregation-based-k-anonymity-the-vldb-journal-vol-23-no-5-pp-771-794-sep-2014-doi-https-doi-org-10-1007-s00778-014-0351-4" title="Link to this heading">#</a></h3>
+</section>
+<section id="josep-domingo-ferrer-and-vicenc-torra-disclosure-risk-assessment-in-statistical-data-protection-journal-of-computational-and-applied-mathematics-vol-164-pp-285-293-mar-2004-doi-https-doi-org-10-1016-s0377-0427-03-00643-5">
+<h3>[4] Josep Domingo-Ferrer and Vicenç Torra, “Disclosure risk assessment in statistical data protection”, Journal of Computational and Applied Mathematics, Vol. 164, pp. 285-293, Mar 2004. DOI: <a class="reference external" href="https://doi.org/10.1016/S0377-0427(03)00643-5">https://doi.org/10.1016/S0377-0427(03)00643-5</a><a class="headerlink" href="#josep-domingo-ferrer-and-vicenc-torra-disclosure-risk-assessment-in-statistical-data-protection-journal-of-computational-and-applied-mathematics-vol-164-pp-285-293-mar-2004-doi-https-doi-org-10-1016-s0377-0427-03-00643-5" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#basic"><span class="xref myst">Basic Example</span></a></p></li>
+<li><p><a class="reference internal" href="#k-anonymity_mdav"><span class="xref myst">k-Anomymity via MDAV</span></a></p></li>
+<li><p><a class="reference internal" href="#k-anonymity_micro"><span class="xref myst">k-Anomymity via Microaggregation</span></a></p></li>
+<li><p><a class="reference internal" href="#k-t-closeness_micro"><span class="xref myst">k-t-closeness via Microaggregation</span></a></p></li>
+<li><p><a class="reference internal" href="#dp_mdav"><span class="xref myst">Differential privacy via MDAV</span></a></p></li>
+<li><p><a class="reference internal" href="#comparative"><span class="xref myst">Comparative study</span></a></p></li>
+</ol>
+<p><a name="basic"></a></p>
+</section>
+<section id="basic-example">
+<h2>1. Basic example<a class="headerlink" href="#basic-example" title="Link to this heading">#</a></h2>
+<section id="anonymizing-a-toy-data-set-that-includes-all-available-attribute-types-applying-k-anomymity-via-mdav">
+<h3>Anonymizing a Toy data set that includes all available attribute types applying k-Anomymity via MDAV<a class="headerlink" href="#anonymizing-a-toy-data-set-that-includes-all-available-attribute-types-applying-k-anomymity-via-mdav" title="Link to this heading">#</a></h3>
+</section>
+<section id="first-it-is-necessary-to-install-the-anonymization-library-in-the-active-environment">
+<h3>1.1 First it is necessary to install the anonymization library in the active environment<a class="headerlink" href="#first-it-is-necessary-to-install-the-anonymization-library-in-the-active-environment" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install nltk</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install ipywidgets</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install -i https://test.pypi.org/simple/ anonymization-crisesURV==0.0.13</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-classes-and-methods">
+<h3>1.2 Import classes and methods<a class="headerlink" href="#import-classes-and-methods" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">anonymization.entities.dataset_CSV</span> <span class="kn">import</span> <span class="n">Dataset_CSV</span>
+<span class="kn">from</span> <span class="nn">anonymization.entities.dataset_DataFrame</span> <span class="kn">import</span> <span class="n">Dataset_DataFrame</span>
+<span class="kn">from</span> <span class="nn">anonymization.algorithms.anonymization_scheme</span> <span class="kn">import</span> <span class="n">Anonymization_scheme</span>
+<span class="kn">from</span> <span class="nn">anonymization.algorithms.k_anonymity</span> <span class="kn">import</span> <span class="n">K_anonymity</span>
+<span class="kn">from</span> <span class="nn">anonymization.algorithms.mdav</span> <span class="kn">import</span> <span class="n">Mdav</span>
+<span class="kn">from</span> <span class="nn">anonymization.utils</span> <span class="kn">import</span> <span class="n">utils</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="following-it-is-indicated-the-path-to-the-csv-file-containing-the-data-set-and-the-path-to-the-xml-file-describing-the-attributes-in-the-data-set-inside-the-xml-file-there-is-a-detailed-descritpion-about-how-to-fill-this-xml-file-in-order-to-properly-configure-the-different-attribute-types-in-the-data-set">
+<h4>1.3 Following, it is indicated the path to the csv file containing the data set and the path to the xml file describing the attributes in the data set. Inside the xml file, there is a detailed descritpion about how to fill this xml file in order to properly configure the different attribute types in the data set<a class="headerlink" href="#following-it-is-indicated-the-path-to-the-csv-file-containing-the-data-set-and-the-path-to-the-xml-file-describing-the-attributes-in-the-data-set-inside-the-xml-file-there-is-a-detailed-descritpion-about-how-to-fill-this-xml-file-in-order-to-properly-configure-the-different-attribute-types-in-the-data-set" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_csv</span> <span class="o">=</span> <span class="s2">&quot;https://raw.github.com/CrisesUrv/SoBigDataTraining/master/anonymization/input_datasets/toy_all_types.csv&quot;</span>
+<span class="n">path_settings</span> <span class="o">=</span> <span class="s2">&quot;https://raw.github.com/CrisesUrv/SoBigDataTraining/master/anonymization/input_datasets/metadata_toy_all_types.xml&quot;</span>
+<span class="c1"># path_csv = &quot;anonymization/input_datasets/toy_all_types.csv&quot;</span>
+<span class="c1"># path_settings = &quot;anonymization/input_datasets/metadata_toy_all_types.xml&quot;</span>
+<span class="n">data_frame</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">read_dataframe_from_csv</span><span class="p">(</span><span class="n">path_csv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-data-set-is-loaded-from-a-dataframe-passed-as-parameter">
+<h4>1.4 The data set is loaded from a DataFrame passed as parameter<a class="headerlink" href="#the-data-set-is-loaded-from-a-dataframe-passed-as-parameter" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">Dataset_DataFrame</span><span class="p">(</span><span class="n">data_frame</span><span class="p">,</span> <span class="n">path_settings</span><span class="p">)</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">description</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading dataset
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset loaded: https://raw.github.com/CrisesUrv/SoBigDataTraining/master/anonymization/input_datasets/toy_all_types.csv
+Records loaded: 10
+Dataset: https://raw.github.com/CrisesUrv/SoBigDataTraining/master/anonymization/input_datasets/toy_all_types.csv
+Dataset head:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hours-per-week</th>
+      <th>age</th>
+      <th>income</th>
+      <th>date</th>
+      <th>occupation</th>
+      <th>native-country</th>
+      <th>location</th>
+      <th>datetime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>40</td>
+      <td>39.5</td>
+      <td>23546</td>
+      <td>1/11/2016</td>
+      <td>clerk</td>
+      <td>United_States</td>
+      <td>43.8430139:10.507994</td>
+      <td>2011-02-03 08:34:04</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>13</td>
+      <td>50.3</td>
+      <td>10230</td>
+      <td>6/12/2015</td>
+      <td>executive</td>
+      <td>United_States</td>
+      <td>43.54427:10.32615</td>
+      <td>2011-02-03 09:34:04</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>40</td>
+      <td>38.0</td>
+      <td>0</td>
+      <td>19/7/2015</td>
+      <td>cleaner</td>
+      <td>United_States</td>
+      <td>43.70853:10.4036</td>
+      <td>2011-02-03 10:34:04</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>40</td>
+      <td>53.1</td>
+      <td>152000</td>
+      <td>25/7/2015</td>
+      <td>cleaner</td>
+      <td>United_States</td>
+      <td>43.77925:11.24626</td>
+      <td>2011-02-04 10:34:04</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>40</td>
+      <td>28.8</td>
+      <td>54120</td>
+      <td>10/8/2016</td>
+      <td>specialist</td>
+      <td>Cuba</td>
+      <td>43.8430139:10.507994</td>
+      <td>2011-02-04 08:34:04</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset description:
+Data set: https://raw.github.com/CrisesUrv/SoBigDataTraining/master/anonymization/input_datasets/toy_all_types.csv
+Records: 10
+Attributes:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Attribute_type</th>
+      <th>Sensitivity_type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>hours-per-week</td>
+      <td>numerical_discrete</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>age</td>
+      <td>numerical_continuous</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>income</td>
+      <td>numerical_discrete</td>
+      <td>confidential</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>date</td>
+      <td>date</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>occupation</td>
+      <td>plain_categorical</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>native-country</td>
+      <td>plain_categorical</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>location</td>
+      <td>coordinate</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>datetime</td>
+      <td>datetime</td>
+      <td>quasi_identifier</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-data-set-is-anonymized-in-this-case-applying-k-anonymity-via-mdav-with-a-privacy-level-of-k-3">
+<h4>1.5 The data set is anonymized, in this case, applying k_anonymity via MDAV with a privacy level of k=3<a class="headerlink" href="#the-data-set-is-anonymized-in-this-case-applying-k-anonymity-via-mdav-with-a-privacy-level-of-k-3" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">anonymization_scheme</span> <span class="o">=</span> <span class="n">K_anonymity</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">algorithm</span> <span class="o">=</span> <span class="n">Mdav</span><span class="p">()</span>
+<span class="n">anonymization_scheme</span><span class="o">.</span><span class="n">calculate_anonymization</span><span class="p">(</span><span class="n">algorithm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anonymizing k-Anonymity, k = 3 via MDAV
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "c55ce1da937a45a8967bb4b8f8913177"}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Anonymization runtime: 0:00:00
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="information-loss-metrics-are-calculated-by-comparing-original-and-anonymized-data-set">
+<h4>1.6 Information loss metrics are calculated by comparing original and anonymized data set<a class="headerlink" href="#information-loss-metrics-are-calculated-by-comparing-original-and-anonymized-data-set" title="Link to this heading">#</a></h4>
+<p>Metrics calculated: Sum of Square Error (SSE) and, for each attribute, mean and variance</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">information_loss</span> <span class="o">=</span> <span class="n">Anonymization_scheme</span><span class="o">.</span><span class="n">calculate_information_loss</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">anonymization_scheme</span><span class="o">.</span><span class="n">anonymized_dataset</span><span class="p">)</span>
+<span class="n">information_loss</span><span class="o">.</span><span class="n">description</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating information loss metrics
+
+Information loss metrics:
+SSE: 0.892
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Original mean</th>
+      <th>Anonymized mean</th>
+      <th>Original variance</th>
+      <th>Anonymized variance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>hours-per-week</td>
+      <td>36.4</td>
+      <td>36.3</td>
+      <td>1.302000e+02</td>
+      <td>5.550000e+01</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>age</td>
+      <td>42.33</td>
+      <td>42.34</td>
+      <td>6.654810e+01</td>
+      <td>2.932440e+01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>income</td>
+      <td>35771.4</td>
+      <td>35771.4</td>
+      <td>1.687522e+09</td>
+      <td>1.687522e+09</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>date</td>
+      <td>18/2/2016</td>
+      <td>18/2/2016</td>
+      <td>3.245814e+14</td>
+      <td>7.524886e+13</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>occupation</td>
+      <td>executive</td>
+      <td>specialist</td>
+      <td>6.000000e-01</td>
+      <td>6.000000e-01</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>native-country</td>
+      <td>United_States</td>
+      <td>United_States</td>
+      <td>2.000000e-01</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>location</td>
+      <td>43.70666917:10.495949199999998</td>
+      <td>43.70666917:10.495949200000002</td>
+      <td>8.156504e-02</td>
+      <td>1.272151e-02</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>datetime</td>
+      <td>2011-02-04 09:46:04</td>
+      <td>2011-02-04 09:46:04</td>
+      <td>4.491418e+09</td>
+      <td>1.714414e+09</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="disclosure-risk-is-calculated-via-record-linkage-between-anonymized-and-original-data-set">
+<h4>1.7 Disclosure risk is calculated via record linkage between anonymized and original data set<a class="headerlink" href="#disclosure-risk-is-calculated-via-record-linkage-between-anonymized-and-original-data-set" title="Link to this heading">#</a></h4>
+<p>The disclosure risk estimates the percentage of anonymized records that correct match with the original ones</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disclosure_risk</span> <span class="o">=</span> <span class="n">Anonymization_scheme</span><span class="o">.</span><span class="n">calculate_record_linkage</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">anonymization_scheme</span><span class="o">.</span><span class="n">anonymized_dataset</span><span class="p">)</span>
+<span class="n">disclosure_risk</span><span class="o">.</span><span class="n">description</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating record linkage (disclosure risk)
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "0542db4957a34b74a46e689304e454a9"}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Disclosure risk: 3.000 (30.00%)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-anonymized-data-set-can-be-saved-to-a-csv-formated-file">
+<h4>1.8 The anonymized data set can be saved to a csv formated file<a class="headerlink" href="#the-anonymized-data-set-can-be-saved-to-a-csv-formated-file" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anonymization_scheme</span><span class="o">.</span><span class="n">save_anonymized_dataset</span><span class="p">(</span><span class="s2">&quot;toy_all_types_anom.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Dataset saved: toy_all_types_anom.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-anonymized-data-set-can-be-converted-to-dataframe">
+<h4>1.9 The anonymized data set can be converted to DataFrame<a class="headerlink" href="#the-anonymized-data-set-can-be-converted-to-dataframe" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_anonymized</span> <span class="o">=</span> <span class="n">anonymization_scheme</span><span class="o">.</span><span class="n">anonymized_dataset_to_dataframe</span><span class="p">()</span>
+<span class="n">df_anonymized</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hours-per-week</th>
+      <th>age</th>
+      <th>income</th>
+      <th>date</th>
+      <th>occupation</th>
+      <th>native-country</th>
+      <th>location</th>
+      <th>datetime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>40</td>
+      <td>38.4</td>
+      <td>23546</td>
+      <td>28/4/2016</td>
+      <td>clerk</td>
+      <td>United_States</td>
+      <td>43.75335796666667:10.438398000000001</td>
+      <td>2011-02-03 17:34:04</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25</td>
+      <td>50.6</td>
+      <td>10230</td>
+      <td>18/9/2015</td>
+      <td>executive</td>
+      <td>United_States</td>
+      <td>43.643851299999994:10.386764666666666</td>
+      <td>2011-02-04 10:34:04</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>40</td>
+      <td>38.4</td>
+      <td>0</td>
+      <td>28/4/2016</td>
+      <td>clerk</td>
+      <td>United_States</td>
+      <td>43.75335796666667:10.438398000000001</td>
+      <td>2011-02-03 17:34:04</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>42</td>
+      <td>39.1</td>
+      <td>152000</td>
+      <td>21/4/2016</td>
+      <td>specialist</td>
+      <td>United_States</td>
+      <td>43.718765975:10.621001</td>
+      <td>2011-02-04 21:19:04</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>42</td>
+      <td>39.1</td>
+      <td>54120</td>
+      <td>21/4/2016</td>
+      <td>specialist</td>
+      <td>United_States</td>
+      <td>43.718765975:10.621001</td>
+      <td>2011-02-04 21:19:04</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="the-previously-saved-anonymized-and-original-data-sets-can-be-loaded-in-order-to-calculate-the-privacy-metrics-a-posteriori">
+<h4>1.10 The previously saved anonymized and original data sets can be loaded in order to calculate the privacy metrics a posteriori<a class="headerlink" href="#the-previously-saved-anonymized-and-original-data-sets-can-be-loaded-in-order-to-calculate-the-privacy-metrics-a-posteriori" title="Link to this heading">#</a></h4>
+<section id="the-original-data-set-is-loaded">
+<h5>The original data set is loaded<a class="headerlink" href="#the-original-data-set-is-loaded" title="Link to this heading">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_csv</span> <span class="o">=</span> <span class="s2">&quot;https://raw.github.com/CrisesUrv/SoBigDataTraining/master/anonymization/input_datasets/toy_all_types.csv&quot;</span>
+<span class="n">path_settings</span> <span class="o">=</span> <span class="s2">&quot;https://raw.github.com/CrisesUrv/SoBigDataTraining/master/anonymization/input_datasets/metadata_toy_all_types.xml&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">read_dataframe_from_csv</span><span class="p">(</span><span class="n">path_csv</span><span class="p">)</span>
+<span class="n">dataset_original</span> <span class="o">=</span> <span class="n">Dataset_DataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">path_settings</span><span class="p">)</span>
+<span class="n">dataset_original</span><span class="o">.</span><span class="n">description</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading dataset
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset loaded: https://raw.github.com/CrisesUrv/SoBigDataTraining/master/anonymization/input_datasets/toy_all_types.csv
+Records loaded: 10
+Dataset: https://raw.github.com/CrisesUrv/SoBigDataTraining/master/anonymization/input_datasets/toy_all_types.csv
+Dataset head:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hours-per-week</th>
+      <th>age</th>
+      <th>income</th>
+      <th>date</th>
+      <th>occupation</th>
+      <th>native-country</th>
+      <th>location</th>
+      <th>datetime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>40</td>
+      <td>39.5</td>
+      <td>23546</td>
+      <td>1/11/2016</td>
+      <td>clerk</td>
+      <td>United_States</td>
+      <td>43.8430139:10.507994</td>
+      <td>2011-02-03 08:34:04</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>13</td>
+      <td>50.3</td>
+      <td>10230</td>
+      <td>6/12/2015</td>
+      <td>executive</td>
+      <td>United_States</td>
+      <td>43.54427:10.32615</td>
+      <td>2011-02-03 09:34:04</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>40</td>
+      <td>38.0</td>
+      <td>0</td>
+      <td>19/7/2015</td>
+      <td>cleaner</td>
+      <td>United_States</td>
+      <td>43.70853:10.4036</td>
+      <td>2011-02-03 10:34:04</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>40</td>
+      <td>53.1</td>
+      <td>152000</td>
+      <td>25/7/2015</td>
+      <td>cleaner</td>
+      <td>United_States</td>
+      <td>43.77925:11.24626</td>
+      <td>2011-02-04 10:34:04</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>40</td>
+      <td>28.8</td>
+      <td>54120</td>
+      <td>10/8/2016</td>
+      <td>specialist</td>
+      <td>Cuba</td>
+      <td>43.8430139:10.507994</td>
+      <td>2011-02-04 08:34:04</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset description:
+Data set: https://raw.github.com/CrisesUrv/SoBigDataTraining/master/anonymization/input_datasets/toy_all_types.csv
+Records: 10
+Attributes:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Attribute_type</th>
+      <th>Sensitivity_type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>hours-per-week</td>
+      <td>numerical_discrete</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>age</td>
+      <td>numerical_continuous</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>income</td>
+      <td>numerical_discrete</td>
+      <td>confidential</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>date</td>
+      <td>date</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>occupation</td>
+      <td>plain_categorical</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>native-country</td>
+      <td>plain_categorical</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>location</td>
+      <td>coordinate</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>datetime</td>
+      <td>datetime</td>
+      <td>quasi_identifier</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-anonymized-data-set-is-loaded-from-the-previously-saved-data">
+<h5>The anonymized data set is loaded (from the previously saved data)<a class="headerlink" href="#the-anonymized-data-set-is-loaded-from-the-previously-saved-data" title="Link to this heading">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_csv</span> <span class="o">=</span> <span class="s2">&quot;toy_all_types_anom.csv&quot;</span>
+<span class="n">path_settings</span> <span class="o">=</span> <span class="s2">&quot;https://raw.github.com/CrisesUrv/SoBigDataTraining/master/anonymization/input_datasets/metadata_toy_all_types.xml&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">read_dataframe_from_csv</span><span class="p">(</span><span class="n">path_csv</span><span class="p">)</span>
+<span class="n">dataset_anomymized</span> <span class="o">=</span> <span class="n">Dataset_DataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">path_settings</span><span class="p">)</span>
+<span class="n">dataset_anomymized</span><span class="o">.</span><span class="n">description</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading dataset
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset loaded: toy_all_types_anom.csv
+Records loaded: 10
+Dataset: toy_all_types_anom.csv
+Dataset head:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hours-per-week</th>
+      <th>age</th>
+      <th>income</th>
+      <th>date</th>
+      <th>occupation</th>
+      <th>native-country</th>
+      <th>location</th>
+      <th>datetime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>40</td>
+      <td>38.4</td>
+      <td>23546</td>
+      <td>28/4/2016</td>
+      <td>clerk</td>
+      <td>United_States</td>
+      <td>43.75335796666667:10.438398000000001</td>
+      <td>2011-02-03 17:34:04</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25</td>
+      <td>50.6</td>
+      <td>10230</td>
+      <td>18/9/2015</td>
+      <td>executive</td>
+      <td>United_States</td>
+      <td>43.643851299999994:10.386764666666666</td>
+      <td>2011-02-04 10:34:04</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>40</td>
+      <td>38.4</td>
+      <td>0</td>
+      <td>28/4/2016</td>
+      <td>clerk</td>
+      <td>United_States</td>
+      <td>43.75335796666667:10.438398000000001</td>
+      <td>2011-02-03 17:34:04</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>42</td>
+      <td>39.1</td>
+      <td>152000</td>
+      <td>21/4/2016</td>
+      <td>specialist</td>
+      <td>United_States</td>
+      <td>43.718765975:10.621001</td>
+      <td>2011-02-04 21:19:04</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>42</td>
+      <td>39.1</td>
+      <td>54120</td>
+      <td>21/4/2016</td>
+      <td>specialist</td>
+      <td>United_States</td>
+      <td>43.718765975:10.621001</td>
+      <td>2011-02-04 21:19:04</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset description:
+Data set: toy_all_types_anom.csv
+Records: 10
+Attributes:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Attribute_type</th>
+      <th>Sensitivity_type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>hours-per-week</td>
+      <td>numerical_discrete</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>age</td>
+      <td>numerical_continuous</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>income</td>
+      <td>numerical_discrete</td>
+      <td>confidential</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>date</td>
+      <td>date</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>occupation</td>
+      <td>plain_categorical</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>native-country</td>
+      <td>plain_categorical</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>location</td>
+      <td>coordinate</td>
+      <td>quasi_identifier</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>datetime</td>
+      <td>datetime</td>
+      <td>quasi_identifier</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="information-loss-and-disclosure-risk-metrics-are-calculated">
+<h5>Information loss and disclosure risk metrics are calculated<a class="headerlink" href="#information-loss-and-disclosure-risk-metrics-are-calculated" title="Link to this heading">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">information_loss</span> <span class="o">=</span> <span class="n">Anonymization_scheme</span><span class="o">.</span><span class="n">calculate_information_loss</span><span class="p">(</span><span class="n">dataset_original</span><span class="p">,</span> <span class="n">dataset_anomymized</span><span class="p">)</span>
+<span class="n">information_loss</span><span class="o">.</span><span class="n">description</span><span class="p">()</span>
+<span class="n">disclosure_risk</span> <span class="o">=</span> <span class="n">Anonymization_scheme</span><span class="o">.</span><span class="n">calculate_record_linkage</span><span class="p">(</span><span class="n">dataset_original</span><span class="p">,</span> <span class="n">dataset_anomymized</span><span class="p">)</span>
+<span class="n">disclosure_risk</span><span class="o">.</span><span class="n">description</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating information loss metrics
+
+Information loss metrics:
+SSE: 0.892
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Original mean</th>
+      <th>Anonymized mean</th>
+      <th>Original variance</th>
+      <th>Anonymized variance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>hours-per-week</td>
+      <td>36.4</td>
+      <td>36.3</td>
+      <td>1.302000e+02</td>
+      <td>5.550000e+01</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>age</td>
+      <td>42.33</td>
+      <td>42.34</td>
+      <td>6.654810e+01</td>
+      <td>2.932440e+01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>income</td>
+      <td>35771.4</td>
+      <td>35771.4</td>
+      <td>1.687522e+09</td>
+      <td>1.687522e+09</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>date</td>
+      <td>18/2/2016</td>
+      <td>18/2/2016</td>
+      <td>3.245814e+14</td>
+      <td>7.524886e+13</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>occupation</td>
+      <td>executive</td>
+      <td>specialist</td>
+      <td>6.000000e-01</td>
+      <td>6.000000e-01</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>native-country</td>
+      <td>United_States</td>
+      <td>United_States</td>
+      <td>2.000000e-01</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>location</td>
+      <td>43.70666917:10.495949199999998</td>
+      <td>43.70666917:10.495949200000002</td>
+      <td>8.156504e-02</td>
+      <td>1.272151e-02</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>datetime</td>
+      <td>2011-02-04 09:46:04</td>
+      <td>2011-02-04 09:46:04</td>
+      <td>4.491418e+09</td>
+      <td>1.714414e+09</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating record linkage (disclosure risk)
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d4ed671ae68f414285c5067a53a137b3"}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Disclosure risk: 3.000 (30.00%)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_anonymized</span> <span class="o">=</span> <span class="n">anonymization_scheme</span><span class="o">.</span><span class="n">anonymized_dataset_to_dataframe</span><span class="p">()</span>
+<span class="n">df_anonymized</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hours-per-week</th>
+      <th>age</th>
+      <th>income</th>
+      <th>date</th>
+      <th>occupation</th>
+      <th>native-country</th>
+      <th>location</th>
+      <th>datetime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>40</td>
+      <td>38.4</td>
+      <td>23546</td>
+      <td>28/4/2016</td>
+      <td>clerk</td>
+      <td>United_States</td>
+      <td>43.75335796666667:10.438398000000001</td>
+      <td>2011-02-03 17:34:04</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25</td>
+      <td>50.6</td>
+      <td>10230</td>
+      <td>18/9/2015</td>
+      <td>executive</td>
+      <td>United_States</td>
+      <td>43.643851299999994:10.386764666666666</td>
+      <td>2011-02-04 10:34:04</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>40</td>
+      <td>38.4</td>
+      <td>0</td>
+      <td>28/4/2016</td>
+      <td>clerk</td>
+      <td>United_States</td>
+      <td>43.75335796666667:10.438398000000001</td>
+      <td>2011-02-03 17:34:04</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>42</td>
+      <td>39.1</td>
+      <td>152000</td>
+      <td>21/4/2016</td>
+      <td>specialist</td>
+      <td>United_States</td>
+      <td>43.718765975:10.621001</td>
+      <td>2011-02-04 21:19:04</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>42</td>
+      <td>39.1</td>
+      <td>54120</td>
+      <td>21/4/2016</td>
+      <td>specialist</td>
+      <td>United_States</td>
+      <td>43.718765975:10.621001</td>
+      <td>2011-02-04 21:19:04</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="privacy-ml.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Privacy in machine learning</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#josep-domingo-ferrer-and-vicenc-torra-ordinal-continuous-and-heterogeneous-k-anonymity-through-microaggregation-data-mining-and-knowledge-discovery-vol-11-pp-195-212-sep-2005-doi-https-doi-org-10-1007-s10618-005-0007-5">[1] Josep Domingo-Ferrer and Vicenç Torra, “Ordinal, continuous and heterogeneous k-anonymity through microaggregation”, Data Mining and Knowledge Discovery, Vol. 11, pp. 195-212, Sep 2005. DOI: https://doi.org/10.1007/s10618-005-0007-5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jordi-soria-comas-josep-domingo-ferrer-david-sanchez-and-sergio-martinez-t-closeness-through-microaggregation-strict-privacy-with-enhanced-utility-preservation-ieee-transactions-on-knowledge-and-data-engineering-vol-27-no-11-pp-3098-3110-oct-2015-doi-https-doi-org-10-1109-tkde-2015-2435777">[2] Jordi Soria-Comas, Josep Domingo-Ferrer, David Sánchez and Sergio Martínez, “t-Closeness through microaggregation: strict privacy with enhanced utility preservation”, IEEE Transactions on Knowledge and Data Engineering, Vol. 27, no. 11, pp. 3098-3110, Oct 2015. DOI: https://doi.org/10.1109/TKDE.2015.2435777</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jordi-soria-comas-josep-domingo-ferrer-david-sanchez-and-sergio-martinez-enhancing-data-utility-in-differential-privacy-via-microaggregation-based-k-anonymity-the-vldb-journal-vol-23-no-5-pp-771-794-sep-2014-doi-https-doi-org-10-1007-s00778-014-0351-4">[3] Jordi Soria-Comas, Josep Domingo-Ferrer, David Sánchez and Sergio Martínez, “Enhancing data utility in differential privacy via microaggregation-based k-anonymity”, The VLDB Journal, Vol. 23, no. 5, pp. 771-794, Sep 2014. DOI: https://doi.org/10.1007/s00778-014-0351-4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#josep-domingo-ferrer-and-vicenc-torra-disclosure-risk-assessment-in-statistical-data-protection-journal-of-computational-and-applied-mathematics-vol-164-pp-285-293-mar-2004-doi-https-doi-org-10-1016-s0377-0427-03-00643-5">[4] Josep Domingo-Ferrer and Vicenç Torra, “Disclosure risk assessment in statistical data protection”, Journal of Computational and Applied Mathematics, Vol. 164, pp. 285-293, Mar 2004. DOI: https://doi.org/10.1016/S0377-0427(03)00643-5</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-example">1. Basic example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymizing-a-toy-data-set-that-includes-all-available-attribute-types-applying-k-anomymity-via-mdav">Anonymizing a Toy data set that includes all available attribute types applying k-Anomymity via MDAV</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-it-is-necessary-to-install-the-anonymization-library-in-the-active-environment">1.1 First it is necessary to install the anonymization library in the active environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-classes-and-methods">1.2 Import classes and methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#following-it-is-indicated-the-path-to-the-csv-file-containing-the-data-set-and-the-path-to-the-xml-file-describing-the-attributes-in-the-data-set-inside-the-xml-file-there-is-a-detailed-descritpion-about-how-to-fill-this-xml-file-in-order-to-properly-configure-the-different-attribute-types-in-the-data-set">1.3 Following, it is indicated the path to the csv file containing the data set and the path to the xml file describing the attributes in the data set. Inside the xml file, there is a detailed descritpion about how to fill this xml file in order to properly configure the different attribute types in the data set</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-set-is-loaded-from-a-dataframe-passed-as-parameter">1.4 The data set is loaded from a DataFrame passed as parameter</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-set-is-anonymized-in-this-case-applying-k-anonymity-via-mdav-with-a-privacy-level-of-k-3">1.5 The data set is anonymized, in this case, applying k_anonymity via MDAV with a privacy level of k=3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#information-loss-metrics-are-calculated-by-comparing-original-and-anonymized-data-set">1.6 Information loss metrics are calculated by comparing original and anonymized data set</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-is-calculated-via-record-linkage-between-anonymized-and-original-data-set">1.7 Disclosure risk is calculated via record linkage between anonymized and original data set</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-can-be-saved-to-a-csv-formated-file">1.8 The anonymized data set can be saved to a csv formated file</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-can-be-converted-to-dataframe">1.9 The anonymized data set can be converted to DataFrame</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-previously-saved-anonymized-and-original-data-sets-can-be-loaded-in-order-to-calculate-the-privacy-metrics-a-posteriori">1.10 The previously saved anonymized and original data sets can be loaded in order to calculate the privacy metrics a posteriori</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#the-original-data-set-is-loaded">The original data set is loaded</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-is-loaded-from-the-previously-saved-data">The anonymized data set is loaded (from the previously saved data)</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#information-loss-and-disclosure-risk-metrics-are-calculated">Information loss and disclosure risk metrics are calculated</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Alberto Blanco-Justicia
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
