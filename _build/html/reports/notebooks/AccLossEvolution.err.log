@@ -1,17 +1,4 @@
 Traceback (most recent call last):
-  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 782, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ablancoj\AppData\Roaming\Python\Python311\site-packages\jupyter_core\utils\__init__.py", line 198, in ensure_async
-    result = await obj
-             ^^^^^^^^^
-  File "C:\Users\ablancoj\AppData\Roaming\Python\Python311\site-packages\jupyter_client\channels.py", line 313, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
   File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
     executenb(
   File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 1319, in execute
@@ -29,20 +16,83 @@ Traceback (most recent call last):
     yield
   File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 1005, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 806, in _async_poll_for_reply
-    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
-                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 856, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-['epochs = 100', 'train_accs = []', 'train_losses = []', 'test_accs = []', 'test_losses = []']
-...
-['    test_accs.append(test_acc)', '    test_losses.append(test_loss)', '    #display_losses(model, X_2d, training_data, test_data, loss_fn, t+1)', '    display_classification_probabilities(model, data, t+1)', 'print("Done!")']
--------------------
+  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+plt.bar([0,1], F.softmax(pred, dim=0).to("cpu").detach())
+plt.show()
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mValueError[39m                                Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[15][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m [43mplt[49m[43m.[49m[43mbar[49m[43m([49m[43m[[49m[32;43m0[39;49m[43m,[49m[32;43m1[39;49m[43m][49m[43m,[49m[43m [49m[43mF[49m[43m.[49m[43msoftmax[49m[43m([49m[43mpred[49m[43m,[49m[43m [49m[43mdim[49m[43m=[49m[32;43m0[39;49m[43m)[49m[43m.[49m[43mto[49m[43m([49m[33;43m"[39;49m[33;43mcpu[39;49m[33;43m"[39;49m[43m)[49m[43m.[49m[43mdetach[49m[43m([49m[43m)[49m[43m)[49m
+[32m      2[39m plt.show()
+
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python311\Lib\site-packages\matplotlib\pyplot.py:2979[39m, in [36mbar[39m[34m(x, height, width, bottom, align, data, **kwargs)[39m
+[32m   2968[39m [38;5;129m@_copy_docstring_and_deprecators[39m(Axes.bar)
+[32m   2969[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mbar[39m(
+[32m   2970[39m     x: [38;5;28mfloat[39m | ArrayLike,
+[32m   (...)[39m[32m   2977[39m     **kwargs,
+[32m   2978[39m ) -> BarContainer:
+[32m-> [39m[32m2979[39m     [38;5;28;01mreturn[39;00m [43mgca[49m[43m([49m[43m)[49m[43m.[49m[43mbar[49m[43m([49m
+[32m   2980[39m [43m        [49m[43mx[49m[43m,[49m
+[32m   2981[39m [43m        [49m[43mheight[49m[43m,[49m
+[32m   2982[39m [43m        [49m[43mwidth[49m[43m=[49m[43mwidth[49m[43m,[49m
+[32m   2983[39m [43m        [49m[43mbottom[49m[43m=[49m[43mbottom[49m[43m,[49m
+[32m   2984[39m [43m        [49m[43malign[49m[43m=[49m[43malign[49m[43m,[49m
+[32m   2985[39m [43m        [49m[43m*[49m[43m*[49m[43m([49m[43m{[49m[33;43m"[39;49m[33;43mdata[39;49m[33;43m"[39;49m[43m:[49m[43m [49m[43mdata[49m[43m}[49m[43m [49m[38;5;28;43;01mif[39;49;00m[43m [49m[43mdata[49m[43m [49m[38;5;129;43;01mis[39;49;00m[43m [49m[38;5;129;43;01mnot[39;49;00m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m [49m[38;5;28;43;01melse[39;49;00m[43m [49m[43m{[49m[43m}[49m[43m)[49m[43m,[49m
+[32m   2986[39m [43m        [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m,[49m
+[32m   2987[39m [43m    [49m[43m)[49m
+
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python311\Lib\site-packages\matplotlib\__init__.py:1521[39m, in [36m_preprocess_data.<locals>.inner[39m[34m(ax, data, *args, **kwargs)[39m
+[32m   1518[39m [38;5;129m@functools[39m.wraps(func)
+[32m   1519[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34minner[39m(ax, *args, data=[38;5;28;01mNone[39;00m, **kwargs):
+[32m   1520[39m     [38;5;28;01mif[39;00m data [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[32m-> [39m[32m1521[39m         [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m
+[32m   1522[39m [43m            [49m[43max[49m[43m,[49m
+[32m   1523[39m [43m            [49m[43m*[49m[38;5;28;43mmap[39;49m[43m([49m[43mcbook[49m[43m.[49m[43msanitize_sequence[49m[43m,[49m[43m [49m[43margs[49m[43m)[49m[43m,[49m
+[32m   1524[39m [43m            [49m[43m*[49m[43m*[49m[43m{[49m[43mk[49m[43m:[49m[43m [49m[43mcbook[49m[43m.[49m[43msanitize_sequence[49m[43m([49m[43mv[49m[43m)[49m[43m [49m[38;5;28;43;01mfor[39;49;00m[43m [49m[43mk[49m[43m,[49m[43m [49m[43mv[49m[43m [49m[38;5;129;43;01min[39;49;00m[43m [49m[43mkwargs[49m[43m.[49m[43mitems[49m[43m([49m[43m)[49m[43m}[49m[43m)[49m
+[32m   1526[39m     bound = new_sig.bind(ax, *args, **kwargs)
+[32m   1527[39m     auto_label = (bound.arguments.get(label_namer)
+[32m   1528[39m                   [38;5;129;01mor[39;00m bound.kwargs.get(label_namer))
+
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python311\Lib\site-packages\matplotlib\axes\_axes.py:2583[39m, in [36mAxes.bar[39m[34m(self, x, height, width, bottom, align, **kwargs)[39m
+[32m   2580[39m     [38;5;28;01mif[39;00m yerr [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[32m   2581[39m         yerr = [38;5;28mself[39m._convert_dx(yerr, y0, y, [38;5;28mself[39m.convert_yunits)
+[32m-> [39m[32m2583[39m x, height, width, y, linewidth, hatch = [43mnp[49m[43m.[49m[43mbroadcast_arrays[49m[43m([49m
+[32m   2584[39m [43m    [49m[38;5;66;43;03m# Make args iterable too.[39;49;00m
+[32m   2585[39m [43m    [49m[43mnp[49m[43m.[49m[43matleast_1d[49m[43m([49m[43mx[49m[43m)[49m[43m,[49m[43m [49m[43mheight[49m[43m,[49m[43m [49m[43mwidth[49m[43m,[49m[43m [49m[43my[49m[43m,[49m[43m [49m[43mlinewidth[49m[43m,[49m[43m [49m[43mhatch[49m[43m)[49m
+[32m   2587[39m [38;5;66;03m# Now that units have been converted, set the tick locations.[39;00m
+[32m   2588[39m [38;5;28;01mif[39;00m orientation == [33m'[39m[33mvertical[39m[33m'[39m:
+
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\lib\stride_tricks.py:540[39m, in [36mbroadcast_arrays[39m[34m(subok, *args)[39m
+[32m    533[39m [38;5;66;03m# nditer is not used here to avoid the limit of 32 arrays.[39;00m
+[32m    534[39m [38;5;66;03m# Otherwise, something like the following one-liner would suffice:[39;00m
+[32m    535[39m [38;5;66;03m# return np.nditer(args, flags=['multi_index', 'zerosize_ok'],[39;00m
+[32m    536[39m [38;5;66;03m#                  order='C').itviews[39;00m
+[32m    538[39m args = [np.array(_m, copy=[38;5;28;01mFalse[39;00m, subok=subok) [38;5;28;01mfor[39;00m _m [38;5;129;01min[39;00m args]
+[32m--> [39m[32m540[39m shape = [43m_broadcast_shape[49m[43m([49m[43m*[49m[43margs[49m[43m)[49m
+[32m    542[39m [38;5;28;01mif[39;00m [38;5;28mall[39m(array.shape == shape [38;5;28;01mfor[39;00m array [38;5;129;01min[39;00m args):
+[32m    543[39m     [38;5;66;03m# Common case where nothing needs to be broadcasted.[39;00m
+[32m    544[39m     [38;5;28;01mreturn[39;00m args
+
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\lib\stride_tricks.py:422[39m, in [36m_broadcast_shape[39m[34m(*args)[39m
+[32m    417[39m [38;5;250m[39m[33;03m"""Returns the shape of the arrays that would result from broadcasting the[39;00m
+[32m    418[39m [33;03msupplied arrays against each other.[39;00m
+[32m    419[39m [33;03m"""[39;00m
+[32m    420[39m [38;5;66;03m# use the old-iterator because np.nditer does not handle size 0 arrays[39;00m
+[32m    421[39m [38;5;66;03m# consistently[39;00m
+[32m--> [39m[32m422[39m b = [43mnp[49m[43m.[49m[43mbroadcast[49m[43m([49m[43m*[49m[43margs[49m[43m[[49m[43m:[49m[32;43m32[39;49m[43m][49m[43m)[49m
+[32m    423[39m [38;5;66;03m# unfortunately, it cannot handle 32 or more arguments directly[39;00m
+[32m    424[39m [38;5;28;01mfor[39;00m pos [38;5;129;01min[39;00m [38;5;28mrange[39m([32m32[39m, [38;5;28mlen[39m(args), [32m31[39m):
+[32m    425[39m     [38;5;66;03m# ironically, np.broadcast does not properly handle np.broadcast[39;00m
+[32m    426[39m     [38;5;66;03m# objects (it treats them as scalars)[39;00m
+[32m    427[39m     [38;5;66;03m# use broadcasting to avoid allocating the full array[39;00m
+
+[31mValueError[39m: shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 0 with shape (2,) and arg 1 with shape (10,).
 

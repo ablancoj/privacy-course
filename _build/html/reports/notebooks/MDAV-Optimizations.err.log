@@ -1,17 +1,4 @@
 Traceback (most recent call last):
-  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 782, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ablancoj\AppData\Roaming\Python\Python311\site-packages\jupyter_core\utils\__init__.py", line 198, in ensure_async
-    result = await obj
-             ^^^^^^^^^
-  File "C:\Users\ablancoj\AppData\Roaming\Python\Python311\site-packages\jupyter_client\channels.py", line 313, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
   File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
     executenb(
   File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 1319, in execute
@@ -29,22 +16,99 @@ Traceback (most recent call last):
     yield
   File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 1005, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 806, in _async_poll_for_reply
-    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
-                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 856, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-# Vanilla MDAV
-k=5
-clusters, centroids = mdav(X, k)
+  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+k = 10000
+c, _ = mdav(X, len(X) // 2)
+c0, _ = mdav(c[0], len(c[0]) // 2)
+c1, _ = mdav(c[1], len(c[1]) // 2)
+c00, cen00 = mdav(c0[0], k)
+c01, cen01 = mdav(c0[1], k)
+c10, cen10 = mdav(c1[0], k)
+c11, cen11 = mdav(c1[1], k)
+
+clusters = np.vstack((c00,c01,c10,c11))
+centroids = np.vstack((cen00,cen01,cen10,cen11))
+
 print_stats(clusters, centroids)
-#plot_results(clusters)
--------------------
+plot_results(clusters)
+------------------
+
+----- stderr -----
+  0%|                                                                                       | 0/100000 [00:00<?, ?it/s]
+----- stderr -----
+100%|█████████████████████████████████████████████████████████████████████| 100000/100000 [00:00<00:00, 4787635.69it/s]
+----- stderr -----
+
+----- stderr -----
+  0%|                                                                                        | 0/50000 [00:00<?, ?it/s]
+----- stderr -----
+100%|███████████████████████████████████████████████████████████████████████| 50000/50000 [00:00<00:00, 5376761.36it/s]
+----- stderr -----
+
+----- stderr -----
+  0%|                                                                                        | 0/50000 [00:00<?, ?it/s]
+----- stderr -----
+100%|███████████████████████████████████████████████████████████████████████| 50000/50000 [00:00<00:00, 5842788.29it/s]
+----- stderr -----
+
+----- stderr -----
+  0%|                                                                                        | 0/25000 [00:00<?, ?it/s]
+----- stderr -----
+100%|███████████████████████████████████████████████████████████████████████| 25000/25000 [00:00<00:00, 6289820.65it/s]
+----- stderr -----
+
+----- stderr -----
+  0%|                                                                                        | 0/25000 [00:00<?, ?it/s]
+----- stderr -----
+100%|███████████████████████████████████████████████████████████████████████| 25000/25000 [00:00<00:00, 5590914.42it/s]
+----- stderr -----
+
+----- stderr -----
+  0%|                                                                                        | 0/25000 [00:00<?, ?it/s]
+----- stderr -----
+100%|███████████████████████████████████████████████████████████████████████| 25000/25000 [00:00<00:00, 7238047.91it/s]
+----- stderr -----
+
+----- stderr -----
+  0%|                                                                                        | 0/25000 [00:00<?, ?it/s]
+----- stderr -----
+100%|███████████████████████████████████████████████████████████████████████| 25000/25000 [00:00<00:00, 5719297.48it/s]
+----- stderr -----
+
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mValueError[39m                                Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[8][39m[32m, line 10[39m
+[32m      7[39m c10, cen10 = mdav(c1[[32m0[39m], k)
+[32m      8[39m c11, cen11 = mdav(c1[[32m1[39m], k)
+[32m---> [39m[32m10[39m clusters = [43mnp[49m[43m.[49m[43mvstack[49m[43m([49m[43m([49m[43mc00[49m[43m,[49m[43mc01[49m[43m,[49m[43mc10[49m[43m,[49m[43mc11[49m[43m)[49m[43m)[49m
+[32m     11[39m centroids = np.vstack((cen00,cen01,cen10,cen11))
+[32m     13[39m print_stats(clusters, centroids)
+
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\core\shape_base.py:286[39m, in [36mvstack[39m[34m(tup, dtype, casting)[39m
+[32m    219[39m [38;5;129m@array_function_dispatch[39m(_vhstack_dispatcher)
+[32m    220[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mvstack[39m(tup, *, dtype=[38;5;28;01mNone[39;00m, casting=[33m"[39m[33msame_kind[39m[33m"[39m):
+[32m    221[39m [38;5;250m    [39m[33;03m"""[39;00m
+[32m    222[39m [33;03m    Stack arrays in sequence vertically (row wise).[39;00m
+[32m    223[39m 
+[32m   (...)[39m[32m    284[39m 
+[32m    285[39m [33;03m    """[39;00m
+[32m--> [39m[32m286[39m     arrs = [43matleast_2d[49m[43m([49m[43m*[49m[43mtup[49m[43m)[49m
+[32m    287[39m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(arrs, [38;5;28mlist[39m):
+[32m    288[39m         arrs = [arrs]
+
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\core\shape_base.py:121[39m, in [36matleast_2d[39m[34m(*arys)[39m
+[32m    119[39m res = []
+[32m    120[39m [38;5;28;01mfor[39;00m ary [38;5;129;01min[39;00m arys:
+[32m--> [39m[32m121[39m     ary = asanyarray(ary)
+[32m    122[39m     [38;5;28;01mif[39;00m ary.ndim == [32m0[39m:
+[32m    123[39m         result = ary.reshape([32m1[39m, [32m1[39m)
+
+[31mValueError[39m: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
 

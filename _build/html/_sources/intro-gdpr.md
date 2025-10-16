@@ -3,6 +3,10 @@
 
 ## Ethical principles
 
+
+
+
+
 - Security
 - Fairness and non-discrimination
 - Autonomy
@@ -13,7 +17,7 @@
 
 ## Personal data
 
-```{Example}
+```{note}
 Barack Hussein Obama II (born en Hawaii on August 4th 1961) es an american lawyer and politician who served as the 44nd President of the United States, from January 20th 2009 until January 20th 2017. He is a member of the Democratic Party, and was the first african-american to serve as President. Previously, he had been a Senator for the State of Illinois.
 ```
 

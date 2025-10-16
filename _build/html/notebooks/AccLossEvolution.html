@@ -186,7 +186,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../databases.html">Privacy in databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unstructured.html">Privacy in unstructured data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../privacy-ml.html">Privacy in machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test_anonymization.html">Anonymization examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LipariSC_MIA.html">Salem paper attacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FederatedLearning-sklearn.html">Federated Learning and Label Flipping attacks</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="unlearning-CIFAR10.html">NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
+
+
+
 </ul>
 
     </div>
@@ -710,88 +721,355 @@ document.write(`
 -------------------------------
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">17</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch </span><span class="si">{</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="se">\n</span><span class="s2">-------------------------------&quot;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">17</span>     <span class="n">train</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">scheduler</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">train_acc</span><span class="p">,</span> <span class="n">train_loss</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">test_acc</span><span class="p">,</span> <span class="n">test_loss</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">test_dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">)</span>
-
-<span class="nn">Cell In[6], line 4,</span> in <span class="ni">train</span><span class="nt">(dataloader, model, loss_fn, optimizer, scheduler)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="k">for</span> <span class="n">batch</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dataloader</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="c1"># Compute prediction error</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\dataloader.py:708,</span> in <span class="ni">_BaseDataLoaderIter.__next__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sampler_iter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>     <span class="c1"># TODO(https://github.com/pytorch/pytorch/issues/76750)</span>
-<span class="g g-Whitespace">    </span><span class="mi">707</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_reset</span><span class="p">()</span>  <span class="c1"># type: ignore[call-arg]</span>
-<span class="ne">--&gt; </span><span class="mi">708</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_data</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">709</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_yielded</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="g g-Whitespace">    </span><span class="mi">710</span> <span class="k">if</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">711</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_kind</span> <span class="o">==</span> <span class="n">_DatasetKind</span><span class="o">.</span><span class="n">Iterable</span>
-<span class="g g-Whitespace">    </span><span class="mi">712</span>     <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_IterableDataset_len_called</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">713</span>     <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_yielded</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_IterableDataset_len_called</span>
-<span class="g g-Whitespace">    </span><span class="mi">714</span> <span class="p">):</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\dataloader.py:764,</span> in <span class="ni">_SingleProcessDataLoaderIter._next_data</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">762</span> <span class="k">def</span><span class="w"> </span><span class="nf">_next_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">763</span>     <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_index</span><span class="p">()</span>  <span class="c1"># may raise StopIteration</span>
-<span class="ne">--&gt; </span><span class="mi">764</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_fetcher</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>  <span class="c1"># may raise StopIteration</span>
-<span class="g g-Whitespace">    </span><span class="mi">765</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pin_memory</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">766</span>         <span class="n">data</span> <span class="o">=</span> <span class="n">_utils</span><span class="o">.</span><span class="n">pin_memory</span><span class="o">.</span><span class="n">pin_memory</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pin_memory_device</span><span class="p">)</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\_utils\fetch.py:55,</span> in <span class="ni">_MapDatasetFetcher.fetch</span><span class="nt">(self, possibly_batched_index)</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">possibly_batched_index</span><span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">55</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">collate_fn</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\_utils\collate.py:398,</span> in <span class="ni">default_collate</span><span class="nt">(batch)</span>
-<span class="g g-Whitespace">    </span><span class="mi">337</span> <span class="k">def</span><span class="w"> </span><span class="nf">default_collate</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">338</span><span class="w">     </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">339</span><span class="sd">     Take in a batch of data and put the elements within the batch into a tensor with an additional outer dimension - batch size.</span>
-<span class="g g-Whitespace">    </span><span class="mi">340</span><span class="sd"> </span>
-<span class="sd">   (...)    396         &gt;&gt;&gt; default_collate(batch)  # Handle `CustomType` automatically</span>
-<span class="g g-Whitespace">    </span><span class="mi">397</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">398</span>     <span class="k">return</span> <span class="n">collate</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">collate_fn_map</span><span class="o">=</span><span class="n">default_collate_fn_map</span><span class="p">)</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\_utils\collate.py:211,</span> in <span class="ni">collate</span><span class="nt">(batch, collate_fn_map)</span>
-<span class="g g-Whitespace">    </span><span class="mi">208</span> <span class="n">transposed</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">batch</span><span class="p">))</span>  <span class="c1"># It may be accessed twice, so we use a list.</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="k">return</span> <span class="p">[</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span>         <span class="n">collate</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">collate_fn_map</span><span class="o">=</span><span class="n">collate_fn_map</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">213</span>         <span class="k">for</span> <span class="n">samples</span> <span class="ow">in</span> <span class="n">transposed</span>
-<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="p">]</span>  <span class="c1"># Backwards compatibility.</span>
-<span class="g g-Whitespace">    </span><span class="mi">215</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="k">try</span><span class="p">:</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\_utils\collate.py:212,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">208</span> <span class="n">transposed</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">batch</span><span class="p">))</span>  <span class="c1"># It may be accessed twice, so we use a list.</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">211</span>     <span class="k">return</span> <span class="p">[</span>
-<span class="ne">--&gt; </span><span class="mi">212</span>         <span class="n">collate</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">collate_fn_map</span><span class="o">=</span><span class="n">collate_fn_map</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">213</span>         <span class="k">for</span> <span class="n">samples</span> <span class="ow">in</span> <span class="n">transposed</span>
-<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="p">]</span>  <span class="c1"># Backwards compatibility.</span>
-<span class="g g-Whitespace">    </span><span class="mi">215</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="k">try</span><span class="p">:</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\_utils\collate.py:155,</span> in <span class="ni">collate</span><span class="nt">(batch, collate_fn_map)</span>
-<span class="g g-Whitespace">    </span><span class="mi">153</span> <span class="k">if</span> <span class="n">collate_fn_map</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">154</span>     <span class="k">if</span> <span class="n">elem_type</span> <span class="ow">in</span> <span class="n">collate_fn_map</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">155</span>         <span class="k">return</span> <span class="n">collate_fn_map</span><span class="p">[</span><span class="n">elem_type</span><span class="p">](</span><span class="n">batch</span><span class="p">,</span> <span class="n">collate_fn_map</span><span class="o">=</span><span class="n">collate_fn_map</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">157</span>     <span class="k">for</span> <span class="n">collate_type</span> <span class="ow">in</span> <span class="n">collate_fn_map</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">158</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="n">collate_type</span><span class="p">):</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\_utils\collate.py:272,</span> in <span class="ni">collate_tensor_fn</span><span class="nt">(batch, collate_fn_map)</span>
-<span class="g g-Whitespace">    </span><span class="mi">270</span>     <span class="n">storage</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">_typed_storage</span><span class="p">()</span><span class="o">.</span><span class="n">_new_shared</span><span class="p">(</span><span class="n">numel</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">elem</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">271</span>     <span class="n">out</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">storage</span><span class="p">)</span><span class="o">.</span><span class="n">resize_</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">),</span> <span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="n">elem</span><span class="o">.</span><span class="n">size</span><span class="p">()))</span>
-<span class="ne">--&gt; </span><span class="mi">272</span> <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 14
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 15
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 16
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 17
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 18
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 19
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 20
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 21
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 22
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 23
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 24
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 25
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 26
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 27
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 28
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 29
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 30
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 31
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 32
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 33
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 34
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 35
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 36
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 37
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 38
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 39
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 40
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 41
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 42
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 43
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 44
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 45
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 46
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 47
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 48
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 49
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 50
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 51
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 52
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 53
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 54
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 55
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 56
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 57
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 58
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 59
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 60
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 61
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 62
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 63
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 64
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 65
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 66
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 67
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 68
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 69
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 70
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 71
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 72
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 73
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 74
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 75
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 76
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 77
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 78
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 79
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 80
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 81
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 82
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 83
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 84
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 85
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 86
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 87
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 88
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 89
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 90
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 91
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 92
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 93
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 94
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 95
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 96
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 97
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 98
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 99
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 100
+-------------------------------
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done!
 </pre></div>
 </div>
 </div>
@@ -815,8 +1093,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9b8c7af6e07d017ac75b7fdd4bfd4f1b23fe5bf4df0014a6ff97e235a1359502.png" src="../_images/9b8c7af6e07d017ac75b7fdd4bfd4f1b23fe5bf4df0014a6ff97e235a1359502.png" />
-<img alt="../_images/36e06cb827dd9598fd70b2fbaef684f7436887f864a4cd3c3d6e8596ae9556d2.png" src="../_images/36e06cb827dd9598fd70b2fbaef684f7436887f864a4cd3c3d6e8596ae9556d2.png" />
+<img alt="../_images/674f6cff07e9fc7478d71c2533961ea4127a4bbcea4b78fc6a30a25e81b99a66.png" src="../_images/674f6cff07e9fc7478d71c2533961ea4127a4bbcea4b78fc6a30a25e81b99a66.png" />
+<img alt="../_images/e51e1f638632802bad7ef250f9ae869fbda7a8b90de02a730f11bc2a2201f77c.png" src="../_images/e51e1f638632802bad7ef250f9ae869fbda7a8b90de02a730f11bc2a2201f77c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -827,10 +1105,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(69.0, 0.9598677371773878)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(69.112, 0.9511301894017192)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(68.812, 0.9625589487802647)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(68.996, 0.9551602490722676)
 </pre></div>
 </div>
 </div>
@@ -848,6 +1126,79 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">())</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\matplotlib\pyplot.py:2979,</span> in <span class="ni">bar</span><span class="nt">(x, height, width, bottom, align, data, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2968</span> <span class="nd">@_copy_docstring_and_deprecators</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">bar</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2969</span> <span class="k">def</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2970</span>     <span class="n">x</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">ArrayLike</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">2977</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2978</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BarContainer</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2979</span>     <span class="k">return</span> <span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2980</span>         <span class="n">x</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2981</span>         <span class="n">height</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2982</span>         <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2983</span>         <span class="n">bottom</span><span class="o">=</span><span class="n">bottom</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2984</span>         <span class="n">align</span><span class="o">=</span><span class="n">align</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2985</span>         <span class="o">**</span><span class="p">({</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span> <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}),</span>
+<span class="g g-Whitespace">   </span><span class="mi">2986</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2987</span>     <span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\matplotlib\__init__.py:1521,</span> in <span class="ni">_preprocess_data.&lt;locals&gt;.inner</span><span class="nt">(ax, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1518</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1519</span> <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1520</span>     <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1521</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1522</span>             <span class="n">ax</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1523</span>             <span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="n">cbook</span><span class="o">.</span><span class="n">sanitize_sequence</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span>
+<span class="nn">   1524             **{k: cbook.sanitize_sequence(v) for k, v</span> in <span class="ni">kwargs.items</span><span class="nt">()})</span>
+<span class="g g-Whitespace">   </span><span class="mi">1526</span>     <span class="n">bound</span> <span class="o">=</span> <span class="n">new_sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1527</span>     <span class="n">auto_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">bound</span><span class="o">.</span><span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1528</span>                   <span class="ow">or</span> <span class="n">bound</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">))</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\matplotlib\axes\_axes.py:2583,</span> in <span class="ni">Axes.bar</span><span class="nt">(self, x, height, width, bottom, align, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2580</span>     <span class="k">if</span> <span class="n">yerr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2581</span>         <span class="n">yerr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_dx</span><span class="p">(</span><span class="n">yerr</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_yunits</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2583</span> <span class="n">x</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="p">,</span> <span class="n">hatch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2584</span>     <span class="c1"># Make args iterable too.</span>
+<span class="g g-Whitespace">   </span><span class="mi">2585</span>     <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="p">,</span> <span class="n">hatch</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2587</span> <span class="c1"># Now that units have been converted, set the tick locations.</span>
+<span class="g g-Whitespace">   </span><span class="mi">2588</span> <span class="k">if</span> <span class="n">orientation</span> <span class="o">==</span> <span class="s1">&#39;vertical&#39;</span><span class="p">:</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\lib\stride_tricks.py:540,</span> in <span class="ni">broadcast_arrays</span><span class="nt">(subok, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">533</span> <span class="c1"># nditer is not used here to avoid the limit of 32 arrays.</span>
+<span class="g g-Whitespace">    </span><span class="mi">534</span> <span class="c1"># Otherwise, something like the following one-liner would suffice:</span>
+<span class="g g-Whitespace">    </span><span class="mi">535</span> <span class="c1"># return np.nditer(args, flags=[&#39;multi_index&#39;, &#39;zerosize_ok&#39;],</span>
+<span class="g g-Whitespace">    </span><span class="mi">536</span> <span class="c1">#                  order=&#39;C&#39;).itviews</span>
+<span class="g g-Whitespace">    </span><span class="mi">538</span> <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">_m</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">subok</span><span class="o">=</span><span class="n">subok</span><span class="p">)</span> <span class="k">for</span> <span class="n">_m</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">540</span> <span class="n">shape</span> <span class="o">=</span> <span class="n">_broadcast_shape</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">542</span> <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">shape</span> <span class="k">for</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span>     <span class="c1"># Common case where nothing needs to be broadcasted.</span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span>     <span class="k">return</span> <span class="n">args</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\lib\stride_tricks.py:422,</span> in <span class="ni">_broadcast_shape</span><span class="nt">(*args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">417</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Returns the shape of the arrays that would result from broadcasting the</span>
+<span class="g g-Whitespace">    </span><span class="mi">418</span><span class="sd"> supplied arrays against each other.</span>
+<span class="g g-Whitespace">    </span><span class="mi">419</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">420</span> <span class="c1"># use the old-iterator because np.nditer does not handle size 0 arrays</span>
+<span class="g g-Whitespace">    </span><span class="mi">421</span> <span class="c1"># consistently</span>
+<span class="ne">--&gt; </span><span class="mi">422</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">[:</span><span class="mi">32</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">423</span> <span class="c1"># unfortunately, it cannot handle 32 or more arguments directly</span>
+<span class="g g-Whitespace">    </span><span class="mi">424</span> <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="mi">31</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">425</span>     <span class="c1"># ironically, np.broadcast does not properly handle np.broadcast</span>
+<span class="g g-Whitespace">    </span><span class="mi">426</span>     <span class="c1"># objects (it treats them as scalars)</span>
+<span class="g g-Whitespace">    </span><span class="mi">427</span>     <span class="c1"># use broadcasting to avoid allocating the full array</span>
+
+<span class="ne">ValueError</span>: shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 0 with shape (2,) and arg 1 with shape (10,).
+</pre></div>
+</div>
+<img alt="../_images/0cbf1359a7a70fab4cc16a8c1e9c6fe1bc989234a4665de6aff9e1106c6b267b.png" src="../_images/0cbf1359a7a70fab4cc16a8c1e9c6fe1bc989234a4665de6aff9e1106c6b267b.png" />
 </div>
 </div>
 
