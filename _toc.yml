@@ -13,3 +13,4 @@ chapters:
 - file: databases
 - file: unstructured
 - file: privacy-ml
+- file: notebooks/LipariSC_MIA

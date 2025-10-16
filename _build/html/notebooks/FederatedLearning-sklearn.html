@@ -1,0 +1,1220 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Federated Learning and Label Flipping attacks &#8212; Privacy Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/FederatedLearning-sklearn';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo_v01-original.png" class="logo__image only-light" alt="Privacy Book - Home"/>
+    <script>document.write(`<img src="../_static/logo_v01-original.png" class="logo__image only-dark" alt="Privacy Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro-gdpr.html">Introduction and GDPR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../privacy-by-design.html">Privacy by design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pets.html">Privacy enhancing techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../databases.html">Privacy in databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unstructured.html">Privacy in unstructured data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../privacy-ml.html">Privacy in machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LipariSC_MIA.html">Salem paper attacks</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ablancoj/privacy-course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ablancoj/privacy-course/issues/new?title=Issue%20on%20page%20%2Fnotebooks/FederatedLearning-sklearn.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/FederatedLearning-sklearn.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Federated Learning and Label Flipping attacks</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Federated Learning and Label Flipping attacks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-a-centralized-model">Testing a centralized model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#auxiliary-methods-for-federated-learning">Auxiliary methods for federated learning</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#auxiliary-methods-for-attackers">Auxiliary methods for attackers</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#local-training">Local training</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fl-testbed">FL Testbed</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-parameters">Test parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-execution">Test execution</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="federated-learning-and-label-flipping-attacks">
+<h1>Federated Learning and Label Flipping attacks<a class="headerlink" href="#federated-learning-and-label-flipping-attacks" title="Link to this heading">#</a></h1>
+<p>In this notebook we train a machine learning model for MNIST classification.
+We then train the same model in a federated learning setting.
+In this setting, we test label flipping attacks and some defence mechanisms.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#IMPORTS</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sklearn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_openml</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span><span class="n">classification_report</span><span class="p">,</span><span class="n">confusion_matrix</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial.distance</span><span class="w"> </span><span class="kn">import</span> <span class="n">euclidean</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neural_network</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLPClassifier</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConvergenceWarning</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">ConvergenceWarning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ssl</span>
+<span class="n">ssl</span><span class="o">.</span><span class="n">_create_default_https_context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">_create_unverified_context</span>
+
+<span class="n">mnist</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s1">&#39;mnist_784&#39;</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+<span class="c1"># Normalize X to 0..1</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span> <span class="o">/</span> <span class="mf">255.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\utils\_optional_dependencies.py:42,</span> in <span class="ni">check_pandas_support</span><span class="nt">(caller_name)</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">42</span>     <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span>  <span class="c1"># noqa</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="k">return</span> <span class="n">pandas</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\datasets\_openml.py:1059,</span> in <span class="ni">fetch_openml</span><span class="nt">(name, version, data_id, data_home, target_column, cache, return_X_y, as_frame, n_retries, delay, parser, read_csv_kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1058</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1059</span>     <span class="n">check_pandas_support</span><span class="p">(</span><span class="s2">&quot;`fetch_openml`&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1060</span> <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\utils\_optional_dependencies.py:46,</span> in <span class="ni">check_pandas_support</span><span class="nt">(caller_name)</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">46</span>     <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> requires pandas.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">caller_name</span><span class="p">))</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+<span class="ne">ImportError</span>: `fetch_openml` requires pandas.
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">ssl</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">ssl</span><span class="o">.</span><span class="n">_create_default_https_context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">_create_unverified_context</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">mnist</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s1">&#39;mnist_784&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">X</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\utils\_param_validation.py:216,</span> in <span class="ni">validate_params.&lt;locals&gt;.decorator.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span>     <span class="k">with</span> <span class="n">config_context</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span>         <span class="n">skip_parameter_validation</span><span class="o">=</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span>             <span class="n">prefer_skip_nested_validation</span> <span class="ow">or</span> <span class="n">global_skip_validation</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">216</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span> <span class="k">except</span> <span class="n">InvalidParameterError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span>     <span class="c1"># When the function is just a wrapper around an estimator, we allow</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="c1"># the function to delegate validation to the estimator, but we replace</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="c1"># the name of the estimator by the name of the function in the error</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span>     <span class="c1"># message to avoid confusion.</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span>     <span class="n">msg</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span>         <span class="sa">r</span><span class="s2">&quot;parameter of \w+ must be&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span>         <span class="sa">f</span><span class="s2">&quot;parameter of </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__qualname__</span><span class="si">}</span><span class="s2"> must be&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span>         <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">226</span>     <span class="p">)</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\datasets\_openml.py:1072,</span> in <span class="ni">fetch_openml</span><span class="nt">(name, version, data_id, data_home, target_column, cache, return_X_y, as_frame, n_retries, delay, parser, read_csv_kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1067</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1068</span>             <span class="n">err_msg</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1069</span>                 <span class="sa">f</span><span class="s2">&quot;Using `parser=</span><span class="si">{</span><span class="n">parser</span><span class="si">!r}</span><span class="s2">` with dense data requires pandas to be &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1070</span>                 <span class="s2">&quot;installed. Alternatively, explicitly set `parser=&#39;liac-arff&#39;`.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1071</span>             <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1072</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+<span class="g g-Whitespace">   </span><span class="mi">1074</span> <span class="k">if</span> <span class="n">return_sparse</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1075</span>     <span class="k">if</span> <span class="n">as_frame</span><span class="p">:</span>
+
+<span class="ne">ImportError</span>: Returning pandas objects requires pandas to be installed. Alternatively, explicitly set `as_frame=False` and `parser=&#39;liac-arff&#39;`.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">X_public</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">y_public</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="testing-a-centralized-model">
+<h1>Testing a centralized model<a class="headerlink" href="#testing-a-centralized-model" title="Link to this heading">#</a></h1>
+<p>We train a Scikit-learn multilayer perceptron to stablish a baseline
+accuracy for our following experiments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">,),</span>
+                    <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span>
+                    <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;sgd&#39;</span><span class="p">,</span>
+                    <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+                    <span class="n">learning_rate_init</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
+                    <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                    <span class="n">tol</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span>
+                    <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mlp</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">mlp</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy :&#39;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">result</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">result</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># BASELINE RESULTS</span>
+<span class="n">mat</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">mlp</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">mat</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Model definition to initialize the global model</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MODEL DEFINITION</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">build_model</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">local_epochs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">warm_start</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">,),</span>
+                    <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span>
+                    <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;sgd&#39;</span><span class="p">,</span>
+                    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+                    <span class="n">learning_rate_init</span><span class="o">=</span><span class="n">lr</span><span class="p">,</span>
+                    <span class="n">max_iter</span><span class="o">=</span><span class="n">local_epochs</span><span class="p">,</span>
+                    <span class="n">early_stopping</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="n">warm_start</span><span class="o">=</span><span class="n">warm_start</span><span class="p">,</span>
+                    <span class="n">tol</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="auxiliary-methods-for-federated-learning">
+<h1>Auxiliary methods for federated learning<a class="headerlink" href="#auxiliary-methods-for-federated-learning" title="Link to this heading">#</a></h1>
+<p>The following functions are used to:</p>
+<ul class="simple">
+<li><p>get and set the NN’s weights and biases,</p></li>
+<li><p>extract the users’ local updates by substracting the local model parameters after training from the global model parameters, and</p></li>
+<li><p>to run a training step on the global model.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#AUXILIARY METHODS FOR FEDERATED LEARNING</span>
+
+<span class="c1"># RETURN WEIGHTS AND BIASES OF A MODEL</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_parameters</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coefs_</span><span class="p">),</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">)</span>
+        
+<span class="c1"># SET WEIGHTS AND BIASES OF A MODEL</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_parameters</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">biases</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">coefs_</span> <span class="o">=</span> <span class="n">weights</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">intercepts_</span> <span class="o">=</span> <span class="n">biases</span>
+
+<span class="c1"># RETURN THE DIFFERENCE OF MODELS&#39; WEIGHTS AND BIASES AFTER AN UPDATE </span>
+<span class="c1"># NOTE: LEARNING RATE IS APPLIED, SO THE UPDATE IS DIFFERENT FROM THE</span>
+<span class="c1"># GRADIENTS. IN CASE VANILLA SGD IS USED, THE GRADIENTS ARE OBTAINED</span>
+<span class="c1"># AS (UPDATES / LEARNING_RATE)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_updates</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">epochs</span><span class="p">):</span>
+    <span class="n">w</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">get_parameters</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+    <span class="n">w_new</span><span class="p">,</span> <span class="n">b_new</span> <span class="o">=</span> <span class="n">get_parameters</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    
+    <span class="n">weight_updates</span> <span class="o">=</span> <span class="p">[</span><span class="n">old</span> <span class="o">-</span> <span class="n">new</span> <span class="k">for</span> <span class="n">old</span><span class="p">,</span><span class="n">new</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w_new</span><span class="p">)]</span>
+    <span class="n">bias_updates</span> <span class="o">=</span> <span class="p">[</span><span class="n">old</span> <span class="o">-</span> <span class="n">new</span> <span class="k">for</span> <span class="n">old</span><span class="p">,</span><span class="n">new</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">b_new</span><span class="p">)]</span>
+    
+    <span class="k">return</span> <span class="n">weight_updates</span><span class="p">,</span> <span class="n">bias_updates</span>
+
+<span class="c1"># UPDATE THE MODEL&#39;S WEIGHTS AND PARAMETERS WITH AN UPDATE</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_updates</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">w_new</span><span class="p">,</span> <span class="n">b_new</span><span class="p">):</span>
+    <span class="n">w</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">get_parameters</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    <span class="n">new_weights</span> <span class="o">=</span> <span class="p">[</span><span class="n">theta</span> <span class="o">-</span> <span class="n">eta</span><span class="o">*</span><span class="n">delta</span> <span class="k">for</span> <span class="n">theta</span><span class="p">,</span><span class="n">delta</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w_new</span><span class="p">)]</span>
+    <span class="n">new_biases</span> <span class="o">=</span> <span class="p">[</span><span class="n">theta</span> <span class="o">-</span> <span class="n">eta</span><span class="o">*</span><span class="n">delta</span> <span class="k">for</span> <span class="n">theta</span><span class="p">,</span><span class="n">delta</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">b_new</span><span class="p">)]</span>
+    <span class="n">set_parameters</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">new_weights</span><span class="p">,</span> <span class="n">new_biases</span><span class="p">)</span>
+    
+<span class="c1"># FEDERATED AGGREGATION FUNCTION</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">aggregate</span><span class="p">(</span><span class="n">n_layers</span><span class="p">,</span> <span class="n">n_peers</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">w_updates</span><span class="p">,</span> <span class="n">b_updates</span><span class="p">):</span>
+    <span class="n">agg_w</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">([</span><span class="n">w_updates</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_peers</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_layers</span><span class="p">)]</span>
+    <span class="n">agg_b</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">([</span><span class="n">b_updates</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_peers</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_layers</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">agg_w</span><span class="p">,</span> <span class="n">agg_b</span>
+
+<span class="c1"># TRANSFORM ALL WEIGHT TENSORS TO 1D ARRAY</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">flatten_weights</span><span class="p">(</span><span class="n">w_in</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">w_in</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">w_in</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">h</span>
+
+<span class="c1"># TRANSFORM ALL BIAS TENSORS TO 1D ARRAY</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">flatten_biases</span><span class="p">(</span><span class="n">b_in</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">b_in</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">b_in</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">h</span>
+
+<span class="c1"># TRANSFORM WEIGHT AND BIAS TENSORS TO 1D ARRAY</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">flatten_parameters</span><span class="p">(</span><span class="n">w_in</span><span class="p">,</span> <span class="n">b_in</span><span class="p">):</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">flatten_weights</span><span class="p">(</span><span class="n">w_in</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">flatten_biases</span><span class="p">(</span><span class="n">b_in</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span>
+
+<span class="c1"># COMPUTE EUCLIDEAN DISTANCE OF WEIGHTS</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dist_weights</span><span class="p">(</span><span class="n">w_a</span><span class="p">,</span> <span class="n">w_b</span><span class="p">):</span>
+    <span class="n">wf_a</span> <span class="o">=</span> <span class="n">flatten_weights</span><span class="p">(</span><span class="n">w_a</span><span class="p">)</span>
+    <span class="n">wf_b</span> <span class="o">=</span> <span class="n">flatten_weights</span><span class="p">(</span><span class="n">w_b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">euclidean</span><span class="p">(</span><span class="n">wf_a</span><span class="p">,</span> <span class="n">wf_b</span><span class="p">)</span>
+
+<span class="c1"># COMPUTE EUCLIDEAN DISTANCE OF BIASES</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dist_biases</span><span class="p">(</span><span class="n">b_a</span><span class="p">,</span> <span class="n">b_b</span><span class="p">):</span>
+    <span class="n">bf_a</span> <span class="o">=</span> <span class="n">flatten_biases</span><span class="p">(</span><span class="n">b_a</span><span class="p">)</span>
+    <span class="n">bf_b</span> <span class="o">=</span> <span class="n">flatten_biases</span><span class="p">(</span><span class="n">b_b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">euclidean</span><span class="p">(</span><span class="n">bf_a</span><span class="p">,</span> <span class="n">bf_b</span><span class="p">)</span>
+
+<span class="c1"># COMPUTE EUCLIDEAN DISTANCE OF WEIGHTS AND BIASES</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dist_parameters</span><span class="p">(</span><span class="n">w_a</span><span class="p">,</span> <span class="n">b_a</span><span class="p">,</span> <span class="n">w_b</span><span class="p">,</span> <span class="n">b_b</span><span class="p">):</span>
+    <span class="n">wf_a</span><span class="p">,</span> <span class="n">bf_a</span> <span class="o">=</span> <span class="n">flatten_parameters</span><span class="p">(</span><span class="n">w_a</span><span class="p">,</span> <span class="n">b_a</span><span class="p">)</span>
+    <span class="n">wf_b</span><span class="p">,</span> <span class="n">bf_b</span> <span class="o">=</span> <span class="n">flatten_parameters</span><span class="p">(</span><span class="n">w_b</span><span class="p">,</span> <span class="n">b_b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">euclidean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wf_a</span><span class="p">,</span> <span class="n">bf_a</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wf_b</span><span class="p">,</span> <span class="n">bf_b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="auxiliary-methods-for-attackers">
+<h1>Auxiliary methods for attackers<a class="headerlink" href="#auxiliary-methods-for-attackers" title="Link to this heading">#</a></h1>
+<p>The following to functions are used to:</p>
+<ul class="simple">
+<li><p>flip the labels from an origin class to a target class, and</p></li>
+<li><p>boost updates.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># AUXILIARY METHODS FOR THE ATTACKERS</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">poison</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="n">output_cat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="n">origin</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+    <span class="n">output_cat</span><span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))]</span> <span class="o">=</span> <span class="n">origin</span>
+    <span class="k">return</span> <span class="n">output_cat</span>
+
+<span class="c1"># MULTIPLIES PARAMETERS BY SOME SCALAR BOOST</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">boosting</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">biases</span><span class="p">,</span> <span class="n">boost</span><span class="p">):</span>
+    <span class="n">w_boosted</span> <span class="o">=</span> <span class="p">[</span><span class="n">boost</span><span class="o">*</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">weights</span><span class="p">]</span>
+    <span class="n">b_boosted</span> <span class="o">=</span> <span class="p">[</span><span class="n">boost</span><span class="o">*</span><span class="n">b</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">biases</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">w_boosted</span><span class="p">,</span> <span class="n">b_boosted</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="local-training">
+<h1>Local training<a class="headerlink" href="#local-training" title="Link to this heading">#</a></h1>
+<p>The following function implements the local training at the clients’ side. Clients can be either good or malicious. Good peers will just run a few local training steps and return the updates. Malicious clients will also poison their data before training, and optionally boost their updates before sending them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Client code</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">client_training</span><span class="p">(</span><span class="n">global_model</span><span class="p">,</span> <span class="n">local_batch_size</span><span class="p">,</span> <span class="n">n_local_rounds</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">malicious</span><span class="p">,</span> <span class="n">malicious_targets</span><span class="p">,</span> <span class="n">malicious_boost</span><span class="p">):</span>
+    
+    <span class="c1"># Fetch global model</span>
+    <span class="n">local_model</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">global_model</span><span class="p">)</span>
+
+    <span class="c1"># Local model update</span>
+    <span class="k">if</span> <span class="n">malicious</span><span class="p">:</span>
+        <span class="c1"># Malicious peer</span>
+        <span class="c1"># Modify target class labels</span>
+
+        <span class="n">acts_mal</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mf">1.0</span>
+
+        <span class="k">if</span> <span class="n">acts_mal</span><span class="p">:</span>
+            <span class="n">labels</span> <span class="o">=</span> <span class="n">poison</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">malicious_targets</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">malicious_targets</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="c1"># Train local model with benign and malicious data</span>
+        <span class="n">local_weight_updates</span><span class="p">,</span> <span class="n">local_bias_updates</span> <span class="o">=</span> <span class="n">get_updates</span><span class="p">(</span><span class="n">local_model</span><span class="p">,</span> 
+                                                               <span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> 
+                                                               <span class="n">local_batch_size</span><span class="p">,</span> <span class="n">n_local_rounds</span><span class="p">)</span>
+
+        <span class="c1"># Boost update</span>
+        <span class="k">if</span> <span class="n">acts_mal</span><span class="p">:</span>
+            <span class="n">local_weight_updates</span><span class="p">,</span> <span class="n">local_bias_updates</span> <span class="o">=</span> <span class="n">boosting</span><span class="p">(</span><span class="n">local_weight_updates</span><span class="p">,</span> <span class="n">local_bias_updates</span><span class="p">,</span> <span class="n">malicious_boost</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Benign peer</span>
+        <span class="c1"># Train local model </span>
+        <span class="n">local_weight_updates</span><span class="p">,</span> <span class="n">local_bias_updates</span> <span class="o">=</span> <span class="n">get_updates</span><span class="p">(</span><span class="n">local_model</span><span class="p">,</span> 
+                                                               <span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">,</span> 
+                                                               <span class="n">local_batch_size</span><span class="p">,</span> <span class="n">n_local_rounds</span><span class="p">)</span>
+            
+    <span class="k">return</span> <span class="n">local_weight_updates</span><span class="p">,</span> <span class="n">local_bias_updates</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fl-testbed">
+<h1>FL Testbed<a class="headerlink" href="#fl-testbed" title="Link to this heading">#</a></h1>
+<section id="test-parameters">
+<h2>Test parameters<a class="headerlink" href="#test-parameters" title="Link to this heading">#</a></h2>
+<p>The following code contains the configuration of the FL tests.</p>
+<p>The configuration includes:</p>
+<ul class="simple">
+<li><p>Number of peers</p></li>
+<li><p>Fraction of peers that participate in each of the global training epochs</p></li>
+<li><p>Number of global training epochs</p></li>
+<li><p>Number of local training epochs</p></li>
+<li><p>Batch size for local training</p></li>
+<li><p>Learning rate for local training</p></li>
+<li><p>Global training rate or model substitution rate</p></li>
+<li><p>Attack detection mechanism</p>
+<ul>
+<li><p>None</p></li>
+<li><p>Distance (with parameter tau)</p></li>
+<li><p>Median</p></li>
+<li><p>Krum (with parameter tolerance)</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TESTBED</span>
+
+<span class="c1">#####################</span>
+<span class="c1"># SYSTEM PARAMETERS #</span>
+<span class="c1">#####################</span>
+
+<span class="c1"># Number of peers</span>
+<span class="n">n_peers</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Percentage and number of peers participating at each global training epoch</span>
+<span class="n">percentage_participants</span> <span class="o">=</span> <span class="mf">1.00</span>
+<span class="n">n_participants</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_peers</span> <span class="o">*</span> <span class="n">percentage_participants</span><span class="p">)</span>
+
+<span class="c1"># Number of global training epochs</span>
+<span class="n">n_rounds</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Number of local training epochs per global training epoch</span>
+<span class="n">n_local_rounds</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># Local batch size</span>
+<span class="n">local_batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+
+<span class="c1"># Local learning rate</span>
+<span class="n">local_lr</span> <span class="o">=</span> <span class="mf">0.001</span>
+
+<span class="c1"># Global learning rate or &#39;gain&#39;</span>
+<span class="n">model_substitution_rate</span> <span class="o">=</span> <span class="mf">0.25</span>
+
+<span class="c1"># Attack detection / prevention mechanism = {None, &#39;distance&#39;, &#39;median&#39;, &#39;krum&#39;}</span>
+<span class="n">discard_outliers</span> <span class="o">=</span> <span class="s1">&#39;distance&#39;</span>
+
+<span class="c1"># Used in &#39;dist&#39; attack detection, defines how far the outliers are (1.5 is a typical value)</span>
+<span class="n">tau</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="c1"># Used in &#39;krum&#39; attack detection, defines how many byzantine attackers we want to defend against</span>
+<span class="n">tolerance</span><span class="o">=</span><span class="mi">1</span>
+
+
+<span class="c1">########################</span>
+<span class="c1"># ATTACK CONFIGURATION #</span>
+<span class="c1">########################</span>
+
+<span class="c1"># Percentage of malicious peers</span>
+<span class="n">r_malicious_peers</span> <span class="o">=</span> <span class="mf">0.20</span>
+
+<span class="c1"># Number of malicious peers (absolute or relative to total number of peers)</span>
+<span class="n">n_malicious_peers</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_peers</span> <span class="o">*</span> <span class="n">r_malicious_peers</span><span class="p">)</span>
+
+<span class="c1"># Malicious peers</span>
+<span class="n">malicious_peer</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_malicious_peers</span><span class="p">)</span>
+
+<span class="c1"># Target for coalitions</span>
+<span class="n">common_attack_target</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;4&#39;</span><span class="p">,</span><span class="s1">&#39;7&#39;</span><span class="p">]</span>
+
+<span class="c1"># Target class of the attack, per each malicious peer</span>
+<span class="n">malicious_targets</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span><span class="p">,</span><span class="n">t</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">malicious_peer</span><span class="p">,</span> <span class="p">[</span><span class="n">common_attack_target</span><span class="p">]</span><span class="o">*</span><span class="n">n_malicious_peers</span><span class="p">)])</span>
+
+<span class="c1"># Boosting parameter per each malicious peer</span>
+<span class="n">common_malicious_boost</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">malicious_boost</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">p</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">malicious_peer</span><span class="p">,</span> <span class="p">[</span><span class="n">common_malicious_boost</span><span class="p">]</span><span class="o">*</span><span class="n">n_malicious_peers</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="test-execution">
+<h2>Test execution<a class="headerlink" href="#test-execution" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Global model initialization</p></li>
+<li><p>Peer initialization</p></li>
+<li><p>Training loop</p>
+<ol class="arabic simple">
+<li><p>Selection of participating peers</p></li>
+<li><p>Local training</p></li>
+<li><p>Update collection</p></li>
+<li><p>Attack detection</p></li>
+<li><p>Parameter aggregation</p></li>
+<li><p>Report accuracy</p></li>
+</ol>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">####################################</span>
+<span class="c1"># MODEL AND NETWORK INITIALIZATION #</span>
+<span class="c1">####################################</span>
+<span class="n">global_model</span> <span class="o">=</span> <span class="n">build_model</span><span class="p">(</span><span class="n">local_lr</span><span class="p">,</span> <span class="n">local_batch_size</span><span class="p">,</span> <span class="n">n_local_rounds</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># In Scikit-learn, an initial fit is required to build initial weight</span>
+<span class="c1"># and bias lists</span>
+<span class="n">global_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_public</span><span class="p">,</span> <span class="n">y_public</span><span class="p">)</span>
+<span class="n">n_layers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">global_model</span><span class="o">.</span><span class="n">coefs_</span><span class="p">)</span>
+
+
+<span class="c1">##################</span>
+<span class="c1"># BEGIN TRAINING #</span>
+<span class="c1">##################</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_rounds</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Round </span><span class="si">{</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+    <span class="c1">#sleep(1)</span>
+    
+    <span class="c1">## SERVER SIDE #################################################################</span>
+
+    <span class="c1"># Initialize peer update lists</span>
+    <span class="n">network_weight_updates</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">network_bias_updates</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c1"># Selection of participant peers in this global training epoch</span>
+    <span class="n">participants</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_peers</span><span class="p">)),</span> <span class="n">n_participants</span><span class="p">)</span>
+        
+    <span class="c1">################################################################################</span>
+    
+    <span class="c1">## CLIENT SIDE #################################################################</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">participants</span><span class="p">):</span>
+        
+        <span class="c1"># Initialization of user data</span>
+        <span class="n">ss</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span><span class="o">/</span><span class="n">n_peers</span><span class="p">)</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">ss</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="n">ss</span><span class="o">+</span><span class="n">ss</span><span class="p">]</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">ss</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="n">ss</span><span class="o">+</span><span class="n">ss</span><span class="p">]</span>
+        
+        <span class="n">local_weight_updates</span><span class="p">,</span> <span class="n">local_bias_updates</span> <span class="o">=</span> <span class="n">client_training</span><span class="p">(</span>
+            <span class="n">global_model</span><span class="p">,</span>
+            <span class="n">local_batch_size</span><span class="p">,</span>
+            <span class="n">n_local_rounds</span><span class="p">,</span>
+            <span class="n">inputs</span><span class="p">,</span>
+            <span class="n">outputs</span><span class="p">,</span>
+            <span class="n">i</span> <span class="ow">in</span> <span class="n">malicious_peer</span><span class="p">,</span>
+            <span class="n">malicious_targets</span><span class="p">,</span>
+            <span class="n">malicious_boost</span>
+        <span class="p">)</span>
+    
+        <span class="c1"># Send updates to the server</span>
+        <span class="n">network_weight_updates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">local_weight_updates</span><span class="p">)</span>
+        <span class="n">network_bias_updates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">local_bias_updates</span><span class="p">)</span>
+    
+    <span class="c1">## END OF CLIENT SIDE ##########################################################</span>
+
+    <span class="c1">######################################</span>
+    <span class="c1"># SERVER SIDE AGGREGATION MECHANISMS #</span>
+    <span class="c1">######################################</span>
+
+    <span class="c1"># No detection of outliers</span>
+    <span class="k">if</span> <span class="n">discard_outliers</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Aggregate client updates</span>
+        <span class="n">aggregated_weights</span><span class="p">,</span> <span class="n">aggregated_biases</span> <span class="o">=</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">n_layers</span><span class="p">,</span> 
+                                                          <span class="n">n_participants</span><span class="p">,</span> 
+                                                          <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> 
+                                                          <span class="n">network_weight_updates</span><span class="p">,</span> 
+                                                          <span class="n">network_bias_updates</span><span class="p">)</span>
+            
+        <span class="c1"># Apply updates to global model</span>
+        <span class="n">apply_updates</span><span class="p">(</span><span class="n">global_model</span><span class="p">,</span> <span class="n">model_substitution_rate</span><span class="p">,</span> <span class="n">aggregated_weights</span><span class="p">,</span> <span class="n">aggregated_biases</span><span class="p">)</span>
+        
+    <span class="c1"># Detection of outliers via distance metric</span>
+    <span class="k">elif</span> <span class="n">discard_outliers</span> <span class="o">==</span> <span class="s1">&#39;distance&#39;</span><span class="p">:</span>
+        <span class="c1"># Compute the provisional aggregate</span>
+        <span class="n">prov_agg_w</span><span class="p">,</span> <span class="n">prov_agg_b</span> <span class="o">=</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">n_layers</span><span class="p">,</span> 
+                                           <span class="n">n_participants</span><span class="p">,</span> 
+                                           <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> 
+                                           <span class="n">network_weight_updates</span><span class="p">,</span> 
+                                           <span class="n">network_bias_updates</span><span class="p">)</span>
+        
+        <span class="c1"># Compute distances and IQR of individual updates to the provisional aggregate</span>
+        <span class="n">distances</span> <span class="o">=</span> <span class="p">[</span><span class="n">dist_weights</span><span class="p">(</span><span class="n">prov_agg_w</span><span class="p">,</span> <span class="n">w_i</span><span class="p">)</span> <span class="k">for</span> <span class="n">w_i</span> <span class="ow">in</span> <span class="n">network_weight_updates</span><span class="p">]</span>
+        <span class="n">q1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+        <span class="n">q3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span>
+        <span class="n">iqr</span> <span class="o">=</span> <span class="n">q3</span> <span class="o">-</span> <span class="n">q1</span>
+        <span class="n">low</span> <span class="o">=</span> <span class="n">q1</span> <span class="o">-</span> <span class="n">tau</span> <span class="o">*</span> <span class="n">iqr</span>
+        <span class="n">high</span> <span class="o">=</span> <span class="n">q3</span> <span class="o">+</span> <span class="n">tau</span> <span class="o">*</span> <span class="n">iqr</span>
+
+        <span class="c1"># Discard outliers</span>
+        <span class="n">good_updates</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">distances</span><span class="p">)</span> <span class="k">if</span> <span class="n">low</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="p">]</span>
+        <span class="n">agg_participants</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">good_updates</span><span class="p">)</span>
+        <span class="n">network_weight_updates</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">w</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">network_weight_updates</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">good_updates</span><span class="p">]</span>
+        <span class="n">network_bias_updates</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">network_bias_updates</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">good_updates</span><span class="p">]</span>
+        
+        <span class="c1"># Compute definitive update</span>
+        <span class="n">aggregated_weights</span><span class="p">,</span> <span class="n">aggregated_biases</span> <span class="o">=</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">n_layers</span><span class="p">,</span> 
+                                                          <span class="n">agg_participants</span><span class="p">,</span> 
+                                                          <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> 
+                                                          <span class="n">network_weight_updates</span><span class="p">,</span> 
+                                                          <span class="n">network_bias_updates</span><span class="p">)</span>
+            
+        <span class="c1"># Apply update</span>
+        <span class="n">apply_updates</span><span class="p">(</span><span class="n">global_model</span><span class="p">,</span> <span class="n">model_substitution_rate</span><span class="p">,</span> <span class="n">aggregated_weights</span><span class="p">,</span> <span class="n">aggregated_biases</span><span class="p">)</span>
+    
+
+    <span class="c1"># Robust aggregation via median</span>
+    <span class="k">elif</span> <span class="n">discard_outliers</span> <span class="o">==</span> <span class="s1">&#39;median&#39;</span><span class="p">:</span>
+        <span class="c1"># Compute the aggregate as the component-wise median of local updates</span>
+        <span class="n">aggregated_weights</span><span class="p">,</span> <span class="n">aggregated_biases</span> <span class="o">=</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">n_layers</span><span class="p">,</span> 
+                                                          <span class="n">n_participants</span><span class="p">,</span> 
+                                                          <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">,</span>
+                                                          <span class="n">network_weight_updates</span><span class="p">,</span> 
+                                                          <span class="n">network_bias_updates</span><span class="p">)</span>
+            
+        <span class="c1"># Apply update    </span>
+        <span class="n">apply_updates</span><span class="p">(</span><span class="n">global_model</span><span class="p">,</span> <span class="n">model_substitution_rate</span><span class="p">,</span> <span class="n">aggregated_weights</span><span class="p">,</span> <span class="n">aggregated_biases</span><span class="p">)</span>
+    
+    <span class="c1"># KRUM</span>
+    <span class="k">elif</span> <span class="n">discard_outliers</span> <span class="o">==</span> <span class="s1">&#39;krum&#39;</span><span class="p">:</span>
+        <span class="c1"># First, we build a distance matrix for parameters</span>
+        <span class="n">P</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">network_weight_updates</span><span class="p">,</span> <span class="n">network_bias_updates</span><span class="p">))</span>
+        <span class="n">dist_matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="n">dist_parameters</span><span class="p">(</span><span class="n">wi</span><span class="p">,</span><span class="n">bi</span><span class="p">,</span><span class="n">wj</span><span class="p">,</span><span class="n">bj</span><span class="p">)</span> <span class="k">for</span> <span class="n">wj</span><span class="p">,</span><span class="n">bj</span> <span class="ow">in</span> <span class="n">P</span><span class="p">]</span> <span class="k">for</span> <span class="n">wi</span><span class="p">,</span><span class="n">bi</span> <span class="ow">in</span> <span class="n">P</span><span class="p">]</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">P</span><span class="p">)):</span>
+            <span class="n">distances_to_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dist_matrix</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+            <span class="n">closest_to_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argpartition</span><span class="p">(</span><span class="n">distances_to_index</span><span class="p">,</span> <span class="n">n_participants</span><span class="o">-</span><span class="n">tolerance</span><span class="o">-</span><span class="mi">1</span><span class="p">)[:</span><span class="n">n_participants</span><span class="o">-</span><span class="n">tolerance</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">distances_to_index</span><span class="p">[</span><span class="n">closest_to_index</span><span class="p">]))</span>
+        <span class="n">best</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+        <span class="n">aggregated_weights</span> <span class="o">=</span> <span class="n">network_weight_updates</span><span class="p">[</span><span class="n">best</span><span class="p">]</span>
+        <span class="n">aggregated_biases</span> <span class="o">=</span> <span class="n">network_bias_updates</span><span class="p">[</span><span class="n">best</span><span class="p">]</span>
+            
+        <span class="c1"># Apply update</span>
+        <span class="n">apply_updates</span><span class="p">(</span><span class="n">global_model</span><span class="p">,</span> <span class="n">model_substitution_rate</span><span class="p">,</span> <span class="n">aggregated_weights</span><span class="p">,</span> <span class="n">aggregated_biases</span><span class="p">)</span>
+    
+    <span class="c1"># Fallback case: no detection of outliers</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Proceed as in first case</span>
+        <span class="n">aggregated_weights</span><span class="p">,</span> <span class="n">aggregated_biases</span> <span class="o">=</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">n_layers</span><span class="p">,</span> 
+                                                          <span class="n">n_participants</span><span class="p">,</span> 
+                                                          <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> 
+                                                          <span class="n">network_weight_updates</span><span class="p">,</span> 
+                                                          <span class="n">network_bias_updates</span><span class="p">)</span>
+            
+        <span class="n">apply_updates</span><span class="p">(</span><span class="n">global_model</span><span class="p">,</span> <span class="n">model_substitution_rate</span><span class="p">,</span> <span class="n">aggregated_weights</span><span class="p">,</span> <span class="n">aggregated_biases</span><span class="p">)</span>
+        
+    <span class="c1">###################</span>
+    <span class="c1"># COMPUTE METRICS #</span>
+    <span class="c1">###################</span>
+    
+    <span class="c1"># Global model accuracy</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">global_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Global model accuracy: </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Round 1.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:03&lt;00:00,  1.47it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Global model accuracy: 0.7327819548872181
+Round 2.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:03&lt;00:00,  1.48it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Global model accuracy: 0.7917293233082707
+Round 3.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:03&lt;00:00,  1.49it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Global model accuracy: 0.833609022556391
+Round 4.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:03&lt;00:00,  1.48it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Global model accuracy: 0.8584962406015038
+Round 5.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:03&lt;00:00,  1.47it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Global model accuracy: 0.8734586466165414
+Round 6.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:03&lt;00:00,  1.47it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Global model accuracy: 0.8844360902255639
+Round 7.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:03&lt;00:00,  1.45it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Global model accuracy: 0.89
+Round 8.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:03&lt;00:00,  1.41it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Global model accuracy: 0.8939097744360902
+Round 9.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:03&lt;00:00,  1.40it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Global model accuracy: 0.8985714285714286
+Round 10.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:03&lt;00:00,  1.39it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Global model accuracy: 0.901578947368421
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># BASELINE RESULTS</span>
+<span class="n">mat</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">global_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">mat</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/365562c4ec46c941f4e3c4bbac211ccd27ce356afce8d0ae85478c0eb04000d1.png" src="../_images/365562c4ec46c941f4e3c4bbac211ccd27ce356afce8d0ae85478c0eb04000d1.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Federated Learning and Label Flipping attacks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-a-centralized-model">Testing a centralized model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#auxiliary-methods-for-federated-learning">Auxiliary methods for federated learning</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#auxiliary-methods-for-attackers">Auxiliary methods for attackers</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#local-training">Local training</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fl-testbed">FL Testbed</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-parameters">Test parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-execution">Test execution</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Alberto Blanco-Justicia
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

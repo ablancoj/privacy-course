@@ -1,0 +1,100 @@
+Traceback (most recent call last):
+  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ablancoj\AppData\Roaming\Python\Python311\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 650, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 222, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 654, in async_setup_kernel
+    yield
+  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
+mnist = fetch_openml('mnist_784')
+X = mnist.data.to_numpy()
+y = mnist.target.to_numpy()
+
+# Normalize X to 0..1
+X = X / 255.0
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mModuleNotFoundError[39m                       Traceback (most recent call last)
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\utils\_optional_dependencies.py:42[39m, in [36mcheck_pandas_support[39m[34m(caller_name)[39m
+[32m     41[39m [38;5;28;01mtry[39;00m:
+[32m---> [39m[32m42[39m     [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mpandas[39;00m  [38;5;66;03m# noqa[39;00m
+[32m     44[39m     [38;5;28;01mreturn[39;00m pandas
+
+[31mModuleNotFoundError[39m: No module named 'pandas'
+
+The above exception was the direct cause of the following exception:
+
+[31mImportError[39m                               Traceback (most recent call last)
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\datasets\_openml.py:1059[39m, in [36mfetch_openml[39m[34m(name, version, data_id, data_home, target_column, cache, return_X_y, as_frame, n_retries, delay, parser, read_csv_kwargs)[39m
+[32m   1058[39m [38;5;28;01mtry[39;00m:
+[32m-> [39m[32m1059[39m     [43mcheck_pandas_support[49m[43m([49m[33;43m"[39;49m[33;43m`fetch_openml`[39;49m[33;43m"[39;49m[43m)[49m
+[32m   1060[39m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m [38;5;28;01mas[39;00m exc:
+
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\utils\_optional_dependencies.py:46[39m, in [36mcheck_pandas_support[39m[34m(caller_name)[39m
+[32m     45[39m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m [38;5;28;01mas[39;00m e:
+[32m---> [39m[32m46[39m     [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m([33m"[39m[38;5;132;01m{}[39;00m[33m requires pandas.[39m[33m"[39m.format(caller_name)) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01me[39;00m
+
+[31mImportError[39m: `fetch_openml` requires pandas.
+
+The above exception was the direct cause of the following exception:
+
+[31mImportError[39m                               Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[2][39m[32m, line 4[39m
+[32m      1[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mssl[39;00m
+[32m      2[39m ssl._create_default_https_context = ssl._create_unverified_context
+[32m----> [39m[32m4[39m mnist = [43mfetch_openml[49m[43m([49m[33;43m'[39;49m[33;43mmnist_784[39;49m[33;43m'[39;49m[43m)[49m
+[32m      5[39m X = mnist.data.to_numpy()
+[32m      6[39m y = mnist.target.to_numpy()
+
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\utils\_param_validation.py:216[39m, in [36mvalidate_params.<locals>.decorator.<locals>.wrapper[39m[34m(*args, **kwargs)[39m
+[32m    210[39m [38;5;28;01mtry[39;00m:
+[32m    211[39m     [38;5;28;01mwith[39;00m config_context(
+[32m    212[39m         skip_parameter_validation=(
+[32m    213[39m             prefer_skip_nested_validation [38;5;129;01mor[39;00m global_skip_validation
+[32m    214[39m         )
+[32m    215[39m     ):
+[32m--> [39m[32m216[39m         [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+[32m    217[39m [38;5;28;01mexcept[39;00m InvalidParameterError [38;5;28;01mas[39;00m e:
+[32m    218[39m     [38;5;66;03m# When the function is just a wrapper around an estimator, we allow[39;00m
+[32m    219[39m     [38;5;66;03m# the function to delegate validation to the estimator, but we replace[39;00m
+[32m    220[39m     [38;5;66;03m# the name of the estimator by the name of the function in the error[39;00m
+[32m    221[39m     [38;5;66;03m# message to avoid confusion.[39;00m
+[32m    222[39m     msg = re.sub(
+[32m    223[39m         [33mr[39m[33m"[39m[33mparameter of [39m[33m\[39m[33mw+ must be[39m[33m"[39m,
+[32m    224[39m         [33mf[39m[33m"[39m[33mparameter of [39m[38;5;132;01m{[39;00mfunc.[34m__qualname__[39m[38;5;132;01m}[39;00m[33m must be[39m[33m"[39m,
+[32m    225[39m         [38;5;28mstr[39m(e),
+[32m    226[39m     )
+
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\datasets\_openml.py:1072[39m, in [36mfetch_openml[39m[34m(name, version, data_id, data_home, target_column, cache, return_X_y, as_frame, n_retries, delay, parser, read_csv_kwargs)[39m
+[32m   1067[39m         [38;5;28;01melse[39;00m:
+[32m   1068[39m             err_msg = (
+[32m   1069[39m                 [33mf[39m[33m"[39m[33mUsing `parser=[39m[38;5;132;01m{[39;00mparser[38;5;132;01m!r}[39;00m[33m` with dense data requires pandas to be [39m[33m"[39m
+[32m   1070[39m                 [33m"[39m[33minstalled. Alternatively, explicitly set `parser=[39m[33m'[39m[33mliac-arff[39m[33m'[39m[33m`.[39m[33m"[39m
+[32m   1071[39m             )
+[32m-> [39m[32m1072[39m         [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m(err_msg) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mexc[39;00m
+[32m   1074[39m [38;5;28;01mif[39;00m return_sparse:
+[32m   1075[39m     [38;5;28;01mif[39;00m as_frame:
+
+[31mImportError[39m: Returning pandas objects requires pandas to be installed. Alternatively, explicitly set `as_frame=False` and `parser='liac-arff'`.
+

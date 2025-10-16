@@ -1,0 +1,1718 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; Privacy Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/MDAV-DT-Explainability-Semantic Copy';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo_v01-original.png" class="logo__image only-light" alt="Privacy Book - Home"/>
+    <script>document.write(`<img src="../_static/logo_v01-original.png" class="logo__image only-dark" alt="Privacy Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro-gdpr.html">Introduction and GDPR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../privacy-by-design.html">Privacy by design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pets.html">Privacy enhancing techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../databases.html">Privacy in databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unstructured.html">Privacy in unstructured data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../privacy-ml.html">Privacy in machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LipariSC_MIA.html">Salem paper attacks</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ablancoj/privacy-course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ablancoj/privacy-course/issues/new?title=Issue%20on%20page%20%2Fnotebooks/MDAV-DT-Explainability-Semantic Copy.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/MDAV-DT-Explainability-Semantic Copy.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">scp</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">product</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="s1">&#39;workclass&#39;</span><span class="p">,</span><span class="s1">&#39;fnlwgt&#39;</span><span class="p">,</span><span class="s1">&#39;education&#39;</span><span class="p">,</span><span class="s1">&#39;education-num&#39;</span><span class="p">,</span><span class="s1">&#39;marital-status&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;occupation&#39;</span><span class="p">,</span><span class="s1">&#39;relationship&#39;</span><span class="p">,</span><span class="s1">&#39;race&#39;</span><span class="p">,</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span><span class="s1">&#39;capital-gain&#39;</span><span class="p">,</span><span class="s1">&#39;capital-loss&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;hours-per-week&#39;</span><span class="p">,</span><span class="s1">&#39;native-country&#39;</span><span class="p">,</span><span class="s1">&#39;class&#39;</span><span class="p">]</span>
+<span class="n">adult</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./datasets/adult.data&#39;</span><span class="p">,</span> 
+                    <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop all records with missing values</span>
+<span class="n">adult</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">adult</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Drop fnlwgt, not interesting for ML</span>
+<span class="n">adult</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;fnlwgt&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">adult</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 30162 entries, 0 to 30161
+Data columns (total 14 columns):
+age               30162 non-null int64
+workclass         30162 non-null object
+education         30162 non-null object
+education-num     30162 non-null int64
+marital-status    30162 non-null object
+occupation        30162 non-null object
+relationship      30162 non-null object
+race              30162 non-null object
+sex               30162 non-null object
+capital-gain      30162 non-null int64
+capital-loss      30162 non-null int64
+hours-per-week    30162 non-null int64
+native-country    30162 non-null object
+class             30162 non-null object
+dtypes: int64(5), object(9)
+memory usage: 3.2+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert objects to categories</span>
+<span class="c1"># Education is ordered</span>
+<span class="n">ordered_education</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Preschool&#39;</span><span class="p">,</span><span class="s1">&#39;1st-4th&#39;</span><span class="p">,</span><span class="s1">&#39;5th-6th&#39;</span><span class="p">,</span><span class="s1">&#39;7th-8th&#39;</span><span class="p">,</span><span class="s1">&#39;9th&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;10th&#39;</span><span class="p">,</span><span class="s1">&#39;11th&#39;</span><span class="p">,</span><span class="s1">&#39;12th&#39;</span><span class="p">,</span><span class="s1">&#39;HS-grad&#39;</span><span class="p">,</span><span class="s1">&#39;Assoc-acdm&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;Assoc-voc&#39;</span><span class="p">,</span><span class="s1">&#39;Some-college&#39;</span><span class="p">,</span><span class="s1">&#39;Bachelors&#39;</span><span class="p">,</span><span class="s1">&#39;Prof-school&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;Masters&#39;</span><span class="p">,</span><span class="s1">&#39;Doctorate&#39;</span><span class="p">]</span>
+<span class="n">adult</span><span class="p">[</span><span class="s1">&#39;education&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adult</span><span class="p">[</span><span class="s1">&#39;education&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">CategoricalDtype</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="n">ordered_education</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+<span class="c1">#Hours per week is</span>
+
+<span class="c1"># The rest are not</span>
+<span class="n">obj_columns</span> <span class="o">=</span> <span class="n">adult</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">([</span><span class="s1">&#39;object&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">adult</span><span class="p">[</span><span class="n">obj_columns</span><span class="p">]</span> <span class="o">=</span> <span class="n">adult</span><span class="p">[</span><span class="n">obj_columns</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert numerics to floats and normalize</span>
+<span class="n">num_columns</span> <span class="o">=</span> <span class="n">adult</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">([</span><span class="s1">&#39;int64&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">adult</span><span class="p">[</span><span class="n">num_columns</span><span class="p">]</span> <span class="o">=</span> <span class="n">adult</span><span class="p">[</span><span class="n">num_columns</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">num_columns</span><span class="p">:</span>
+    <span class="c1">#adult[c] -= adult[c].mean()</span>
+    <span class="c1">#adult[c] /= adult[c].std()</span>
+    <span class="n">adult</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">/=</span> <span class="p">(</span><span class="n">adult</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">adult</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="n">adult</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adult</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span>
+<span class="n">display</span><span class="p">(</span><span class="n">adult</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">adult</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 30162 entries, 0 to 30161
+Data columns (total 14 columns):
+age               30162 non-null float64
+workclass         30162 non-null category
+education         30162 non-null category
+education-num     30162 non-null float64
+marital-status    30162 non-null category
+occupation        30162 non-null category
+relationship      30162 non-null category
+race              30162 non-null category
+sex               30162 non-null category
+capital-gain      30162 non-null float64
+capital-loss      30162 non-null float64
+hours-per-week    30162 non-null float64
+native-country    30162 non-null category
+class             30162 non-null int8
+dtypes: category(8), float64(5), int8(1)
+memory usage: 1.4 MB
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>education</th>
+      <th>education-num</th>
+      <th>marital-status</th>
+      <th>occupation</th>
+      <th>relationship</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>capital-gain</th>
+      <th>capital-loss</th>
+      <th>hours-per-week</th>
+      <th>native-country</th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.534247</td>
+      <td>State-gov</td>
+      <td>Bachelors</td>
+      <td>0.866667</td>
+      <td>Never-married</td>
+      <td>Adm-clerical</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0.021740</td>
+      <td>0.0</td>
+      <td>0.408163</td>
+      <td>United-States</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.684932</td>
+      <td>Self-emp-not-inc</td>
+      <td>Bachelors</td>
+      <td>0.866667</td>
+      <td>Married-civ-spouse</td>
+      <td>Exec-managerial</td>
+      <td>Husband</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.132653</td>
+      <td>United-States</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.520548</td>
+      <td>Private</td>
+      <td>HS-grad</td>
+      <td>0.600000</td>
+      <td>Divorced</td>
+      <td>Handlers-cleaners</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.408163</td>
+      <td>United-States</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.726027</td>
+      <td>Private</td>
+      <td>11th</td>
+      <td>0.466667</td>
+      <td>Married-civ-spouse</td>
+      <td>Handlers-cleaners</td>
+      <td>Husband</td>
+      <td>Black</td>
+      <td>Male</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.408163</td>
+      <td>United-States</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.383562</td>
+      <td>Private</td>
+      <td>Bachelors</td>
+      <td>0.866667</td>
+      <td>Married-civ-spouse</td>
+      <td>Prof-specialty</td>
+      <td>Wife</td>
+      <td>Black</td>
+      <td>Female</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.408163</td>
+      <td>Cuba</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.506849</td>
+      <td>Private</td>
+      <td>Masters</td>
+      <td>0.933333</td>
+      <td>Married-civ-spouse</td>
+      <td>Exec-managerial</td>
+      <td>Wife</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.408163</td>
+      <td>United-States</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.671233</td>
+      <td>Private</td>
+      <td>9th</td>
+      <td>0.333333</td>
+      <td>Married-spouse-absent</td>
+      <td>Other-service</td>
+      <td>Not-in-family</td>
+      <td>Black</td>
+      <td>Female</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.163265</td>
+      <td>Jamaica</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.712329</td>
+      <td>Self-emp-not-inc</td>
+      <td>HS-grad</td>
+      <td>0.600000</td>
+      <td>Married-civ-spouse</td>
+      <td>Exec-managerial</td>
+      <td>Husband</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.459184</td>
+      <td>United-States</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.424658</td>
+      <td>Private</td>
+      <td>Masters</td>
+      <td>0.933333</td>
+      <td>Never-married</td>
+      <td>Prof-specialty</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0.140841</td>
+      <td>0.0</td>
+      <td>0.510204</td>
+      <td>United-States</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.575342</td>
+      <td>Private</td>
+      <td>Bachelors</td>
+      <td>0.866667</td>
+      <td>Married-civ-spouse</td>
+      <td>Exec-managerial</td>
+      <td>Husband</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0.051781</td>
+      <td>0.0</td>
+      <td>0.408163</td>
+      <td>United-States</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.506849</td>
+      <td>Private</td>
+      <td>Some-college</td>
+      <td>0.666667</td>
+      <td>Married-civ-spouse</td>
+      <td>Exec-managerial</td>
+      <td>Husband</td>
+      <td>Black</td>
+      <td>Male</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.816327</td>
+      <td>United-States</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.410959</td>
+      <td>State-gov</td>
+      <td>Bachelors</td>
+      <td>0.866667</td>
+      <td>Married-civ-spouse</td>
+      <td>Prof-specialty</td>
+      <td>Husband</td>
+      <td>Asian-Pac-Islander</td>
+      <td>Male</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.408163</td>
+      <td>India</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>0.315068</td>
+      <td>Private</td>
+      <td>Bachelors</td>
+      <td>0.866667</td>
+      <td>Never-married</td>
+      <td>Adm-clerical</td>
+      <td>Own-child</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.306122</td>
+      <td>United-States</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>0.438356</td>
+      <td>Private</td>
+      <td>Assoc-acdm</td>
+      <td>0.800000</td>
+      <td>Never-married</td>
+      <td>Sales</td>
+      <td>Not-in-family</td>
+      <td>Black</td>
+      <td>Male</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.510204</td>
+      <td>United-States</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>0.465753</td>
+      <td>Private</td>
+      <td>7th-8th</td>
+      <td>0.266667</td>
+      <td>Married-civ-spouse</td>
+      <td>Transport-moving</td>
+      <td>Husband</td>
+      <td>Amer-Indian-Eskimo</td>
+      <td>Male</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.459184</td>
+      <td>Mexico</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>0.342466</td>
+      <td>Self-emp-not-inc</td>
+      <td>HS-grad</td>
+      <td>0.600000</td>
+      <td>Never-married</td>
+      <td>Farming-fishing</td>
+      <td>Own-child</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.357143</td>
+      <td>United-States</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>0.438356</td>
+      <td>Private</td>
+      <td>HS-grad</td>
+      <td>0.600000</td>
+      <td>Never-married</td>
+      <td>Machine-op-inspct</td>
+      <td>Unmarried</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.408163</td>
+      <td>United-States</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>0.520548</td>
+      <td>Private</td>
+      <td>11th</td>
+      <td>0.466667</td>
+      <td>Married-civ-spouse</td>
+      <td>Sales</td>
+      <td>Husband</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.510204</td>
+      <td>United-States</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>0.589041</td>
+      <td>Self-emp-not-inc</td>
+      <td>Masters</td>
+      <td>0.933333</td>
+      <td>Divorced</td>
+      <td>Exec-managerial</td>
+      <td>Unmarried</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.459184</td>
+      <td>United-States</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>0.547945</td>
+      <td>Private</td>
+      <td>Doctorate</td>
+      <td>1.066667</td>
+      <td>Married-civ-spouse</td>
+      <td>Prof-specialty</td>
+      <td>Husband</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.612245</td>
+      <td>United-States</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.compose</span><span class="w"> </span><span class="kn">import</span> <span class="n">ColumnTransformer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">OneHotEncoder</span><span class="p">,</span> <span class="n">LabelEncoder</span>
+
+
+<span class="n">display</span><span class="p">(</span><span class="n">adult</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">enc</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span>
+    <span class="n">transformers</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;num&#39;</span><span class="p">,</span> <span class="s1">&#39;passthrough&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]),</span>
+        <span class="c1">#(&#39;num&#39;, &#39;passthrough&#39;, [0, 2, 8, 9, 10]),</span>
+        <span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">(),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">]),])</span>
+        <span class="c1">#(&#39;cat&#39;, OneHotEncoder(), [1, 3, 4, 5, 6, 7, 11]),])</span>
+        <span class="c1">#(&#39;label&#39;, LabelEncoder(), 13)])</span>
+
+<span class="n">enc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">adult</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>education</th>
+      <th>education-num</th>
+      <th>marital-status</th>
+      <th>occupation</th>
+      <th>relationship</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>capital-gain</th>
+      <th>capital-loss</th>
+      <th>hours-per-week</th>
+      <th>native-country</th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.534247</td>
+      <td>State-gov</td>
+      <td>Bachelors</td>
+      <td>0.866667</td>
+      <td>Never-married</td>
+      <td>Adm-clerical</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0.02174</td>
+      <td>0.0</td>
+      <td>0.408163</td>
+      <td>United-States</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.684932</td>
+      <td>Self-emp-not-inc</td>
+      <td>Bachelors</td>
+      <td>0.866667</td>
+      <td>Married-civ-spouse</td>
+      <td>Exec-managerial</td>
+      <td>Husband</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0.00000</td>
+      <td>0.0</td>
+      <td>0.132653</td>
+      <td>United-States</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.520548</td>
+      <td>Private</td>
+      <td>HS-grad</td>
+      <td>0.600000</td>
+      <td>Divorced</td>
+      <td>Handlers-cleaners</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0.00000</td>
+      <td>0.0</td>
+      <td>0.408163</td>
+      <td>United-States</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.726027</td>
+      <td>Private</td>
+      <td>11th</td>
+      <td>0.466667</td>
+      <td>Married-civ-spouse</td>
+      <td>Handlers-cleaners</td>
+      <td>Husband</td>
+      <td>Black</td>
+      <td>Male</td>
+      <td>0.00000</td>
+      <td>0.0</td>
+      <td>0.408163</td>
+      <td>United-States</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.383562</td>
+      <td>Private</td>
+      <td>Bachelors</td>
+      <td>0.866667</td>
+      <td>Married-civ-spouse</td>
+      <td>Prof-specialty</td>
+      <td>Wife</td>
+      <td>Black</td>
+      <td>Female</td>
+      <td>0.00000</td>
+      <td>0.0</td>
+      <td>0.408163</td>
+      <td>Cuba</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ColumnTransformer(n_jobs=None, remainder=&#39;drop&#39;, sparse_threshold=0.3,
+         transformer_weights=None,
+         transformers=[(&#39;num&#39;, &#39;passthrough&#39;, [0, 3, 9, 10, 11]), (&#39;cat&#39;, OneHotEncoder(categorical_features=None, categories=None,
+       dtype=&lt;class &#39;numpy.float64&#39;&gt;, handle_unknown=&#39;error&#39;,
+       n_values=None, sparse=True), [1, 2, 4, 5, 6, 7, 8, 12])])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">adult</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">adult</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load semantic distances from files</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+
+<span class="c1">#path = &#39;./datasets/semdist/ontodistnolog/&#39;</span>
+<span class="c1">#path = &#39;./datasets/semdist/ontodist/&#39;</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;./datasets/semdist/embedist/&#39;</span>
+<span class="n">categorical_attributes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">adult</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">([</span><span class="s1">&#39;category&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">categorical_attributes</span> <span class="o">=</span> <span class="n">categorical_attributes</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">distances</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">categorical_attribute</span> <span class="ow">in</span> <span class="n">categorical_attributes</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">categorical_attribute</span><span class="o">+</span><span class="s1">&#39;.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">contents</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">categories</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">,</span> <span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)))</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">contents</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)))))</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">)):</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">categories</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="n">categories</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">distances</span><span class="p">[</span><span class="n">categorical_attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="c1"># current best results embedist/weight/nosquare</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dist_attr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">attr_pos</span><span class="p">,</span> <span class="n">categorical_mask</span><span class="p">,</span> <span class="n">column_names</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">categorical_mask</span><span class="p">[</span><span class="n">attr_pos</span><span class="p">]:</span>
+        <span class="c1">#return 0.625 * distances[column_names[attr_pos]][x[attr_pos]][y[attr_pos]]**2</span>
+        <span class="c1">#return distances[column_names[attr_pos]][x[attr_pos]][y[attr_pos]]**2</span>
+        <span class="c1">#return 0.625 * distances[column_names[attr_pos]][x[attr_pos]][y[attr_pos]]</span>
+        <span class="k">return</span> <span class="n">distances</span><span class="p">[</span><span class="n">column_names</span><span class="p">[</span><span class="n">attr_pos</span><span class="p">]][</span><span class="n">x</span><span class="p">[</span><span class="n">attr_pos</span><span class="p">]][</span><span class="n">y</span><span class="p">[</span><span class="n">attr_pos</span><span class="p">]]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1">#return (float(x[attr_pos]) - float(y[attr_pos]))**2</span>
+        <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">attr_pos</span><span class="p">])</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">attr_pos</span><span class="p">]))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">dist_record</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">categorical_mask</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="c1">#categorical_mask = [0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1]</span>
+    <span class="n">column_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">adult</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">column_names</span><span class="p">)):</span>
+        <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dist_attr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">categorical_mask</span><span class="p">,</span> <span class="n">column_names</span><span class="p">))</span>
+    
+    <span class="c1">#return float(math.sqrt(sum(d)))</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+    
+<span class="k">def</span><span class="w"> </span><span class="nf">mean_record</span><span class="p">(</span><span class="n">D</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># 0-&gt;age </span>
+    <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])))</span>
+    <span class="c1"># 1-&gt;workclass  </span>
+    <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_semantic</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;workclass&#39;</span><span class="p">))</span>
+    <span class="c1"># 2-&gt;education </span>
+    <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_semantic</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;education&#39;</span><span class="p">))</span>
+    <span class="c1"># 3-&gt;education-num   </span>
+    <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">3</span><span class="p">])))</span>
+    <span class="c1"># 4-&gt;marital-status  </span>
+    <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_semantic</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;marital-status&#39;</span><span class="p">))</span>
+    <span class="c1"># 5-&gt;occupation  </span>
+    <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_semantic</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">5</span><span class="p">],</span> <span class="s1">&#39;occupation&#39;</span><span class="p">))</span>
+    <span class="c1"># 6-&gt;relationship </span>
+    <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_semantic</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">6</span><span class="p">],</span> <span class="s1">&#39;relationship&#39;</span><span class="p">))</span>
+    <span class="c1"># 7-&gt;race    </span>
+    <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_semantic</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">7</span><span class="p">],</span> <span class="s1">&#39;race&#39;</span><span class="p">))</span>
+    <span class="c1"># 8-&gt;sex  </span>
+    <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_semantic</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">8</span><span class="p">],</span> <span class="s1">&#39;sex&#39;</span><span class="p">))</span>
+    <span class="c1"># 9-&gt;capital-gain  </span>
+    <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">9</span><span class="p">])))</span>
+    <span class="c1">#10-&gt;capital-loss </span>
+    <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">10</span><span class="p">])))</span>
+    <span class="c1">#11-&gt;hours-per-week </span>
+    <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">11</span><span class="p">])))</span>
+    <span class="c1">#12-&gt;native-country  </span>
+    <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_semantic</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">12</span><span class="p">],</span> <span class="s1">&#39;native-country&#39;</span><span class="p">))</span>
+    
+    <span class="k">return</span> <span class="n">d</span>
+    
+<span class="k">def</span><span class="w"> </span><span class="nf">mean_semantic</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">attribute_name</span><span class="p">):</span>
+    <span class="n">candidates</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">distances</span><span class="p">[</span><span class="n">attribute_name</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">values</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">([</span><span class="nb">sum</span><span class="p">([</span><span class="n">distances</span><span class="p">[</span><span class="n">attribute_name</span><span class="p">][</span><span class="n">c</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">])</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">])]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">dist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>
+    <span class="c1">#return scipy.spatial.distance.correlation(x,y)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">poprow</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">new_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">arr</span><span class="p">[:</span><span class="n">i</span><span class="p">],</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]))</span>
+    <span class="k">return</span> <span class="n">new_array</span><span class="p">,</span><span class="n">pop</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cluster</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">]</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">X</span><span class="p">,[</span><span class="n">dist_record</span><span class="p">(</span><span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">p</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]))</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">D</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">argsort</span><span class="p">()]</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">D</span><span class="p">[:</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span>
+    
+    <span class="n">xc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">p</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">c</span><span class="p">],</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">yc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">p</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">c</span><span class="p">],</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">cl</span> <span class="o">=</span> <span class="p">(</span><span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">D</span><span class="p">,</span> <span class="n">cl</span>
+    
+<span class="k">def</span><span class="w"> </span><span class="nf">mdav</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+    <span class="n">clusters</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">D</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="o">*</span><span class="n">k</span><span class="p">:</span>
+        <span class="c1"># Centroid</span>
+        <span class="n">xm</span> <span class="o">=</span> <span class="n">mean_record</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+        <span class="c1"># Furthest from centroid</span>
+        <span class="n">xri</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">([</span><span class="n">dist_record</span><span class="p">(</span><span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">xm</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">D</span><span class="p">])</span>
+        <span class="n">D</span><span class="p">,</span> <span class="n">xr</span> <span class="o">=</span> <span class="n">poprow</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xri</span><span class="p">)</span>
+        <span class="c1"># Furthest from furthest from centroid</span>
+        <span class="n">xsi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">([</span><span class="n">dist_record</span><span class="p">(</span><span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">xr</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">D</span><span class="p">])</span>
+        <span class="n">D</span><span class="p">,</span> <span class="n">xs</span> <span class="o">=</span> <span class="n">poprow</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xsi</span><span class="p">)</span> 
+
+        <span class="c1">#cluster of xr</span>
+        <span class="n">D</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">cluster</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xr</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+        <span class="n">clusters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="c1">#cluster of xs</span>
+        <span class="n">D</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">cluster</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+        <span class="n">clusters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">D</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="o">*</span><span class="n">k</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">D</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">*</span><span class="n">k</span><span class="p">:</span>
+        <span class="c1"># Centroid</span>
+        <span class="n">xm</span> <span class="o">=</span> <span class="n">mean_record</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+        <span class="c1"># Furthest from centroid</span>
+        <span class="n">xri</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">([</span><span class="n">dist_record</span><span class="p">(</span><span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">xm</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">D</span><span class="p">])</span>
+        <span class="n">D</span><span class="p">,</span> <span class="n">xr</span> <span class="o">=</span> <span class="n">poprow</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xri</span><span class="p">)</span>
+        <span class="c1">#cluster of xr</span>
+        <span class="n">D</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">cluster</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xr</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+        <span class="n">clusters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        
+        <span class="c1"># rest of points</span>
+        <span class="n">xc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">p</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">D</span><span class="p">[:]],</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">yc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">p</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">D</span><span class="p">[:]],</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">cl</span> <span class="o">=</span> <span class="p">(</span><span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">)</span>
+        <span class="n">clusters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cl</span><span class="p">)</span>     
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># rest of points</span>
+        <span class="n">xc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">p</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">D</span><span class="p">[:]],</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">yc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">p</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">D</span><span class="p">[:]],</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">cl</span> <span class="o">=</span> <span class="p">(</span><span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">)</span>
+        <span class="n">clusters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cl</span><span class="p">)</span>
+    
+    <span class="n">centroids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">mean_record</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">],</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">clusters</span><span class="p">,</span> <span class="n">centroids</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">tree</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">gen_explanations</span><span class="p">(</span><span class="n">clustering</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">explanations</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">clustering</span><span class="p">:</span>
+        <span class="c1"># Testing with max depth</span>
+        <span class="k">if</span> <span class="n">max_depth</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">exp</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">exp</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="n">max_depth</span><span class="p">)</span>
+        <span class="n">exp</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">cluster</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="n">cluster</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">explanations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">exp</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="n">explanations</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">pre_explanations</span><span class="p">(</span><span class="n">explanations</span><span class="p">,</span> <span class="n">centroids</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
+        <span class="c1">#select the closest classifier</span>
+        <span class="n">exp</span> <span class="o">=</span> <span class="n">explanations</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">([</span><span class="n">dist_record</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">centroids</span><span class="p">])]</span>
+        <span class="c1">#exp_pred = exp.predict([sample])</span>
+        <span class="n">exp_pred</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">sample</span><span class="p">]))</span>
+        <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">exp_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">predictions</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">pre_explanations_ext</span><span class="p">(</span><span class="n">explanations</span><span class="p">,</span> <span class="n">centroids</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">sample</span><span class="p">,</span> <span class="n">truth</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">T</span><span class="p">):</span>
+        <span class="c1">#select the 3 closest classifiers</span>
+        <span class="n">mins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dist_record</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">centroids</span><span class="p">])</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[:</span><span class="n">n</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mins</span><span class="p">:</span>
+            <span class="n">exp</span> <span class="o">=</span> <span class="n">explanations</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+            <span class="c1">#exp_pred = exp.predict([sample])</span>
+            <span class="n">exp_pred</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">sample</span><span class="p">]))</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">exp_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">truth</span><span class="p">):</span>
+                <span class="k">break</span>
+        <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">exp_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">predictions</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate clusters for different representativities</span>
+<span class="n">representativity</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]</span>
+<span class="n">K</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span><span class="o">*</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">representativity</span><span class="p">]</span>
+<span class="n">clusterings</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">centroids_of_clusterings</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K</span><span class="p">:</span>
+    <span class="n">clustering</span><span class="p">,</span> <span class="n">centroids</span> <span class="o">=</span> <span class="n">mdav</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+    <span class="n">clusterings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clustering</span><span class="p">)</span>
+    <span class="n">centroids_of_clusterings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">centroids</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">51</span><span class="o">-</span><span class="mi">02</span><span class="n">d16b87dfcf</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">centroids_of_clusterings</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">clustering</span><span class="p">,</span> <span class="n">centroids</span> <span class="o">=</span> <span class="n">mdav</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">clusterings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clustering</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">centroids_of_clusterings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">centroids</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-49-2c18c8804340&gt;</span> in <span class="ni">mdav</span><span class="nt">(X, y, k)</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span>     <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">D</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="o">*</span><span class="n">k</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span>         <span class="c1"># Centroid</span>
+<span class="ne">---&gt; </span><span class="mi">87</span>         <span class="n">xm</span> <span class="o">=</span> <span class="n">mean_record</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span>         <span class="c1"># Furthest from centroid</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="n">xri</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">([</span><span class="n">dist_record</span><span class="p">(</span><span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">xm</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">D</span><span class="p">])</span>
+
+<span class="nn">&lt;ipython-input-49-2c18c8804340&gt;</span> in <span class="ni">mean_record</span><span class="nt">(D)</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">11</span><span class="p">])))</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span>     <span class="c1">#12-&gt;native-country</span>
+<span class="ne">---&gt; </span><span class="mi">52</span>     <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_semantic</span><span class="p">(</span><span class="n">D</span><span class="p">[:,</span><span class="mi">12</span><span class="p">],</span> <span class="s1">&#39;native-country&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> 
+<span class="g g-Whitespace">     </span><span class="mi">54</span>     <span class="k">return</span> <span class="n">d</span>
+
+<span class="nn">&lt;ipython-input-49-2c18c8804340&gt;</span> in <span class="ni">mean_semantic</span><span class="nt">(values, attribute_name)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> 
+<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="k">def</span><span class="w"> </span><span class="nf">mean_semantic</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">attribute_name</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">57</span>     <span class="n">candidates</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">distances</span><span class="p">[</span><span class="n">attribute_name</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span>     <span class="k">return</span> <span class="n">values</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">([</span><span class="nb">sum</span><span class="p">([</span><span class="n">distances</span><span class="p">[</span><span class="n">attribute_name</span><span class="p">][</span><span class="n">c</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">])</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">])]</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span> 
+
+<span class="ne">KeyError</span>: &#39;native-country&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train explanations</span>
+<span class="n">clu_explanations</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">clustering</span> <span class="ow">in</span> <span class="n">clusterings</span><span class="p">:</span>
+    <span class="c1"># Test shallow trees depht=4</span>
+    <span class="n">explanations</span> <span class="o">=</span> <span class="n">gen_explanations</span><span class="p">(</span><span class="n">clustering</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">clu_explanations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">explanations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train blackbox model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neural_network</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLPClassifier</span>
+<span class="n">blackbox</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span>
+                     <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;sgd&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>  <span class="n">random_state</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span><span class="n">tol</span><span class="o">=</span><span class="mf">0.000000001</span><span class="p">)</span>
+<span class="n">blackbox</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">blackbox</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="n">y_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">19</span><span class="o">-</span><span class="mi">5</span><span class="n">de610052185</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">blackbox</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                      <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;sgd&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>  <span class="n">random_state</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span><span class="n">tol</span><span class="o">=</span><span class="mf">0.000000001</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">blackbox</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">display</span><span class="p">(</span><span class="n">blackbox</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="n">y_test</span><span class="p">))</span>
+
+<span class="nn">c:\users\alber\appdata\local\programs\python\python36\lib\site-packages\sklearn\neural_network\multilayer_perceptron.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y)</span>
+<span class="g g-Whitespace">    </span><span class="mi">975</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">976</span><span class="s2">         return self._fit(X, y, incremental=(self.warm_start and</span>
+<span class="ne">--&gt; </span><span class="mi">977</span><span class="s2">                                             hasattr(self, &quot;classes_&quot;)))</span>
+<span class="g g-Whitespace">    </span><span class="mi">978</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">979</span><span class="s2">     @property</span>
+
+<span class="nn">c:\users\alber\appdata\local\programs\python\python36\lib\site-packages\sklearn\neural_network\multilayer_perceptron.py</span> in <span class="ni">_fit</span><span class="nt">(self, X, y, incremental)</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span><span class="s2">                              hidden_layer_sizes)</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">324</span><span class="s2">         X, y = self._validate_input(X, y, incremental)</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span><span class="s2">         n_samples, n_features = X.shape</span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span><span class="s2"> </span>
+
+<span class="nn">c:\users\alber\appdata\local\programs\python\python36\lib\site-packages\sklearn\neural_network\multilayer_perceptron.py</span> in <span class="ni">_validate_input</span><span class="nt">(self, X, y, incremental)</span>
+<span class="g g-Whitespace">    </span><span class="mi">912</span><span class="s2">     def _validate_input(self, X, y, incremental):</span>
+<span class="g g-Whitespace">    </span><span class="mi">913</span><span class="s2">         X, y = check_X_y(X, y, accept_sparse=[&#39;csr&#39;, &#39;csc&#39;, &#39;coo&#39;],</span>
+<span class="ne">--&gt; </span><span class="mi">914</span><span class="s2">                          multi_output=True)</span>
+<span class="g g-Whitespace">    </span><span class="mi">915</span><span class="s2">         if y.ndim == 2 and y.shape[1] == 1:</span>
+<span class="g g-Whitespace">    </span><span class="mi">916</span><span class="s2">             y = column_or_1d(y, warn=True)</span>
+
+<span class="nn">c:\users\alber\appdata\local\programs\python\python36\lib\site-packages\sklearn\utils\validation.py</span> in <span class="ni">check_X_y</span><span class="nt">(X, y, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, multi_output, ensure_min_samples, ensure_min_features, y_numeric, warn_on_dtype, estimator)</span>
+<span class="g g-Whitespace">    </span><span class="mi">757</span><span class="s2">     if multi_output:</span>
+<span class="g g-Whitespace">    </span><span class="mi">758</span><span class="s2">         y = check_array(y, &#39;csr&#39;, force_all_finite=True, ensure_2d=False,</span>
+<span class="ne">--&gt; </span><span class="mi">759</span><span class="s2">                         dtype=None)</span>
+<span class="g g-Whitespace">    </span><span class="mi">760</span><span class="s2">     else:</span>
+<span class="g g-Whitespace">    </span><span class="mi">761</span><span class="s2">         y = column_or_1d(y, warn=True)</span>
+
+<span class="nn">c:\users\alber\appdata\local\programs\python\python36\lib\site-packages\sklearn\utils\validation.py</span> in <span class="ni">check_array</span><span class="nt">(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, warn_on_dtype, estimator)</span>
+<span class="g g-Whitespace">    </span><span class="mi">478</span><span class="s2">     # DataFrame), and store them. If not, store None.</span>
+<span class="g g-Whitespace">    </span><span class="mi">479</span><span class="s2">     dtypes_orig = None</span>
+<span class="ne">--&gt; </span><span class="mi">480</span><span class="s2">     if hasattr(array, &quot;dtypes&quot;) and len(array.dtypes):</span>
+<span class="g g-Whitespace">    </span><span class="mi">481</span><span class="s2">         dtypes_orig = np.array(array.dtypes)</span>
+<span class="g g-Whitespace">    </span><span class="mi">482</span><span class="s2"> </span>
+
+<span class="ne">TypeError</span>: object of type &#39;CategoricalDtype&#39; has no len()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train big tree</span>
+<span class="n">surrogate</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+<span class="n">surrogate</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">surrogate</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="n">y_test</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">surrogate</span><span class="o">.</span><span class="n">tree_</span><span class="o">.</span><span class="n">node_count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="n">bc2472e041fa</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Train big tree</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">surrogate</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">surrogate</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span><span class="n">y_train</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">display</span><span class="p">(</span><span class="n">surrogate</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="n">y_test</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">display</span><span class="p">(</span><span class="n">surrogate</span><span class="o">.</span><span class="n">tree_</span><span class="o">.</span><span class="n">node_count</span><span class="p">)</span>
+
+<span class="nn">c:\users\alber\appdata\local\programs\python\python36\lib\site-packages\sklearn\tree\tree.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, sample_weight, check_input, X_idx_sorted)</span>
+<span class="g g-Whitespace">    </span><span class="mi">799</span>             <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">800</span>             <span class="n">check_input</span><span class="o">=</span><span class="n">check_input</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">801</span>             <span class="n">X_idx_sorted</span><span class="o">=</span><span class="n">X_idx_sorted</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">802</span>         <span class="k">return</span> <span class="bp">self</span>
+<span class="g g-Whitespace">    </span><span class="mi">803</span> 
+
+<span class="nn">c:\users\alber\appdata\local\programs\python\python36\lib\site-packages\sklearn\tree\tree.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, sample_weight, check_input, X_idx_sorted)</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span>         <span class="k">if</span> <span class="n">check_input</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span>             <span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">DTYPE</span><span class="p">,</span> <span class="n">accept_sparse</span><span class="o">=</span><span class="s2">&quot;csc&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">117</span>             <span class="n">y</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">ensure_2d</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span>             <span class="k">if</span> <span class="n">issparse</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span>                 <span class="n">X</span><span class="o">.</span><span class="n">sort_indices</span><span class="p">()</span>
+
+<span class="nn">c:\users\alber\appdata\local\programs\python\python36\lib\site-packages\sklearn\utils\validation.py</span> in <span class="ni">check_array</span><span class="nt">(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, warn_on_dtype, estimator)</span>
+<span class="g g-Whitespace">    </span><span class="mi">478</span>     <span class="c1"># DataFrame), and store them. If not, store None.</span>
+<span class="g g-Whitespace">    </span><span class="mi">479</span>     <span class="n">dtypes_orig</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">--&gt; </span><span class="mi">480</span>     <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="s2">&quot;dtypes&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">dtypes</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">481</span>         <span class="n">dtypes_orig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">482</span> 
+
+<span class="ne">TypeError</span>: object of type &#39;CategoricalDtype&#39; has no len()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">truth</span> <span class="o">=</span> <span class="n">y_test</span>
+<span class="n">blackbox_predictions</span> <span class="o">=</span> <span class="n">blackbox</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+<span class="n">surrogate_predictions</span> <span class="o">=</span> <span class="n">surrogate</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+<span class="n">explanation_predictions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">explanation_ext_predictions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">clu_explanations</span><span class="p">)):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">pre_explanations</span><span class="p">(</span><span class="n">clu_explanations</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">centroids_of_clusterings</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">pre_explanations_ext</span><span class="p">(</span><span class="n">clu_explanations</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">centroids_of_clusterings</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="n">blackbox_predictions</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">explanation_predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">explanation_ext_predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># acc = TP+TN/all</span>
+<span class="n">acc_blackbox</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">t</span><span class="o">==</span><span class="n">p</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">truth</span><span class="p">,</span> <span class="n">blackbox_predictions</span><span class="p">)])</span>
+<span class="n">acc_surrogate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">t</span><span class="o">==</span><span class="n">p</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">truth</span><span class="p">,</span> <span class="n">surrogate_predictions</span><span class="p">)])</span>
+<span class="n">acc_explanations</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">explanation_predictions</span><span class="p">)):</span>
+    <span class="n">acc_explanations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">t</span><span class="o">==</span><span class="n">p</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">truth</span><span class="p">,</span> <span class="n">explanation_predictions</span><span class="p">[</span><span class="n">i</span><span class="p">])]))</span>
+    
+<span class="n">acc_explanations_ext</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">explanation_ext_predictions</span><span class="p">)):</span>
+    <span class="n">acc_explanations_ext</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">t</span><span class="o">==</span><span class="n">p</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">truth</span><span class="p">,</span> <span class="n">explanation_ext_predictions</span><span class="p">[</span><span class="n">i</span><span class="p">])]))</span>
+
+<span class="n">acc_cross</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">explanation_predictions</span><span class="p">)):</span>
+    <span class="n">acc_cross</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">t</span><span class="o">==</span><span class="n">p</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">blackbox_predictions</span><span class="p">,</span> <span class="n">explanation_predictions</span><span class="p">[</span><span class="n">i</span><span class="p">])]))</span>
+
+<span class="n">acc_cross_ext</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">explanation_predictions</span><span class="p">)):</span>
+    <span class="n">acc_cross_ext</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">t</span><span class="o">==</span><span class="n">p</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">blackbox_predictions</span><span class="p">,</span> <span class="n">explanation_ext_predictions</span><span class="p">[</span><span class="n">i</span><span class="p">])]))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">acc_blackbox</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">acc_explanations</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">acc_explanations_ext</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">acc_cross</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">acc_cross_ext</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">max_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">mean_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">median_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">n_counts</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">explanations</span> <span class="ow">in</span> <span class="n">clu_explanations</span><span class="p">:</span>
+    <span class="n">node_counts</span> <span class="o">=</span> <span class="p">[</span><span class="n">exp</span><span class="o">.</span><span class="n">tree_</span><span class="o">.</span><span class="n">node_count</span> <span class="k">for</span> <span class="n">exp</span> <span class="ow">in</span> <span class="n">explanations</span><span class="p">]</span>
+    <span class="n">n_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node_counts</span><span class="p">)</span>
+    <span class="n">min_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">node_counts</span><span class="p">))</span>
+    <span class="n">max_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">node_counts</span><span class="p">))</span>
+    <span class="n">mean_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">node_counts</span><span class="p">))</span>
+    <span class="n">median_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">node_counts</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_interp_spline</span><span class="p">,</span> <span class="n">BSpline</span>
+
+<span class="n">representativity</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="n">representativity</span> <span class="o">=</span> <span class="nb">list</span><span class="p">([</span><span class="n">r</span><span class="o">*</span><span class="mi">100</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">representativity</span><span class="p">])</span>
+
+<span class="n">xnew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">representativity</span><span class="p">),</span><span class="nb">max</span><span class="p">(</span><span class="n">representativity</span><span class="p">),</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">spl</span> <span class="o">=</span> <span class="n">make_interp_spline</span><span class="p">(</span><span class="n">representativity</span><span class="p">,</span> <span class="n">acc_explanations</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#BSpline object</span>
+<span class="n">ynew</span> <span class="o">=</span> <span class="n">spl</span><span class="p">(</span><span class="n">xnew</span><span class="p">)</span>
+
+<span class="n">spl</span> <span class="o">=</span> <span class="n">make_interp_spline</span><span class="p">(</span><span class="n">representativity</span><span class="p">,</span> <span class="n">acc_explanations_ext</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#BSpline object</span>
+<span class="n">ynew4</span> <span class="o">=</span> <span class="n">spl</span><span class="p">(</span><span class="n">xnew</span><span class="p">)</span>
+
+<span class="n">acc_blackbox_const</span> <span class="o">=</span> <span class="p">[</span><span class="n">acc_blackbox</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">representativity</span><span class="p">)</span>
+<span class="n">spl</span> <span class="o">=</span> <span class="n">make_interp_spline</span><span class="p">(</span><span class="n">representativity</span><span class="p">,</span> <span class="n">acc_blackbox_const</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#BSpline object</span>
+<span class="n">ynew2</span> <span class="o">=</span> <span class="n">spl</span><span class="p">(</span><span class="n">xnew</span><span class="p">)</span>
+
+<span class="n">big_tree</span> <span class="o">=</span> <span class="p">[</span><span class="n">acc_surrogate</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">representativity</span><span class="p">)</span>
+<span class="n">spl</span> <span class="o">=</span> <span class="n">make_interp_spline</span><span class="p">(</span><span class="n">representativity</span><span class="p">,</span> <span class="n">big_tree</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#BSpline object</span>
+<span class="n">ynew6</span> <span class="o">=</span> <span class="n">spl</span><span class="p">(</span><span class="n">xnew</span><span class="p">)</span>
+
+<span class="n">spl</span> <span class="o">=</span> <span class="n">make_interp_spline</span><span class="p">(</span><span class="n">representativity</span><span class="p">,</span> <span class="n">acc_cross</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#BSpline object</span>
+<span class="n">ynew3</span> <span class="o">=</span> <span class="n">spl</span><span class="p">(</span><span class="n">xnew</span><span class="p">)</span>
+
+<span class="n">spl</span> <span class="o">=</span> <span class="n">make_interp_spline</span><span class="p">(</span><span class="n">representativity</span><span class="p">,</span> <span class="n">acc_cross_ext</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#BSpline object</span>
+<span class="n">ynew5</span> <span class="o">=</span> <span class="n">spl</span><span class="p">(</span><span class="n">xnew</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xnew</span><span class="p">,</span><span class="n">ynew2</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;ANN&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xnew</span><span class="p">,</span><span class="n">ynew6</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Global DT&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xnew</span><span class="p">,</span><span class="n">ynew</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unguided DT&#39;</span><span class="p">)</span>
+<span class="c1">#plt.plot(xnew,ynew3, label=&#39;interpretable w.r.t. blackbox&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xnew</span><span class="p">,</span><span class="n">ynew4</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Guided DT&#39;</span><span class="p">)</span>
+
+<span class="c1">#plt.plot(xnew,ynew5, label=&#39;interpretable-guided w.r.t. blackbox&#39;)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handlelength</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">% o</span><span class="s1">f records per cluster&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;classification accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="c1">##plt.plot(xnew,ynew2, label=&#39;blackbox&#39;)</span>
+<span class="c1">##plt.plot(xnew,ynew, label=&#39;interpretable&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xnew</span><span class="p">,</span><span class="n">ynew3</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unguided DT w.r.t. ANN predictions&#39;</span><span class="p">)</span>
+<span class="c1">##plt.plot(xnew,ynew4, label=&#39;interpretable-guided&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xnew</span><span class="p">,</span><span class="n">ynew5</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Guided DT w.r.t. ANN predictions&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">% o</span><span class="s1">f records per cluster&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;classification accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xnew</span><span class="p">,</span><span class="n">make_interp_spline</span><span class="p">(</span><span class="n">representativity</span><span class="p">,</span> <span class="n">min_nodes</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)(</span><span class="n">xnew</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;min&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xnew</span><span class="p">,</span><span class="n">make_interp_spline</span><span class="p">(</span><span class="n">representativity</span><span class="p">,</span> <span class="n">max_nodes</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)(</span><span class="n">xnew</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xnew</span><span class="p">,</span><span class="n">make_interp_spline</span><span class="p">(</span><span class="n">representativity</span><span class="p">,</span> <span class="n">mean_nodes</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)(</span><span class="n">xnew</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xnew</span><span class="p">,</span><span class="n">make_interp_spline</span><span class="p">(</span><span class="n">representativity</span><span class="p">,</span> <span class="n">median_nodes</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)(</span><span class="n">xnew</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">n_counts</span><span class="p">)</span>
+<span class="n">locs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="n">representativity</span><span class="p">)</span>
+<span class="c1">#plt.yscale(&#39;log&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">% o</span><span class="s1">f records per cluster&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;number of nodes&#39;</span><span class="p">)</span>
+<span class="c1">#plt.ylabel(&#39;number of nodes (log scale)&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.externals.six</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringIO</span>  
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>  
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">export_graphviz</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pydotplus</span>
+
+<span class="k">for</span> <span class="n">clu_explanation</span> <span class="ow">in</span> <span class="n">clu_explanations</span><span class="p">:</span>
+    <span class="n">dot_data</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+    <span class="n">export_graphviz</span><span class="p">(</span><span class="n">clu_explanation</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">out_file</span><span class="o">=</span><span class="n">dot_data</span><span class="p">,</span>  
+                    <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">special_characters</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">pydotplus</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dot_data</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>  
+    <span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">create_png</span><span class="p">()))</span>
+
+    
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Alberto Blanco-Justicia
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
