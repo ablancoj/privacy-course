@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Welcome to your Jupyter Book &#8212; Privacy Book</title>
+    <title>Anonymization library &#8212; Privacy Book</title>
   
   
   
@@ -57,12 +57,11 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'anonymization-library';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction and GDPR" href="intro-gdpr.html" />
+    <link rel="next" title="Anonymization examples" href="notebooks/test_anonymization.html" />
+    <link rel="prev" title="Privacy in machine learning" href="privacy-ml.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -125,8 +124,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -145,7 +142,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -176,20 +173,20 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Welcome to your Jupyter Book
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro-gdpr.html">Introduction and GDPR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="privacy-by-design.html">Privacy by design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pets.html">Privacy enhancing techniques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="databases.html">Privacy in databases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unstructured.html">Privacy in unstructured data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="privacy-ml.html">Privacy in machine learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="anonymization-library.html">Anonymization library</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Anonymization library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/test_anonymization.html">Anonymization examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/LipariSC_MIA.html">Salem paper attacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html">Federated Learning and Label Flipping attacks</a></li>
@@ -273,7 +270,7 @@
       
       
       
-      <li><a href="https://github.com/ablancoj/privacy-course/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ablancoj/privacy-course/issues/new?title=Issue%20on%20page%20%2Fanonymization-library.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -303,7 +300,7 @@
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/anonymization-library.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -387,7 +384,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome to your Jupyter Book</h1>
+    <h1>Anonymization library</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -397,7 +394,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-from-cybercamp">Intro from cybercamp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-parameters">Configuration parameters</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -409,125 +409,121 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-your-jupyter-book">
-<h1>Welcome to your Jupyter Book<a class="headerlink" href="#welcome-to-your-jupyter-book" title="Link to this heading">#</a></h1>
-<p>This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> for more information.</p>
-<p>Check out the content pages bundled with this sample book to see more.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="intro-gdpr.html">Introduction and GDPR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="privacy-by-design.html">Privacy by design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pets.html">Privacy enhancing techniques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="databases.html">Privacy in databases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="unstructured.html">Privacy in unstructured data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="privacy-ml.html">Privacy in machine learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="anonymization-library.html">Anonymization library</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/test_anonymization.html">Anonymization examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/LipariSC_MIA.html">Salem paper attacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html">Federated Learning and Label Flipping attacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html#testing-a-centralized-model">Testing a centralized model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html#auxiliary-methods-for-federated-learning">Auxiliary methods for federated learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html#auxiliary-methods-for-attackers">Auxiliary methods for attackers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html#local-training">Local training</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html#fl-testbed">FL Testbed</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/unlearning-CIFAR10.html">NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/unlearning-CIFAR10.html#download-dataset-and-pre-trained-model">💾 Download dataset and pre-trained model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/unlearning-CIFAR10.html#unlearning-algorithm">🎯 Unlearning Algorithm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/unlearning-CIFAR10.html#evaluation">🏅 Evaluation</a></li>
+  <section class="tex2jax_ignore mathjax_ignore" id="anonymization-library">
+<h1>Anonymization library<a class="headerlink" href="#anonymization-library" title="Link to this heading">#</a></h1>
+<p>The availability of individual data is crucial for researchers; yet, legal frameworks such as the recent EU GDPR state that personally identifiable information cannot be released unless
+it is subjected to anonymization; which prevents the identities of subjects from being associated with the released data, while preserving utility as much as possible.
+The members of the Universitat Rovira I Virgili (URV) have developed and implement a python library for the properly anonymization of data to be published.
+The anonymization models currently implemented in the library are: k-anonymity, t-closeness and differential privacy. The anonymization algorithms currently implemented in the library are:
+MDAV, Microaggregation and Individual Ranking.</p>
+<p>The correct use of the implemented libraries for the anonymization of data needs a previous training by the user.
+The user needs to know how to apply the methods and algorithms offered by the libraries, how to apply it to different data types, understand and know how to apply the privacy parameters required by the methods
+and how to calculate metrics to evaluate the utility and privacy of the anonymized data.
+To this end, the URV members intend to develop and make available training resources consisting of a jupyter notebook for the anonymization library which will show step by step how to properly
+anonymize a data set, how to indicate the required privacy parameters and how to evaluate the resulting data.</p>
+<p>In the next chapter, we have included the training notebook which will offer, in a didactic way, the experience of properly anonymize data sets and how affect the selection of the parameters applied
+in the methods to the utility and privacy of the resulting data.
+This training notebook will be public available as Jupyter notebook that will be able for downloaded to be executed locally.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
+<p>The input dataset is a CSV formatted file where each row corresponds to a record and each column corresponds to an attribute.
+Within the CSV file, a first line (header) stating the name of the attributes is required in order to map the attributes to features in the configuration file.
+The software does not currently support missing data points. Hence, preprocessing would be needed to either remove records with missing values or replace missing values by averages.</p>
+<p>The dataset configuration parameters are specified in an XML file, so that they can be reused for several datasets that share the same schema (see Dataset description section).</p>
+<section id="configuration-parameters">
+<h3>Configuration parameters<a class="headerlink" href="#configuration-parameters" title="Link to this heading">#</a></h3>
+<p>The parameters needed to configure the anonymization system are stored in an XML file.
+This xml file stores parameters necessary to the configuration of the different parts of the anonymization system, so that the system can support
+different attribute types.
+This notes describe how to fill this xml file in order to properly configure
+the anonymization process and how to configure different attribute types.</p>
+<p>In this xml file it is described the dataset to be anonymized. Datasets to
+be anonymized are persistent in disk and they are loaded from standard CSV
+files. The protected dataset are also stored in CSV format.
+Specifically, the CSV format consist of a file where the first row
+correspond to the header and each successive row correspond to a data record.
+Each record consist of one or more attribute values separated by commas.
+The header of the CSV file consist of the name of the attributes also
+separated by commas.</p>
+<p>The description of the dataset consist of the relation of the attributes
+in the dataset and, for each attribute, its name, its sensitivity type and
+its attribute type. Following, each parameter is described.
+name: This parameter indicates the name of the attribute to be configured.
+The attribute name has to match with the attribute name in the header of
+the dataset.</p>
+<p>sensitivity_type: indicates the sensitivity of the attribute. The possible
+sensitivity_type values are:</p>
+<ul class="simple">
+<li><p>identifier: the attribute unambiguously identifies the subject</p></li>
+<li><p>quasi_identifier: the attribute can identify the subject if it is combined with information of other attributes</p></li>
+<li><p>confidential: the attributes that contain sensitive information</p></li>
+<li><p>non_confidential: the rest of attributes</p></li>
 </ul>
-</div>
-<section id="intro-from-cybercamp">
-<h2>Intro from cybercamp<a class="headerlink" href="#intro-from-cybercamp" title="Link to this heading">#</a></h2>
-<p>«Ante todo no hagas daño»
-La filtración de datos personales puede atentar contra los derechos fundamentales de las personas, además de causar otros riesgos</p>
-<ul>
-<li><p>Seguridad</p></li>
-<li><p>Discriminación</p></li>
-<li><p>Autonomía</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Derecho a ser dejado en paz.
-</pre></div>
-</div>
-</li>
+<p>attribute_type: As it name indicates, This parameter inform about the data type
+of the attribute. The current supported attribute type values are:</p>
+<ul class="simple">
+<li><p>numerical_discrete: natural numbers</p></li>
+<li><p>numerical_continuous: decimal numbers</p></li>
+<li><p>date: date in format dd/mm/yyyy</p></li>
+<li><p>plain_categorical: textual values</p></li>
+<li><p>semantic_categorical_wordnet: semantic nominal values</p></li>
+<li><p>coordinate: coordinate location, format: (lat, lon), [lat, lon] or “lat:lon”</p></li>
+<li><p>datetime: date and time in format: yyyy-mm-dd hh:mm:ss</p></li>
 </ul>
-<p>The Right to Privacy” – Warren II y Brandeis, 1890</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    Nadie será objeto de injerencias arbitrarias en su vida privada, su familia, su domicilio o su correspondencia, ni de ataques a su honra o a su reputación. Toda persona tiene derecho a la protección de la ley contra tales injerencias o ataques.
+<p>Optionally, it can be indicated the min and max values of the attribute domain, when they are known
+for example min=0, max=100 for age. If these values are not indicated, the domain boundary will be calculated
+in function of the input data of the attribute.</p>
+<p>An example of attribute description in XML is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">schema</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">attribute</span>
+		<span class="n">name</span><span class="o">=</span><span class="s2">&quot;date&quot;</span>
+		<span class="n">sensitivity_type</span><span class="o">=</span><span class="s2">&quot;quasi_identifier&quot;</span>
+		<span class="n">attribute_type</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="o">&gt;</span>
+	<span class="o">&lt;/</span><span class="n">attribute</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">attribute</span>
+		<span class="n">name</span><span class="o">=</span><span class="s2">&quot;occupation&quot;</span>
+		<span class="n">sensitivity_type</span><span class="o">=</span><span class="s2">&quot;quasi_identifier&quot;</span>
+		<span class="n">attribute_type</span><span class="o">=</span><span class="s2">&quot;plain_categorical&quot;</span><span class="o">&gt;</span>
+	<span class="o">&lt;/</span><span class="n">attribute</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">attribute</span>
+		<span class="n">name</span><span class="o">=</span><span class="s2">&quot;native-country&quot;</span>
+		<span class="n">sensitivity_type</span><span class="o">=</span><span class="s2">&quot;quasi_identifier&quot;</span>
+		<span class="n">attribute_type</span><span class="o">=</span><span class="s2">&quot;semantic_categorical_wordnet&quot;</span><span class="o">&gt;</span>
+	<span class="o">&lt;/</span><span class="n">attribute</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">attribute</span>
+		<span class="n">name</span><span class="o">=</span><span class="s2">&quot;age&quot;</span>
+		<span class="n">sensitivity_type</span><span class="o">=</span><span class="s2">&quot;quasi_identifier&quot;</span>
+		<span class="n">attribute_type</span><span class="o">=</span><span class="s2">&quot;numerical_continuous&quot;</span>
+		<span class="n">min_value</span><span class="o">=</span><span class="s2">&quot;0&quot;</span>
+		<span class="n">max_value</span><span class="o">=</span><span class="s2">&quot;100&quot;</span><span class="o">&gt;</span>
+	<span class="o">&lt;/</span><span class="n">attribute</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">attribute</span>
+		<span class="n">name</span><span class="o">=</span><span class="s2">&quot;hours-per-week&quot;</span>
+		<span class="n">sensitivity_type</span><span class="o">=</span><span class="s2">&quot;quasi_identifier&quot;</span>
+		<span class="n">attribute_type</span><span class="o">=</span><span class="s2">&quot;numerical_discrete&quot;</span>
+		<span class="n">min_value</span><span class="o">=</span><span class="s2">&quot;1&quot;</span>
+		<span class="n">max_value</span><span class="o">=</span><span class="s2">&quot;99&quot;</span><span class="o">&gt;</span>
+	<span class="o">&lt;/</span><span class="n">attribute</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">attribute</span>
+		<span class="n">name</span><span class="o">=</span><span class="s2">&quot;income&quot;</span>
+		<span class="n">sensitivity_type</span><span class="o">=</span><span class="s2">&quot;confidential&quot;</span>
+		<span class="n">attribute_type</span><span class="o">=</span><span class="s2">&quot;numerical_discrete&quot;</span>
+		<span class="n">min_value</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="o">&gt;</span>
+	<span class="o">&lt;/</span><span class="n">attribute</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">attribute</span>
+		<span class="n">name</span><span class="o">=</span><span class="s2">&quot;location&quot;</span>
+		<span class="n">sensitivity_type</span><span class="o">=</span><span class="s2">&quot;quasi_identifier&quot;</span>
+		<span class="n">attribute_type</span><span class="o">=</span><span class="s2">&quot;coordinate&quot;</span><span class="o">&gt;</span>
+	<span class="o">&lt;/</span><span class="n">attribute</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">attribute</span>
+		<span class="n">name</span><span class="o">=</span><span class="s2">&quot;datetime&quot;</span>
+		<span class="n">sensitivity_type</span><span class="o">=</span><span class="s2">&quot;quasi_identifier&quot;</span>
+		<span class="n">attribute_type</span><span class="o">=</span><span class="s2">&quot;datetime&quot;</span><span class="o">&gt;</span>
+	<span class="o">&lt;/</span><span class="n">attribute</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">schema</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Artículo 12, Declaración universal de los Derechos Humanos, 1948</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    “Toda persona tiene derecho al respeto de su vida privada y familiar, de su domicilio y de sus comunicaciones.”
-</pre></div>
-</div>
-<p>Artículo 7, Carta de los Derechos Fundamentales de la Unión Europea, 2000</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    Toda persona tiene derecho a la protección de los datos de carácter personal que la conciernan. 
-    Estos datos se tratarán de modo leal, para fines concretos y sobre la base del consentimiento de la persona afectada o en virtud de otro fundamento legítimo previsto por la ley. Toda persona tiene derecho a acceder a los datos recogidos que la conciernan y a su rectificación. 
-    El respeto de estas normas quedará sujeto al control de una autoridad independiente.
-</pre></div>
-</div>
-<p>Artículo 8, Carta de los Derechos Fundamentales de la Unión Europea, 2000</p>
-<p>PRISM es un programa secreto de la NSA que fue revelado por Snowden. A través de PRISM, la NSA obtenía acceso a los servidores de compañías tecnológicas estadounidenses, como Google, Facebook, Apple, Microsoft, Yahoo!, entre otras.
-PRISM estaba diseñado para monitorear las actividades de personas consideradas “amenazas” o “sospechosas”, pero la magnitud de la recolección de datos era mucho mayor, ya que afectaba a millones de personas alrededor del mundo.
-El programa UPSTREAM permitía a la NSA recopilar información de los routers en buena parte del mundo.
-Xkeyscore era una interfaz que permitía el acceso a los datos privados recolectados a partir de algún identificador.</p>
-<p>Cambridge Analytica obtuvo datos de 87 millones de usuarios de Facebook sin su consentimiento.
-Los datos fueron usados para crear perfiles psicológicos y influir en elecciones, como las de EE. UU. en 2016.
-El caso reveló cómo los datos personales pueden ser explotados para manipular la opinión pública.
-Facebook fue multado con 5 mil millones de dólares y el caso impulsó la creación de regulaciones de privacidad, como el RGPD.</p>
-<p>Vigilancia masiva
-Perfilado y recomendaciones
-Seguimiento en línea (tracking)
-Dispositivos inteligentes (smartphones e IoT)
-Recolección excesiva de datos
-Redes sociales y sobreexposición
-Compartición, venta y publicación de datos
-Brechas de datos</p>
-<p>La información personal recogida puede ser utilizada para crear perfiles de usuario.
-Identificadores, actividad en la red, fotografías, localización, contactos, likes, clicks, mensajes, pagos…
-Uniendo, enlazando y analizando estos datos se nos pueden sugerir productos, nuevos contactos, viajes, películas, etc.
-Las cookies y el browser fingerprinting son herramientas comunes para este fin.</p>
-<p><img alt="alt text" src="pers_concept.png" /></p>
-<p><img alt="alt text" src="internet.png" /></p>
-<p><img alt="alt text" src="http.png" /></p>
-<p>Las cookies son pequeños archivos de texto que se almacenan en el dispositivo del usuario cuando visita un sitio web.
-Las cookies se utilizan para almacenar preferencias, como el idioma del sitio, información de inicio de sesión, o elementos en un carrito de compras.
-Existen diferentes tipos de cookies:
-Cookies de sesión: Se eliminan cuando se cierra el navegador.
-Cookies persistentes: Permiten recordar al usuario entre sesiones.
-Cookies de terceros: Son colocadas por servicios externos para seguir la actividad del usuario en diferentes sitios web.</p>
-<p>El fingerprinting permite generar identificadores únicos a partir de la combinación de características del dispositivo del usuario, el sistema operativo, el buscador, configuraciones, etc.
-Cabeceras HTML
-User-agent
-Accept
-Content encoding
-Content language
-Atributos Javascript
-Canvas
-Plugins
-Configuración pantalla
-WebGL
-Atributos dispositivo</p>
-<p><img alt="alt text" src="fingerprinting.png" /></p>
-<p>Los permisos otorgados a las aplicaciones móviles pueden suponer amenazas para la seguridad y privacidad.
-Algunos permisos requieren la aceptación explícita de los usuarios.</p>
-<p>Los dispositivos IoT pueden registrar datos de uso y compartirlos con el fabricante.
-Asistentes, Smart TV, neveras, lavadoras, aspiradoras inteligentes, cámaras, etc.</p>
-<p>Peticiones de registro excesivas.
-Formularios de registro con campos innecesarios.
-Recolección de actividad no justificada.
-Uso de dispositivos o aplicaciones.
-Posicionamiento GPS en LBS.
-Encuestas, puntuaciones, interacciones.</p>
-<p>Los datos publicados pueden ser explotados: un perfil público puede permitir acoso, robo de identidad o ingeniería social.<br />
-Geolocalización automática en fotos, etiquetar ubicaciones de casa/trabajo, o desafíos virales que piden datos personales.
-Revelación de información de conducta que puede ayudar a criminales.
-Hoy podemos utilizar la IA para suplantar la identidad, incluidas fotografías, vídeos y voz, lo que puede suponer riesgos adicionales de seguridad.</p>
-<p>Es habitual que empresas compartan datos privados de sus clientes. Estas comparticiones se suelen hacer al amparo de acuerdos de confidencialidad.
-Otros datos, especialmente de agencias estadísticas, pueden ser compartidos a terceros con fines de investigación.
-Los data brokers se dedican a recolectar y vender datos personales.
-Una protección incorrecta podría llevar a la revelación de datos personales.</p>
-<p>Incluso si somos cuidadosos, las empresas que almacenan nuestros datos pueden sufrir filtraciones masivas.</p>
+</section>
 </section>
 </section>
 
@@ -561,12 +557,21 @@ Una protección incorrecta podría llevar a la revelación de datos personales.<
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="privacy-ml.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Privacy in machine learning</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="intro-gdpr.html"
+       href="notebooks/test_anonymization.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction and GDPR</p>
+        <p class="prev-next-title">Anonymization examples</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -586,7 +591,10 @@ Una protección incorrecta podría llevar a la revelación de datos personales.<
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-from-cybercamp">Intro from cybercamp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-parameters">Configuration parameters</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

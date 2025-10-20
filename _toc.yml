@@ -13,6 +13,7 @@ chapters:
 - file: databases
 - file: unstructured
 - file: privacy-ml
+- file: anonymization-library
 - file: notebooks/test_anonymization
 - file: notebooks/LipariSC_MIA
 - file: notebooks/FederatedLearning-sklearn
