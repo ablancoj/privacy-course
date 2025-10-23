@@ -183,21 +183,26 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro-gdpr.html">Introduction and GDPR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../privacy-by-design.html">Privacy by design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pets.html">Privacy enhancing techniques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../databases.html">Privacy in databases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../databases.html">Privacy in databases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../anonymization-library.html">Anonymization library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_anonymization.html">Anonymization examples</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../unstructured.html">Privacy in unstructured data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../privacy-ml.html">Privacy in machine learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="test_anonymization.html">Anonymization examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LipariSC_MIA.html">Salem paper attacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="FederatedLearning-sklearn.html">Federated Learning and Label Flipping attacks</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../privacy-ml.html">Privacy in machine learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="LipariSC_MIA.html">Salem paper attacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FederatedLearning-sklearn.html">Federated Learning and Label Flipping attacks</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="unlearning-CIFAR10.html">NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unlearning-CIFAR10.html">NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
 
 
 
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -555,9 +560,7 @@ Iteration 3, loss = 0.46741564
 Iteration 4, loss = 0.19380862
 Iteration 5, loss = 0.10870246
 Iteration 6, loss = 0.07028708
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 7, loss = 0.04788035
+Iteration 7, loss = 0.04788035
 Iteration 8, loss = 0.03654097
 Iteration 9, loss = 0.02957836
 Iteration 10, loss = 0.02520208
@@ -1059,22 +1062,22 @@ Methodology. The adversary’s methodology can be organized into three stages, i
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1, loss = 5.13301590
-Iteration 2, loss = 1.62415655
-Iteration 3, loss = 0.39707110
-Iteration 4, loss = 0.09868894
-Iteration 5, loss = 0.04997038
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 6, loss = 0.03069712
-Iteration 7, loss = 0.02252014
-Iteration 8, loss = 0.01827286
-Iteration 9, loss = 0.01572256
-Iteration 10, loss = 0.01382853
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1, loss = 4.84343588
+Iteration 2, loss = 1.35854187
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:691: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (10) reached and the optimization hasn&#39;t converged yet.
   warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 3, loss = 0.35359554
+Iteration 4, loss = 0.09424468
+Iteration 5, loss = 0.04027003
+Iteration 6, loss = 0.02521854
+Iteration 7, loss = 0.01857377
+Iteration 8, loss = 0.01509374
+Iteration 9, loss = 0.01291199
+Iteration 10, loss = 0.01149455
 </pre></div>
 </div>
 <div class="output text_html"><style>#sk-container-id-2 {
@@ -1971,15 +1974,15 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-   nonmember     0.9062    0.8120    0.8565       250
-      member     0.8297    0.9160    0.8707       250
+   nonmember     0.9071    0.8200    0.8613       250
+      member     0.8358    0.9160    0.8740       250
 
-    accuracy                         0.8640       500
-   macro avg     0.8680    0.8640    0.8636       500
-weighted avg     0.8680    0.8640    0.8636       500
+    accuracy                         0.8680       500
+   macro avg     0.8714    0.8680    0.8677       500
+weighted avg     0.8714    0.8680    0.8677       500
 </pre></div>
 </div>
-<img alt="../_images/8ff51e9d30fc1c6e00ec1e80a3941f517243f1581fd22f43bea68fde02368876.png" src="../_images/8ff51e9d30fc1c6e00ec1e80a3941f517243f1581fd22f43bea68fde02368876.png" />
+<img alt="../_images/bd53c893eb0231c94c5f684a75ffb7b6d747c70128fb193766eacc116af1b37e.png" src="../_images/bd53c893eb0231c94c5f684a75ffb7b6d747c70128fb193766eacc116af1b37e.png" />
 </div>
 </div>
 </section>
@@ -2037,20 +2040,18 @@ posteriors are used for the attack model, we can also neglect the effect brought
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1, loss = 4.36473451
-Iteration 2, loss = 0.92798142
-Iteration 3, loss = 0.25842257
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1, loss = 4.37908864
+Iteration 2, loss = 0.98883963
+Iteration 3, loss = 0.26197833
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 4, loss = 0.09222720
-Iteration 5, loss = 0.05557827
-Iteration 6, loss = 0.03980331
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 7, loss = 0.03152651
-Iteration 8, loss = 0.02620277
-Iteration 9, loss = 0.02251135
-Iteration 10, loss = 0.01957006
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 4, loss = 0.10405672
+Iteration 5, loss = 0.06093404
+Iteration 6, loss = 0.04313422
+Iteration 7, loss = 0.03340844
+Iteration 8, loss = 0.02719184
+Iteration 9, loss = 0.02322072
+Iteration 10, loss = 0.02032538
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:691: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (10) reached and the optimization hasn&#39;t converged yet.
@@ -2944,15 +2945,15 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-   nonmember     0.9565    0.7920    0.8665       250
-      member     0.8225    0.9640    0.8877       250
+   nonmember     0.9144    0.8120    0.8602       250
+      member     0.8309    0.9240    0.8750       250
 
-    accuracy                         0.8780       500
-   macro avg     0.8895    0.8780    0.8771       500
-weighted avg     0.8895    0.8780    0.8771       500
+    accuracy                         0.8680       500
+   macro avg     0.8727    0.8680    0.8676       500
+weighted avg     0.8727    0.8680    0.8676       500
 </pre></div>
 </div>
-<img alt="../_images/0b8440d890739164f00452bdf2440a3fdb60eaaf9c5c6b6b83adf4fab79541ab.png" src="../_images/0b8440d890739164f00452bdf2440a3fdb60eaaf9c5c6b6b83adf4fab79541ab.png" />
+<img alt="../_images/e306892bcf17ca26c5fd2dcc13f267e3a9b7926a2335f061c02dbc389de9efdd.png" src="../_images/e306892bcf17ca26c5fd2dcc13f267e3a9b7926a2335f061c02dbc389de9efdd.png" />
 </div>
 </div>
 </section>

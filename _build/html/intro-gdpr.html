@@ -183,21 +183,26 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction and GDPR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="privacy-by-design.html">Privacy by design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pets.html">Privacy enhancing techniques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="databases.html">Privacy in databases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="databases.html">Privacy in databases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="anonymization-library.html">Anonymization library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/test_anonymization.html">Anonymization examples</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="unstructured.html">Privacy in unstructured data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="privacy-ml.html">Privacy in machine learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/test_anonymization.html">Anonymization examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/LipariSC_MIA.html">Salem paper attacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html">Federated Learning and Label Flipping attacks</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="privacy-ml.html">Privacy in machine learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/LipariSC_MIA.html">Salem paper attacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html">Federated Learning and Label Flipping attacks</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="notebooks/unlearning-CIFAR10.html">NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/unlearning-CIFAR10.html">NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
 
 
 
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -453,9 +458,46 @@ document.write(`
 </section>
 <section id="personal-data">
 <h2>Personal data<a class="headerlink" href="#personal-data" title="Link to this heading">#</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Barack Hussein Obama II (born en Hawaii on August 4th 1961) es an american lawyer and politician who served as the 44nd President of the United States, from January 20th 2009 until January 20th 2017. He is a member of the Democratic Party, and was the first african-american to serve as President. Previously, he had been a Senator for the State of Illinois.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-3 docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Direct identifiers</div>
+<p class="sd-card-text">Attributes that uniquely identify a data subject, such as their name or social security number.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Inderict identifiers</div>
+<p class="sd-card-text">Attributes that, when combined, can uniquely identify a daata subject, such as age, gender, and address.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Sensitive information</div>
+<p class="sd-card-text">Attributes that reveal especially protected information about the data subject, such as a medical diagnosis, sexual orientation, or religious beliefs.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Example</p>
+<p><span style="background-color:black">Barack Hussein Obama II</span> (born in <span style="background-color:black">Hawaii</span> on <span style="background-color:black">August 4th 1961</span>) is an <span style="background-color:black">american</span> lawyer and politician who served as the <span style="background-color:black">44nd</span> President <span style="background-color:black">of the United States</span>, from January 20th <span style="background-color:black">2009</span> until January 20th <span style="background-color:black">2017</span>. He is a member of the <span style="background-color:black">Democratic</span> Party, and was <span style="background-color:black">the first African American to serve as</span> President. Previously, he had been a Senator for the State of <span style="background-color:black">Illinois</span>.</p>
+</div>
+<div class="note toggle admonition">
+<p class="admonition-title">Example</p>
+<p><span style="background-color:black">Barack Hussein Obama II</span> (born in <span style="background-color:black">Hawaii</span> on <span style="background-color:black">August 4th 1961</span>) is an american lawyer and politician who served as the <span style="background-color:black">44nd</span> President of the United States, from January 20th <span style="background-color:black">2009</span> until January 20th <span style="background-color:black">2017</span>. He is a member of the Democratic Party, and was <span style="background-color:black">the first African American to serve as</span> President. Previously, he had been a Senator for the State of Illinois.</p>
+</div>
+<div class="note toggle admonition">
+<p class="admonition-title">Example</p>
+<p><span style="background-color:black">Barack Hussein Obama II</span> (born in Hawaii on August 4th 1961) is an american lawyer and politician who served as the 44nd President of the United States, from January 20th 2009 until January 20th 2017. He is a member of the Democratic Party, and was the first African American to serve as President. Previously, he had been a Senator for the State of Illinois.</p>
+</div>
+<div class="note toggle admonition">
+<p class="admonition-title">Example</p>
+<p>Barack Hussein Obama II (born in Hawaii on August 4th 1961) is an american lawyer and politician who served as the 44nd President of the United States, from January 20th 2009 until January 20th 2017. He is a member of the Democratic Party, and was the first African American to serve as President. Previously, he had been a Senator for the State of Illinois.</p>
 </div>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>

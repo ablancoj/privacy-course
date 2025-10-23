@@ -11,11 +11,13 @@ chapters:
 - file: privacy-by-design
 - file: pets
 - file: databases
+  sections:
+  - file: anonymization-library
+  - file: notebooks/test_anonymization
 - file: unstructured
 - file: privacy-ml
-- file: anonymization-library
-- file: notebooks/test_anonymization
-- file: notebooks/LipariSC_MIA
-- file: notebooks/FederatedLearning-sklearn
-- file: notebooks/unlearning-CIFAR10
+  sections:
+  - file: notebooks/LipariSC_MIA
+  - file: notebooks/FederatedLearning-sklearn
+  - file: notebooks/unlearning-CIFAR10
 

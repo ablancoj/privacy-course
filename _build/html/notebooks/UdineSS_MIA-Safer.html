@@ -183,21 +183,26 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro-gdpr.html">Introduction and GDPR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../privacy-by-design.html">Privacy by design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pets.html">Privacy enhancing techniques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../databases.html">Privacy in databases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../databases.html">Privacy in databases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../anonymization-library.html">Anonymization library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_anonymization.html">Anonymization examples</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../unstructured.html">Privacy in unstructured data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../privacy-ml.html">Privacy in machine learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="test_anonymization.html">Anonymization examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LipariSC_MIA.html">Salem paper attacks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="FederatedLearning-sklearn.html">Federated Learning and Label Flipping attacks</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../privacy-ml.html">Privacy in machine learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="LipariSC_MIA.html">Salem paper attacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FederatedLearning-sklearn.html">Federated Learning and Label Flipping attacks</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="unlearning-CIFAR10.html">NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unlearning-CIFAR10.html">NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
 
 
 
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -550,23 +555,21 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1, loss = 1.10284081
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 2, loss = 0.64076233
+Iteration 2, loss = 0.64076233
 Iteration 3, loss = 0.46655928
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 4, loss = 0.36182417
 Iteration 5, loss = 0.28458307
+Iteration 6, loss = 0.22891272
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 6, loss = 0.22891272
-Iteration 7, loss = 0.18282283
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 7, loss = 0.18282283
 Iteration 8, loss = 0.14403744
+Iteration 9, loss = 0.11536374
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 9, loss = 0.11536374
-Iteration 10, loss = 0.09306161
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 10, loss = 0.09306161
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:691: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (10) reached and the optimization hasn&#39;t converged yet.
@@ -1064,20 +1067,20 @@ Methodology. The adversary’s methodology can be organized into three stages, i
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1, loss = 1.29437256
-Iteration 2, loss = 0.61104273
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1, loss = 1.24761420
+Iteration 2, loss = 0.58570261
+Iteration 3, loss = 0.44742336
+Iteration 4, loss = 0.36032778
+Iteration 5, loss = 0.29855819
+Iteration 6, loss = 0.25298199
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 3, loss = 0.46149097
-Iteration 4, loss = 0.37584710
-Iteration 5, loss = 0.31428240
-Iteration 6, loss = 0.26572556
-Iteration 7, loss = 0.22488154
-Iteration 8, loss = 0.19027606
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 7, loss = 0.21412621
+Iteration 8, loss = 0.18411775
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 9, loss = 0.16332669
-Iteration 10, loss = 0.14316631
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 9, loss = 0.15664174
+Iteration 10, loss = 0.13713663
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:691: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (10) reached and the optimization hasn&#39;t converged yet.
@@ -1974,15 +1977,15 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-   nonmember     0.6442    0.1456    0.2375      2500
-      member     0.5184    0.9196    0.6630      2500
+   nonmember     0.6366    0.1724    0.2713      2500
+      member     0.5214    0.9016    0.6607      2500
 
-    accuracy                         0.5326      5000
-   macro avg     0.5813    0.5326    0.4503      5000
-weighted avg     0.5813    0.5326    0.4503      5000
+    accuracy                         0.5370      5000
+   macro avg     0.5790    0.5370    0.4660      5000
+weighted avg     0.5790    0.5370    0.4660      5000
 </pre></div>
 </div>
-<img alt="../_images/933311629adae1476a04d01ef6aa5695cea581d0ee16b15b6cc125209e987cd1.png" src="../_images/933311629adae1476a04d01ef6aa5695cea581d0ee16b15b6cc125209e987cd1.png" />
+<img alt="../_images/de5b8330e9621c4cc7a193957bc0c833e3daa6c713de4e421fe1f5ea2d1dd786.png" src="../_images/de5b8330e9621c4cc7a193957bc0c833e3daa6c713de4e421fe1f5ea2d1dd786.png" />
 </div>
 </div>
 </section>
@@ -2040,22 +2043,24 @@ posteriors are used for the attack model, we can also neglect the effect brought
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1, loss = 1.12939339
-Iteration 2, loss = 0.58204874
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1, loss = 1.12986863
+Iteration 2, loss = 0.57703869
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 3, loss = 0.40771521
-Iteration 4, loss = 0.30365030
-Iteration 5, loss = 0.23662189
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 3, loss = 0.39588636
+Iteration 4, loss = 0.29113663
+Iteration 5, loss = 0.22368729
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 6, loss = 0.19300986
-Iteration 7, loss = 0.15885730
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 6, loss = 0.17979868
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 8, loss = 0.13558529
-Iteration 9, loss = 0.11594651
-Iteration 10, loss = 0.10089680
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 7, loss = 0.14541177
+Iteration 8, loss = 0.12387859
+Iteration 9, loss = 0.10572040
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 10, loss = 0.09123755
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\ablancoj\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:691: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (10) reached and the optimization hasn&#39;t converged yet.
@@ -2949,15 +2954,15 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-   nonmember     0.6452    0.1644    0.2620      2500
-      member     0.5212    0.9096    0.6627      2500
+   nonmember     0.6292    0.1880    0.2895      2500
+      member     0.5227    0.8892    0.6584      2500
 
-    accuracy                         0.5370      5000
-   macro avg     0.5832    0.5370    0.4624      5000
-weighted avg     0.5832    0.5370    0.4624      5000
+    accuracy                         0.5386      5000
+   macro avg     0.5759    0.5386    0.4739      5000
+weighted avg     0.5759    0.5386    0.4739      5000
 </pre></div>
 </div>
-<img alt="../_images/6f6d18a55ae05bec53a1472110e8565fdc07090336e6749d9275b62462e56563.png" src="../_images/6f6d18a55ae05bec53a1472110e8565fdc07090336e6749d9275b62462e56563.png" />
+<img alt="../_images/7e9db66250b549c276c122c7640bc55390e202686cca9482073f4e1e6a676637.png" src="../_images/7e9db66250b549c276c122c7640bc55390e202686cca9482073f4e1e6a676637.png" />
 </div>
 </div>
 </section>

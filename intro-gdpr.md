@@ -1,25 +1,68 @@
 # Introduction and GDPR
 
-
 ## Ethical principles
 
-
-
-
-
-- Security
-- Fairness and non-discrimination
+- Safetey
+- Fairness
 - Autonomy
-
 
 ## Legal principles
 
+:::{admonition} Warren II y Brandeis, 1890 
+Right to be left alone.
+:::
 
+:::{admonition} Article 12, Universal Declaration of Human Rights
+No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence, nor to attacks upon his honour and reputation. Everyone has the right to the protection of the law against such interference or attacks.
+:::
+
+:::{admonition} Article 7, Charter of Fundamental Rights of the European Union, 2000
+Everyone has the right to respect for his or her private and family life, home and communications.
+:::
+
+:::{admonition} Article 8, Charter of Fundamental  Rights of the European Union, 2000
+1. Everyone has the right to the protection of personal data concerning him or her.
+2. Such data must be processed fairly for specified purposes and on the basis of the consent of the person concerned or some other legitimate basis laid down by law. Everyone has the right of access to data which has been collected concerning him or her, and the right to have it rectified.
+3. Compliance with these rules shall be subject to control by an independent authority.
+:::
+        
 ## Personal data
 
-```{note}
-Barack Hussein Obama II (born en Hawaii on August 4th 1961) es an american lawyer and politician who served as the 44nd President of the United States, from January 20th 2009 until January 20th 2017. He is a member of the Democratic Party, and was the first african-american to serve as President. Previously, he had been a Senator for the State of Illinois.
-```
+::::{grid} 1 1 2 3
+
+:::{card} Direct identifiers 
+:header: a
+Attributes that uniquely identify a data subject, such as their name or social security number.
+:::
+
+:::{card} Inderict identifiers
+Attributes that, when combined, can uniquely identify a daata subject, such as age, gender, and address.
+:::
+
+:::{card} Sensitive information
+Attributes that reveal especially protected information about the data subject, such as a medical diagnosis, sexual orientation, or religious beliefs.
+:::
+::::
+
+:::{admonition} Example
+:class: note
+<span style="background-color:black">Barack Hussein Obama II</span> (born in <span style="background-color:black">Hawaii</span> on <span style="background-color:black">August 4th 1961</span>) is an <span style="background-color:black">american</span> lawyer and politician who served as the <span style="background-color:black">44nd</span> President <span style="background-color:black">of the United States</span>, from January 20th <span style="background-color:black">2009</span> until January 20th <span style="background-color:black">2017</span>. He is a member of the <span style="background-color:black">Democratic</span> Party, and was <span style="background-color:black">the first African American to serve as</span> President. Previously, he had been a Senator for the State of <span style="background-color:black">Illinois</span>.
+:::
+
+:::{admonition} Example
+:class: note toggle
+<span style="background-color:black">Barack Hussein Obama II</span> (born in <span style="background-color:black">Hawaii</span> on <span style="background-color:black">August 4th 1961</span>) is an american lawyer and politician who served as the <span style="background-color:black">44nd</span> President of the United States, from January 20th <span style="background-color:black">2009</span> until January 20th <span style="background-color:black">2017</span>. He is a member of the Democratic Party, and was <span style="background-color:black">the first African American to serve as</span> President. Previously, he had been a Senator for the State of Illinois.
+:::
+
+:::{admonition} Example
+:class: note toggle
+<span style="background-color:black">Barack Hussein Obama II</span> (born in Hawaii on August 4th 1961) is an american lawyer and politician who served as the 44nd President of the United States, from January 20th 2009 until January 20th 2017. He is a member of the Democratic Party, and was the first African American to serve as President. Previously, he had been a Senator for the State of Illinois.
+:::
+
+:::{admonition} Example
+:class: note toggle
+Barack Hussein Obama II (born in Hawaii on August 4th 1961) is an american lawyer and politician who served as the 44nd President of the United States, from January 20th 2009 until January 20th 2017. He is a member of the Democratic Party, and was the first African American to serve as President. Previously, he had been a Senator for the State of Illinois.
+:::
 
 | Direct identifiers | Indirect identifiers | Confidential information     |
 |--------------------|----------------------|------------------------------|
