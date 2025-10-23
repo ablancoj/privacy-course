@@ -401,34 +401,15 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethical-principles">Ethical principles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#legal-principles">Legal principles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#personal-data">Personal data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relevant-cases">Relevant cases</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prism">Prism</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cambridge-analytica">Cambridge analytica</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threats-to-privacy">Threats to privacy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mass-surveillance">Mass surveillance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-and-recommendations">Profiling and recommendations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#browsing-patterns">Browsing patterns</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cookies">Cookies</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#browser-fingerprinting">Browser fingerprinting</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smartphone-apps">Smartphone Apps</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-devices-iot">Smart devices (IoT)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#excessive-data-requests">Excessive data requests</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#social-media-overexposure">Social media overexposure</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-sale-and-publishing">Sharing, sale, and publishing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-breaches">Data breaches</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-privacy-principles">Basic privacy principles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threats-to-privacy">Threats to privacy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-data-protection-regulation">General Data Protection Regulation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-of-the-regulation">Principles of the regulation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rights-of-the-data-subject">Rights of the data subject</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#controller-and-processors">Controller and processors</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-protection-officer">Data Protection Officer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#controller-and-processors">Controller and processors</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-protection-officer">Data Protection Officer</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-chapters">Other chapters</a></li>
 </ul>
 </li>
@@ -445,19 +426,39 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-and-gdpr">
 <h1>Introduction and GDPR<a class="headerlink" href="#introduction-and-gdpr" title="Link to this heading">#</a></h1>
+<p>When we talk about security, we refer to a set of mechanisms designed to protect data and systems against unauthorized access or damage. In information security the classic reference is the CIA triad, which does not allude to the U.S. intelligence agency but to three fundamental properties: confidentiality, integrity, and availability. Confidentiality means that only authorized people or entities can read or access specific resources; it is achieved through access control, authentication, and encryption. Integrity concerns the ability to modify data: only those who are authorized should be able to alter information, and any unauthorized or accidental change, such as noise introduced into a dataset, violates integrity. Availability refers to ensuring that all authorized users can access resources whenever they need them, even after disasters or technical failures. Security, therefore, is largely technical and aims at the protection of systems as a whole.</p>
+<p>Privacy, in contrast, is the control that individuals have over their own personal data. It is closely related to confidentiality but focuses on the rights of data subjects rather than on the resilience of systems. Privacy centers on people: the information that identifies them and the power relationships surrounding its collection and use.</p>
 <section id="ethical-principles">
 <h2>Ethical principles<a class="headerlink" href="#ethical-principles" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Security</p></li>
-<li><p>Fairness and non-discrimination</p></li>
-<li><p>Autonomy</p></li>
-</ul>
+<p>From an ethical perspective, several principles justify the right to privacy. The first is the principle of “do no harm.” Our professional and everyday actions should avoid causing harm to others, even when they bring potential benefits. Collecting or leaking personal data can harm individuals in multiple ways. One obvious dimension is <strong>safety</strong>: sharing too much information, such as posting travel plans or location data on social media, can expose people to physical risks like burglary or stalking. Another dimension is <strong>fairness</strong> and non-discrimination: the misuse of personal data can lead to biased treatment or exclusion based on gender, age, religion, or other sensitive categories. Finally, there is <strong>autonomy</strong>. Constant surveillance by corporations or governments limits the range of actions individuals feel free to take. Being permanently observed reduces one’s ability to act or express oneself freely. Protecting privacy, therefore, also protects personal autonomy.</p>
 </section>
 <section id="legal-principles">
 <h2>Legal principles<a class="headerlink" href="#legal-principles" title="Link to this heading">#</a></h2>
+<p>Legally, privacy has a long history. The first explicit reference appeared in 1890 in the famous article by Samuel Warren and Louis Brandeis, who defined privacy as “the right to be left alone.” Their concern emerged in response to new photographic technologies and intrusive journalism, the paparazzi of their day. Later, privacy was recognized as a human right in the Universal Declaration of Human Rights (1948): “No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence.” The term “correspondence,” initially referring to letters, has since expanded to encompass digital communications. Within the European context, the Charter of Fundamental Rights of the European Union reaffirmed this right, explicitly including digital communications and the protection of personal data: data must be processed fairly, with consent, and under clear rules.</p>
+<div class="admonition-warren-ii-y-brandeis-1890 admonition">
+<p class="admonition-title">Warren II y Brandeis, 1890</p>
+<p>Right to be left alone.</p>
+</div>
+<div class="admonition-article-12-universal-declaration-of-human-rights admonition">
+<p class="admonition-title">Article 12, Universal Declaration of Human Rights</p>
+<p>No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence, nor to attacks upon his honour and reputation. Everyone has the right to the protection of the law against such interference or attacks.</p>
+</div>
+<div class="admonition-article-7-charter-of-fundamental-rights-of-the-european-union-2000 admonition">
+<p class="admonition-title">Article 7, Charter of Fundamental Rights of the European Union, 2000</p>
+<p>Everyone has the right to respect for his or her private and family life, home and communications.</p>
+</div>
+<div class="admonition-article-8-charter-of-fundamental-rights-of-the-european-union-2000 admonition">
+<p class="admonition-title">Article 8, Charter of Fundamental  Rights of the European Union, 2000</p>
+<ol class="arabic simple">
+<li><p>Everyone has the right to the protection of personal data concerning him or her.</p></li>
+<li><p>Such data must be processed fairly for specified purposes and on the basis of the consent of the person concerned or some other legitimate basis laid down by law. Everyone has the right of access to data which has been collected concerning him or her, and the right to have it rectified.</p></li>
+<li><p>Compliance with these rules shall be subject to control by an independent authority.</p></li>
+</ol>
+</div>
 </section>
 <section id="personal-data">
 <h2>Personal data<a class="headerlink" href="#personal-data" title="Link to this heading">#</a></h2>
+<p>Personal data are any data that refer to an identifiable individual. We can distinguish three main categories. Direct identifiers uniquely identify a person—examples include name, national identification number, social security number, or phone number. Indirect identifiers do not identify someone by themselves but can do so when combined with other pieces of information: age, gender, postal code, or IP address. Sensitive information comprises attributes that should not be publicly linked to an individual, such as medical diagnoses, religious beliefs, or sexual orientation. Protecting privacy involves preventing both direct and indirect identifiers from being combined in ways that re-identify people. Even when direct identifiers are removed, datasets may still enable re-identification. Combining indirect clues often suffices to identify individuals.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-3 docutils">
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
@@ -563,131 +564,17 @@ Sensitive information</div>
 </table>
 </div>
 </section>
-<section id="relevant-cases">
-<h2>Relevant cases<a class="headerlink" href="#relevant-cases" title="Link to this heading">#</a></h2>
-<section id="prism">
-<h3>Prism<a class="headerlink" href="#prism" title="Link to this heading">#</a></h3>
-<p>PRISM es un programa secreto de la NSA que fue revelado por Snowden. A través de PRISM, la NSA obtenía acceso a los servidores de compañías tecnológicas estadounidenses, como Google, Facebook, Apple, Microsoft, Yahoo!, entre otras.
-PRISM estaba diseñado para monitorear las actividades de personas consideradas “amenazas” o “sospechosas”, pero la magnitud de la recolección de datos era mucho mayor, ya que afectaba a millones de personas alrededor del mundo.
-El programa UPSTREAM permitía a la NSA recopilar información de los routers en buena parte del mundo.
-Xkeyscore era una interfaz que permitía el acceso a los datos privados recolectados a partir de algún identificador.</p>
-<p><img alt="alt text" src="_images/snowden.png" />
-<img alt="alt text" src="_images/prism.png" /></p>
-</section>
-<section id="cambridge-analytica">
-<h3>Cambridge analytica<a class="headerlink" href="#cambridge-analytica" title="Link to this heading">#</a></h3>
-<p><img alt="alt text" src="_images/cambridge-analytica.png" /></p>
-<p>Cambridge Analytica obtuvo datos de 87 millones de usuarios de Facebook sin su consentimiento.
-Los datos fueron usados para crear perfiles psicológicos y influir en elecciones, como las de EE. UU. en 2016.
-El caso reveló cómo los datos personales pueden ser explotados para manipular la opinión pública.
-Facebook fue multado con 5 mil millones de dólares y el caso impulsó la creación de regulaciones de privacidad, como el RGPD.</p>
-</section>
-</section>
 <section id="threats-to-privacy">
 <h2>Threats to privacy<a class="headerlink" href="#threats-to-privacy" title="Link to this heading">#</a></h2>
-<p>Vigilancia masiva
-Perfilado y recomendaciones
-Seguimiento en línea (tracking)
-Dispositivos inteligentes (smartphones e IoT)
-Recolección excesiva de datos
-Redes sociales y sobreexposición
-Compartición, venta y publicación de datos
-Brechas de datos</p>
-<section id="mass-surveillance">
-<h3>Mass surveillance<a class="headerlink" href="#mass-surveillance" title="Link to this heading">#</a></h3>
-</section>
-<section id="profiling-and-recommendations">
-<h3>Profiling and recommendations<a class="headerlink" href="#profiling-and-recommendations" title="Link to this heading">#</a></h3>
-<p>La información personal recogida puede ser utilizada para crear perfiles de usuario.
-Identificadores, actividad en la red, fotografías, localización, contactos, likes, clicks, mensajes, pagos…
-Uniendo, enlazando y analizando estos datos se nos pueden sugerir productos, nuevos contactos, viajes, películas, etc.
-Las cookies y el browser fingerprinting son herramientas comunes para este fin.</p>
-</section>
-<section id="browsing-patterns">
-<h3>Browsing patterns<a class="headerlink" href="#browsing-patterns" title="Link to this heading">#</a></h3>
-<section id="cookies">
-<h4>Cookies<a class="headerlink" href="#cookies" title="Link to this heading">#</a></h4>
-</section>
-<section id="browser-fingerprinting">
-<h4>Browser fingerprinting<a class="headerlink" href="#browser-fingerprinting" title="Link to this heading">#</a></h4>
-</section>
-</section>
-<section id="smartphone-apps">
-<h3>Smartphone Apps<a class="headerlink" href="#smartphone-apps" title="Link to this heading">#</a></h3>
-</section>
-<section id="smart-devices-iot">
-<h3>Smart devices (IoT)<a class="headerlink" href="#smart-devices-iot" title="Link to this heading">#</a></h3>
-</section>
-<section id="excessive-data-requests">
-<h3>Excessive data requests<a class="headerlink" href="#excessive-data-requests" title="Link to this heading">#</a></h3>
-</section>
-<section id="social-media-overexposure">
-<h3>Social media overexposure<a class="headerlink" href="#social-media-overexposure" title="Link to this heading">#</a></h3>
-<p><img alt="alt text" src="_images/elf-name.png" /></p>
-</section>
-<section id="sharing-sale-and-publishing">
-<h3>Sharing, sale, and publishing<a class="headerlink" href="#sharing-sale-and-publishing" title="Link to this heading">#</a></h3>
-<p>Es habitual que empresas compartan datos privados de sus clientes. Estas comparticiones se suelen hacer al amparo de acuerdos de confidencialidad.
-Otros datos, especialmente de agencias estadísticas, pueden ser compartidos a terceros con fines de investigación.
-Los data brokers se dedican a recolectar y vender datos personales.
-Una protección incorrecta podría llevar a la revelación de datos personales.</p>
-</section>
-<section id="data-breaches">
-<h3>Data breaches<a class="headerlink" href="#data-breaches" title="Link to this heading">#</a></h3>
-</section>
-</section>
-<section id="basic-privacy-principles">
-<h2>Basic privacy principles<a class="headerlink" href="#basic-privacy-principles" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Privacy is a fundamental human right:</p>
-<ul>
-<li><p>Article 12, Universal Declaration of Human Rights</p></li>
-<li><p>Articles 7 and 8, Charter of Fundamental Rights of the EU</p></li>
-</ul>
-</li>
-<li><p>However, in the digital world</p>
-<ul>
-<li><p>Data collectors determine what and how data are collected and processed.</p></li>
-<li><p>Data subjects whose privacy is at stake need privacy protection.</p></li>
-</ul>
-</li>
-<li><p>It is an ethical principle to do no harm.</p>
-<ul>
-<li><p>Leakage of personal data may lead to, on the one hand, attempt against the fundamental rights of people and, on the other hand, lead to further damage:</p>
-<ul>
-<li><p>Leakages of personal data are a great tool for (cyber-)criminals.</p></li>
-<li><p>Some private information may lead to discrimination.</p></li>
-<li><p>Lack of privacy may lead to lack of autonomy.</p></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Thus, technologies must not only be designed to collect and process more data more efficiently but also to protect privacy.</p>
-<ul>
-<li><p>People must not be put under risk just for the sake of discovery.</p></li>
-</ul>
-</li>
-<li><p>Privacy-enhancing techniques (PETs) seek to minimize the processing of personal data.</p></li>
-<li><p>Yet, privacy cannot be guaranteed only with technology.</p>
-<ul>
-<li><p>A legal framework is needed.</p></li>
-</ul>
-</li>
-</ul>
+<p>The threats to privacy are numerous and pervasive. Some stem from state surveillance: governments deploy cameras, digital identity systems, and intelligence programs that monitor communications, such as the NSA’s PRISM program revealed by Edward Snowden. Others arise from corporate practices, as in the Cambridge Analytica scandal, where data collected through Facebook were used to profile and influence voters. Online tracking is another widespread threat. Most websites embed third-party cookies or pixels that follow users across pages, building detailed behavioral profiles. Recommendation systems on platforms like Amazon, YouTube, or TikTok rely on similar profiling to predict preferences and maximize engagement. Beyond browsing, smart devices—phones, wearables, Internet-of-Things appliances—continuously collect and transmit data about our habits. Sometimes the scale is astonishing: connected washing machines sending gigabytes of data daily, or robotic vacuum cleaners uploading photos of private spaces. Even apparently innocent games on social media (“What’s your elf name?”) harvest birth dates and initials. Data brokers aggregate publicly available or purchased data from multiple sources and resell it to advertisers or other organizations, operating in a legal gray area, especially outside Europe. Finally, data breaches occur when systems are hacked or mismanaged, exposing large volumes of personal information. Users can check whether their credentials have appeared in known leaks using services such as Have I Been Pwned.</p>
 </section>
 <section id="general-data-protection-regulation">
 <h2>General Data Protection Regulation<a class="headerlink" href="#general-data-protection-regulation" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>The General Data Protection Regulation (GDPR) lays down rules relating to the protection of natural persons w.r.t. the processing of personal data.</p></li>
-<li><p>GDPR protects fundamental rights and freedoms of natural persons and in particular their right to the protection of personal data.</p></li>
-<li><p>Since the GDPR harmonizes the regulation in all member states, personal data can be freely transferred between EU countries.</p>
-<ul>
-<li><p>Additionally, all entities collecting data from European citizens must adhere to the regulation, making the GDPR a sort of worldwide standard for privacy protection.</p></li>
-</ul>
-</li>
-</ul>
+<p>These persistent risks motivated modern privacy regulation, notably the General Data Protection Regulation (GDPR) adopted by the European Union in 2016. Although European, the GDPR has effectively become a global benchmark because it applies to any organization that processes the personal data of EU citizens, regardless of where it operates. Similar frameworks in Canada, Australia, and California mirror its provisions. Within the EU, the regulation harmonizes data-protection standards so that personal data can move freely across member states, and transfers to non-EU countries are allowed only when comparable safeguards exist.</p>
 <section id="definitions">
 <h3>Definitions<a class="headerlink" href="#definitions" title="Link to this heading">#</a></h3>
+<p>The GDPR defines key roles in the data-processing ecosystem. The <strong>data subject</strong> is the individual to whom the data relate. The <strong>controller</strong> determines the purposes and means of processing and bears primary responsibility. The <strong>processor</strong> acts on behalf of the controller—for example, a hospital using a cloud provider such as Microsoft Azure to store records remains the controller, while Azure is the processor. Both are bound by the regulation. <strong>“Processing”</strong> itself is defined very broadly: any operation performed on personal data: collection, storage, analysis, transmission, even deletion, counts as processing.</p>
+<p>Consent under the GDPR must be freely given, specific, informed, and unambiguous. Services cannot assume consent, they must explain clearly what data they collect and why. In practice this requirement generated the now-familiar cookie banners on websites. Pseudonymization is a protective measure that replaces direct identifiers with pseudonyms or hashed values, making re-identification harder but still possible, since the mapping can be reversed. Anonymization goes further by eliminating both direct and indirect identifiers irreversibly, preventing any link to individual persons. The regulation pays special attention to genetic, biometric, and health data, as these reveal highly personal information not only about individuals but also about relatives. The use of biometric identification by artificial-intelligence systems, for example, is largely prohibited in the EU except for limited law-enforcement purposes.</p>
 <ul class="simple">
 <li><p><strong>Personal data</strong> is any information relating to an identified or identifiable natural person (‘data subject’).</p></li>
 <li><p>An identifiable <strong>data subject</strong> is one who can be identified, directly or indirectly:</p>
@@ -714,6 +601,7 @@ Una protección incorrecta podría llevar a la revelación de datos personales.<
 </section>
 <section id="principles-of-the-regulation">
 <h3>Principles of the regulation<a class="headerlink" href="#principles-of-the-regulation" title="Link to this heading">#</a></h3>
+<p>The GDPR establishes a series of principles that organizations must follow: lawfulness, fairness, and transparency in processing; purpose limitation, meaning data collected for one purpose cannot be reused for another without new consent; data minimization, requiring the least amount of data necessary; accuracy, ensuring information is correct and up-to-date; storage limitation, preventing indefinite retention; integrity and confidentiality, which demand appropriate technical and organizational security; and accountability, obliging controllers to demonstrate compliance. Lawfulness usually rests on valid consent, though the concept of what constitutes a “justified reason” remains broad. Consent must be demonstrable and revocable at any time, and minors under sixteen cannot legally consent to processing.</p>
 <ul class="simple">
 <li><p>Any processing of personal data must be performed under the principles of <strong>lawfulness</strong>, <strong>fairness</strong>, <strong>transparency</strong>, <strong>purpose limitation</strong>, <strong>data minimization</strong>, <strong>accuracy</strong>, <strong>storage limitation</strong>, <strong>integrity</strong>, <strong>confidentiality</strong>, and <strong>accountability</strong>.</p></li>
 <li><p>It is considered lawful if it is consented, necessary to fulfill a contract, obliged by law, necessary to protect vital interests of the subject or another person, for the public interest, or in the legitimate interest of the controller.</p>
@@ -756,6 +644,7 @@ Una protección incorrecta podría llevar a la revelación de datos personales.<
 </section>
 <section id="rights-of-the-data-subject">
 <h3>Rights of the data subject<a class="headerlink" href="#rights-of-the-data-subject" title="Link to this heading">#</a></h3>
+<p>Data subjects enjoy several rights: access to their data, rectification of errors, erasure (the “right to be forgotten”), restriction of processing, and portability so that their data can be transferred to another service. Companies must provide clear privacy policies explaining the purpose of processing, the identity of controllers and processors, retention periods, and procedures for exercising rights. In practice, some organizations implement these mechanisms better than others—Google’s data-management tools are often cited as relatively accessible examples.</p>
 <ul class="simple">
 <li><p>Articles 12 to 14 refer to privacy policies and what information the controller has to give the data subject, including the identity of the controller, the purpose for the data collection, and the rights of the subject.</p></li>
 <li><p>The rest of the chapter describes several rights of the subjects, such as:</p>
@@ -769,6 +658,7 @@ Una protección incorrecta podría llevar a la revelación de datos personales.<
 </section>
 <section id="controller-and-processors">
 <h3>Controller and processors<a class="headerlink" href="#controller-and-processors" title="Link to this heading">#</a></h3>
+<p>Controllers and processors have extensive obligations. They must guarantee the rights of data subjects, conduct privacy risk assessments and data protection impact assessments, apply privacy-by-design and privacy-by-default principles in technical and organizational decisions, keep detailed records of processing activities, and appoint a Data Protection Officer (DPO) when required by scale or sensitivity. They must also cooperate with supervisory authorities and notify both authorities and affected individuals in the event of data breaches. The degree of cooperation often influences the magnitude of penalties.</p>
 <ul class="simple">
 <li><p>Ensure the rights of data subjects.</p></li>
 <li><p>Conduct continuous privacy risk and data protection impact assessments.</p></li>
@@ -777,9 +667,8 @@ Una protección incorrecta podría llevar a la revelación de datos personales.<
 <li><p>Appoint a Data Protection Officer.</p></li>
 <li><p>Communicate and collaborate with authorities (and data subjects) in cases of data breaches.</p></li>
 </ul>
-</section>
 <section id="data-protection-officer">
-<h3>Data Protection Officer<a class="headerlink" href="#data-protection-officer" title="Link to this heading">#</a></h3>
+<h4>Data Protection Officer<a class="headerlink" href="#data-protection-officer" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Inform and advice controllers and processors of their obligations.</p></li>
 <li><p>Monitor compliance.</p></li>
@@ -787,8 +676,10 @@ Una protección incorrecta podría llevar a la revelación de datos personales.<
 <li><p>Act as a contact point and cooperate with the supervisory authority.</p></li>
 </ul>
 </section>
+</section>
 <section id="other-chapters">
 <h3>Other chapters<a class="headerlink" href="#other-chapters" title="Link to this heading">#</a></h3>
+<p>Each EU country has its own supervisory authority, such as Spain’s Agencia Española de Protección de Datos, which coordinates with counterparts across Europe. The regulation also foresees certification mechanisms to signal compliance, though these have proven difficult to implement because privacy challenges vary widely by context. Non-compliance can lead to substantial fines: up to four percent of a company’s global annual turnover.</p>
 <ul class="simple">
 <li><p>Description of supervisory authorities.</p></li>
 <li><p>Codes of conduct and privacy certifications.</p></li>
@@ -866,34 +757,15 @@ Una protección incorrecta podría llevar a la revelación de datos personales.<
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethical-principles">Ethical principles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#legal-principles">Legal principles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#personal-data">Personal data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relevant-cases">Relevant cases</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prism">Prism</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cambridge-analytica">Cambridge analytica</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threats-to-privacy">Threats to privacy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mass-surveillance">Mass surveillance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-and-recommendations">Profiling and recommendations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#browsing-patterns">Browsing patterns</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cookies">Cookies</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#browser-fingerprinting">Browser fingerprinting</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smartphone-apps">Smartphone Apps</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-devices-iot">Smart devices (IoT)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#excessive-data-requests">Excessive data requests</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#social-media-overexposure">Social media overexposure</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sharing-sale-and-publishing">Sharing, sale, and publishing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-breaches">Data breaches</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-privacy-principles">Basic privacy principles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threats-to-privacy">Threats to privacy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-data-protection-regulation">General Data Protection Regulation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-of-the-regulation">Principles of the regulation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rights-of-the-data-subject">Rights of the data subject</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#controller-and-processors">Controller and processors</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-protection-officer">Data Protection Officer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#controller-and-processors">Controller and processors</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-protection-officer">Data Protection Officer</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-chapters">Other chapters</a></li>
 </ul>
 </li>

@@ -1,12 +1,17 @@
 # Introduction and GDPR
 
+When we talk about security, we refer to a set of mechanisms designed to protect data and systems against unauthorized access or damage. In information security the classic reference is the CIA triad, which does not allude to the U.S. intelligence agency but to three fundamental properties: confidentiality, integrity, and availability. Confidentiality means that only authorized people or entities can read or access specific resources; it is achieved through access control, authentication, and encryption. Integrity concerns the ability to modify data: only those who are authorized should be able to alter information, and any unauthorized or accidental change, such as noise introduced into a dataset, violates integrity. Availability refers to ensuring that all authorized users can access resources whenever they need them, even after disasters or technical failures. Security, therefore, is largely technical and aims at the protection of systems as a whole.
+
+Privacy, in contrast, is the control that individuals have over their own personal data. It is closely related to confidentiality but focuses on the rights of data subjects rather than on the resilience of systems. Privacy centers on people: the information that identifies them and the power relationships surrounding its collection and use.
+
 ## Ethical principles
 
-- Safetey
-- Fairness
-- Autonomy
+From an ethical perspective, several principles justify the right to privacy. The first is the principle of “do no harm.” Our professional and everyday actions should avoid causing harm to others, even when they bring potential benefits. Collecting or leaking personal data can harm individuals in multiple ways. One obvious dimension is **safety**: sharing too much information, such as posting travel plans or location data on social media, can expose people to physical risks like burglary or stalking. Another dimension is **fairness** and non-discrimination: the misuse of personal data can lead to biased treatment or exclusion based on gender, age, religion, or other sensitive categories. Finally, there is **autonomy**. Constant surveillance by corporations or governments limits the range of actions individuals feel free to take. Being permanently observed reduces one’s ability to act or express oneself freely. Protecting privacy, therefore, also protects personal autonomy.
 
 ## Legal principles
+
+Legally, privacy has a long history. The first explicit reference appeared in 1890 in the famous article by Samuel Warren and Louis Brandeis, who defined privacy as “the right to be left alone.” Their concern emerged in response to new photographic technologies and intrusive journalism, the paparazzi of their day. Later, privacy was recognized as a human right in the Universal Declaration of Human Rights (1948): “No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence.” The term “correspondence,” initially referring to letters, has since expanded to encompass digital communications. Within the European context, the Charter of Fundamental Rights of the European Union reaffirmed this right, explicitly including digital communications and the protection of personal data: data must be processed fairly, with consent, and under clear rules.
+
 
 :::{admonition} Warren II y Brandeis, 1890 
 Right to be left alone.
@@ -27,6 +32,9 @@ Everyone has the right to respect for his or her private and family life, home a
 :::
         
 ## Personal data
+
+Personal data are any data that refer to an identifiable individual. We can distinguish three main categories. Direct identifiers uniquely identify a person—examples include name, national identification number, social security number, or phone number. Indirect identifiers do not identify someone by themselves but can do so when combined with other pieces of information: age, gender, postal code, or IP address. Sensitive information comprises attributes that should not be publicly linked to an individual, such as medical diagnoses, religious beliefs, or sexual orientation. Protecting privacy involves preventing both direct and indirect identifiers from being combined in ways that re-identify people. Even when direct identifiers are removed, datasets may still enable re-identification. Combining indirect clues often suffices to identify individuals.
+
 
 ::::{grid} 1 1 2 3
 
@@ -80,103 +88,23 @@ Barack Hussein Obama II (born in Hawaii on August 4th 1961) is an american lawye
 |                    | IP address           |                              |
 |                    | GPS location         |                              |
 
-## Relevant cases
-
-### Prism
-
-PRISM es un programa secreto de la NSA que fue revelado por Snowden. A través de PRISM, la NSA obtenía acceso a los servidores de compañías tecnológicas estadounidenses, como Google, Facebook, Apple, Microsoft, Yahoo!, entre otras.
-PRISM estaba diseñado para monitorear las actividades de personas consideradas "amenazas" o "sospechosas", pero la magnitud de la recolección de datos era mucho mayor, ya que afectaba a millones de personas alrededor del mundo.
-El programa UPSTREAM permitía a la NSA recopilar información de los routers en buena parte del mundo.
-Xkeyscore era una interfaz que permitía el acceso a los datos privados recolectados a partir de algún identificador.
-
-![alt text](figs/snowden.png)
-![alt text](figs/prism.png)
-
-### Cambridge analytica
-
-![alt text](figs/cambridge-analytica.png)
-
-Cambridge Analytica obtuvo datos de 87 millones de usuarios de Facebook sin su consentimiento.
-Los datos fueron usados para crear perfiles psicológicos y influir en elecciones, como las de EE. UU. en 2016.
-El caso reveló cómo los datos personales pueden ser explotados para manipular la opinión pública.
-Facebook fue multado con 5 mil millones de dólares y el caso impulsó la creación de regulaciones de privacidad, como el RGPD.
-
 
 ## Threats to privacy
 
-Vigilancia masiva
-Perfilado y recomendaciones
-Seguimiento en línea (tracking)
-Dispositivos inteligentes (smartphones e IoT)
-Recolección excesiva de datos
-Redes sociales y sobreexposición
-Compartición, venta y publicación de datos
-Brechas de datos
+The threats to privacy are numerous and pervasive. Some stem from state surveillance: governments deploy cameras, digital identity systems, and intelligence programs that monitor communications, such as the NSA’s PRISM program revealed by Edward Snowden. Others arise from corporate practices, as in the Cambridge Analytica scandal, where data collected through Facebook were used to profile and influence voters. Online tracking is another widespread threat. Most websites embed third-party cookies or pixels that follow users across pages, building detailed behavioral profiles. Recommendation systems on platforms like Amazon, YouTube, or TikTok rely on similar profiling to predict preferences and maximize engagement. Beyond browsing, smart devices—phones, wearables, Internet-of-Things appliances—continuously collect and transmit data about our habits. Sometimes the scale is astonishing: connected washing machines sending gigabytes of data daily, or robotic vacuum cleaners uploading photos of private spaces. Even apparently innocent games on social media (“What’s your elf name?”) harvest birth dates and initials. Data brokers aggregate publicly available or purchased data from multiple sources and resell it to advertisers or other organizations, operating in a legal gray area, especially outside Europe. Finally, data breaches occur when systems are hacked or mismanaged, exposing large volumes of personal information. Users can check whether their credentials have appeared in known leaks using services such as Have I Been Pwned.
 
-
-### Mass surveillance
-
-### Profiling and recommendations
-
-La información personal recogida puede ser utilizada para crear perfiles de usuario.
-Identificadores, actividad en la red, fotografías, localización, contactos, likes, clicks, mensajes, pagos…
-Uniendo, enlazando y analizando estos datos se nos pueden sugerir productos, nuevos contactos, viajes, películas, etc.
-Las cookies y el browser fingerprinting son herramientas comunes para este fin.
-
-
-### Browsing patterns
-
-#### Cookies
-#### Browser fingerprinting
-
-### Smartphone Apps
-
-### Smart devices (IoT)
-
-### Excessive data requests
-
-### Social media overexposure
-
-![alt text](figs/elf-name.png)
-
-### Sharing, sale, and publishing
-
-Es habitual que empresas compartan datos privados de sus clientes. Estas comparticiones se suelen hacer al amparo de acuerdos de confidencialidad.
-Otros datos, especialmente de agencias estadísticas, pueden ser compartidos a terceros con fines de investigación.
-Los data brokers se dedican a recolectar y vender datos personales.
-Una protección incorrecta podría llevar a la revelación de datos personales.
-
-
-### Data breaches
-
-
-
-
-## Basic privacy principles
-- Privacy is a fundamental human right:
-	- Article 12, Universal Declaration of Human Rights
-	- Articles 7 and 8, Charter of Fundamental Rights of the EU
-- However, in the digital world
-	- Data collectors determine what and how data are collected and processed.
-	- Data subjects whose privacy is at stake need privacy protection.
-- It is an ethical principle to do no harm.
-	- Leakage of personal data may lead to, on the one hand, attempt against the fundamental rights of people and, on the other hand, lead to further damage:
-		- Leakages of personal data are a great tool for (cyber-)criminals.
-		- Some private information may lead to discrimination.
-		- Lack of privacy may lead to lack of autonomy.
-- Thus, technologies must not only be designed to collect and process more data more efficiently but also to protect privacy.
-	- People must not be put under risk just for the sake of discovery.
-- Privacy-enhancing techniques (PETs) seek to minimize the processing of personal data.
-- Yet, privacy cannot be guaranteed only with technology. 
-	- A legal framework is needed.
 	
 ## General Data Protection Regulation
-- The General Data Protection Regulation (GDPR) lays down rules relating to the protection of natural persons w.r.t. the processing of personal data.
-- GDPR protects fundamental rights and freedoms of natural persons and in particular their right to the protection of personal data.
-- Since the GDPR harmonizes the regulation in all member states, personal data can be freely transferred between EU countries.
-	- Additionally, all entities collecting data from European citizens must adhere to the regulation, making the GDPR a sort of worldwide standard for privacy protection.
+
+These persistent risks motivated modern privacy regulation, notably the General Data Protection Regulation (GDPR) adopted by the European Union in 2016. Although European, the GDPR has effectively become a global benchmark because it applies to any organization that processes the personal data of EU citizens, regardless of where it operates. Similar frameworks in Canada, Australia, and California mirror its provisions. Within the EU, the regulation harmonizes data-protection standards so that personal data can move freely across member states, and transfers to non-EU countries are allowed only when comparable safeguards exist.
 
 ### Definitions
+
+The GDPR defines key roles in the data-processing ecosystem. The **data subject** is the individual to whom the data relate. The **controller** determines the purposes and means of processing and bears primary responsibility. The **processor** acts on behalf of the controller—for example, a hospital using a cloud provider such as Microsoft Azure to store records remains the controller, while Azure is the processor. Both are bound by the regulation. **“Processing”** itself is defined very broadly: any operation performed on personal data: collection, storage, analysis, transmission, even deletion, counts as processing.
+
+Consent under the GDPR must be freely given, specific, informed, and unambiguous. Services cannot assume consent, they must explain clearly what data they collect and why. In practice this requirement generated the now-familiar cookie banners on websites. Pseudonymization is a protective measure that replaces direct identifiers with pseudonyms or hashed values, making re-identification harder but still possible, since the mapping can be reversed. Anonymization goes further by eliminating both direct and indirect identifiers irreversibly, preventing any link to individual persons. The regulation pays special attention to genetic, biometric, and health data, as these reveal highly personal information not only about individuals but also about relatives. The use of biometric identification by artificial-intelligence systems, for example, is largely prohibited in the EU except for limited law-enforcement purposes.
+
+
 - **Personal data** is any information relating to an identified or identifiable natural person (‘data subject’).
 - An identifiable **data subject** is one who can be identified, directly or indirectly:
 	- To an **identifier** such as a name, an identification number, location data, an online identifier, etc.
@@ -194,6 +122,9 @@ Una protección incorrecta podría llevar a la revelación de datos personales.
 - **Data anonymization** is the process of transforming or removing personally identifiable information (PII) from data sets, so that the individuals who contributed the data cannot be identified.
 
 ### Principles of the regulation
+
+The GDPR establishes a series of principles that organizations must follow: lawfulness, fairness, and transparency in processing; purpose limitation, meaning data collected for one purpose cannot be reused for another without new consent; data minimization, requiring the least amount of data necessary; accuracy, ensuring information is correct and up-to-date; storage limitation, preventing indefinite retention; integrity and confidentiality, which demand appropriate technical and organizational security; and accountability, obliging controllers to demonstrate compliance. Lawfulness usually rests on valid consent, though the concept of what constitutes a “justified reason” remains broad. Consent must be demonstrable and revocable at any time, and minors under sixteen cannot legally consent to processing.
+
 - Any processing of personal data must be performed under the principles of **lawfulness**, **fairness**, **transparency**, **purpose limitation**, **data minimization**, **accuracy**, **storage limitation**, **integrity**, **confidentiality**, and **accountability**.
 - It is considered lawful if it is consented, necessary to fulfill a contract, obliged by law, necessary to protect vital interests of the subject or another person, for the public interest, or in the legitimate interest of the controller.
 	- The controller must be able to clearly **demonstrate the consent** of the data subject.
@@ -221,6 +152,9 @@ Una protección incorrecta podría llevar a la revelación de datos personales.
 	- substantial public interest;
 
 ### Rights of the data subject
+
+Data subjects enjoy several rights: access to their data, rectification of errors, erasure (the “right to be forgotten”), restriction of processing, and portability so that their data can be transferred to another service. Companies must provide clear privacy policies explaining the purpose of processing, the identity of controllers and processors, retention periods, and procedures for exercising rights. In practice, some organizations implement these mechanisms better than others—Google’s data-management tools are often cited as relatively accessible examples.
+
 - Articles 12 to 14 refer to privacy policies and what information the controller has to give the data subject, including the identity of the controller, the purpose for the data collection, and the rights of the subject.
 - The rest of the chapter describes several rights of the subjects, such as:
 	- Right of access, rectification, and erasure (‘right to be forgotten’).
@@ -228,6 +162,9 @@ Una protección incorrecta podría llevar a la revelación de datos personales.
 	- Right to data portability.
 
 ### Controller and processors
+
+Controllers and processors have extensive obligations. They must guarantee the rights of data subjects, conduct privacy risk assessments and data protection impact assessments, apply privacy-by-design and privacy-by-default principles in technical and organizational decisions, keep detailed records of processing activities, and appoint a Data Protection Officer (DPO) when required by scale or sensitivity. They must also cooperate with supervisory authorities and notify both authorities and affected individuals in the event of data breaches. The degree of cooperation often influences the magnitude of penalties.
+
 - Ensure the rights of data subjects.
 - Conduct continuous privacy risk and data protection impact assessments.
 - Apply privacy-by-design and privacy-by-default principles and use appropriate technical and organizational measures.
@@ -235,13 +172,16 @@ Una protección incorrecta podría llevar a la revelación de datos personales.
 - Appoint a Data Protection Officer.
 - Communicate and collaborate with authorities (and data subjects) in cases of data breaches.
 
-### Data Protection Officer
+#### Data Protection Officer
 - Inform and advice controllers and processors of their obligations.
 - Monitor compliance.
 - Advice on data protection impact assessment.
 - Act as a contact point and cooperate with the supervisory authority.
 
 ### Other chapters
+
+Each EU country has its own supervisory authority, such as Spain’s Agencia Española de Protección de Datos, which coordinates with counterparts across Europe. The regulation also foresees certification mechanisms to signal compliance, though these have proven difficult to implement because privacy challenges vary widely by context. Non-compliance can lead to substantial fines: up to four percent of a company’s global annual turnover.
+
 - Description of supervisory authorities.
 - Codes of conduct and privacy certifications.
 - Transfers of data to third countries.

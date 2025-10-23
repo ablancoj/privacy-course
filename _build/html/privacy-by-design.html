@@ -375,9 +375,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -393,28 +391,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-assessment">Risk assessment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-strategies">Data strategies</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimize">Minimize</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hide">Hide</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#separate">Separate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregate">Aggregate</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#process-strategies">Process strategies</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inform">Inform</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#control">Control</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enforce">Enforce</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demonstrate">Demonstrate</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -426,124 +402,58 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="privacy-by-design">
 <h1>Privacy by design<a class="headerlink" href="#privacy-by-design" title="Link to this heading">#</a></h1>
-<section id="risk-assessment">
-<h2>Risk assessment<a class="headerlink" href="#risk-assessment" title="Link to this heading">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-3 docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Data Strategies</div>
 <ul class="simple">
-<li><p>Describe any personal data processing in the system.</p>
-<ul>
-<li><p>Collection, storage, analysis, exchange, etc.</p></li>
+<li><p class="sd-card-text">Minimize</p></li>
+<li><p class="sd-card-text">Hide</p></li>
+<li><p class="sd-card-text">Aggregate</p></li>
+<li><p class="sd-card-text">Separate</p></li>
 </ul>
-</li>
-<li><p>Identify likelihood of privacy threats.</p>
-<ul>
-<li><p>Linking of personal data, re-identification, disclosure, etc.</p></li>
-<li><p>May be in terms of probabilities.</p></li>
-</ul>
-</li>
-<li><p>Identify impact of privacy threats.</p>
-<ul>
-<li><p>May be in economic terms.</p></li>
-</ul>
-</li>
-<li><p>Compute risk = Likelihood x Impact</p></li>
-<li><p>Propose countermeasures.</p></li>
-</ul>
-</section>
-<section id="data-strategies">
-<h2>Data strategies<a class="headerlink" href="#data-strategies" title="Link to this heading">#</a></h2>
-<section id="minimize">
-<h3>Minimize<a class="headerlink" href="#minimize" title="Link to this heading">#</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Process Strategies</div>
 <ul class="simple">
-<li><p>The amount of personal data that is processed should be restricted to the minimum possible (relates to minimization).</p></li>
-<li><p>By avoiding collection of unnecessary data, the possible privacy impact of a system is limited.</p></li>
-<li><p>Decide whether:</p>
-<ul>
-<li><p>The processing of personal data is proportional to the purpose;</p></li>
-<li><p>No other, less invasive means exist to achieve the same purpose.</p></li>
+<li><p class="sd-card-text">Inform</p></li>
+<li><p class="sd-card-text">Control</p></li>
+<li><p class="sd-card-text">Enforce</p></li>
+<li><p class="sd-card-text">Demonstrate</p></li>
 </ul>
-</li>
-<li><p>Design patterns: Select before you collect; anonymization, pseudonyms.</p></li>
-</ul>
-</section>
-<section id="hide">
-<h3>Hide<a class="headerlink" href="#hide" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Any personal data and their interrelationships should be hidden from plain view (relates to information security).</p></li>
-<li><p>Doing so ensures personal data cannot be easily abused.</p></li>
-<li><p>The HIDE strategy seeks unlinkability and unobservability.</p></li>
-<li><p>Design patterns: encryption of data (stored or in transit), mix networks (to hide traffic patterns), attribute-based credentials for unlinkability, anonymization, pseudonyms.</p></li>
-</ul>
-</section>
-<section id="separate">
-<h3>Separate<a class="headerlink" href="#separate" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Personal data should be processed in a distributed fashion, in separate compartments whenever possible.</p></li>
-<li><p>By separating the processing or storage of several sources of personal data that belong to the same person, complete profiles of that person cannot be made.</p></li>
-<li><p>Distributed rather than centralized processing.</p></li>
-<li><p>Data from separate sources stored in separate databases.</p></li>
-<li><p>Data to be processed and stored locally as much as possible.</p></li>
-<li><p>Database tables to be split when possible and rows in those table to be made difficult to link (by removing identifiers and using table-specific pseudonyms).</p></li>
-<li><p>For example, blockchain-based technologies, federated learning.</p></li>
-</ul>
-</section>
-<section id="aggregate">
-<h3>Aggregate<a class="headerlink" href="#aggregate" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Personal data should be processed at the highest level of aggregation and with the least possible detail in which it is (still) useful.</p></li>
-<li><p>Aggregating information over groups of attributes or individuals reduces the detail of the information ⇒ data become less sensitive.</p></li>
-<li><p>If data are general enough that they can fit more than one person, they are not attributable to any single person ⇒ privacy is protected.</p></li>
-<li><p>Design patterns: k-anonymity, aggregation over time (e.g., in smart metering), location coarsening (in LBSs), differential privacy and other privacy models/anonymization techniques.</p></li>
-</ul>
-</section>
-</section>
-<section id="process-strategies">
-<h2>Process strategies<a class="headerlink" href="#process-strategies" title="Link to this heading">#</a></h2>
-<section id="inform">
-<h3>Inform<a class="headerlink" href="#inform" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Whenever data subjects use a system, they should be informed about which information is processed, for what purpose and by which means, and how is that information protected.</p></li>
-<li><p>Relates to transparency and openness.</p></li>
-<li><p>Clear documentation must be provided.</p></li>
-<li><p>In case information is shared with third parties, subjects should be informed about it.</p></li>
-<li><p>Subjects should also be informed about their data access rights and how to exercise them.</p></li>
-<li><p>Design patterns: Platform for Privacy Preferences (P3P), transparency-enhancing techniques.</p></li>
-</ul>
-</section>
-<section id="control">
-<h3>Control<a class="headerlink" href="#control" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Data subjects should be given agency over the processing of their personal data (relates to individual rights).</p></li>
-<li><p>INFORM and CONTROL are intertwined:</p>
-<ul>
-<li><p>Informing makes little sense if the subject has no control.</p></li>
-<li><p>Control is impossible without the subject being informed.</p></li>
-</ul>
-</li>
-<li><p>Access rights include the subject viewing, updating or even deleting her data.</p></li>
-<li><p>CONTROL interfaces should be easy to use.</p></li>
-<li><p>Design patterns: User-centric identity management, end-to-end encryption support control, intervenability techniques.</p></li>
-</ul>
-</section>
-<section id="enforce">
-<h3>Enforce<a class="headerlink" href="#enforce" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>A privacy policy compatible with legal requirements should be in place and should be enforced (for accountability).</p></li>
-<li><p>The policy ensures that the system respects privacy.</p></li>
-<li><p>The privacy level should meet all legal requirements.</p></li>
-<li><p>Technical protection mechanisms must exist that prevent policy violations.</p></li>
-<li><p>Governance structures to enforce the policy must be established.</p></li>
-<li><p>Design patterns: Access control, privacy rights management (a form of digital rights management involving licenses to personal data).</p></li>
-</ul>
-</section>
-<section id="demonstrate">
-<h3>Demonstrate<a class="headerlink" href="#demonstrate" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>The data controller must be able to demonstrate compliance with the privacy policy and applicable legal requirements (for accountability).</p></li>
-<li><p>This strategy goes beyond ENFORCE: not only must privacy be enforced but it must be done demonstrably.</p></li>
-<li><p>Design patterns: Privacy management systems, logging, auditing.</p></li>
-</ul>
-</section>
-</section>
+</div>
+</div>
+<div class="docutils">
+<h2 class="rubric" id="risk-assessment">Risk assessment</h2>
+<p>When performing a risk assessment of a system that processes personal data, the first step is to describe the personal data processing activities. This includes the collection of data (for example via user inputs, sensors, third-party feeds), storage (databases, files, cloud services), analysis (data mining, profiling, predictive models) and exchange (sharing with other internal or external systems, APIs, third parties). Next, you should identify the likelihood of privacy threats: how likely is it that personal data may be linked, re-identified, or disclosed inadvertently or maliciously? For example, does the system combine identifiers and quasi-identifiers making re-identification feasible? Then you assess the impact of privacy threats – what are the consequences if a breach or misuse occurs? This might include economic costs (fines, remediation, business loss), reputational damage, legal liabilities, or harm to individuals (identity theft, discrimination). Once you have both likelihood and impact, you compute risk = Likelihood × Impact as a quantitative or semi-quantitative measure, which helps prioritise risk areas. Finally, you propose countermeasures: technical, organisational or procedural measures to reduce both the likelihood and/or impact of the identified threats (for example encryption, access controls, anonymization, limiting retention, staff training).</p>
+<h3 class="rubric" id="seattle-example">Seattle example</h3>
+<h3 class="rubric" id="linddun">LINDDUN</h3>
+<h2 class="rubric" id="data-strategies">Data strategies</h2>
+<h3 class="rubric" id="minimize">Minimize</h3>
+<p>The amount of personal data processed should be restricted to the minimum necessary. By avoiding collection of unnecessary data, the system limits potential privacy impacts. Key questions include: Is the data processing proportional to the purpose? Are there less-invasive means to achieve the same goal? Typical design patterns supporting minimisation include “select before you collect,” anonymisation, or use of pseudonyms.</p>
+<h3 class="rubric" id="hide">Hide</h3>
+<p>Any personal data and their interrelationships should be hidden from plain view (reflecting the information security dimension). This strategy seeks unlinkability and unobservability: to ensure that personal data cannot be easily abused because they are concealed, encrypted or otherwise protected. Design patterns include encryption (data at rest or in transit), mixing networks to hide traffic patterns, attribute-based credentials, pseudonyms and anonymisation.</p>
+<h3 class="rubric" id="separate">Separate</h3>
+<p>Personal data should be processed in a distributed fashion, and data from separate sources should be stored or processed in distinct compartments where possible. The underlying rationale is that by separating storage or processing of data that belong to the same individual, you reduce the ability to build comprehensive profiles. Examples include storing different data types in separate databases, processing data locally rather than centrally, splitting database tables, and using federated learning or blockchain‐based approaches.</p>
+<h3 class="rubric" id="aggregate">Aggregate</h3>
+<p>Personal data should be processed at the highest level of aggregation and with the least detail necessary for the purpose. When data refer only to groups rather than to individuals, the sensitivity is reduced. Examples of supporting design patterns include k-anonymity, temporal aggregation (for example in smart metering), location coarsening in location-based services, and differential privacy.</p>
+<h2 class="rubric" id="process-strategies">Process strategies</h2>
+<h3 class="rubric" id="inform">Inform</h3>
+<p>Data subjects should be clearly informed about what information is being processed, for what purpose, by which means, and how it is protected. Transparency means providing clear documentation, notices, and informing subjects if data are shared with third parties. Also informing them about their access rights and how to exercise them. Design patterns include the Platform for Privacy Preferences (P3P), transparency enhancing tools.</p>
+<h3 class="rubric" id="control">Control</h3>
+<p>Subjects should be given agency over the processing of their personal data, this ties to individual rights. Informing alone is insufficient unless the subject has some control, and control is impossible without being informed. Control includes enabling subjects to view, update, or delete their data; control interfaces should be easy to use. Design patterns include user-centric identity management, end-to-end encryption to give users control, intervenability.</p>
+<h3 class="rubric" id="enforce">Enforce</h3>
+<p>A privacy policy compatible with legal requirements should be in place and must be enforced. This strategy ensures that the system respects privacy commitments. Technical protection mechanisms should exist to prevent policy violations, and governance structures must enforce the policy. Design patterns include access control, privacy rights management (a form of DRM for personal data).</p>
+<h3 class="rubric" id="demonstrate">Demonstrate</h3>
+<p>The organisation (data controller) must be able to demonstrate compliance with the privacy policy and applicable legal requirements – this entails accountability. It goes beyond enforcement: not only must privacy be enforced, but the organisation must show demonstrably that it is being enforced. Design patterns include logging, auditing, privacy-management systems.</p>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -600,35 +510,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-assessment">Risk assessment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-strategies">Data strategies</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimize">Minimize</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hide">Hide</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#separate">Separate</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregate">Aggregate</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#process-strategies">Process strategies</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inform">Inform</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#control">Control</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enforce">Enforce</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demonstrate">Demonstrate</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

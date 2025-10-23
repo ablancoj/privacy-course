@@ -1,91 +1,71 @@
 # Privacy by design
 
+:::{grid} 1 1 2 3
+
+:::{card} Data Strategies
+- Minimize
+- Hide
+- Aggregate
+- Separate
+:::
+
+:::{card} Process Strategies
+- Inform
+- Control
+- Enforce
+- Demonstrate
+:::
+
+:::
+
 ## Risk assessment
 
-- Describe any personal data processing in the system.
-  - Collection, storage, analysis, exchange, etc.
-- Identify likelihood of privacy threats.
-  - Linking of personal data, re-identification, disclosure, etc.
-  - May be in terms of probabilities.
-- Identify impact of privacy threats.
-  - May be in economic terms.
-- Compute risk = Likelihood x Impact
-- Propose countermeasures.
+When performing a risk assessment of a system that processes personal data, the first step is to describe the personal data processing activities. This includes the collection of data (for example via user inputs, sensors, third-party feeds), storage (databases, files, cloud services), analysis (data mining, profiling, predictive models) and exchange (sharing with other internal or external systems, APIs, third parties). Next, you should identify the likelihood of privacy threats: how likely is it that personal data may be linked, re-identified, or disclosed inadvertently or maliciously? For example, does the system combine identifiers and quasi-identifiers making re-identification feasible? Then you assess the impact of privacy threats – what are the consequences if a breach or misuse occurs? This might include economic costs (fines, remediation, business loss), reputational damage, legal liabilities, or harm to individuals (identity theft, discrimination). Once you have both likelihood and impact, you compute risk = Likelihood × Impact as a quantitative or semi-quantitative measure, which helps prioritise risk areas. Finally, you propose countermeasures: technical, organisational or procedural measures to reduce both the likelihood and/or impact of the identified threats (for example encryption, access controls, anonymization, limiting retention, staff training).
+
+
+
+### Seattle example
+
+### LINDDUN
+
 
 ## Data strategies
 
 ### Minimize
 
-- The amount of personal data that is processed should be restricted to the minimum possible (relates to minimization).
-- By avoiding collection of unnecessary data, the possible privacy impact of a system is limited.
-- Decide whether:
-  - The processing of personal data is proportional to the purpose;
-  - No other, less invasive means exist to achieve the same purpose.
-- Design patterns: Select before you collect; anonymization, pseudonyms.
-
+The amount of personal data processed should be restricted to the minimum necessary. By avoiding collection of unnecessary data, the system limits potential privacy impacts. Key questions include: Is the data processing proportional to the purpose? Are there less-invasive means to achieve the same goal? Typical design patterns supporting minimisation include “select before you collect,” anonymisation, or use of pseudonyms.
 
 ### Hide
 
-- Any personal data and their interrelationships should be hidden from plain view (relates to information security).
-- Doing so ensures personal data cannot be easily abused.
-- The HIDE strategy seeks unlinkability and unobservability.
-- Design patterns: encryption of data (stored or in transit), mix networks (to hide traffic patterns), attribute-based credentials for unlinkability, anonymization, pseudonyms.
-
+Any personal data and their interrelationships should be hidden from plain view (reflecting the information security dimension). This strategy seeks unlinkability and unobservability: to ensure that personal data cannot be easily abused because they are concealed, encrypted or otherwise protected. Design patterns include encryption (data at rest or in transit), mixing networks to hide traffic patterns, attribute-based credentials, pseudonyms and anonymisation.
 
 ### Separate
 
-- Personal data should be processed in a distributed fashion, in separate compartments whenever possible.
-- By separating the processing or storage of several sources of personal data that belong to the same person, complete profiles of that person cannot be made.
-- Distributed rather than centralized processing.
-- Data from separate sources stored in separate databases.
-- Data to be processed and stored locally as much as possible.
-- Database tables to be split when possible and rows in those table to be made difficult to link (by removing identifiers and using table-specific pseudonyms).
-- For example, blockchain-based technologies, federated learning.
+Personal data should be processed in a distributed fashion, and data from separate sources should be stored or processed in distinct compartments where possible. The underlying rationale is that by separating storage or processing of data that belong to the same individual, you reduce the ability to build comprehensive profiles. Examples include storing different data types in separate databases, processing data locally rather than centrally, splitting database tables, and using federated learning or blockchain‐based approaches.
 
 
 ### Aggregate
 
-- Personal data should be processed at the highest level of aggregation and with the least possible detail in which it is (still) useful.
-- Aggregating information over groups of attributes or individuals reduces the detail of the information ⇒ data become less sensitive.
-- If data are general enough that they can fit more than one person, they are not attributable to any single person ⇒ privacy is protected.
-- Design patterns: k-anonymity, aggregation over time (e.g., in smart metering), location coarsening (in LBSs), differential privacy and other privacy models/anonymization techniques.
+Personal data should be processed at the highest level of aggregation and with the least detail necessary for the purpose. When data refer only to groups rather than to individuals, the sensitivity is reduced. Examples of supporting design patterns include k-anonymity, temporal aggregation (for example in smart metering), location coarsening in location-based services, and differential privacy.
 
 
 ## Process strategies
 
 ### Inform
 
-- Whenever data subjects use a system, they should be informed about which information is processed, for what purpose and by which means, and how is that information protected.
-- Relates to transparency and openness.
-- Clear documentation must be provided.
-- In case information is shared with third parties, subjects should be informed about it.
-- Subjects should also be informed about their data access rights and how to exercise them.
-- Design patterns: Platform for Privacy Preferences (P3P), transparency-enhancing techniques.
+Data subjects should be clearly informed about what information is being processed, for what purpose, by which means, and how it is protected. Transparency means providing clear documentation, notices, and informing subjects if data are shared with third parties. Also informing them about their access rights and how to exercise them. Design patterns include the Platform for Privacy Preferences (P3P), transparency enhancing tools.
 
 
 ### Control
 
-- Data subjects should be given agency over the processing of their personal data (relates to individual rights).
-- INFORM and CONTROL are intertwined:
-  - Informing makes little sense if the subject has no control.
-  - Control is impossible without the subject being informed.
-- Access rights include the subject viewing, updating or even deleting her data.
-- CONTROL interfaces should be easy to use.
-- Design patterns: User-centric identity management, end-to-end encryption support control, intervenability techniques.
+Subjects should be given agency over the processing of their personal data, this ties to individual rights. Informing alone is insufficient unless the subject has some control, and control is impossible without being informed. Control includes enabling subjects to view, update, or delete their data; control interfaces should be easy to use. Design patterns include user-centric identity management, end-to-end encryption to give users control, intervenability.
 
 
 ### Enforce
 
-- A privacy policy compatible with legal requirements should be in place and should be enforced (for accountability).
-- The policy ensures that the system respects privacy.
-- The privacy level should meet all legal requirements.
-- Technical protection mechanisms must exist that prevent policy violations.
-- Governance structures to enforce the policy must be established.
-- Design patterns: Access control, privacy rights management (a form of digital rights management involving licenses to personal data).
+A privacy policy compatible with legal requirements should be in place and must be enforced. This strategy ensures that the system respects privacy commitments. Technical protection mechanisms should exist to prevent policy violations, and governance structures must enforce the policy. Design patterns include access control, privacy rights management (a form of DRM for personal data).
 
 
 ### Demonstrate
 
-- The data controller must be able to demonstrate compliance with the privacy policy and applicable legal requirements (for accountability).
-- This strategy goes beyond ENFORCE: not only must privacy be enforced but it must be done demonstrably.
-- Design patterns: Privacy management systems, logging, auditing.
+The organisation (data controller) must be able to demonstrate compliance with the privacy policy and applicable legal requirements – this entails accountability. It goes beyond enforcement: not only must privacy be enforced, but the organisation must show demonstrably that it is being enforced. Design patterns include logging, auditing, privacy-management systems.
