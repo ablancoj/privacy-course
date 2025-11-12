@@ -1,5 +1,24 @@
 # Privacy by design
 
+Privacy by design is a fundamental requirement of the GDPR that calls for integrating privacy and data protection considerations into every stage of the design and development process. Rather than treating privacy as an afterthought, systems and services that collect or process personal data must be built from the ground up with privacy in mind. This approach applies to all types of data-driven environments, including web platforms, mobile applications, wearable technologies, and research infrastructures.
+
+A central component of privacy by design is the Data Protection Impact Assessment (DPIA), which functions as a structured risk assessment. It identifies what personal data is collected, how it is stored and processed, the parties that have access to it, and the potential risks to individuals’ rights and freedoms. These assessments should be conducted not only at the start of a project but also throughout its life cycle, as systems evolve and new risks appear. Guidelines for conducting DPIAs are provided by organizations such as the Spanish Data Protection Agency (AEPD), ENISA, and NIST. Risk factors depend on the type of processing (for example, profiling or monitoring), the sensitivity of the data (such as health, biometric, or financial information), the retention period, and the vulnerability of the data subjects. Children, for instance, require special protection because they cannot give valid consent.
+
+Risk analysis combines the likelihood of a threat occurring with the potential impact it might have. High-risk scenarios typically involve sensitive data, poor access control, or the possibility of reidentifying individuals from anonymized datasets. Examples of real-world applications of this analysis include open data initiatives where authorities weigh the social benefits of publishing information against the privacy risks. For example, releasing data on emergency calls may have high public value but also poses significant reidentification risks, making it unsuitable for full disclosure without strong anonymization measures.
+
+The concept of privacy by design can be organized into eight core strategies. Four of them are data-oriented:
+1. Minimize – Collect only the data necessary for the intended purpose and avoid excessive data collection. Processing can be performed locally when possible to reduce the transmission of personal data.
+2. Hide – Protect data through encryption, access control, and secure communication. Only authorized individuals should be able to view or manipulate personal data.
+3. Separate – Keep different categories of data apart to avoid unnecessary linkages that could lead to identification. Distribute processing across systems instead of centralizing it, using approaches such as federated learning.
+4. Aggregate – Whenever feasible, work with aggregated or anonymized data rather than individual records. Reducing the level of detail lowers privacy risks while still allowing useful analysis
+The remaining four are process-oriented strategies that address how organizations manage data and interact with individuals:
+5. Inform – Ensure transparency by clearly explaining how data is collected, processed, and used, using accessible language rather than legal jargon.
+6. Control – Provide individuals with effective means to exercise their data protection rights, such as accessing, correcting, or deleting their data.
+7. Enforce – Guarantee that internal practices and technical safeguards comply with established privacy policies and legal requirements. Implement access control and monitoring to prevent unauthorized use.
+8. Demonstrate – Maintain comprehensive documentation and logs to prove compliance and support accountability, especially in the event of audits or incidents.
+
+Together, these principles ensure that data protection is embedded into both the technical architecture and the organizational culture of any system handling personal data. They promote proactive, transparent, and responsible data management that not only meets regulatory requirements but also strengthens user trust.
+
 :::{grid} 1 1 2 3
 
 :::{card} Data Strategies
@@ -69,3 +88,6 @@ A privacy policy compatible with legal requirements should be in place and must 
 ### Demonstrate
 
 The organisation (data controller) must be able to demonstrate compliance with the privacy policy and applicable legal requirements – this entails accountability. It goes beyond enforcement: not only must privacy be enforced, but the organisation must show demonstrably that it is being enforced. Design patterns include logging, auditing, privacy-management systems.
+
+
+

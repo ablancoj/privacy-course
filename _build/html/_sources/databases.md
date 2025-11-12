@@ -593,3 +593,203 @@ It can be applied to any type of masking and synthetic data.
 It can even be applied to measure the actual disclosure risk of $\epsilon$-differentially private data releases.
 
 
+## FLUFF
+
+### Tabular
+
+Anonymization of structured databases is one of the central technical methods for protecting personal data while preserving its analytical or statistical value. Structured data, such as that stored in relational databases or spreadsheets, consists of well-defined attributes arranged in rows and columns—each row representing an individual and each column representing an attribute (such as age, income, or medical condition). These datasets are the foundation of much statistical, social, and biomedical research, yet they also pose serious privacy risks because individuals can often be identified or their attributes inferred, even after direct identifiers have been removed. The purpose of anonymization is to transform such data so that it can be used, published, or shared with third parties without revealing or allowing the inference of personal information.
+
+To understand how anonymization works, it is essential to distinguish between different types of data attributes. Direct identifiers are attributes that uniquely identify a person on their own—such as a name, personal identification number, email address, or phone number. These are typically removed entirely in any anonymization process. Quasi-identifiers (or indirect identifiers) are attributes that do not identify an individual by themselves but can do so when combined with other information. Common examples include combinations of birth date, postal code, and gender, which have been shown to uniquely identify large portions of a population when cross-referenced with external data sources. Confidential attributes are those that are sensitive in nature, such as salary, medical diagnosis, or political opinion; these are not used to identify individuals but must be protected against disclosure. Finally, non-confidential attributes are those that carry little privacy risk and can typically be retained as-is.
+
+When a dataset is released—either publicly or to specific researchers—the main risks are re-identification (linking data to an individual) and attribute disclosure (inferring confidential information about an identified person). These threats may arise from linkage attacks, in which an attacker combines anonymized data with external datasets, such as public voter registries or social media profiles, to re-establish identities. The well-known case of Latanya Sweeney’s re-identification of Massachusetts health records using public voter data illustrates this danger: even after names were removed, the combination of ZIP code, birth date, and sex uniquely identified a large percentage of individuals.
+
+Structured data can appear in various forms depending on how it is shared. The simplest is tabular data, where aggregated statistics (like counts or averages) are published instead of individual records. While this reduces the risk of exposure, even aggregates can sometimes leak information when groups are small. Microdata releases contain individual-level records and pose higher risks but are more valuable for analysis. A third model involves queryable databases, where external users can run limited statistical queries without direct access to the data—an approach discussed more deeply in later sessions.
+
+The core challenge of anonymization lies in finding the right balance between utility and privacy. If data is heavily modified or generalized, it may lose its usefulness for research or policy analysis; if it is insufficiently transformed, it remains vulnerable to privacy breaches. This balance can be described through two key measures: disclosure risk, the probability that an individual can be re-identified or a sensitive attribute inferred; and utility loss, the degree to which the anonymized data deviates from the original in ways that reduce its analytical value. In practice, anonymization often involves iterative processes that evaluate and adjust this trade-off.
+
+Various approaches exist to anonymize structured data. A broad distinction can be made between non-perturbative and perturbative methods. Non-perturbative methods modify the structure of the data—by removing or grouping records, generalizing attribute values, or suppressing rare combinations—without changing the actual data values themselves. Examples include recoding numerical values into intervals (e.g., replacing exact ages with age ranges) or aggregating geographic details (replacing “street address” with “postal district”). Perturbative methods, on the other hand, introduce controlled randomness or noise to mask individual contributions while preserving global patterns. These include techniques like data swapping (exchanging values between records), noise addition (slightly altering numeric values), or synthetic data generation (creating artificial records that preserve statistical distributions).
+
+To formalize privacy guarantees, researchers and practitioners use different models. The most widely known is k-anonymity, which requires that each record in a dataset be indistinguishable from at least k–1 others with respect to the quasi-identifiers. In other words, any given combination of identifying attributes must appear in at least k rows, making the probability of linking a record to a specific individual at most 1/k. Variants of this model, such as l-diversity and t-closeness, strengthen protection by ensuring diversity and similarity constraints within groups, reducing the risk of attribute disclosure even when sensitive attributes are unevenly distributed.
+
+While these formal models are primarily applied to microdata, their principles also guide the anonymization of other data forms, including tabular and queryable data. In tabular data, cell suppression and controlled rounding are used to prevent inferences about small subgroups, while complementary suppression ensures that suppressed cells cannot be reconstructed from totals. When publishing frequency tables or census data, for instance, agencies routinely withhold or adjust values in small population groups to prevent re-identification.
+
+An effective anonymization process typically begins with a detailed risk assessment. This includes identifying potential quasi-identifiers, estimating disclosure risk based on external data availability, and selecting appropriate transformation methods. After anonymization, utility evaluation ensures that the transformed data still supports the intended analyses—such as statistical inference, machine learning, or policy evaluation. Because anonymization is context-dependent, the same dataset might require different transformations depending on its intended use and audience: a public release requires stronger privacy, while restricted research access may allow more detail.
+
+Ultimately, anonymization of structured databases illustrates a core theme in privacy engineering: privacy is not achieved by deleting data but by transforming it intelligently. It is a balance between protecting individuals and preserving collective knowledge. In practice, achieving full anonymity is nearly impossible—especially as external data sources multiply—but well-designed anonymization greatly reduces risk while maintaining social and scientific value.
+
+Tabular data is one of the most common ways in which statistical information is published. Government agencies, research institutions, and companies often release aggregated tables summarizing results from surveys, censuses, or databases—for example, the number of people by region and profession, or the average salary by sector. Although such tables appear harmless because they contain no individual records, they can still reveal sensitive information about individuals when analyzed carefully. Protecting privacy in tabular data publishing therefore requires specialized anonymization techniques that prevent both identity disclosure and attribute disclosure while maintaining the utility of the statistics.
+
+A statistical table is usually constructed from microdata, meaning a collection of individual records that include multiple attributes for each person. When a table is built, those records are grouped according to certain key variables or quasi-identifiers (for example, region, age group, or gender), and a summary statistic—such as a count, total income, or average—is computed for each combination of categories. The resulting table thus contains cells, each representing a subgroup of individuals. For example, one cell might correspond to “Women aged 40–49 working in Finance in Barcelona.” Even though only the count or average is shown, if that subgroup includes very few individuals, those numbers could reveal private details about them.
+
+Privacy risks in tabular data publishing can arise in two main ways. The first is the external attack: when an outside party uses publicly available information or background knowledge to deduce information about an individual. For instance, if a table reports that there is exactly one person in a specific region and category, an attacker who knows someone matching those conditions can infer that person’s confidential attribute (such as salary or health status). The second is the internal attack, which can occur even among respondents within the dataset. If two people appear in the same cell and one of them knows their own data, they can infer the other’s by comparing with the published cell value (for example, if they know the average salary of a two-person group and their own salary, they can deduce the other’s).
+
+Because these risks depend on the number of individuals contributing to each cell, the cell frequency—the count of records behind each aggregate—is a crucial factor in tabular data protection. When cell frequencies are too small, the cell is considered unsafe. Statistical disclosure control (SDC) techniques aim to protect these cells while keeping the overall table as informative as possible.
+
+The simplest protection strategy is cell suppression, where unsafe cells (those with very small counts or containing sensitive information) are removed or replaced with a symbol such as “–” or “confidential.” However, suppression alone can be insufficient because totals and marginal sums may allow suppressed values to be recalculated. To prevent such deductive disclosure, complementary suppression is applied: additional, non-sensitive cells are also suppressed strategically so that the missing values cannot be reconstructed from the published totals. This ensures that every suppressed cell is supported by a set of other suppressed cells that make re-computation impossible.
+
+Another method is controlled rounding, in which numerical values—such as counts or averages—are rounded to the nearest multiple of a specified base (for example, to the nearest 3 or 5). Rounding introduces small random errors that obscure exact cell frequencies while preserving global consistency and additivity of totals. Controlled tabular adjustment (CTA) is a related approach that makes minimal adjustments to cell values, usually through optimization algorithms, to ensure that sensitive cells deviate from their true values by at least a specified threshold while keeping the table as close as possible to the original.
+
+In some cases, agencies publish interval data rather than exact values. Instead of reporting an exact count or average, they publish ranges such as “between 3 and 7 individuals” or “average income between €35,000 and €40,000.” This technique generalizes results and can be tuned to balance privacy and precision: wider intervals give stronger privacy at the cost of utility.
+
+Noise addition can also be applied to tabular data, though it must be done carefully to preserve statistical consistency. Small random perturbations are introduced to cell values or to the input data before aggregation, ensuring that the overall distribution remains accurate for analysis but that individual contributions cannot be deduced. However, because perturbation introduces distortion, it must be calibrated to maintain the credibility of published statistics—especially when the data serve policy or economic purposes.
+
+To evaluate the effectiveness of these techniques, two criteria are commonly used: disclosure risk and information loss (or utility loss). Disclosure risk measures how likely it is that an individual’s information could be inferred from the published table. Information loss measures how much the modified table deviates from the original, affecting the usefulness of the data for analysis. An ideal anonymization strategy minimizes both—but in practice, they are inversely related: increasing protection typically reduces accuracy and vice versa. Agencies therefore aim for a reasonable balance based on the sensitivity of the data and the intended use of the publication.
+
+In the practical workflow of tabular data protection, the process typically begins with identifying key variables—those attributes that could serve as quasi-identifiers—and determining a frequency threshold, such as three or five, below which a cell is considered unsafe. Then, one or more SDC methods (suppression, rounding, or perturbation) are applied. Finally, validation ensures that no suppressed or modified cells can be reconstructed through arithmetic relationships among totals or that noise addition does not excessively distort results.
+
+An important aspect discussed in this session is that anonymizing tabular data is not the same as anonymizing microdata. In tabular data, individuals are already aggregated, so the primary goal is not to protect individual records directly but to prevent inference from aggregated statistics. The techniques, therefore, operate at the aggregate level—controlling how much information each published value reveals about the underlying data.
+
+Ultimately, tabular data protection exemplifies one of the earliest and most classical forms of statistical disclosure control. It demonstrates the principle that even aggregate data can leak sensitive information if not handled carefully. By applying methods such as suppression, rounding, perturbation, and interval publication, data controllers can ensure that the results of statistical analyses remain useful for society while respecting the confidentiality of the individuals whose data underlie those numbers.
+
+### Queryable
+
+P5 – Queryable Databases and Differential Privacy
+
+After discussing the protection of tabular data, which focuses on publishing static, aggregated statistics, this session turns to the more dynamic scenario of queryable databases—systems that do not publish raw or aggregated data directly but instead allow users to make statistical queries through controlled interfaces, such as APIs or query engines. These databases are increasingly common in government, research, and commercial environments because they promise flexibility: external analysts or applications can request statistics or summaries without the data ever leaving the controller’s server. However, this model still poses serious privacy challenges. Even when individual records are not exposed, the answers to queries can leak sensitive information, especially if users issue cleverly designed or repeated queries.
+
+A queryable database typically consists of three entities:
+
+A data controller or curator, who collects and stores data from respondents or participants (for example, through surveys, services, or sensors).
+
+A dataset, often containing personal information, organized in relational form.
+
+A user, who can submit statistical queries—such as counts, sums, or averages—via an interface, often programmatically.
+
+The central privacy objective is to protect the respondents, not the users. That is, the system must ensure that queries cannot reveal confidential information about individuals whose data is stored in the database.
+
+Privacy Risks in Queryable Databases
+
+Even seemingly harmless queries can compromise privacy when their conditions isolate small subsets of individuals. For instance, if a query asks, “How many employees in the finance sector in Tarragona earn more than €100,000?” and the answer is “1,” an attacker might infer both the existence and the salary of that single individual. If follow-up queries refine conditions (for example, by changing filters or combining results), they can extract additional details. This risk increases when users collude or use external information to link responses with real-world identities.
+
+Two main forms of disclosure can occur:
+
+Identity disclosure, when a query indirectly reveals who an individual is.
+
+Attribute disclosure, when the value of a confidential attribute (such as salary or diagnosis) can be inferred for an identified person.
+
+Unlike static table publication, protecting a queryable database is an ongoing process: each new query potentially leaks more information. Thus, privacy protection mechanisms must monitor query patterns over time and enforce limits dynamically.
+
+Three Families of Protection Techniques
+
+Three broad strategies are used to protect queryable databases: query restriction, query camouflage (generalization), and query perturbation. Each offers a different balance between privacy, computational cost, and result accuracy.
+
+Query Restriction
+The most straightforward method is to simply refuse to answer queries that could compromise privacy. The system computes the query set size—the number of individual records that match the query conditions—and denies responses when that number falls below a predefined threshold. For example, the system might only answer queries that affect at least three or five individuals. This prevents small-group disclosures and is analogous to cell suppression in tabular data.
+
+The advantage of query restriction is that it preserves exact accuracy: all returned results are true and unmodified. However, it is extremely demanding to implement securely. The curator must not only monitor each query but also consider query history—because multiple queries can be combined to extract sensitive information even if each, individually, is safe. Keeping track of overlaps between query sets (and potential collusion between users) is computationally expensive, especially for large datasets or open systems with many users. Therefore, while conceptually simple, query restriction scales poorly in practice.
+
+Query Camouflage (Interval or Generalized Responses)
+Another strategy is to generalize the answers by reporting intervals instead of precise values. For example, instead of returning that the average salary is €42,530, the system might report that it lies between €40,000 and €45,000. This method provides bounded uncertainty without adding random noise, which preserves logical consistency and allows unlimited querying.
+
+Each confidential attribute can have its own privacy bound—a parameter defining how wide the intervals should be. A larger interval offers stronger privacy but reduces the utility of the data, since results become less specific. Because interval reporting does not distort the data but rather abstracts it, it is considered a non-perturbative method. However, as with other generalization approaches, it cannot fully prevent inference when users accumulate many queries with overlapping conditions.
+
+Query Perturbation (Noise Addition)
+The most powerful and conceptually advanced approach is to add controlled noise to query responses so that individual contributions are hidden, while overall statistical patterns remain accurate. Noise can be introduced at two stages:
+
+Input perturbation, where random noise is added to the raw data before any queries are processed.
+
+Output perturbation, where noise is added to the query result itself before returning it to the user.
+
+Input perturbation provides consistent privacy guarantees across queries but permanently modifies the dataset. Output perturbation preserves the dataset but requires generating new noise for each query, raising challenges for consistency and cumulative leakage.
+
+Differential Privacy
+
+The theoretical foundation for query perturbation is differential privacy (DP)—a mathematically rigorous model introduced in the mid-2000s and now widely used in both research and industry. Differential privacy formalizes the idea that the inclusion or exclusion of a single individual’s data should not significantly affect the result of any analysis.
+
+More precisely, a randomized algorithm satisfies differential privacy if, for any two datasets that differ in only one individual, the probability of obtaining a particular output is nearly the same. The difference between these probabilities is controlled by a parameter called epsilon (ε), the privacy budget. A smaller ε provides stronger privacy (less sensitivity to any individual record) but introduces more noise and therefore reduces accuracy.
+
+In practical terms, differential privacy gives a quantifiable, provable privacy guarantee that does not depend on what external information attackers might possess. It limits what can be inferred about any individual, even in the worst-case scenario. This makes it fundamentally stronger than heuristic approaches like suppression or generalization.
+
+The implementation of differential privacy usually involves adding random noise drawn from a specific probability distribution—most commonly Laplace or Gaussian—to query outputs. The amount of noise depends on the sensitivity of the query function (how much a single individual’s data can change the result) and on the chosen privacy parameter ε. For example, a simple count query has sensitivity 1 (each individual can change the count by at most one), whereas averages or sums have higher sensitivity.
+
+Differential privacy also introduces the concept of a privacy budget over multiple queries. Each query consumes part of the available ε; when the total budget is exhausted, no further queries can be answered without violating the overall privacy guarantee. This ensures that repeated querying cannot gradually erode privacy protection.
+
+This model has become the de facto standard for privacy-preserving analytics. It has been adopted in high-profile deployments such as the U.S. Census Bureau’s 2020 census, which used differential privacy to protect published statistics, and by major technology companies like Apple, Google, and Meta for data collection and analysis of user behavior.
+
+The Randomized Response Analogy
+
+To make the intuition behind differential privacy more accessible, the lecture introduced an older statistical method called randomized response, developed in the 1960s for social science surveys. In randomized response, participants answer sensitive yes/no questions (for example, “Have you ever used illegal drugs?”) using a randomizing device such as a coin flip. If the coin lands heads, the respondent answers truthfully; if tails, they answer “yes” regardless of the truth. Because the interviewer cannot know whether any given answer is truthful, the individual’s privacy is protected. Yet, because the probability of randomness is known, the overall proportion of “yes” answers in the population can still be estimated statistically.
+
+Differential privacy generalizes this idea to databases: by adding controlled randomness to query results, it protects individuals’ data while still allowing accurate aggregate statistics to be derived.
+
+Conclusion
+
+Queryable databases illustrate a fundamental trade-off between data utility and individual privacy. Restriction methods guarantee perfect accuracy but are computationally and operationally costly. Generalization provides deterministic uncertainty but can still be circumvented through repeated queries. Noise addition—especially as formalized by differential privacy—offers strong, quantifiable protection with manageable utility loss, making it the most promising modern approach.
+
+This model marks a conceptual shift from heuristic anonymization toward mathematically provable privacy. Rather than focusing on hiding or deleting specific identifiers, differential privacy ensures that the participation of any individual has an almost negligible effect on analytical outcomes. It is, therefore, the cornerstone of contemporary privacy-preserving data analytics and the natural evolution of statistical disclosure control in the age of big data and machine learning
+
+### Microdata
+
+Microdata represents the most granular and detailed form of structured data: each record corresponds to an individual entity (a person, household, or organization), and each attribute describes some aspect of that entity—such as age, income, education, or health condition. Because microdata preserves individual-level information, it provides great analytical value for research and policymaking, but it also poses the highest privacy risks. Even after removing direct identifiers, individuals can often be re-identified by combining quasi-identifiers with external datasets. Microdata anonymization therefore seeks to transform such datasets to make re-identification or attribute inference practically impossible, while maintaining as much data utility as possible for statistical and analytical purposes.
+
+Types of Attributes and Privacy Threats
+
+As in previous discussions, attributes in microdata can be categorized into several classes:
+
+Direct identifiers, such as name, ID number, or email, which uniquely identify an individual and must always be removed or masked.
+
+Quasi-identifiers, which do not identify a person on their own but can do so in combination with other attributes (for example, age, ZIP code, and gender).
+
+Confidential (or sensitive) attributes, which contain private information that should not be disclosed, such as salary, disease, or political affiliation.
+
+Non-confidential attributes, which are neutral and generally harmless to share.
+
+The main threats to privacy in microdata publication are re-identification (linking records to known individuals) and attribute disclosure (inferring sensitive information about an identified individual). These risks arise because even a few quasi-identifiers can uniquely characterize many people. A classic example is the discovery that 87% of Americans could be uniquely identified by the combination of ZIP code, gender, and date of birth.
+
+Non-Perturbative vs. Perturbative Approaches
+
+Anonymization methods for microdata are broadly divided into non-perturbative and perturbative techniques.
+
+Non-perturbative methods preserve the truthfulness of data values but reduce their precision or granularity. This includes recoding, generalization, and suppression. For example, instead of publishing exact ages, data may be grouped into ranges (20–29, 30–39, etc.), or small geographic areas may be aggregated into larger regions. The idea is to ensure that each record becomes indistinguishable from several others with respect to the quasi-identifiers.
+
+Perturbative methods, on the other hand, modify data values by introducing controlled randomness. This includes noise addition (slightly altering numerical values), data swapping (exchanging attribute values between records), rank swapping (reordering values among similar records), and synthetic data generation (creating entirely artificial records that preserve statistical distributions). These methods are particularly useful when precise micro-level accuracy is not required but overall statistical properties must remain valid.
+
+Both categories aim to balance two competing objectives: minimizing disclosure risk and preserving analytical utility. The optimal choice depends on the purpose of the data release.
+
+k-Anonymity: The Foundational Model
+
+The most influential formal model for microdata anonymization is k-anonymity, introduced by Samarati and Sweeney in the late 1990s. A dataset satisfies k-anonymity if every combination of quasi-identifiers appears in at least k records. In other words, each individual is indistinguishable from at least k–1 others with respect to the identifying attributes. This means that the probability of correctly re-identifying any record is at most 1/k.
+
+To achieve k-anonymity, the dataset is partitioned into equivalence classes, where each class contains at least k records that share the same generalized values for their quasi-identifiers. For example, if a dataset achieves 4-anonymity, each unique combination of age range, gender, and ZIP code must appear in at least four records. The process typically involves iterative generalization (grouping categorical values, widening numerical intervals) and suppression (removing overly unique records).
+
+While k-anonymity provides a clear and intuitive privacy guarantee, it has limitations. It protects only against identity disclosure, not attribute disclosure. If all individuals in an equivalence class share the same value for a sensitive attribute—say, they all have the same medical diagnosis—then knowing that a person belongs to that group still reveals their confidential information. To address this, several stronger models were developed.
+
+l-Diversity and t-Closeness: Beyond Identity Protection
+
+l-Diversity extends k-anonymity by requiring that each equivalence class contain at least l well-represented values for every sensitive attribute. This ensures diversity within groups, reducing the risk of attribute disclosure. For instance, if an equivalence class of four records all indicate “HIV-positive,” the dataset is technically 4-anonymous but not diverse; an attacker would immediately learn that anyone in that group has HIV. Ensuring l-diversity means that sensitive attributes vary across the records in each group.
+
+However, l-diversity can still fail when the overall distribution of a sensitive attribute is highly skewed. If one value (e.g., “flu”) dominates globally, then even a diverse group might not protect well. To address this, t-closeness was introduced. It requires that the distribution of a sensitive attribute within each equivalence class be close (within a distance t) to its distribution in the entire dataset. The smaller t is, the stronger the privacy guarantee. This model directly measures how much information about sensitive attributes can be inferred from group membership, ensuring that each group reflects the overall population distribution.
+
+These models form a hierarchy of protection:
+
+k-anonymity prevents identity disclosure.
+
+l-diversity reduces attribute disclosure by ensuring variety.
+
+t-closeness controls how much the internal distribution can deviate from the global one.
+
+Practical Techniques: Masking and Recoding
+
+In practical applications, microdata anonymization is often achieved through masking techniques that modify quasi-identifiers according to chosen privacy parameters. Common strategies include:
+
+Global recoding, where values are replaced with broader categories (e.g., merging job titles into sectors).
+
+Local suppression, where certain values are removed or replaced with missing entries in specific records that threaten anonymity.
+
+Top- and bottom-coding, which cap extreme numerical values—for example, reporting all incomes above €200,000 simply as “≥200,000.”
+
+Microaggregation, which replaces groups of similar records with group averages, commonly used for numerical data.
+
+These transformations are carefully evaluated to ensure they maintain the statistical relationships necessary for analysis—such as means, variances, and correlations—while satisfying k-anonymity or its extensions.
+
+Evaluating Risk and Utility
+
+Every anonymization process involves measuring disclosure risk (the likelihood of re-identification) and information loss (the reduction in data quality or analytical power). Techniques such as risk–utility maps are used to visualize the trade-off between these two dimensions. Analysts can adjust parameters (e.g., the value of k or the granularity of generalization) to achieve the desired balance.
+
+An additional consideration is the context of data release. For public data releases, stronger privacy (higher k or t) is required; for controlled research environments where access is restricted and monitored, weaker anonymization may suffice to retain utility.
+
+Conceptual Transition: Toward Queryable and Differential Privacy
+
+The anonymization of microdata bridges traditional statistical disclosure control and the more recent paradigm of differential privacy. While k-anonymity and its variants rely on modifying data before release, differential privacy introduces randomness during query processing. The former alters data values; the latter perturbs outputs. Both share the same goal—limiting how much information about any individual can be inferred—but differ in mathematical foundations and operational approach.
+
+Microdata anonymization remains central in domains like healthcare, official statistics, and social research, where tabular or aggregate data is insufficient and researchers require individual-level information. It embodies the classic tension between privacy protection and scientific value, reminding us that the act of anonymization is not merely technical but also ethical: protecting individuals while preserving knowledge that can benefit society.

@@ -137,3 +137,53 @@ Membership inference. In genome–phenome investigations, such as GWAS, research
 Reconstruction and familial search. Due to the similarity of relatives’ genomic records, even if someone’s genomic record has never been shared or even generated, their genotypes and predispositions to certain diseases can be inferred to a certain degree from their relatives’ shared genotypes.
 
 ![alt text](figs/genomic_nature.png)
+
+## FLUFF
+
+After several sessions focused on structured data—organized in tables with defined attributes—this lecture shifted attention to unstructured data, which includes information that does not conform to the row–column structure of databases. This encompasses a wide variety of content types: images, text, audio, video, location traces, and even genetic sequences. Such data is increasingly central to modern analytics and artificial intelligence but presents distinct privacy challenges because identifiers and sensitive attributes are not confined to specific fields or formats. Instead, personally identifiable information can appear in unpredictable ways: in pixels, words, metadata, or inferred patterns. The goal of privacy protection in unstructured data is therefore to prevent re-identification or attribute disclosure while maintaining the data’s usefulness for analysis, training, or sharing.
+
+The Nature of Unstructured Data and Its Risks
+
+Unlike tabular microdata, where the boundaries between attributes are explicit, unstructured data embeds information across multiple dimensions. A photograph, for example, may reveal not only the identity of the person it depicts but also contextual clues such as location, activity, or social connections. A text document can contain names, addresses, and descriptions of private situations scattered throughout natural language. Location trajectories can expose personal habits, routines, and even religious or medical visits. Genomic data uniquely identifies individuals and, by extension, their biological relatives.
+
+The primary privacy threats remain the same—re-identification (linking a piece of data to an individual) and attribute disclosure (inferring sensitive facts about that individual)—but the mechanisms of these threats differ. In unstructured data, identifiers can be hidden in metadata, embedded in content, or inferred by machine learning models. For instance, digital photographs contain EXIF metadata such as timestamp, GPS coordinates, device brand, and camera model. Even if this metadata is stripped, image content itself can betray information: landmarks or building facades can reveal where the photo was taken, and unique sensor imperfections (like dead pixels) can identify the specific camera used—techniques exploited in forensic investigations and by intelligence agencies.
+
+Image Data and Visual Anonymization
+
+Image data is one of the most privacy-sensitive forms of unstructured information, particularly when it contains human faces or other identifiable features. A person’s face is a direct biometric identifier, meaning that any image containing it can be linked to that individual with high confidence, especially given the sophistication of modern face recognition systems.
+
+The traditional approach to protecting image privacy is masking or obfuscation—typically through blurring, pixelation, or blackening regions of an image that reveal identity, such as faces, license plates, or other sensitive objects. Backgrounds can also be blurred to prevent location inference. However, such techniques are increasingly insufficient. Deep learning–based recognition models have become capable of identifying individuals even from heavily blurred or low-resolution images, or from partial views such as silhouettes or unique clothing patterns.
+
+More advanced protection techniques include the use of adversarial noise—tiny, carefully crafted pixel perturbations that are almost imperceptible to humans but can confuse machine learning models. These modifications, called adversarial examples, exploit the sensitivity of neural networks to small input changes, making the same face unrecognizable to an automated recognition system. However, adversarial perturbations are typically model-specific: they depend on knowledge of the recognition algorithm and are not guaranteed to protect against all possible models.
+
+Another growing area is automated object detection and image segmentation, which can help identify regions that require anonymization. By combining these with natural language description systems (image captioning models), one can automatically detect and obscure sensitive elements such as people, medical instruments, or personal items. Still, there are no definitive quantitative measures of “privacy risk” for images; evaluation is often based on empirical testing—measuring whether a recognition model can still identify individuals after obfuscation.
+
+In some contexts, such as medical imaging, the content itself may not be directly identifying. A radiograph, ultrasound, or MRI scan usually does not reveal a person’s identity visually. However, metadata associated with medical images can contain disclosive information such as patient names, hospital IDs, or timestamps. The standard format for medical imaging, DICOM (Digital Imaging and Communications in Medicine), stores extensive metadata alongside the image. Therefore, medical image anonymization focuses primarily on metadata removal—deleting or replacing all patient identifiers—and, when necessary, erasing burned-in text that may appear on the image itself. Many medical imaging systems already include built-in anonymization functions for this purpose.
+
+In summary, protecting image data privacy involves a combination of content-based editing (blurring, pixelation, adversarial noise) and metadata sanitization, with the specific techniques chosen depending on the purpose of data sharing and the acceptable trade-off between visibility and privacy.
+
+Synthetic Image Generation
+
+A promising complement to traditional anonymization is the use of synthetic data generation, which creates artificial images that statistically resemble real data but correspond to no actual person. Initially, Generative Adversarial Networks (GANs) were used to produce realistic faces or medical images, and more recently, diffusion models have become the dominant approach, capable of generating high-fidelity and diverse synthetic datasets.
+
+Synthetic images are particularly useful for training machine learning models when privacy restrictions prevent access to real data. They preserve aggregate characteristics such as lighting conditions, object shapes, or anatomical features, while removing any direct link to real individuals. However, synthetic data must be used with caution: if a generative model is trained on real data without adequate regularization or differential privacy, it can inadvertently memorize and reproduce fragments of the original, thus reintroducing privacy risk. For critical applications like clinical research, synthetic data may be used only for prototyping or pre-training, not for final analysis or publication.
+
+Text Data and Natural Language
+
+Textual data, such as emails, medical notes, or social media posts, presents a different challenge. In contrast to structured databases where attributes are predefined, in natural language text, identifying or sensitive information can appear anywhere and in many forms—names, addresses, job titles, health details, or even contextually revealing phrases.
+
+Anonymizing text involves two major steps:
+
+Identification of sensitive content.
+
+Transformation or masking of that content.
+
+Early methods relied on manual redaction, in which human annotators read documents and removed or replaced sensitive terms. This process was labor-intensive and error-prone. Modern approaches rely on natural language processing (NLP) techniques, especially Named Entity Recognition (NER), which automatically detects entities such as person names, organizations, locations, dates, or numbers. Once detected, these elements can be anonymized through deletion (reduction) or generalization (sanitization). For instance, a sentence like “John Smith visited Hospital Clínic in Barcelona on 4 March 2024” might be transformed into “A patient visited a hospital in a European city in early 2024.”
+
+The trade-off between privacy and data utility remains central: heavy redaction may render text meaningless for analysis, while minimal editing might leave residual risk. For certain applications, synthetic text generation (using large language models like GPT) can be used to replace sensitive segments with semantically similar but artificial descriptions.
+
+Location, Trajectory, and Genetic Data
+
+Although discussed briefly, location and movement data are particularly sensitive because they reveal patterns of behavior. Repeated location points or trajectories can re-identify individuals even when names are removed; for example, a few geolocation points often suffice to identify a person’s home and workplace. Techniques to anonymize location data include spatial generalization (reducing coordinate precision), temporal aggregation (grouping events into time intervals), and random perturbation (adding noise to coordinates).
+
+Genetic data, while technically structured, behaves like unstructured data in terms of privacy because it uniquely identifies individuals and their relatives. True anonymization of genomic data is virtually impossible, as even small segments of DNA can act as identifiers. Thus, privacy protection in genomics often relies more on controlled access and strict governance than on technical anonymization.

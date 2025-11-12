@@ -88,3 +88,6 @@ A privacy policy compatible with legal requirements should be in place and must 
 ### Demonstrate
 
 The organisation (data controller) must be able to demonstrate compliance with the privacy policy and applicable legal requirements – this entails accountability. It goes beyond enforcement: not only must privacy be enforced, but the organisation must show demonstrably that it is being enforced. Design patterns include logging, auditing, privacy-management systems.
+
+
+

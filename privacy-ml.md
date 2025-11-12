@@ -164,3 +164,116 @@ Some protections against these issues have a negative effect on the other.
 Secure aggregation protects against a honest-but-curious model manager.
 Still, MIAs, AIAs, and reconstruction attacks are still feasible on the aggregated model.
 Secure aggregation may prevent the model manager from protecting against security attacks (e.g., byzantine & poisoning attacks).
+
+
+## FLUFF
+
+Machine learning (ML) has become a cornerstone of modern data processing, powering applications from recommendation systems and medical diagnostics to language models and autonomous vehicles. However, as these systems rely heavily on large volumes of data—often including sensitive personal information—they introduce new vectors of privacy risk. Privacy in machine learning concerns not only the protection of data during training but also the potential leakage of private information through the trained model itself. This session explored the privacy threats across the machine learning lifecycle and the technical approaches developed to mitigate them.
+
+Privacy Risks in the ML Lifecycle
+
+The privacy risks in machine learning can be grouped according to the stages of the model lifecycle:
+
+Data collection and preprocessing – where raw data may contain personally identifiable information (PII) or confidential attributes.
+
+Model training – where data is used to optimize model parameters, and sensitive patterns may be memorized.
+
+Model deployment and inference – where trained models are exposed via APIs or publicly released, creating new avenues for leakage.
+
+At each stage, adversaries can exploit vulnerabilities to infer or reconstruct private information.
+
+During data collection, the classic risks of data privacy still apply: excessive collection, inadequate anonymization, and linkage with external sources can expose individuals. During training, however, new risks emerge. Machine learning algorithms, particularly deep neural networks, have the capacity to memorize parts of the training data, especially when overfitting. This memorization can lead to unintentional leakage of sensitive details, such as names or unique patterns, into the model’s parameters.
+
+Once a model is deployed, privacy threats shift to inference-time attacks. Even without direct access to the data or parameters, attackers can probe the model through queries and exploit statistical signals in its outputs to learn about the underlying data. These are known as model inversion, membership inference, and reconstruction attacks.
+
+Types of Privacy Attacks on Machine Learning Models
+
+Membership Inference Attacks (MIA)
+These attacks aim to determine whether a specific data record was part of a model’s training dataset. Given a model and a data point, an attacker observes the model’s confidence or prediction behavior. Typically, models are more confident or accurate on examples they have seen during training, especially if they are overfitted. For instance, an attacker could determine whether a patient’s medical record was used to train a disease classifier, potentially revealing their participation in a sensitive study. This type of attack compromises the confidentiality of training data membership rather than its content.
+
+Attribute Inference Attacks
+Here, the goal is to infer unknown or hidden attributes of an individual based on what the model reveals. For example, by observing outputs of a salary prediction model that uses features like education and job title, an attacker might deduce an individual’s missing attribute, such as gender or age, if the model implicitly captures correlations between those variables. Attribute inference attacks exploit the statistical dependencies learned by the model.
+
+Model Inversion and Reconstruction Attacks
+These are more aggressive attacks that aim to reconstruct sensitive features or even entire data samples from a trained model. For example, given access to a facial recognition model, an attacker can use gradient-based optimization to reconstruct approximate images of faces that were used in training. Similarly, in language models, it is possible to extract fragments of training data—such as names, addresses, or verbatim text—by prompting the model appropriately. This phenomenon has been demonstrated in large generative models, where memorized sequences from training datasets (e.g., confidential documents or private code) have been unintentionally reproduced.
+
+Data Poisoning and Backdoor Attacks
+While not directly a privacy violation, these attacks involve injecting malicious data during training to manipulate model behavior or cause it to leak information under certain triggers. Poisoning can bias the model or embed “backdoors” that allow specific queries to retrieve sensitive information.
+
+The effectiveness of these attacks depends on the attacker’s access level.
+
+In black-box attacks, the attacker can only query the model and observe outputs.
+
+In white-box attacks, the attacker has full access to model parameters, gradients, or training code.
+Even black-box attacks, however, can achieve surprisingly high success rates, particularly in overfitted models.
+
+Mitigation Strategies and Privacy-Preserving Techniques
+
+To mitigate these risks, several complementary strategies have been developed. They differ in the level at which they intervene—data, model, or system—and in how they balance privacy protection with model performance.
+
+Data Anonymization and Preprocessing
+Before training, sensitive data can be anonymized using traditional methods (such as generalization, suppression, or perturbation) to remove explicit identifiers. However, anonymization alone is insufficient in high-dimensional or unstructured data contexts, since models can still learn to identify individuals indirectly.
+
+Differential Privacy in Model Training
+The most rigorous framework for privacy-preserving learning is Differentially Private Stochastic Gradient Descent (DP-SGD). This approach incorporates differential privacy directly into the training process. During each gradient update, the algorithm clips gradients (limiting the influence of any single training example) and adds random noise. The cumulative effect ensures that the model’s parameters reveal almost nothing about any particular record in the training data.
+
+The strength of the guarantee is again controlled by the privacy parameter ε, which quantifies how much information about a single individual can be inferred. Smaller ε means stronger privacy but greater noise, potentially degrading model accuracy. This trade-off must be carefully tuned. DP-SGD is now implemented in major ML frameworks (TensorFlow Privacy, PyTorch Opacus) and has been adopted by companies like Apple and Google for analytics and personalization.
+
+Federated Learning
+Federated learning (FL) offers an architectural solution that complements differential privacy. Instead of centralizing all data on a single server, FL keeps data local—on users’ devices or in institutional silos—and sends only model updates (parameter gradients) to a central aggregator. The global model is updated using these aggregated contributions, so raw data never leaves its origin.
+
+While this decentralization enhances privacy, FL is not immune to attacks: model updates can still leak information about the underlying local data. To strengthen protection, secure aggregation protocols and differentially private federated learning are used. Secure aggregation uses cryptographic techniques to ensure that the server only sees the sum of updates, not any individual’s contribution. When combined with DP, federated learning achieves strong privacy while preserving collaborative learning benefits.
+
+Secure Multiparty Computation (SMPC) and Homomorphic Encryption
+These cryptographic PETs enable collaborative model training or inference without exposing raw data. In SMPC, multiple parties jointly compute a model (e.g., logistic regression) over their combined datasets, but each keeps its data secret, revealing only encrypted shares of intermediate results. Homomorphic encryption goes further, allowing computations to be performed directly on encrypted data; the model can produce encrypted outputs that only the data owner can decrypt. Although computationally expensive, these methods are increasingly practical for small to medium-sized models.
+
+Model Regularization and Privacy-Aware Design
+Simple training practices—such as dropout, early stopping, and model compression—also help reduce memorization, indirectly improving privacy. By preventing overfitting, models are less likely to remember specific training examples. Furthermore, access control and query auditing at the API level can detect suspicious query patterns indicative of inference attacks.
+
+Trade-offs and Limitations
+
+Every privacy-preserving ML approach involves trade-offs. Adding noise (as in differential privacy) reduces accuracy; federated learning increases communication and computation overhead; and encryption-based methods can be prohibitively slow. The appropriate balance depends on context: in healthcare or finance, stronger privacy is prioritized even at the cost of performance; in consumer applications, small privacy budgets may suffice for practical purposes.
+
+Moreover, while differential privacy provides strong mathematical guarantees, it does not protect against all attack types—particularly those exploiting side channels or poor implementation. Similarly, federated learning can protect data locality but not against malicious participants or compromised devices.
+
+The Emerging Concept of Model Privacy
+
+This session concluded by emphasizing that privacy in machine learning extends beyond protecting training data—it also involves protecting the models themselves. Trained models may encode sensitive intellectual property or proprietary insights, which can be stolen through model extraction attacks. Thus, privacy preservation now encompasses both data privacy and model privacy, forming a unified security objective.
+
+Modern privacy-aware ML design integrates multiple layers: data minimization at collection; anonymization or obfuscation during preprocessing; privacy-preserving learning (DP-SGD, FL, SMPC); and monitoring or access control at deployment. These techniques collectively operationalize the principle of privacy by design in artificial intelligence systems—ensuring that privacy is not an afterthought but an inherent property of model architecture and learning algorithms.
+
+As AI systems grow more capable and pervasive, embedding privacy protection at every stage becomes essential—not only to comply with regulation but also to maintain trust in algorithmic decision-making. The field of privacy-preserving machine learning thus represents the convergence of data protection law, cryptography, and statistical learning theory—an evolving discipline at the heart of ethical AI.
+
+Machine Unlearning: Making Models Forget
+
+A particularly challenging aspect of privacy in machine learning arises after a model has been trained. Even if strong privacy-preserving methods are applied during data collection and training, there are scenarios where certain data points must later be deleted — for example, if a user withdraws consent under the GDPR’s “right to be forgotten”, or if sensitive or erroneous records are discovered post-training. In traditional ML pipelines, deleting data from the dataset is straightforward, but ensuring that its influence is erased from the trained model is far more complex. This problem is known as machine unlearning.
+
+The core idea of machine unlearning is to remove the impact of specific data samples from a model’s parameters without retraining from scratch. Naively retraining is theoretically correct — if the model is retrained without the unwanted data, it no longer depends on it — but this approach is computationally infeasible for large-scale models, which may take days or weeks to train. Efficient unlearning aims to achieve a similar effect more quickly, ideally with localized updates or algorithmic adjustments.
+
+There are several strategies for achieving this goal, each with different trade-offs between efficiency, completeness, and scalability:
+
+Exact Unlearning by Retraining Subsets
+Some methods retrain only the affected components of the model. For example, in ensemble methods like random forests or gradient boosting, individual trees or weak learners that used the deleted data can be retrained independently. Similarly, in modular neural networks, layers or submodels can be partially retrained to remove specific information. This approach achieves precise unlearning while reducing computational cost compared to full retraining.
+
+Approximate or Certified Unlearning
+A more recent line of work seeks formal guarantees that a model behaves as if it had been trained on the reduced dataset, up to a bounded error. One approach uses influence functions, which approximate how much each training point affects model parameters. By inverting these influences, it is possible to “roll back” the effect of a deleted sample. While not exact, this provides quantifiable, provable bounds on residual information.
+
+Gradient-Based Unlearning
+In differentiable models such as neural networks, unlearning can be approached by performing gradient ascent on the deleted samples — that is, updating the model in the direction that undoes their contribution. This technique can selectively erase features or patterns associated with the removed data but risks destabilizing the model if not carefully controlled.
+
+Data Partitioning and Sliceable Training
+Another promising direction involves designing models that are unlearning-friendly from the outset. Data is divided into partitions or “slices,” and the model tracks which parameters depend on which slice. If data from one partition needs to be forgotten, only the corresponding parameter subset is updated. This design principle, sometimes called machine unlearning by design, aligns directly with privacy by design philosophy — anticipating future deletion requests rather than treating them as afterthoughts.
+
+Privacy, Accountability, and the Right to Be Forgotten
+
+Machine unlearning connects technical ML research directly to data protection law. Under the GDPR, data subjects have the right to have their personal data erased when it is no longer necessary for the purposes for which it was collected or when consent is withdrawn. For machine learning systems that derive knowledge from user data, this creates a profound technical challenge: ensuring that the effects of personal data are eliminated from both stored datasets and trained models.
+
+From a compliance perspective, organizations must be able to demonstrate that a model no longer depends on deleted data — a task that requires verifiable procedures or certified unlearning techniques. This pushes the field toward developing measurable metrics for forgetting effectiveness. Emerging research explores auditing tools that can detect whether a model still contains traces of removed samples, using reverse inference or statistical tests.
+
+In practice, many operational systems today achieve partial compliance by retraining models periodically or by limiting training data retention to short cycles. Others use federated learning architectures, where individual clients can simply stop participating, effectively “forgetting” their data in subsequent rounds. Still, the research goal remains to achieve instant, verifiable unlearning at the model level.
+
+The Future of Privacy-Aware Learning
+
+Machine unlearning represents the next step in the evolution of privacy-preserving machine learning — complementing preventive techniques like differential privacy and federated learning with corrective ones that restore privacy retroactively. In an ideal privacy-aware ecosystem, users could not only trust that their data is protected during training but also exercise ongoing control: contributing, modifying, or removing data at will, with immediate effect on deployed models.
+
+Conceptually, unlearning closes the loop between data protection principles (such as purpose limitation, minimization, and the right to erasure) and technical machine learning practices. It ensures that models remain compliant, ethical, and adaptive to user control throughout their lifecycle. Although efficient unlearning is still an open research challenge—particularly for large deep networks and generative models—it embodies the ultimate vision of privacy by design: systems that can both learn and forget responsibly.
