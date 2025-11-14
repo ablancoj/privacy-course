@@ -177,7 +177,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Privacy engineering course
                 </a>
             </li>
         </ul>
@@ -461,6 +461,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fluff">FLUFF</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intro">Intro</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabular">Tabular</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#queryable">Queryable</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Microdata</a></li>
@@ -1171,8 +1172,8 @@ It can even be applied to measure the actual disclosure risk of <span class="mat
 </section>
 <section id="fluff">
 <h2>FLUFF<a class="headerlink" href="#fluff" title="Link to this heading">#</a></h2>
-<section id="tabular">
-<h3>Tabular<a class="headerlink" href="#tabular" title="Link to this heading">#</a></h3>
+<section id="intro">
+<h3>Intro<a class="headerlink" href="#intro" title="Link to this heading">#</a></h3>
 <p>Anonymization of structured databases is one of the central technical methods for protecting personal data while preserving its analytical or statistical value. Structured data, such as that stored in relational databases or spreadsheets, consists of well-defined attributes arranged in rows and columns—each row representing an individual and each column representing an attribute (such as age, income, or medical condition). These datasets are the foundation of much statistical, social, and biomedical research, yet they also pose serious privacy risks because individuals can often be identified or their attributes inferred, even after direct identifiers have been removed. The purpose of anonymization is to transform such data so that it can be used, published, or shared with third parties without revealing or allowing the inference of personal information.</p>
 <p>To understand how anonymization works, it is essential to distinguish between different types of data attributes. Direct identifiers are attributes that uniquely identify a person on their own—such as a name, personal identification number, email address, or phone number. These are typically removed entirely in any anonymization process. Quasi-identifiers (or indirect identifiers) are attributes that do not identify an individual by themselves but can do so when combined with other information. Common examples include combinations of birth date, postal code, and gender, which have been shown to uniquely identify large portions of a population when cross-referenced with external data sources. Confidential attributes are those that are sensitive in nature, such as salary, medical diagnosis, or political opinion; these are not used to identify individuals but must be protected against disclosure. Finally, non-confidential attributes are those that carry little privacy risk and can typically be retained as-is.</p>
 <p>When a dataset is released—either publicly or to specific researchers—the main risks are re-identification (linking data to an individual) and attribute disclosure (inferring confidential information about an identified person). These threats may arise from linkage attacks, in which an attacker combines anonymized data with external datasets, such as public voter registries or social media profiles, to re-establish identities. The well-known case of Latanya Sweeney’s re-identification of Massachusetts health records using public voter data illustrates this danger: even after names were removed, the combination of ZIP code, birth date, and sex uniquely identified a large percentage of individuals.</p>
@@ -1183,6 +1184,9 @@ It can even be applied to measure the actual disclosure risk of <span class="mat
 <p>While these formal models are primarily applied to microdata, their principles also guide the anonymization of other data forms, including tabular and queryable data. In tabular data, cell suppression and controlled rounding are used to prevent inferences about small subgroups, while complementary suppression ensures that suppressed cells cannot be reconstructed from totals. When publishing frequency tables or census data, for instance, agencies routinely withhold or adjust values in small population groups to prevent re-identification.</p>
 <p>An effective anonymization process typically begins with a detailed risk assessment. This includes identifying potential quasi-identifiers, estimating disclosure risk based on external data availability, and selecting appropriate transformation methods. After anonymization, utility evaluation ensures that the transformed data still supports the intended analyses—such as statistical inference, machine learning, or policy evaluation. Because anonymization is context-dependent, the same dataset might require different transformations depending on its intended use and audience: a public release requires stronger privacy, while restricted research access may allow more detail.</p>
 <p>Ultimately, anonymization of structured databases illustrates a core theme in privacy engineering: privacy is not achieved by deleting data but by transforming it intelligently. It is a balance between protecting individuals and preserving collective knowledge. In practice, achieving full anonymity is nearly impossible—especially as external data sources multiply—but well-designed anonymization greatly reduces risk while maintaining social and scientific value.</p>
+</section>
+<section id="tabular">
+<h3>Tabular<a class="headerlink" href="#tabular" title="Link to this heading">#</a></h3>
 <p>Tabular data is one of the most common ways in which statistical information is published. Government agencies, research institutions, and companies often release aggregated tables summarizing results from surveys, censuses, or databases—for example, the number of people by region and profession, or the average salary by sector. Although such tables appear harmless because they contain no individual records, they can still reveal sensitive information about individuals when analyzed carefully. Protecting privacy in tabular data publishing therefore requires specialized anonymization techniques that prevent both identity disclosure and attribute disclosure while maintaining the utility of the statistics.</p>
 <p>A statistical table is usually constructed from microdata, meaning a collection of individual records that include multiple attributes for each person. When a table is built, those records are grouped according to certain key variables or quasi-identifiers (for example, region, age group, or gender), and a summary statistic—such as a count, total income, or average—is computed for each combination of categories. The resulting table thus contains cells, each representing a subgroup of individuals. For example, one cell might correspond to “Women aged 40–49 working in Finance in Barcelona.” Even though only the count or average is shown, if that subgroup includes very few individuals, those numbers could reveal private details about them.</p>
 <p>Privacy risks in tabular data publishing can arise in two main ways. The first is the external attack: when an outside party uses publicly available information or background knowledge to deduce information about an individual. For instance, if a table reports that there is exactly one person in a specific region and category, an attacker who knows someone matching those conditions can infer that person’s confidential attribute (such as salary or health status). The second is the internal attack, which can occur even among respondents within the dataset. If two people appear in the same cell and one of them knows their own data, they can infer the other’s by comparing with the published cell value (for example, if they know the average salary of a two-person group and their own salary, they can deduce the other’s).</p>
@@ -1408,6 +1412,7 @@ The most powerful and conceptually advanced approach is to add controlled noise 
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fluff">FLUFF</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intro">Intro</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabular">Tabular</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#queryable">Queryable</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Microdata</a></li>

@@ -595,7 +595,7 @@ It can even be applied to measure the actual disclosure risk of $\epsilon$-diffe
 
 ## FLUFF
 
-### Tabular
+### Intro
 
 Anonymization of structured databases is one of the central technical methods for protecting personal data while preserving its analytical or statistical value. Structured data, such as that stored in relational databases or spreadsheets, consists of well-defined attributes arranged in rows and columns—each row representing an individual and each column representing an attribute (such as age, income, or medical condition). These datasets are the foundation of much statistical, social, and biomedical research, yet they also pose serious privacy risks because individuals can often be identified or their attributes inferred, even after direct identifiers have been removed. The purpose of anonymization is to transform such data so that it can be used, published, or shared with third parties without revealing or allowing the inference of personal information.
 
@@ -616,6 +616,8 @@ While these formal models are primarily applied to microdata, their principles a
 An effective anonymization process typically begins with a detailed risk assessment. This includes identifying potential quasi-identifiers, estimating disclosure risk based on external data availability, and selecting appropriate transformation methods. After anonymization, utility evaluation ensures that the transformed data still supports the intended analyses—such as statistical inference, machine learning, or policy evaluation. Because anonymization is context-dependent, the same dataset might require different transformations depending on its intended use and audience: a public release requires stronger privacy, while restricted research access may allow more detail.
 
 Ultimately, anonymization of structured databases illustrates a core theme in privacy engineering: privacy is not achieved by deleting data but by transforming it intelligently. It is a balance between protecting individuals and preserving collective knowledge. In practice, achieving full anonymity is nearly impossible—especially as external data sources multiply—but well-designed anonymization greatly reduces risk while maintaining social and scientific value.
+
+### Tabular
 
 Tabular data is one of the most common ways in which statistical information is published. Government agencies, research institutions, and companies often release aggregated tables summarizing results from surveys, censuses, or databases—for example, the number of people by region and profession, or the average salary by sector. Although such tables appear harmless because they contain no individual records, they can still reveal sensitive information about individuals when analyzed carefully. Protecting privacy in tabular data publishing therefore requires specialized anonymization techniques that prevent both identity disclosure and attribute disclosure while maintaining the utility of the statistics.
 
