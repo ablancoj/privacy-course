@@ -1,4 +1,4 @@
-# Privacy engineering
+# Privacy engineering course
 
 ```{tableofcontents}
 ```
