@@ -1,18 +1,9 @@
-# Welcome to your Jupyter Book
-
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
-
-Check out the content pages bundled with this sample book to see more.
+# Privacy engineering
 
 ```{tableofcontents}
 ```
 
-## Fluff
-
-1. From Data Protection to Privacy by Design
+## Introduction
 
 Modern data processing systems increasingly rely on vast, heterogeneous datasets that can reveal intimate details about individuals’ behavior, preferences, and identities. The General Data Protection Regulation (GDPR) established a new paradigm for safeguarding personal information: data protection by design and by default. This principle requires that privacy considerations be integrated into system architecture and decision-making from the very beginning—not added later as a corrective measure.
 
