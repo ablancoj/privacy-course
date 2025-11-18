@@ -401,7 +401,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-enhancing-techniques-pets">Privacy-Enhancing Techniques (PETs)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protecting-structured-data-from-tables-to-queries">Protecting Structured Data: From Tables to Queries</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -427,40 +431,78 @@ document.write(`
 </div>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>Modern data processing systems increasingly rely on vast, heterogeneous datasets that can reveal intimate details about individuals’ behavior, preferences, and identities. The General Data Protection Regulation (GDPR) established a new paradigm for safeguarding personal information: data protection by design and by default. This principle requires that privacy considerations be integrated into system architecture and decision-making from the very beginning—not added later as a corrective measure.</p>
-<p>Privacy by Design (PbD) entails anticipating and mitigating privacy risks throughout the entire lifecycle of data processing—from collection and storage to analysis, sharing, and deletion. Instead of treating privacy as a compliance box, PbD makes it a fundamental design objective. The key mechanism to achieve this is the Data Protection Impact Assessment (DPIA), a structured risk analysis that identifies what personal data are processed, for what purposes, and under which security and governance conditions. The DPIA evaluates potential threats (e.g., unauthorized access, misuse, or re-identification) by estimating their likelihood and impact, then defines mitigation strategies proportional to the risk.</p>
-<p>International guidelines from bodies like the AEPD, ENISA, and NIST emphasize that risk must be evaluated not only by technical factors but also by contextual ones—such as the sensitivity of the data, the vulnerability of the subjects (e.g., minors), and the intended data uses. Privacy by design, therefore, is both a technical and ethical framework: it seeks to preserve individuals’ autonomy and dignity by embedding privacy into the structure of information systems.</p>
-<p>PbD principles can be grouped into eight complementary strategies:</p>
-<p>Minimize: Collect and retain only the data strictly necessary for the purpose.</p>
-<p>Hide: Secure data through encryption and limit access to authorized parties.</p>
-<p>Separate: Avoid unnecessary data linkage; process data in distributed or federated form when possible.</p>
-<p>Aggregate: Work with the least granular data needed for a given analysis.</p>
-<p>Inform: Ensure transparency about data use in clear, accessible language.</p>
-<p>Control: Provide mechanisms for individuals to exercise their data rights.</p>
-<p>Enforce: Align technical controls and organizational practices with privacy policies.</p>
-<p>Demonstrate: Keep documentation and logs that show compliance and accountability.</p>
+<p>Modern data processing systems increasingly rely on vast, heterogeneous datasets that can reveal intimate details about individuals’ behavior, preferences, and identities. The General Data Protection Regulation (GDPR) established a new paradigm for safeguarding personal information: data protection by design and by default. This principle requires that privacy considerations be integrated into system architecture and decision-making from the very beginning, not added later as a corrective measure.</p>
+<p>Privacy by Design (PbD) entails anticipating and mitigating privacy risks throughout the entire lifecycle of data processing: from collection and storage to analysis, sharing, and deletion. Instead of treating privacy as a compliance box, PbD makes it a fundamental design objective. The key mechanism to achieve this is the Data Protection Impact Assessment (DPIA), a structured risk analysis that identifies what personal data are processed, for what purposes, and under which security and governance conditions. The DPIA evaluates potential threats (e.g., unauthorized access, misuse, or re-identification) by estimating their likelihood and impact, then defines mitigation strategies proportional to the risk.</p>
+<p>National and international guidelines from bodies like the AEPD, ENISA, and NIST emphasize that risk must be evaluated not only by technical factors but also by contextual ones, such as the sensitivity of the data, the vulnerability of the subjects (e.g., minors), and the intended data uses. Privacy by design, therefore, is both a technical and ethical framework: it seeks to preserve individuals’ autonomy and dignity by embedding privacy into the structure of information systems.</p>
+<p>PbD principles can be grouped into eight strategies:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-4 docutils">
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Collect and retain only the data strictly necessary for the purpose.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Secure data through encryption and limit access to authorized parties.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Avoid unnecessary data linkage; process data in distributed or federated form when possible.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Work with the least granular data needed for a given analysis.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Ensure transparency about data use in clear, accessible language.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Provide mechanisms for individuals to exercise their data rights.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Align technical controls and organizational practices with privacy policies.</p>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Keep documentation and logs that show compliance and accountability.</p>
+</div>
+</div>
+</div>
+</div>
 <p>From these principles emerges the entire field of privacy engineering, which translates legal obligations into concrete technical mechanisms.</p>
-<ol class="arabic simple" start="2">
-<li><p>Privacy-Enhancing Techniques (PETs)</p></li>
-</ol>
-<p>Privacy-Enhancing Techniques are technological enablers of privacy by design. They allow organizations to provide core digital functions—authentication, communication, data analysis—while revealing minimal information about users. Most PETs are rooted in cryptography, which ensures confidentiality, integrity, and accountability without compromising anonymity.</p>
+<section id="privacy-enhancing-techniques-pets">
+<h3>Privacy-Enhancing Techniques (PETs)<a class="headerlink" href="#privacy-enhancing-techniques-pets" title="Link to this heading">#</a></h3>
+<p>Privacy-Enhancing Techniques are technological enablers of privacy by design. They allow organizations to provide core digital functions such as authentication, communication, and data analysis, while revealing minimal information about users. Most PETs are rooted in cryptography, which ensures confidentiality, integrity, and accountability without compromising anonymity.</p>
 <p>Among these techniques, digital signatures guarantee authenticity but may expose identities. To address this, several privacy-preserving variants exist:</p>
-<p>Blind signatures enable a party to sign a message without reading it, allowing anonymous yet verifiable transactions (as in early e-cash and e-voting systems).</p>
-<p>Group signatures allow any member of a group to sign on behalf of all, ensuring anonymity within the group while enabling accountability through a trusted manager.</p>
-<p>Attribute-based signatures prove possession of a property (e.g., being over 18 or a licensed physician) without revealing identity.</p>
-<p>Zero-Knowledge Proofs (ZKPs) let someone prove that they know a secret or satisfy a condition without disclosing any details—key for authentication and blockchain privacy protocols.</p>
+<ul class="simple">
+<li><p>Blind signatures enable a party to sign a message without reading it, allowing anonymous yet verifiable transactions (as in early e-cash and e-voting systems).</p></li>
+<li><p>Group signatures allow any member of a group to sign on behalf of all, ensuring anonymity within the group while enabling accountability through a trusted manager.</p></li>
+<li><p>Attribute-based signatures prove possession of a property (e.g., being over 18 or a licensed physician) without revealing identity.</p></li>
+<li><p>Zero-Knowledge Proofs (ZKPs) let someone prove that they know a secret or satisfy a condition without disclosing any details—key for authentication and blockchain privacy protocols.</p></li>
+</ul>
 <p>Beyond authentication, PETs also support anonymous credentials and pseudonymization, enabling continuity of interaction without persistent identification. In communication systems, mix networks, onion routing, and the Tor network protect metadata, hiding who communicates with whom. More advanced approaches, like homomorphic encryption, secure multiparty computation (SMPC), and trusted execution environments (TEEs), allow computation on encrypted or distributed data without exposing its contents.</p>
-<p>Together, these mechanisms operationalize the principles of minimization, hiding, and separation—forming the technological foundation for privacy-respecting systems.</p>
-<ol class="arabic simple" start="3">
-<li><p>Protecting Structured Data: From Tables to Queries</p></li>
-</ol>
+</section>
+<section id="protecting-structured-data-from-tables-to-queries">
+<h3>Protecting Structured Data: From Tables to Queries<a class="headerlink" href="#protecting-structured-data-from-tables-to-queries" title="Link to this heading">#</a></h3>
 <p>Structured data, such as that collected in surveys or administrative databases, can often be transformed into tabular outputs for publication or analysis. Even aggregated tables, however, can leak sensitive information if small groups or unique combinations of attributes are disclosed. To mitigate this, statistical disclosure control (SDC) techniques modify or withhold risky cells.</p>
 <p>Common SDC methods include:</p>
-<p>Cell suppression, where small or sensitive counts are omitted, often with complementary suppression to prevent deduction from totals.</p>
-<p>Controlled rounding or adjustment, which slightly modifies numerical values to obscure exact counts while preserving overall consistency.</p>
-<p>Interval reporting, which replaces exact values with ranges (e.g., “between 3 and 7 cases”).</p>
-<p>Noise addition, which introduces random perturbations calibrated to protect individual contributions.</p>
-<p>The objective is to balance disclosure risk—the probability that an individual can be inferred—with information loss—the degradation of data utility. Tabular data protection demonstrates that even aggregate statistics require careful anonymization to maintain confidentiality.</p>
+<ul class="simple">
+<li><p>Cell suppression, where small or sensitive counts are omitted, often with complementary suppression to prevent deduction from totals.</p></li>
+<li><p>Controlled rounding or adjustment, which slightly modifies numerical values to obscure exact counts while preserving overall consistency.</p></li>
+<li><p>Interval reporting, which replaces exact values with ranges (e.g., “between 3 and 7 cases”).</p></li>
+<li><p>Noise addition, which introduces random perturbations calibrated to protect individual contributions.</p></li>
+</ul>
+<p>The objective is to balance disclosure risk, i.e., the probability that an individual can be inferred, with information loss. Tabular data protection demonstrates that even aggregate statistics require careful anonymization to maintain confidentiality.</p>
 <p>When users can query data directly, as in queryable databases, new risks arise. Repeated or overlapping queries can reconstruct individual information. To prevent this, systems employ:</p>
 <p>Query restriction, refusing queries that affect too few records.</p>
 <p>Query camouflage, returning generalized intervals instead of precise numbers.</p>
@@ -511,6 +553,7 @@ document.write(`
 </ol>
 <p>Across these domains—structured, unstructured, and machine-learned data—the core challenge remains constant: balancing information utility with individual privacy. From risk assessment and anonymization to differential privacy and unlearning, each technique represents a step along a continuum from prevention to accountability.</p>
 <p>Privacy by design is thus not a single technology but an ecosystem of principles, methods, and tools. It integrates cryptography, statistics, and artificial intelligence into a coherent discipline: privacy engineering. As data-driven systems grow more pervasive and autonomous, this discipline ensures that technological innovation remains aligned with ethical responsibility and human dignity.</p>
+</section>
 </section>
 </section>
 
@@ -569,7 +612,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-enhancing-techniques-pets">Privacy-Enhancing Techniques (PETs)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protecting-structured-data-from-tables-to-queries">Protecting Structured Data: From Tables to Queries</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

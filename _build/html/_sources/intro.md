@@ -5,65 +5,91 @@
 
 ## Introduction
 
-Modern data processing systems increasingly rely on vast, heterogeneous datasets that can reveal intimate details about individuals’ behavior, preferences, and identities. The General Data Protection Regulation (GDPR) established a new paradigm for safeguarding personal information: data protection by design and by default. This principle requires that privacy considerations be integrated into system architecture and decision-making from the very beginning—not added later as a corrective measure.
+Modern data processing systems increasingly rely on vast, heterogeneous datasets that can reveal intimate details about individuals’ behavior, preferences, and identities. The General Data Protection Regulation (GDPR) established a new paradigm for safeguarding personal information: data protection by design and by default. This principle requires that privacy considerations be integrated into system architecture and decision-making from the very beginning, not added later as a corrective measure.
 
-Privacy by Design (PbD) entails anticipating and mitigating privacy risks throughout the entire lifecycle of data processing—from collection and storage to analysis, sharing, and deletion. Instead of treating privacy as a compliance box, PbD makes it a fundamental design objective. The key mechanism to achieve this is the Data Protection Impact Assessment (DPIA), a structured risk analysis that identifies what personal data are processed, for what purposes, and under which security and governance conditions. The DPIA evaluates potential threats (e.g., unauthorized access, misuse, or re-identification) by estimating their likelihood and impact, then defines mitigation strategies proportional to the risk.
+Privacy by Design (PbD) entails anticipating and mitigating privacy risks throughout the entire lifecycle of data processing: from collection and storage to analysis, sharing, and deletion. Instead of treating privacy as a compliance box, PbD makes it a fundamental design objective. The key mechanism to achieve this is the Data Protection Impact Assessment (DPIA), a structured risk analysis that identifies what personal data are processed, for what purposes, and under which security and governance conditions. The DPIA evaluates potential threats (e.g., unauthorized access, misuse, or re-identification) by estimating their likelihood and impact, then defines mitigation strategies proportional to the risk.
 
-International guidelines from bodies like the AEPD, ENISA, and NIST emphasize that risk must be evaluated not only by technical factors but also by contextual ones—such as the sensitivity of the data, the vulnerability of the subjects (e.g., minors), and the intended data uses. Privacy by design, therefore, is both a technical and ethical framework: it seeks to preserve individuals’ autonomy and dignity by embedding privacy into the structure of information systems.
+National and international guidelines from bodies like the AEPD, ENISA, and NIST emphasize that risk must be evaluated not only by technical factors but also by contextual ones, such as the sensitivity of the data, the vulnerability of the subjects (e.g., minors), and the intended data uses. Privacy by design, therefore, is both a technical and ethical framework: it seeks to preserve individuals’ autonomy and dignity by embedding privacy into the structure of information systems.
 
-PbD principles can be grouped into eight complementary strategies:
+PbD principles can be grouped into eight strategies:
 
-Minimize: Collect and retain only the data strictly necessary for the purpose.
+::::{grid} 1 1 2 4
 
-Hide: Secure data through encryption and limit access to authorized parties.
+:::{card}
+:header: Minimize
+Collect and retain only the data strictly necessary for the purpose.
+:::
 
-Separate: Avoid unnecessary data linkage; process data in distributed or federated form when possible.
+:::{card}
+:header: Hide
+Secure data through encryption and limit access to authorized parties.
+:::
 
-Aggregate: Work with the least granular data needed for a given analysis.
+:::{card}
+:header: Separate
+Avoid unnecessary data linkage; process data in distributed or federated form when possible.
+:::
 
-Inform: Ensure transparency about data use in clear, accessible language.
+:::{card}
+:header: Aggregate
+Work with the least granular data needed for a given analysis.
+:::
 
-Control: Provide mechanisms for individuals to exercise their data rights.
+:::{card}
+:header: Inform
+Ensure transparency about data use in clear, accessible language.
+:::
 
-Enforce: Align technical controls and organizational practices with privacy policies.
+:::{card}
+:header: Control
+Provide mechanisms for individuals to exercise their data rights.
+:::
 
-Demonstrate: Keep documentation and logs that show compliance and accountability.
+:::{card}
+:header: Enforce
+Align technical controls and organizational practices with privacy policies.
+:::
+
+:::{card}
+:header: Demonstrate
+Keep documentation and logs that show compliance and accountability.
+:::
+
+::::
 
 From these principles emerges the entire field of privacy engineering, which translates legal obligations into concrete technical mechanisms.
 
-2. Privacy-Enhancing Techniques (PETs)
+### Privacy-Enhancing Techniques (PETs)
 
-Privacy-Enhancing Techniques are technological enablers of privacy by design. They allow organizations to provide core digital functions—authentication, communication, data analysis—while revealing minimal information about users. Most PETs are rooted in cryptography, which ensures confidentiality, integrity, and accountability without compromising anonymity.
+Privacy-Enhancing Techniques are technological enablers of privacy by design. They allow organizations to provide core digital functions such as authentication, communication, and data analysis, while revealing minimal information about users. Most PETs are rooted in cryptography, which ensures confidentiality, integrity, and accountability without compromising anonymity.
 
 Among these techniques, digital signatures guarantee authenticity but may expose identities. To address this, several privacy-preserving variants exist:
 
-Blind signatures enable a party to sign a message without reading it, allowing anonymous yet verifiable transactions (as in early e-cash and e-voting systems).
+- Blind signatures enable a party to sign a message without reading it, allowing anonymous yet verifiable transactions (as in early e-cash and e-voting systems).
 
-Group signatures allow any member of a group to sign on behalf of all, ensuring anonymity within the group while enabling accountability through a trusted manager.
+- Group signatures allow any member of a group to sign on behalf of all, ensuring anonymity within the group while enabling accountability through a trusted manager.
 
-Attribute-based signatures prove possession of a property (e.g., being over 18 or a licensed physician) without revealing identity.
+- Attribute-based signatures prove possession of a property (e.g., being over 18 or a licensed physician) without revealing identity.
 
-Zero-Knowledge Proofs (ZKPs) let someone prove that they know a secret or satisfy a condition without disclosing any details—key for authentication and blockchain privacy protocols.
+- Zero-Knowledge Proofs (ZKPs) let someone prove that they know a secret or satisfy a condition without disclosing any details—key for authentication and blockchain privacy protocols.
 
 Beyond authentication, PETs also support anonymous credentials and pseudonymization, enabling continuity of interaction without persistent identification. In communication systems, mix networks, onion routing, and the Tor network protect metadata, hiding who communicates with whom. More advanced approaches, like homomorphic encryption, secure multiparty computation (SMPC), and trusted execution environments (TEEs), allow computation on encrypted or distributed data without exposing its contents.
 
-Together, these mechanisms operationalize the principles of minimization, hiding, and separation—forming the technological foundation for privacy-respecting systems.
-
-3. Protecting Structured Data: From Tables to Queries
+### Protecting Structured Data: From Tables to Queries
 
 Structured data, such as that collected in surveys or administrative databases, can often be transformed into tabular outputs for publication or analysis. Even aggregated tables, however, can leak sensitive information if small groups or unique combinations of attributes are disclosed. To mitigate this, statistical disclosure control (SDC) techniques modify or withhold risky cells.
 
 Common SDC methods include:
 
-Cell suppression, where small or sensitive counts are omitted, often with complementary suppression to prevent deduction from totals.
+- Cell suppression, where small or sensitive counts are omitted, often with complementary suppression to prevent deduction from totals.
 
-Controlled rounding or adjustment, which slightly modifies numerical values to obscure exact counts while preserving overall consistency.
+- Controlled rounding or adjustment, which slightly modifies numerical values to obscure exact counts while preserving overall consistency.
 
-Interval reporting, which replaces exact values with ranges (e.g., “between 3 and 7 cases”).
+- Interval reporting, which replaces exact values with ranges (e.g., “between 3 and 7 cases”).
 
-Noise addition, which introduces random perturbations calibrated to protect individual contributions.
+- Noise addition, which introduces random perturbations calibrated to protect individual contributions.
 
-The objective is to balance disclosure risk—the probability that an individual can be inferred—with information loss—the degradation of data utility. Tabular data protection demonstrates that even aggregate statistics require careful anonymization to maintain confidentiality.
+The objective is to balance disclosure risk, i.e., the probability that an individual can be inferred, with information loss. Tabular data protection demonstrates that even aggregate statistics require careful anonymization to maintain confidentiality.
 
 When users can query data directly, as in queryable databases, new risks arise. Repeated or overlapping queries can reconstruct individual information. To prevent this, systems employ:
 
