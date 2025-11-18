@@ -839,11 +839,13 @@ A disadvantage of using PRAM is that very unlikely combinations can be generated
 
 #### Microaggregation
 
-The first step is the formation of small groups of individuals that are homogeneous with respect to the values of selected variables. 
-Then, the values of the selected variables of all group members are replaced with a common value. 
-The higher the within-group homogeneity, the lower the information loss.
-Initially limited to continuous data, but it can also be applied to categorical data, using suitable definitions of distance and average.
-With the introduction of word embeddings, such as word2vec, this is nowadays quite straightforward.
+Microaggregation is a statistical disclosure control technique that partitions a dataset into clusters of at least $k$ similar records according to their quasi-identifiers. Then, it replaces each cluster with a representative, such as the cluster centroid, to mask individual values. Consequently, each released record becomes indistinguishable from at least $k-1$ others, thus satisfying $k$-anonymity. 
+
+The Maximum Distance to Average Vector (MDAV) algorithm is a heuristic for $k$-anonymous microaggregation~\cite{domingo2002practical}. Given a dataset $X = \{x_1,\dots,x_n\} \subset \mathbb{R}^m$ with $n$ records consisting on $m$ quasi-identifier attributes, MDAV partitions $X$ into disjoint clusters of at least $k$ elements. Each record in a cluster is replaced by the cluster centroid, thus ensuring that each anonymized record is indistinguishable from at least $k-1$ others with respect to its quasi-identifiers~\cite{domingo2002practical}.
+
+The algorithm works iteratively. At each step, the centroid $\bar{x}$ of the remaining records in $X$ is computed. The record $x_r$ that lies farthest from $\bar{x}$ is selected, and then the record $x_s$ that lies farthest from $x_r$ is chosen. A cluster is formed with $x_r$ and its $k-1$ nearest neighbors, and another with $x_s$ and its $k-1$ nearest neighbors. This process is repeated until fewer than $3k$ records remain. If the remaining number of records is between $2k$ and $3k$, they are split into two clusters; if it is less than $2k$, they form a single cluster.
+
+Euclidean distance is typically used in the clustering phase, and the arithmetic mean of the records in each cluster is employed as the cluster representative value.
 
 
 #### Noise addition
