@@ -38,16 +38,21 @@ Personal data are any data that refer to an identifiable individual. We can dist
 
 ::::{grid} 1 1 2 3
 
-:::{card} Direct identifiers 
-:header: a
+:::{card} 
+**Direct identifiers** 
+^^^
 Attributes that uniquely identify a data subject, such as their name or social security number.
 :::
 
-:::{card} Inderict identifiers
-Attributes that, when combined, can uniquely identify a daata subject, such as age, gender, and address.
+:::{card}
+**Indirect identifiers**
+^^^
+Attributes that, when combined, can uniquely identify a data subject, such as age, gender, and address. Also known as *quasi-identifiers*.
 :::
 
-:::{card} Sensitive information
+:::{card}
+**Sensitive information**
+^^^
 Attributes that reveal especially protected information about the data subject, such as a medical diagnosis, sexual orientation, or religious beliefs.
 :::
 ::::

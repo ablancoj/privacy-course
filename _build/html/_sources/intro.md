@@ -16,42 +16,50 @@ PbD principles can be grouped into eight strategies:
 ::::{grid} 1 1 2 4
 
 :::{card}
-:header: Minimize
+Minimize
+^^^
 Collect and retain only the data strictly necessary for the purpose.
 :::
 
 :::{card}
-:header: Hide
+Hide
+^^^
 Secure data through encryption and limit access to authorized parties.
 :::
 
 :::{card}
-:header: Separate
+Separate
+^^^
 Avoid unnecessary data linkage; process data in distributed or federated form when possible.
 :::
 
 :::{card}
-:header: Aggregate
+Aggregate
+^^^
 Work with the least granular data needed for a given analysis.
 :::
 
 :::{card}
-:header: Inform
+Inform
+^^^
 Ensure transparency about data use in clear, accessible language.
 :::
 
 :::{card}
-:header: Control
+Control
+^^^
 Provide mechanisms for individuals to exercise their data rights.
 :::
 
 :::{card}
-:header: Enforce
+Enforce
+^^^
 Align technical controls and organizational practices with privacy policies.
 :::
 
 :::{card}
-:header: Demonstrate
+Demonstrate
+^^^
 Keep documentation and logs that show compliance and accountability.
 :::
 
