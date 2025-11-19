@@ -9,8 +9,7 @@ chapters:
 #- file: markdown
 #- file: notebooks
 #- file: markdown-notebooks
-- file: intro-gdpr
-  title: About this book
+- file: intro-gdpr 
 - file: privacy-by-design
 - file: pets
 - file: databases
