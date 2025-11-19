@@ -1,5 +1,102 @@
 # Privacy in databases
 
+### Protecting Structured Data: From Tables to Queries
+
+Structured data, such as that collected in surveys or administrative databases, can often be transformed into tabular outputs for publication or analysis. Even aggregated tables, however, can leak sensitive information if small groups or unique combinations of attributes are disclosed. To mitigate this, statistical disclosure control (SDC) techniques modify or withhold risky cells.
+
+Common SDC methods include:
+
+- Cell suppression, where small or sensitive counts are omitted, often with complementary suppression to prevent deduction from totals.
+
+- Controlled rounding or adjustment, which slightly modifies numerical values to obscure exact counts while preserving overall consistency.
+
+- Interval reporting, which replaces exact values with ranges (e.g., “between 3 and 7 cases”).
+
+- Noise addition, which introduces random perturbations calibrated to protect individual contributions.
+
+The objective is to balance disclosure risk, i.e., the probability that an individual can be inferred, with information loss. Tabular data protection demonstrates that even aggregate statistics require careful anonymization to maintain confidentiality.
+
+When users can query data directly, as in queryable databases, new risks arise. Repeated or overlapping queries can reconstruct individual information. To prevent this, systems employ:
+
+Query restriction, refusing queries that affect too few records.
+
+Query camouflage, returning generalized intervals instead of precise numbers.
+
+Query perturbation, adding noise to query results.
+
+The last approach leads to differential privacy (DP)—a formal framework ensuring that the inclusion or exclusion of any single individual’s data has negligible impact on the output. DP quantifies privacy through a parameter ε (epsilon): smaller ε means stronger protection but greater noise. Differential privacy has become a global standard, applied in government censuses and major technology platforms. Its conceptual ancestor, randomized response, introduced in the 1960s, uses randomness in survey answers to protect individuals while allowing valid statistical estimates—an intuitive early form of privacy-preserving data collection.
+
+4. Microdata Anonymization
+
+When individual-level data must be shared for research or statistical purposes, microdata anonymization transforms quasi-identifiers to prevent re-identification. The foundational model, k-anonymity, ensures that each record is indistinguishable from at least k–1 others. Extensions like l-diversity and t-closeness strengthen protection by maintaining diversity and distributional similarity in sensitive attributes, thus limiting attribute disclosure.
+
+Anonymization methods can be:
+
+Non-perturbative, preserving data correctness but reducing precision through generalization and suppression.
+
+Perturbative, introducing controlled randomness (e.g., data swapping, noise addition, or synthetic data generation).
+
+Risk–utility analysis guides the process: increasing privacy (higher k or tighter t) usually decreases analytical value, and the optimal balance depends on the use context. Microdata anonymization remains essential in health, social, and economic research, bridging classical statistical methods and modern privacy frameworks like differential privacy.
+
+5. Privacy in Unstructured Data
+
+Unstructured data—images, text, video, location traces, genomic sequences—poses unique challenges because identifiers are embedded in complex content rather than explicit fields.
+
+For images, privacy risks arise from both content (faces, objects, backgrounds) and metadata (timestamps, GPS, device signatures). Common protections include blurring, pixelation, and masking, complemented by metadata cleaning. Newer methods use adversarial perturbations that fool face-recognition systems without perceptibly altering the image. In medicine, anonymization focuses on DICOM metadata removal and obscuring embedded text rather than modifying image content.
+
+For textual data, privacy-enhancing NLP tools automatically detect and mask names, dates, and other sensitive terms using Named Entity Recognition (NER). Redaction can be performed by deletion or generalization; however, excessive sanitization may compromise semantic meaning. Synthetic text generation using large language models can provide an alternative by rewriting sensitive passages without reproducing original identifiers.
+
+Location and genomic data pose especially high re-identification risks, as they are inherently unique. Location privacy is achieved through spatial and temporal generalization or the addition of noise, while genetic data typically relies on controlled access rather than anonymization, since true de-identification is infeasible.
+
+Unstructured data anonymization thus combines content editing, metadata sanitization, and increasingly AI-assisted generation to balance privacy and utility in multimedia and textual information.
+
+6. Privacy in Machine Learning
+
+Machine learning systems amplify privacy challenges by processing vast, diverse datasets to extract predictive patterns. These models can unintentionally memorize or reveal sensitive data, creating new categories of attacks:
+
+Membership inference attacks, which determine whether a given record was part of the training set.
+
+Attribute inference, which deduces hidden features about individuals.
+
+Model inversion and reconstruction, which regenerate approximate training examples.
+
+Data poisoning, where malicious inputs alter the model or cause targeted leaks.
+
+Mitigations span multiple layers:
+
+Differentially Private Stochastic Gradient Descent (DP-SGD) injects noise during training to guarantee that model parameters reveal little about any single data point.
+
+Federated learning keeps data local and aggregates updates across devices, often combined with secure aggregation and DP to prevent server-side inference.
+
+Cryptographic computation (SMPC, homomorphic encryption) enables joint training or inference across institutions without sharing raw data.
+
+Regularization and access control reduce overfitting and limit adversarial probing.
+
+These approaches operationalize privacy by design in AI: models are trained and deployed under quantifiable privacy constraints rather than relying on post hoc anonymization.
+
+7. Machine Unlearning and the Right to Be Forgotten
+
+Privacy protection does not end when training concludes. Under the GDPR’s right to erasure, individuals may request that their data—and its influence—be removed from systems. Machine unlearning addresses this requirement by designing models capable of “forgetting” specific training samples efficiently, without full retraining.
+
+Unlearning methods include:
+
+Selective retraining, recomputing only affected components (e.g., trees in ensembles).
+
+Influence-based rollback, estimating and reversing each record’s contribution to model parameters.
+
+Gradient ascent unlearning, which counteracts the learned effect of deleted data.
+
+Partitioned or modular training, designing models that can forget data partitions by design.
+
+Certified unlearning frameworks aim to provide verifiable guarantees that a model behaves as if specific data were never used, bridging AI practice with legal accountability. This capability embodies the ultimate stage of privacy by design—systems that can both learn and forget responsibly.
+
+8. Conclusion: The Continuum of Privacy by Design
+
+Across these domains—structured, unstructured, and machine-learned data—the core challenge remains constant: balancing information utility with individual privacy. From risk assessment and anonymization to differential privacy and unlearning, each technique represents a step along a continuum from prevention to accountability.
+
+Privacy by design is thus not a single technology but an ecosystem of principles, methods, and tools. It integrates cryptography, statistics, and artificial intelligence into a coherent discipline: privacy engineering. As data-driven systems grow more pervasive and autonomous, this discipline ensures that technological innovation remains aligned with ethical responsibility and human dignity.
+
+
 Anonymization of structured databases is one of the central technical methods for protecting personal data while preserving its analytical or statistical value. Structured data, such as that stored in relational databases or spreadsheets, consists of well-defined attributes arranged in rows and columns—each row representing an individual and each column representing an attribute (such as age, income, or medical condition). These datasets are the foundation of much statistical, social, and biomedical research, yet they also pose serious privacy risks because individuals can often be identified or their attributes inferred, even after direct identifiers have been removed. The purpose of anonymization is to transform such data so that it can be used, published, or shared with third parties without revealing or allowing the inference of personal information.
 
 To understand how anonymization works, it is essential to distinguish between different types of data attributes. Direct identifiers are attributes that uniquely identify a person on their own—such as a name, personal identification number, email address, or phone number. These are typically removed entirely in any anonymization process. Quasi-identifiers (or indirect identifiers) are attributes that do not identify an individual by themselves but can do so when combined with other information. Common examples include combinations of birth date, postal code, and gender, which have been shown to uniquely identify large portions of a population when cross-referenced with external data sources. Confidential attributes are those that are sensitive in nature, such as salary, medical diagnosis, or political opinion; these are not used to identify individuals but must be protected against disclosure. Finally, non-confidential attributes are those that carry little privacy risk and can typically be retained as-is.
@@ -979,3 +1076,57 @@ useful profile can be extracted. Finally, other proposals such as the one by Rei
 and Rubin (1998) make use of a P2P network in which users submit queries generated by other users to the web search engine, thus achieving the same results as
 TrackMeNot (flattened interest distributions) but without overloading the web
 search engines with fake queries.
+
+
+
+
+
+# Anonymization of Structured Databases  
+
+## Introduction
+
+In previous sessions we reviewed privacy-enhancing technologies for authentication, secure communication, and private computation. We now begin a three-week block dedicated to the anonymization of structured databases, which is one of the central technical approaches for publishing or sharing data while preserving individual privacy. Structured data refers to information stored in well-defined relational tables or spreadsheets, where each row corresponds to an individual and each column to an attribute. The purpose of anonymization in this context is to transform data so that it continues to provide useful statistical information while significantly reducing the risk that individuals can be re-identified or that confidential information about them can be inferred. When anonymization is carried out properly and linkability is broken, the resulting data is no longer considered personal data under the GDPR, although debates remain about what counts as “proper anonymization.”
+
+## Types of Data
+
+From a semantic perspective, structured data may include demographic information such as age or marital status, socioeconomic characteristics such as education and income, behavioural information describing habits or mobility patterns, and clinical or medical information such as diagnoses or treatments. Beyond these, there exist unstructured forms of data, such as text, images, genomic sequences, GPS traces, that will be addressed separately.
+
+The same dataset can also be classified by the type of data values it contains. Numeric data includes integers or real-valued measurements associated with individuals. Categorical data may be ordinal when categories follow a meaningful order, or nominal when categories have no order at all.
+
+Finally, structured data can be classified by its relevance to identifiability and sensitivity. Direct identifiers, such as names or phone numbers, uniquely identify individuals and are normally removed before any release. Quasi-identifiers, such as age, gender, or postal codes, do not identify a person on their own but can do so when combined with additional information. Confidential attributes include sensitive information that should not be disclosed, such as salary or medical conditions. Some attributes serve administrative purposes and carry no sensitive meaning; these are considered non-confidential.
+
+## Types of Tables for Release
+
+Organizations generally release structured data in three forms. Tabular data consists of static tables where each cell contains an aggregated count or numerical value. Queryable databases provide a controlled interface that allows users to perform statistical queries without exposing underlying individual records. Microdata releases, which provide one row per individual record, are the most detailed and sensitive. 
+
+## Utility vs. Disclosure Risk
+
+Any anonymization procedure must balance two competing goals: preserving the usefulness of the released data and reducing the privacy risks associated with its disclosure. Utility loss measures how much statistical value is diminished by the anonymization process, while disclosure risk measures how much potential remains for re-identification or the inference of sensitive information. There are two general approaches to achieving this balance. In the utility-first approach, disclosure risk is estimated empirically—often by performing simulated attacks—and anonymization is progressively applied until risk falls below an acceptable level. In the privacy-first approach, theoretical privacy models such as k-anonymity or differential privacy are used to set target privacy parameters at the outset, and transformations are then chosen to meet those requirements.
+
+## Tabular Data: Frequency and Magnitude Tables
+
+Tabular releases are usually derived from an internal microdata file. For example, a dataset containing attributes such as salary, sector, and region can be transformed into a frequency table that counts how many individuals fall into each (sector × region) combination. Similarly, a magnitude table can be created in which each cell contains the sum, average, or another statistical compilation of a confidential attribute, such as salaries. These tables typically retain row totals, column totals, and grand totals, since such marginal information is often essential for statistical use.
+
+## Attacks on Tabular Data
+
+Although aggregated, these tables may leak private information through several mechanisms. External attacks occur when only one person contributes to a cell, making their confidential value immediately exposed if a magnitude table is available. Internal attacks arise when exactly two contributors are present; in such cases each one can infer the other’s contribution by subtracting their own from the aggregate. Dominance attacks occur when one or a few individuals heavily influence a magnitude cell, permitting inferences about their confidential values even when the cell contains three or more people.
+
+## Protection Methods
+
+Methods for protecting tabular data may be non-perturbative or perturbative. Non-perturbative techniques do not distort the values but limit their detail. The most common method is cell suppression, which removes values from sensitive cells. Another non-perturbative option is recoding the categories of the attributes—such as merging similar regions or sectors—so that more individuals fall into each cell and sensitivity is reduced.
+
+Perturbative methods, in contrast, alter values directly. Controlled rounding modifies each cell to the nearest multiple of a chosen base, and controlled tabular adjustment uses linear optimisation to redistribute values while preserving the row and column totals. These perturbative approaches may be unsuitable in high-stakes environments, such as healthcare, where analysts rely on precise information.
+
+## Cell Suppression in Detail
+
+Cell suppression proceeds in two stages. The first stage, primary suppression, begins by identifying sensitive cells using predefined sensitivity rules. One such rule is the minimum frequency rule, which requires a cell to contain at least a certain number of contributors—commonly three—to avoid the risks associated with external or internal attacks. The next set of rules concerns dominance. Under the NK dominance rule, a cell is considered unsafe when the largest contributors account for more than a specified percentage of the total. The p-percent rule identifies a cell as unsafe when the contributions from all but the largest contributors fall below a certain fraction of the total. Once these sensitive cells are identified, their values are removed from the table.
+
+However, after such suppressions, the remaining published structure—especially row and column totals—may enable someone to reconstruct the missing values. This need for protection leads to the second stage, secondary suppression, in which additional non-sensitive cells are removed to prevent such reconstruction. Determining which additional cells to suppress requires computing feasibility intervals. A feasibility interval expresses the range of possible values a suppressed cell may take while satisfying all the linear constraints imposed by the table’s totals. These intervals are compared to protection intervals that are derived from the sensitivity rules themselves. A table is considered safe once every protection interval is fully contained within its corresponding feasibility interval, meaning no sensitive value can be inferred too precisely.
+
+## Utility and Risk Evaluation
+
+The quality of anonymization is assessed by examining both utility loss and residual disclosure risk. Utility loss in the context of cell suppression can be measured by the number of suppressed cells or the sum of their magnitudes. In perturbative methods, utility may be measured by the differences between the original and adjusted cell values. Disclosure risk is quantified by analysing how well the feasibility intervals shield the sensitive cells given the protection intervals. The chosen sensitivity rules effectively define the acceptable level of disclosure risk.
+
+## Real-World Use
+
+These anonymization techniques are widely used in practice. European statistical agencies, including Eurostat and national statistics offices such as that of the Netherlands, routinely apply minimum frequency rules and cell suppression to protect published regional tables. Software for suppressing tabular data, including tools developed through European research projects, incorporates the techniques discussed here. In the United States, the Census Bureau historically relied on methods such as data swapping but has recently transitioned to differential privacy to protect the underlying microdata before constructing published tables. This shift has sparked discussions about accuracy, fairness, and the impact on small or under-represented groups, illustrating the broader consequences of anonymization choices.

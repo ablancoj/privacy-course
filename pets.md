@@ -1,18 +1,53 @@
 # Privacy enhancing techniques
 
+
+### Privacy-Enhancing Techniques (PETs)
+
+Privacy-Enhancing Techniques are technological enablers of privacy by design. They allow organizations to provide core digital functions such as authentication, communication, and data analysis, while revealing minimal information about users. Most PETs are rooted in cryptography, which ensures confidentiality, integrity, and accountability without compromising anonymity.
+
+Among these techniques, digital signatures guarantee authenticity but may expose identities. To address this, several privacy-preserving variants exist:
+
+- Blind signatures enable a party to sign a message without reading it, allowing anonymous yet verifiable transactions (as in early e-cash and e-voting systems).
+
+- Group signatures allow any member of a group to sign on behalf of all, ensuring anonymity within the group while enabling accountability through a trusted manager.
+
+- Attribute-based signatures prove possession of a property (e.g., being over 18 or a licensed physician) without revealing identity.
+
+- Zero-Knowledge Proofs (ZKPs) let someone prove that they know a secret or satisfy a condition without disclosing any details—key for authentication and blockchain privacy protocols.
+
+Beyond authentication, PETs also support anonymous credentials and pseudonymization, enabling continuity of interaction without persistent identification. In communication systems, mix networks, onion routing, and the Tor network protect metadata, hiding who communicates with whom. More advanced approaches, like homomorphic encryption, secure multiparty computation (SMPC), and trusted execution environments (TEEs), allow computation on encrypted or distributed data without exposing its contents.
+
 Some (often cryptographic) mechanisms can aid in the development of technologies which preserve the privacy of participants, sometimes to the level of anonymity.
 These mechanisms (or the protocols built using them) are called privacy-enhancing techniques (PETs).
 We next explore PETs to support identification and authentication, private communications, and private computations.
 
+Privacy enhancing techniques (PETs) are technological mechanisms designed to help implement the principles of privacy by design—particularly those of minimization, hiding, separation, and control. Their goal is to enable organizations to develop services that respect users’ privacy and comply with data protection laws, not merely by policy but through the architecture of their systems. PETs include a wide range of cryptographic tools and communication protocols that allow systems to process, share, or verify information about individuals while revealing as little personal data as possible. They can enable users to interact with digital services in a way that maintains confidentiality and, in some cases, full anonymity—revealing only what is strictly necessary for the service to function.
+
+
 
 ## Identity and authentication
 
-Identity, authentication, and access control are central components of secure systems.
-It is important that data assets be accessible only to authorized parties.
-On the one hand, a sound authentication and authorization infrastructure prevents data breaches.
-On the other hand, it allows responsibilities to be attributed in case of a breach, which contributes to a transparent data processing environment.
-Several methods exist to verify the identity of individuals, that is, to authenticate them.
-Some of them allow for the authentication of users without disclosing their identity.
+A first group of PETs deals with identification and authentication. These are essential for security—ensuring that only authorized users can access resources and that data or transactions come from legitimate sources—but they also play a crucial role in privacy. Traditional authentication mechanisms, like passwords or digital certificates, are based on proving one’s identity. However, many privacy-preserving techniques instead allow users to prove eligibility or authorization without revealing who they are. In this sense, they align with the GDPR’s principle of data minimization: authenticate the action, not the person.
+
+A fundamental building block in this domain is the digital signature, a cryptographic mechanism that provides integrity (ensuring that a document has not been altered) and authenticity (verifying the source). It is based on asymmetric cryptography, where each participant has a pair of keys: a private key (kept secret) and a public key (shared openly). The signer uses their private key to sign a message, and anyone can verify the signature using the corresponding public key. To associate keys with real-world identities, digital signatures rely on a public key infrastructure (PKI), which certifies ownership of public keys. While standard digital signatures provide security, they do not inherently protect privacy—the signer is identified. However, several advanced variants extend this concept to allow anonymity or selective disclosure.
+
+One of the earliest and most influential extensions is the blind signature, introduced by David Chaum in the 1980s. In a blind signature scheme, an authority can sign a message without seeing its contents. The message is mathematically “blinded” before being sent to the signer, who signs it without learning what they are signing. The user then “unblinds” the message to reveal a valid signature on the original content. This technique was the foundation of early digital cash systems, where a bank could validate electronic coins without knowing which specific coin belonged to which customer, thus allowing anonymous transactions. Blind signatures are also a cornerstone of many electronic voting protocols: a voter’s ballot is authenticated by the election authority (ensuring legitimacy) but remains secret, so no one can trace how an individual voted.
+
+Another important PET in this context is the group signature. In this scheme, multiple users belong to a group that shares a common public key, while each individual has their own private signing key. When a message is signed by any group member, verifiers can confirm that it came from someone within the group—but not who exactly. This provides a balance between anonymity and accountability. Typically, a trusted group manager can revoke anonymity in exceptional cases (for example, if a user abuses their privileges), but outsiders cannot distinguish which member signed a message. Group signatures are useful in scenarios such as collective petitions, whistleblowing platforms, or any case where anonymity within a known group is required.
+
+A related class of techniques includes identity-based and attribute-based signatures. Identity-based signatures simplify key management by allowing any text string—such as an email address or username—to act as a public key. This eliminates the need for a central certificate authority, as the identity itself serves to link the public key to the signer. In contrast, attribute-based signatures focus not on identity but on verifiable characteristics or attributes. A user can sign a message proving possession of certain properties—like being over 18, a licensed doctor, or a verified student—without revealing their actual identity. These systems issue keys associated with specific attributes, enabling “selective disclosure.” For instance, in a medical context, a nurse could digitally sign a prescription to prove their qualification without exposing their full professional or personal information.
+
+The final and most general concept introduced in this lecture is the zero-knowledge proof (ZKP). A zero-knowledge proof allows one party (the prover) to convince another (the verifier) that they know a secret or that a statement is true, without revealing the secret itself. The classic example involves proving knowledge of a password or cryptographic key without ever transmitting it. This approach provides very strong privacy guarantees and forms the basis of many modern privacy-preserving systems, including cryptocurrencies and anonymous authentication protocols. ZKPs can be interactive or non-interactive and are used today in advanced frameworks such as zk-SNARKs (Zero-Knowledge Succinct Non-Interactive Arguments of Knowledge), which enable complex verifications—such as validating blockchain transactions—without revealing underlying data.
+
+Altogether, these privacy enhancing techniques demonstrate that privacy and security can coexist when carefully designed. They allow systems to enforce trust, accountability, and correctness while minimizing the amount of personal information exposed at each interaction. In practice, PETs enable key privacy by design principles: minimize (by revealing the least information necessary), hide (through encryption and obfuscation), separate (by decoupling identities from transactions), and control (by giving individuals more say over what is revealed). These cryptographic and protocol-level mechanisms lay the foundation for modern privacy-preserving infrastructures, from secure digital payments and anonymous communication networks to federated identity management and privacy-aware authentication systems.
+
+In addition to authentication and signing mechanisms, privacy enhancing techniques include a wider family of tools that support anonymous authorization and communication, ensuring that users can interact with digital systems or others without revealing their identity or personal information. These mechanisms enable anonymous credentials, pseudonymous identifiers, and private communication channels, extending privacy protection beyond single transactions to full data flows and online interactions.
+
+Anonymous credentials are cryptographic constructs that allow individuals to prove they possess valid attributes or authorizations issued by a trusted authority—such as age, nationality, or membership—without revealing their identity or enabling linkage across different uses. They can be seen as a generalization of attribute-based signatures. A credential authority issues credentials containing various attributes, but when the holder uses them, they can selectively disclose only those necessary for a given service. For example, someone could prove they are over 18 or a resident of a particular region without revealing their name, date of birth, or exact address. Systems like IBM’s Idemix and Microsoft’s U-Prove were early practical implementations of anonymous credentials. These technologies embody the privacy by design principle of minimization and control, since they allow users to determine what information is revealed and to whom.
+
+Another layer of protection arises from the use of pseudonyms. A pseudonym is an identifier that substitutes a real identity, enabling continuity of interaction—so that systems can, for example, recognize returning users—without revealing who those users truly are. Unlike complete anonymity, pseudonymity maintains linkability within a limited context but prevents cross-context correlation. For instance, a person might use one pseudonym for a medical platform and another for a discussion forum, with no means for external parties to link them. Pseudonym systems can be static, dynamic, or group-based, and are often managed by trusted intermediaries or cryptographic schemes that issue and rotate identifiers. The GDPR explicitly recognizes pseudonymization as a security measure that reduces privacy risk while preserving some data utility.
+
+
 
 ### Digital Signatures
 
@@ -112,6 +147,12 @@ their profiles.
 
 ## Private communications
 
+Anonymous communication networks protect not only the content of messages but also their metadata—who communicates with whom, when, and how often. Encryption alone secures message content, but it does not hide the fact that communication occurs between two parties. To protect this traffic information, several PETs have been developed. Early systems used mix networks, proposed again by David Chaum, where messages are collected, re-ordered, and re-encrypted by intermediary servers (“mixes”) before being forwarded, breaking the link between sender and recipient. Modern adaptations of this idea include onion routing, which encapsulates messages in multiple layers of encryption—like layers of an onion. Each intermediate node decrypts only one layer, learning only the next hop, not the original sender or final recipient.
+
+The best-known implementation of onion routing is the Tor network (The Onion Router). In Tor, messages pass through a random path of volunteer-operated relays, each adding a layer of obfuscation. This makes it extremely difficult for any observer to correlate input and output traffic and identify who is communicating with whom. Tor provides strong anonymity guarantees for users browsing the web or using online services, though it introduces latency and can be vulnerable to correlation attacks if both endpoints are monitored. Still, it remains the most widely deployed practical system for anonymous communication, used by journalists, activists, and individuals seeking to avoid surveillance or profiling.
+
+
+
 This section discusses the protection of communication channels. First, it describes
 end-to-end encryption, which provides confidentiality of communications. It then
 introduces anonymous channels. Having discussed mechanisms that allow users to
@@ -153,6 +194,21 @@ of this operation.
 
 
 ## Private computations
+
+Beyond communication privacy, PETs also include techniques that allow data to be processed securely without exposing its contents. These privacy-preserving computation methods are essential when multiple parties want to perform joint analysis or computations on confidential data while maintaining confidentiality. One of the most powerful is homomorphic encryption, which allows computations—such as addition or multiplication—to be carried out directly on encrypted data. The result, once decrypted, matches the outcome that would have been obtained had the computation been performed on the plaintext. This makes it possible, for example, to analyze sensitive health or financial data stored in encrypted form without ever decrypting it. While fully homomorphic encryption is computationally intensive and still limited in scalability, partial or hybrid schemes are increasingly practical and used in cloud-based secure analytics.
+
+A related concept is secure multiparty computation (SMPC), in which several parties jointly compute a function over their combined inputs while keeping each input private. No participant learns anything beyond the final result. This approach allows, for instance, hospitals or banks to collaborate on shared analyses—such as aggregated risk models or epidemiological statistics—without sharing raw data. Modern SMPC protocols, like Yao’s garbled circuits or secret-sharing-based systems, are mathematically rigorous and form the basis of privacy-preserving data collaboration frameworks.
+
+Another important technological approach is the use of trusted execution environments (TEEs), sometimes called secure enclaves. These are hardware-based security features that create isolated areas within a processor where code and data can be executed securely, even if the surrounding system is compromised. TEEs can protect sensitive computations from being observed or tampered with, making them valuable for privacy-preserving cloud computing and edge devices.
+
+
+
+Identity, authentication, and access control are central components of secure systems.
+It is important that data assets be accessible only to authorized parties.
+On the one hand, a sound authentication and authorization infrastructure prevents data breaches.
+On the other hand, it allows responsibilities to be attributed in case of a breach, which contributes to a transparent data processing environment.
+Several methods exist to verify the identity of individuals, that is, to authenticate them.
+Some of them allow for the authentication of users without disclosing their identity.
 
 This section describes mechanisms to perform computations on data while keeping
 the data private. The GDPR accepts encryption as a valid protection mechanism if
@@ -202,261 +258,109 @@ privacy and correctness. Another important property is fairness. A protocol is f
 there are no differences between the players when it comes to obtaining the output.
 That is, a protocol is fair if either everybody receives their output, or no one does.
 
-## Privacy in Databases
+# Privacy-Enhancing Techniques
 
-An alternative strategy to protect data is to make them no longer linkable to individuals, that is, to anonymise them. Anonymised data are no longer considered personal, and thus the legal restrictions that apply to personal data are lifted. This
-section describes the state of the art in data anonymisation techniques and models.
+## Introduction
 
-### Respondent Privacy: Statistical Disclosure Control
+In the previous chapters we explored the regulatory foundations of privacy, the logic of risk assessment, and the system-level mindset captured by privacy by design. We now move from principles to practice. This chapter introduces **privacy-enhancing techniques**—often abbreviated as PETs—concrete technological mechanisms that support privacy goals across identification, communication, and computation. These are the tools that make privacy by design operational, enabling systems to minimize data collection, hide sensitive information, separate data flows, and aggregate results without exposing individuals.
 
-Traditionally, national statistical institutes and government agencies have systematically gathered information about individual respondents, either people or companies, with the aim of using it for policymaking and also distributing it for public and
-private research that may benefit their country. The most detailed way to disseminate this information is by releasing a microdata set, essentially a database table,
-each of whose records conveys information on a particular respondent. Although
-these databases may be extremely useful to researchers, it is of fundamental importance that their publication does not compromise the respondents’ privacy in the
-sense of revealing information attributable to specific individuals. Statistical disclosure control (SDC) is the discipline that deals with the inherent trade-off between
-protecting the privacy of the respondents and ensuring that the protected data are
-still useful to researchers.
-Usually, a microdata set contains a set of attributes that may be classified as
-identifiers, key attributes (a.k.a. quasi-identifiers), or confidential attributes.
-Identifiers allow unequivocal identification of individuals. Examples are social
-security numbers or full names, which need to be removed before publication of the microdata set. On the other hand, key attributes are those attributes that, in combination, may allow linkage with external information to re-identify (some of) the
-respondents to whom (some of) the records in the microdata set refer (identity disclosure). Examples include job, address, age, gender, height and weight. Last but
-not least, the microdata set contains confidential attributes with sensitive information on respondents, such as salary, religion, political affiliation or health condition.
-Beyond protecting against identity disclosure, SDC must prevent intruders from
-guessing the confidential attribute values of specific respondents (attribute
-disclosure).
-Several SDC methods have been proposed in the literature to protect microdata
-sets (Hundepool et al. 2012). Next, we briefly review the main ones.
+Privacy-enhancing techniques range from cryptographic primitives to communication protocols and secure computation methods. Some aim to strengthen authentication while reducing disclosure. Others protect the confidentiality and unlinkability of messages. Others enable computations on data without revealing the underlying information. Together, they form a growing toolbox for privacy engineers, security practitioners, and data-intensive services that must comply with data protection requirements while still delivering useful functionality.
 
-#### Non-perturbative Masking
+This chapter focuses on three families of PETs: **techniques for identification and authentication (with or without anonymity), techniques for secure and private communication, and techniques for privacy-preserving computation**. Database protection and statistical disclosure control will be covered in later chapters.
 
-In SDC, masking refers to the process of obtaining an anonymised data set X’ by
-modifying the original X. Masking can be perturbative or non-perturbative. In the
-former approach, the data values of X are perturbed to obtain X’. In contrast, in nonperturbative masking X’ is obtained by removing some values and/or by making
-them more general; yet the information in X’ is still true, although less detailed; as
-an example, a value might be replaced by a range containing the original value.
-Common non-perturbative methods include:
-- Sampling. Instead of publishing the whole data set, only a sample of it is released.
-- Generalisation. The values of the different attributes are recoded in new, more
-general categories such that the information remains the same, albeit less
-specific.
-- Top/bottom coding. In line with the previous method, values above (resp. below)
-a certain threshold are grouped together into a single category.
-- Local suppression. If a combination of quasi-identifier values is shared by too
-few records, it may lead to re-identification. This method relies on replacing
-certain individual attribute values with missing values, so that the number of
-records sharing a particular combination of quasi-identifier values becomes
-larger.
+## Identification, Authentication, and Anonymity
 
-#### Perturbative Masking
-Perturbative masking generates a modified version of the microdata set such that the
-privacy of the respondents is protected to a certain extent while simultaneously
-some statistical properties of the data are preserved. Well-known perturbative masking methods include:
+The first family of privacy-enhancing techniques concerns the problem of identifying and authenticating individuals while controlling how much personal information such processes reveal. Authentication is central to security: it ensures that only authorized people access protected resources and helps attribute responsibility in case of misuse or breach. At the same time, unnecessary identity disclosure is itself a privacy risk. PETs in this category attempt to reconcile these two aims—strong authentication with minimal identity leakage.
 
-- Noise addition. This is the most popular method, which consists in adding a
-noise vector to each record in the data set. The utility preservation depends on the
-amount and the distribution of the noise.
-- Data swapping. This technique exchanges the values of the attributes randomly
-among individual records. Clearly, univariate distributions are preserved, but
-multivariate distributions may be substantially harmed unless swaps of very different values are ruled out.
-- Microaggregation. This groups similar records together and releases the average
-record of each group (Domingo-Ferrer and Mateo-Sanz 2002). The more similar
-the records in a group, the more data utility is preserved.
+### Digital Signatures: A Foundation
 
-#### Synthetic Microdata Generation
-An anonymisation approach alternative to masking is synthetic data generation.
-That is, instead of modifying the original data set, a simulated data set is generated
-such that it preserves some properties of the original data set. The main advantage
-of synthetic data is that no respondent re-identification seems possible since the data
-are artificial. However, if, by chance, a synthetic record is very close to an original
-one, the respondent of the latter record will not feel safe when the former record is
-released. In addition, the utility of synthetic data sets is limited to preserving the
-statistical properties selected at the time of data synthesis.
-Some examples of synthetic generation include methods based on multiple
-imputation (Rubin 1993) and methods that preserve means and co-variances
-(Burridge 2003). An effective alternative to the drawbacks of purely synthetic data
-are hybrid data, which mix original and synthetic data and are therefore more flexible (Domingo-Ferrer and González-Nicolás 2010). Yet another alternative is partially synthetic data, whereby only the most sensitive original data values are
-replaced by synthetic values.
+Most of the techniques in this category build upon **digital signatures**, a standard tool in public key cryptography. A digital signature enables a signer to attach a piece of cryptographic information to a message, proving two things: that the signer is indeed the author and that the message has not been altered. Verification is done with a public key, while signing uses a private key known only to the signer. A public key infrastructure (PKI) links these keys to real-world identities through trusted certificate authorities.
 
-#### Privacy Models
-For an anonymised data set X’ to be safe/private enough, it needs to be sufficiently
-anonymised. The level of anonymisation can be assessed after the generation of X’
-or prior to it.
-Ex post methods rely on the analysis of the output data set and, therefore, it is
-possible to generate a data set that is not safe enough according to a certain criterion; several iterations with increasingly strict privacy parameters and decreasing
-utility may be needed. The most commonly used ex post approach is masking followed by record linkage. Protection is sufficient high only if there is a sufficiently
-low proportion of masked records that can be linked to the respective original
-records they come from.
+Digital signatures underlie many everyday technologies—from secure web browsing (HTTPS) to electronic administrative services. In their basic form, however, they always tie a signature to an identifiable individual or entity. A range of extensions modify this model to offer stronger privacy.
 
-On the other hand, the ex ante approach relies on privacy models that allow
-selecting the desired privacy level before producing X’. In this way, the output data
-set is always as private as specified by the model, although it may fail to provide
-enough utility if the model parameters are too strict.
+### Blind Signatures
 
+A **blind signature** allows an authority to sign a message without learning its content. Before sending a message for signing, the requester blinds it using a cryptographic transformation. The signer applies their signature to the blinded message and returns it. The requester then unblinds the result to obtain a valid signature on the original message.
 
-##### k-Anonymity and Extensions
-A well-known privacy model is k-anonymity (Samarati and Sweeney 1998), which
-requires that each tuple of key-attribute values be shared by at least k records in the
-database. This condition may be achieved through generalisation and suppression
-mechanisms, and also through microaggregation (Domingo-Ferrer and Torra 2005).
-Unfortunately, while this privacy model prevents identity disclosure, it may fail
-to protect against attribute disclosure. The definition of this privacy model establishes that complete re-identification is unfeasible within a group of records sharing
-the same tuple of perturbed key-attribute values. However, if the records in the
-group have the same value (or very similar values) for a confidential attribute, the
-confidential attribute value of an individual linkable to the group is leaked.
-To fix this problem, some extensions of k-anonymity have been proposed, the
-most popular being l-diversity (Machanavajjhala et al. 2006) and t-closeness (Li
-et al. 2007a). The property of l-diversity is satisfied if there are at least l ‘wellrepresented’ values for each confidential attribute in all groups sharing the values of
-the quasi-identifiers. The property of t-closeness is satisfied when the distance
-between the distribution of each confidential attribute within each group and the
-whole data set is no more than a threshold t.
+This mechanism is essential when an authority needs to validate the format or legitimacy of something—such as a voting ballot or a digital payment token—without learning the sensitive underlying information. Blind signatures were first proposed for electronic cash systems, where banks could sign digital “coins” without tracking how they were spent. They remain a foundational tool in electronic voting protocols, ensuring that authorities can verify ballots without learning how individuals voted.
 
-##### Differential Privacy
-Another important privacy model is differential privacy (Dwork 2006). This
-model was originally defined for queryable databases and consists in perturbing
-the original query result of a database before outputting it. This may be viewed as
-equivalent to perturbing the original data and then computing the queries over the
-modified data. Thus, differential privacy can also be seen as a privacy model for
-microdata sets.
-An ε-differentially private algorithm is one that, when run on two datasets that
-differ in a single record, performs similarly (up to a power of ε) in both cases. That
-is, the presence or the absence of any single record does not significantly alter the
-output of the algorithm. Typically, ε-differential privacy is attained by adding
-Laplace noise with zero mean and parameter Δ(f)/ε, where Δ(f) is the sensitivity of
-the algorithm (the maximum change in the algorithm output that can be caused by a
-change in a single record in the absence of noise) and ε is a privacy parameter; the
-larger ε, the less privacy
+### Group Signatures
 
-#### Redaction and Sanitisation of Documents
-Document redaction consists of removing or blacking out sensitive terms in plain
-textual documents. Alternatively, when sensitive terms are replaced (instead of
-removed) by generalisations (e.g. AIDS → disease), the process is more generically
-referred to as document sanitisation (Bier et  al. 2009). Document sanitisation is
-more desirable than pure redaction, since the former better preserves the utility of
-the protected output. Moreover, in document redaction, the existence of blacked-out
-parts in the released document can raise awareness of the document’s sensitivity to
-potential attackers (Bier et al. 2009), whereas sanitisation gives no such clues.
-In both cases, two tasks should be performed: (i) the detection of textual terms
-that may cause disclosure of sensitive information, and (ii) the removal or obfuscation of those entities. Traditionally, the detection of sensitive terms has been tackled
-in a manual way. This requires a human expert who applies certain standard guidelines that detail the correct procedures to sanitise sensitive entities (National Security
-Agency 2005). Manual redaction has proven to be quite time-consuming and it does
-not scale to currently required levels of information outsourcing (Chakaravarthy
-et al. 2008; Bier et al. 2009).
-In recent years, numerous automatic redaction methods have been proposed.
-Some approaches rely on specific or tailored patterns to detect certain types of information based on their linguistic or structural regularities (e.g. names, addresses and
-social security numbers) (Sweeney 1996; Tveit et al. 2004; Douglass et al. 2005).
-Schemes such as Douglass et al. (2005) and Tveit et al. (2004) use more specific
-patterns to remove sensitive terms from medical records. These patterns are designed
-according to the HIPAA ‘Safe Harbor’ rules (Department of Health and Human Services, USA 1996) that specify eighteen data elements which must be eliminated
-from clinical data in order to anonymise a clinical text. As an alternative to manuallyspecified patterns, several authors have proposed using trained classifiers that recognise sensitive entities. Yet others present a tool that focuses on the sanitisation of
-documents directly linked to certain companies (Cumby and Ghani 2011). The data
-to be detected include words and phrases that reveal the company the document
-belongs to.
-Abril et al. (2011) propose a general scheme that uses a trained classifier for
-Named Entity Recognition (NER) (i.e. the Stanford NER [Finkel et al. 2005]) to
-automatically recognise entities belonging to general categories such as person,
-organisation and location names. This mechanism suggests generalising sensitive
-entities instead of removing them from the sanitised document. The goal is to
-achieve a certain degree of privacy while preserving some of the semantics. Jiang
-et al. (2009) provide a theoretic measure (‘t-plausibility’) that guides the sanitisation process in order to balance the trade-off between privacy protection and utility
-preservation. Their scheme tries to preserve the utility of sanitised documents by
-generalising terms based on general-purpose ontology/taxonomy. Finally, Sánchez
-et  al. (2013) present a system that relies on information theory to quantify the
-amount of information conveyed by each term of the document. The latter work
-builds on Sánchez et al. (2012), where sensitive terms are generalised.
+A **group signature** scheme allows any member of a defined group to sign messages on behalf of the group in a way that ensures verifiability but preserves anonymity. A single public key corresponds to the entire group; each member holds a different private key. When a verifier checks a group signature, they can confirm that someone in the group signed the message, but they cannot identify which member it was.
 
-### Owner Privacy: Privacy-Preserving Data Mining
-Privacy-Preserving Data Mining (PPDM) tries to solve the following question: can
-we develop accurate data mining models without access to the data at the record
-level? Therefore, it consists of techniques for modifying the original data in such a
-way that the private data remain private even after the mining process (Verykios
-et al. 2004).
-There are two radically different approaches to PPDM, namely, PPDM based on
-perturbation and PPDM based on Secure Multiparty Computation (SMC). The first
-was introduced by Agrawal and Srikant (2000) in the database community. Its idea
-is that respondents (who do not wish to reveal the exact value of their respective
-answers/records) or controllers (who wish to engage in joint computation with other
-controllers without disclosing their respective data sets to each other) compute modified values for sensitive attributes in such a way that accurate statistical results can
-still be obtained on the modified data. PPDM based on perturbation is largely based
-on statistical disclosure control techniques.
-PPDM based on SMC, which was introduced by Lindell and Pinkas (2000) in the
-cryptographic community, addresses the problem of several entities holding confidential databases who wish to run a data mining algorithm on the union of their
-databases, without revealing unnecessary information. This type of PPDM is equivalent to data mining in distributed environments, where the data are partitioned
-across multiple parties. Partitioning can be vertical (each party holds all records on
-a different subset of attributes), horizontal (each party holds a subset of the records,
-but each record contains all attributes) or mixed.
-Using SMC protocols based on cryptography (many of these resort to homomorphic encryption) or on sharing perturbed information in ways that do not alter the
-final results often requires changing or adapting the data mining algorithms. Hence,
-each cryptographic PPDM protocol is designed for a specific data mining computation and, in general, is not valid for other computations. For example, a secure scalar
-product protocol based on cryptographic primitives is applied to privacy preserving
-k-means clustering over a distributed dataset by Vaidya and Clifton (2003) and
-Jagannathan and Wright (2005). Similarly, Du et al. (2004) and Karr et al. (2009) propose different ways (none of them based on encryption) to securely compute
-matrix products, which permits obtaining privacy-preserving linear regressions.
-A different PPDM scenario arises when a data controller wants to leverage the
-storage and also the computational power of untrusted clouds to process her sensitive data. This setting was studied in the H2020 project ‘CLARUS’ (http://clarussecure.eu) and solutions based on cleartext data splitting across several clouds have
-been proposed. Furthermore, protocols to compute scalar products and matrix products with minimum controller involvement and maximum cloud involvement have
-been given by Domingo-Ferrer et al. (2018).
+Group signatures are useful in scenarios where individual identity is irrelevant, unnecessary, or risky to expose. They can support anonymous access to resources, collaborative requests, or group-based credentials. Importantly, group managers can add or revoke members, making the scheme adaptable to real-world organizational structures.
 
-### User Privacy: Private Information Retrieval
-Finally, we address the privacy of the users querying a database. A history of queries
-to a database, or to a web search engine, can be used by the database owner to learn
-the interests of users, that is, to profile them. In this scenario, we seek to protect
-users from unrequested profiling by database owners. Mechanisms to achieve this
-goal are collectively referred to as private information retrieval (PIR).
-Initial works on PIR, such as Chor et al. (1995), model databases as vectors of
-entries. Users requesting information from the database do so by providing an
-index or a set of indices of the database vector. In this setting, PIR techniques aim
-to hide the indices provided by the users. However, these initial approaches have
-several shortcomings. First, they require collaboration from the database owner,
-something that cannot be ensured unless database owners have a clear incentive to
-do so. Second, to perfectly hide the queried database indices one would need to
-query all entries in the database and then filter the results locally, which is clearly
-inefficient for moderately sized databases and certainly unfeasible for big databases. Finally, modelling a database as a vector and assuming that the user knows
-the indices where the desired information is stored is not applicable to most real
-databases, let alone web search engines.
-Several solutions have been proposed to overcome such shortcomings. DomingoFerrer et al. (2009) propose a system named Goopir in which user queries are locally
-complemented with terms of similar frequency in the language (connected by OR
-operations). The responses are then filtered locally. TrackMeNot (Howe and
-Nissenbaum 2009) is a browser extension which periodically sends fake queries to
-web search engines so that the distribution of interests of the user is flattened and no
-useful profile can be extracted. Finally, other proposals such as the one by Reiter
-and Rubin (1998) make use of a P2P network in which users submit queries generated by other users to the web search engine, thus achieving the same results as
-TrackMeNot (flattened interest distributions) but without overloading the web
-search engines with fake queries.
+### Identity-Based and Attribute-Based Signatures
 
-## Fluff
+In an **identity-based signature** scheme, public keys are arbitrary strings—such as an email address—rather than long random numbers. This eliminates the need for a traditional PKI, since the “identity” embedded in the public key already conveys the needed linking information. While such schemes tie keys to identities more directly, the fact that public keys can be *any* arbitrary string opens the door to more privacy-preserving variants.
 
-Privacy enhancing techniques (PETs) are technological mechanisms designed to help implement the principles of privacy by design—particularly those of minimization, hiding, separation, and control. Their goal is to enable organizations to develop services that respect users’ privacy and comply with data protection laws, not merely by policy but through the architecture of their systems. PETs include a wide range of cryptographic tools and communication protocols that allow systems to process, share, or verify information about individuals while revealing as little personal data as possible. They can enable users to interact with digital services in a way that maintains confidentiality and, in some cases, full anonymity—revealing only what is strictly necessary for the service to function.
+Among these variants, **attribute-based signatures** are particularly powerful. Instead of revealing a full identity, signers reveal only specific, certified attributes—such as “is a physician,” “is over 18,” or “is an employee of a given department.” The signature attests that these attributes are valid without exposing who the signer is. This makes it possible to enforce eligibility or authorization rules while minimizing unnecessary identity disclosure.
 
-A first group of PETs deals with identification and authentication. These are essential for security—ensuring that only authorized users can access resources and that data or transactions come from legitimate sources—but they also play a crucial role in privacy. Traditional authentication mechanisms, like passwords or digital certificates, are based on proving one’s identity. However, many privacy-preserving techniques instead allow users to prove eligibility or authorization without revealing who they are. In this sense, they align with the GDPR’s principle of data minimization: authenticate the action, not the person.
+### Zero-Knowledge Proofs
 
-A fundamental building block in this domain is the digital signature, a cryptographic mechanism that provides integrity (ensuring that a document has not been altered) and authenticity (verifying the source). It is based on asymmetric cryptography, where each participant has a pair of keys: a private key (kept secret) and a public key (shared openly). The signer uses their private key to sign a message, and anyone can verify the signature using the corresponding public key. To associate keys with real-world identities, digital signatures rely on a public key infrastructure (PKI), which certifies ownership of public keys. While standard digital signatures provide security, they do not inherently protect privacy—the signer is identified. However, several advanced variants extend this concept to allow anonymity or selective disclosure.
+Zero-knowledge proofs represent a different paradigm. Instead of proving who you are, a zero-knowledge proof allows you to prove that you know some secret or satisfy some property *without revealing the secret itself*. Classic examples include demonstrating knowledge of a password without revealing it, or proving that a ballot is well-formed without revealing the vote.
 
-One of the earliest and most influential extensions is the blind signature, introduced by David Chaum in the 1980s. In a blind signature scheme, an authority can sign a message without seeing its contents. The message is mathematically “blinded” before being sent to the signer, who signs it without learning what they are signing. The user then “unblinds” the message to reveal a valid signature on the original content. This technique was the foundation of early digital cash systems, where a bank could validate electronic coins without knowing which specific coin belonged to which customer, thus allowing anonymous transactions. Blind signatures are also a cornerstone of many electronic voting protocols: a voter’s ballot is authenticated by the election authority (ensuring legitimacy) but remains secret, so no one can trace how an individual voted.
+Zero-knowledge proofs are interactive protocols in which a prover convinces a verifier through repeated challenges. Modern constructions allow non-interactive proofs, making them widely applicable in systems such as electronic voting, privacy-preserving identity systems, and blockchain-based smart contracts.
 
-Another important PET in this context is the group signature. In this scheme, multiple users belong to a group that shares a common public key, while each individual has their own private signing key. When a message is signed by any group member, verifiers can confirm that it came from someone within the group—but not who exactly. This provides a balance between anonymity and accountability. Typically, a trusted group manager can revoke anonymity in exceptional cases (for example, if a user abuses their privileges), but outsiders cannot distinguish which member signed a message. Group signatures are useful in scenarios such as collective petitions, whistleblowing platforms, or any case where anonymity within a known group is required.
+Together, these mechanisms illustrate that authentication does not always require identification. Systems can verify eligibility, correctness, or legitimacy while preserving user anonymity—a core privacy by design objective.
 
-A related class of techniques includes identity-based and attribute-based signatures. Identity-based signatures simplify key management by allowing any text string—such as an email address or username—to act as a public key. This eliminates the need for a central certificate authority, as the identity itself serves to link the public key to the signer. In contrast, attribute-based signatures focus not on identity but on verifiable characteristics or attributes. A user can sign a message proving possession of certain properties—like being over 18, a licensed doctor, or a verified student—without revealing their actual identity. These systems issue keys associated with specific attributes, enabling “selective disclosure.” For instance, in a medical context, a nurse could digitally sign a prescription to prove their qualification without exposing their full professional or personal information.
+## Secure and Private Communications
 
-The final and most general concept introduced in this lecture is the zero-knowledge proof (ZKP). A zero-knowledge proof allows one party (the prover) to convince another (the verifier) that they know a secret or that a statement is true, without revealing the secret itself. The classic example involves proving knowledge of a password or cryptographic key without ever transmitting it. This approach provides very strong privacy guarantees and forms the basis of many modern privacy-preserving systems, including cryptocurrencies and anonymous authentication protocols. ZKPs can be interactive or non-interactive and are used today in advanced frameworks such as zk-SNARKs (Zero-Knowledge Succinct Non-Interactive Arguments of Knowledge), which enable complex verifications—such as validating blockchain transactions—without revealing underlying data.
+The second family of PETs concerns how data move through networks. Even when messages are encrypted, metadata such as who is communicating with whom, when, and how frequently can reveal sensitive information. PETs in this category aim to protect both message content and communication patterns.
 
-Altogether, these privacy enhancing techniques demonstrate that privacy and security can coexist when carefully designed. They allow systems to enforce trust, accountability, and correctness while minimizing the amount of personal information exposed at each interaction. In practice, PETs enable key privacy by design principles: minimize (by revealing the least information necessary), hide (through encryption and obfuscation), separate (by decoupling identities from transactions), and control (by giving individuals more say over what is revealed). These cryptographic and protocol-level mechanisms lay the foundation for modern privacy-preserving infrastructures, from secure digital payments and anonymous communication networks to federated identity management and privacy-aware authentication systems.
+### End-to-End Encryption
 
-In addition to authentication and signing mechanisms, privacy enhancing techniques include a wider family of tools that support anonymous authorization and communication, ensuring that users can interact with digital systems or others without revealing their identity or personal information. These mechanisms enable anonymous credentials, pseudonymous identifiers, and private communication channels, extending privacy protection beyond single transactions to full data flows and online interactions.
+Traditional communication architectures often encrypted messages between each user and an intermediary server but required the server itself to read the plaintext in order to forward messages. End-to-end encryption (E2EE) eliminates this vulnerability by ensuring that only the communicating endpoints can decrypt the message content. The server acts merely as a router or temporary storage node.
 
-Anonymous credentials are cryptographic constructs that allow individuals to prove they possess valid attributes or authorizations issued by a trusted authority—such as age, nationality, or membership—without revealing their identity or enabling linkage across different uses. They can be seen as a generalization of attribute-based signatures. A credential authority issues credentials containing various attributes, but when the holder uses them, they can selectively disclose only those necessary for a given service. For example, someone could prove they are over 18 or a resident of a particular region without revealing their name, date of birth, or exact address. Systems like IBM’s Idemix and Microsoft’s U-Prove were early practical implementations of anonymous credentials. These technologies embody the privacy by design principle of minimization and control, since they allow users to determine what information is revealed and to whom.
+E2EE relies on public key encryption. When sending a message, the sender uses the recipient’s public key to encrypt a randomly generated symmetric key (the “digital envelope”), which then protects the actual message. The server cannot decrypt any part of the transmission, reducing the threat of unauthorized access, surveillance, or internal misuse.
 
-Another layer of protection arises from the use of pseudonyms. A pseudonym is an identifier that substitutes a real identity, enabling continuity of interaction—so that systems can, for example, recognize returning users—without revealing who those users truly are. Unlike complete anonymity, pseudonymity maintains linkability within a limited context but prevents cross-context correlation. For instance, a person might use one pseudonym for a medical platform and another for a discussion forum, with no means for external parties to link them. Pseudonym systems can be static, dynamic, or group-based, and are often managed by trusted intermediaries or cryptographic schemes that issue and rotate identifiers. The GDPR explicitly recognizes pseudonymization as a security measure that reduces privacy risk while preserving some data utility.
+Modern messaging systems such as Signal and WhatsApp use variants of this protocol, making E2EE a widely deployed privacy-enhancing technology.
 
-Anonymous communication networks protect not only the content of messages but also their metadata—who communicates with whom, when, and how often. Encryption alone secures message content, but it does not hide the fact that communication occurs between two parties. To protect this traffic information, several PETs have been developed. Early systems used mix networks, proposed again by David Chaum, where messages are collected, re-ordered, and re-encrypted by intermediary servers (“mixes”) before being forwarded, breaking the link between sender and recipient. Modern adaptations of this idea include onion routing, which encapsulates messages in multiple layers of encryption—like layers of an onion. Each intermediate node decrypts only one layer, learning only the next hop, not the original sender or final recipient.
+### Protecting Metadata: Anonymous Channels
 
-The best-known implementation of onion routing is the Tor network (The Onion Router). In Tor, messages pass through a random path of volunteer-operated relays, each adding a layer of obfuscation. This makes it extremely difficult for any observer to correlate input and output traffic and identify who is communicating with whom. Tor provides strong anonymity guarantees for users browsing the web or using online services, though it introduces latency and can be vulnerable to correlation attacks if both endpoints are monitored. Still, it remains the most widely deployed practical system for anonymous communication, used by journalists, activists, and individuals seeking to avoid surveillance or profiling.
+End-to-end encryption secures content but not metadata. Intermediaries can still observe who is talking to whom. To address this, anonymous communication channels hide user IP addresses and obscure message routing.
 
-Beyond communication privacy, PETs also include techniques that allow data to be processed securely without exposing its contents. These privacy-preserving computation methods are essential when multiple parties want to perform joint analysis or computations on confidential data while maintaining confidentiality. One of the most powerful is homomorphic encryption, which allows computations—such as addition or multiplication—to be carried out directly on encrypted data. The result, once decrypted, matches the outcome that would have been obtained had the computation been performed on the plaintext. This makes it possible, for example, to analyze sensitive health or financial data stored in encrypted form without ever decrypting it. While fully homomorphic encryption is computationally intensive and still limited in scalability, partial or hybrid schemes are increasingly practical and used in cloud-based secure analytics.
+The simplest approach is the **virtual private network (VPN)**, which channels all traffic through a proxy server. While this hides the client’s IP from destination servers, it shifts trust to the VPN provider, who now sees all traffic patterns. To reduce this concentration of trust, onion routing systems distribute trust across multiple intermediate nodes.
 
-A related concept is secure multiparty computation (SMPC), in which several parties jointly compute a function over their combined inputs while keeping each input private. No participant learns anything beyond the final result. This approach allows, for instance, hospitals or banks to collaborate on shared analyses—such as aggregated risk models or epidemiological statistics—without sharing raw data. Modern SMPC protocols, like Yao’s garbled circuits or secret-sharing-based systems, are mathematically rigorous and form the basis of privacy-preserving data collaboration frameworks.
+The **Tor network** implements onion routing: the sender wraps the message in multiple layers of encryption, each layer corresponding to an intermediate node. Each node peels off one layer, learning only the next hop and nothing about the original sender or final destination. This prevents any single intermediary from reconstructing the communication path.
 
-Another important technological approach is the use of trusted execution environments (TEEs), sometimes called secure enclaves. These are hardware-based security features that create isolated areas within a processor where code and data can be executed securely, even if the surrounding system is compromised. TEEs can protect sensitive computations from being observed or tampered with, making them valuable for privacy-preserving cloud computing and edge devices.
+A related approach is the **mix network**, which aggregates and shuffles messages before forwarding them. Mix networks break the timing correlations that might otherwise reveal communication links, making them valuable in applications such as electronic voting.
 
-Collectively, these privacy enhancing techniques—ranging from anonymous authentication to privacy-preserving computation—provide a toolkit for embedding privacy directly into the design of digital systems. They operationalize privacy principles in technical terms: reducing data exposure, preventing linkage and re-identification, and enabling accountability without surveillance. By combining cryptographic innovation with architectural safeguards, PETs enable trustworthy systems where privacy protection is not an afterthought but a built-in feature of the infrastructure itself.
+These anonymous channels illustrate a general lesson: protecting privacy in communication requires more than encryption. It requires hiding the *structure* of communication itself.
+
+## Privacy-Preserving Computation
+
+The third family of PETs enables data processing without revealing the underlying data. This is essential in scenarios where sensitive data must be analyzed by untrusted servers, shared across organizational boundaries, or combined to compute aggregate information without exposing individual contributions.
+
+### Homomorphic Encryption
+
+Homomorphic encryption schemes allow mathematical operations to be performed directly on encrypted data. After computation, the result—still encrypted—can be sent back to the data owner, who decrypts it to obtain the output as if the operations had been performed on the plaintext.
+
+Some schemes support only one type of operation, such as addition or multiplication. These are called **partially homomorphic** schemes; classic examples include RSA (multiplication) or Paillier (addition). More recently, **fully homomorphic encryption** (FHE) schemes have been developed that support both. FHE is computationally heavy but rapidly improving, and its resistance to quantum attacks makes it attractive for long-term deployments.
+
+Homomorphic encryption is suitable for numerical data and provides strong confidentiality even when outsourcing computation to untrusted environments.
+
+### Secure Multi-Party Computation
+
+Secure multi-party computation (MPC) allows several parties to jointly compute a function on their combined inputs without revealing those inputs to one another. Each party learns only the final output and nothing more.
+
+MPC protocols can compute tasks such as averages, sums, or complex Boolean functions. They rely on advanced cryptographic tools such as garbled circuits and often build upon secret sharing mechanisms. Although historically too inefficient for widespread use, MPC has seen rapid improvement, with practical deployments in areas such as health data collaboration, pandemic analytics, and joint fraud detection.
+
+The key idea is collaboration without disclosure: multiple entities can benefit from shared insights while retaining local control over sensitive data.
+
+### Secret Sharing
+
+Secret sharing schemes split a secret into multiple “shares,” distributing them among participants. Only certain authorized subsets—defined by an *access structure*—can reconstruct the secret. Unauthorized subsets learn nothing.
+
+The most common pattern is threshold sharing: from *n* shares, any *k* can reconstruct the secret, while fewer provide no information. Secret sharing serves as a foundational building block for MPC, threshold signatures, and distributed key management. Its power lies in decentralization: no single compromised party can leak the underlying secret.
+
+## Bringing PETs Into Privacy by Design
+
+Privacy-enhancing techniques give concrete form to the strategies introduced in earlier chapters. They help minimize data collection by reducing the amount of identity information needed for authentication. They enforce hiding through strong cryptography and anonymous routing. They enable separation by distributing trust across multiple nodes or entities. They support aggregation by allowing computations on encrypted or decentralized data.
+
+Importantly, PETs are not standalone solutions. Their effectiveness depends on proper integration into system architecture, careful risk assessment, and ongoing governance. They are also not universal: each technique has strengths, weaknesses, computational considerations, and appropriate use cases.
+
+As systems begin to rely more heavily on data to deliver personalized services, analytics, and machine learning, the ability to process data without unnecessary exposure becomes increasingly critical. PETs offer a pathway forward—allowing organizations to uphold privacy protections while still extracting value from data.
+
+The next chapters will turn to **database protection and anonymization**, where statistical approaches complement the cryptographic techniques introduced here. There, we will explore attacks based on re-identification and attribute inference and study methods for making datasets safe to publish or share.
 
