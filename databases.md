@@ -1107,26 +1107,124 @@ Any anonymization procedure must balance two competing goals: preserving the use
 
 Tabular releases are usually derived from an internal microdata file. For example, a dataset containing attributes such as salary, sector, and region can be transformed into a frequency table that counts how many individuals fall into each (sector × region) combination. Similarly, a magnitude table can be created in which each cell contains the sum, average, or another statistical compilation of a confidential attribute, such as salaries. These tables typically retain row totals, column totals, and grand totals, since such marginal information is often essential for statistical use.
 
-## Attacks on Tabular Data
+### Attacks on Tabular Data
 
 Although aggregated, these tables may leak private information through several mechanisms. External attacks occur when only one person contributes to a cell, making their confidential value immediately exposed if a magnitude table is available. Internal attacks arise when exactly two contributors are present; in such cases each one can infer the other’s contribution by subtracting their own from the aggregate. Dominance attacks occur when one or a few individuals heavily influence a magnitude cell, permitting inferences about their confidential values even when the cell contains three or more people.
 
-## Protection Methods
+### Protection Methods
 
 Methods for protecting tabular data may be non-perturbative or perturbative. Non-perturbative techniques do not distort the values but limit their detail. The most common method is cell suppression, which removes values from sensitive cells. Another non-perturbative option is recoding the categories of the attributes—such as merging similar regions or sectors—so that more individuals fall into each cell and sensitivity is reduced.
 
 Perturbative methods, in contrast, alter values directly. Controlled rounding modifies each cell to the nearest multiple of a chosen base, and controlled tabular adjustment uses linear optimisation to redistribute values while preserving the row and column totals. These perturbative approaches may be unsuitable in high-stakes environments, such as healthcare, where analysts rely on precise information.
 
-## Cell Suppression in Detail
+### Cell Suppression in Detail
 
 Cell suppression proceeds in two stages. The first stage, primary suppression, begins by identifying sensitive cells using predefined sensitivity rules. One such rule is the minimum frequency rule, which requires a cell to contain at least a certain number of contributors—commonly three—to avoid the risks associated with external or internal attacks. The next set of rules concerns dominance. Under the NK dominance rule, a cell is considered unsafe when the largest contributors account for more than a specified percentage of the total. The p-percent rule identifies a cell as unsafe when the contributions from all but the largest contributors fall below a certain fraction of the total. Once these sensitive cells are identified, their values are removed from the table.
 
 However, after such suppressions, the remaining published structure—especially row and column totals—may enable someone to reconstruct the missing values. This need for protection leads to the second stage, secondary suppression, in which additional non-sensitive cells are removed to prevent such reconstruction. Determining which additional cells to suppress requires computing feasibility intervals. A feasibility interval expresses the range of possible values a suppressed cell may take while satisfying all the linear constraints imposed by the table’s totals. These intervals are compared to protection intervals that are derived from the sensitivity rules themselves. A table is considered safe once every protection interval is fully contained within its corresponding feasibility interval, meaning no sensitive value can be inferred too precisely.
 
-## Utility and Risk Evaluation
+### Utility and Risk Evaluation
 
 The quality of anonymization is assessed by examining both utility loss and residual disclosure risk. Utility loss in the context of cell suppression can be measured by the number of suppressed cells or the sum of their magnitudes. In perturbative methods, utility may be measured by the differences between the original and adjusted cell values. Disclosure risk is quantified by analysing how well the feasibility intervals shield the sensitive cells given the protection intervals. The chosen sensitivity rules effectively define the acceptable level of disclosure risk.
 
-## Real-World Use
+### Real-World Use
 
 These anonymization techniques are widely used in practice. European statistical agencies, including Eurostat and national statistics offices such as that of the Netherlands, routinely apply minimum frequency rules and cell suppression to protect published regional tables. Software for suppressing tabular data, including tools developed through European research projects, incorporates the techniques discussed here. In the United States, the Census Bureau historically relied on methods such as data swapping but has recently transitioned to differential privacy to protect the underlying microdata before constructing published tables. This shift has sparked discussions about accuracy, fairness, and the impact on small or under-represented groups, illustrating the broader consequences of anonymization choices.
+
+## Interactive Statistical Databases
+
+The previous discussion focused on anonymizing static tabular data. Another common scenario arises when organizations do not publish the data itself but instead provide a statistical interface through which external users can query aggregated information. These systems are known as interactive statistical databases. In this setting, the data remains with a curator or data controller, who collects information from respondents and stores it, while external users or analysts issue queries through an API. The curator receives the query, computes the requested statistic on the underlying microdata, and returns the result, possibly after applying privacy-preserving transformations.
+
+![alt text](figs/interactive_db.png)
+
+
+Typical queries include counts, sums, averages, variances, and combinations of categorical selections, much like SQL queries. For example, one may query how many individuals in the database earn over a certain salary threshold, or the total salary paid to all workers in a particular sector, or the number of employees in a given region and industry. These are straightforward computations, but when the conditions defining the subset are too specific, the result may correspond to only one individual or a small number of them. In that case, returning the exact aggregate value would reveal sensitive information, including the confidential attributes of identified persons.
+
+| id | Salary  | Sector  | Region  |
+|--- |---      |---      |---      |
+|  1 | 500000€  | IT      | BCN  |
+|  2 | 320000 € | IT      | BCN  |
+|  3 | 32000 €  | IT      | BCN  |
+|  4 | 35000 €  | IT      | TGN  |
+|  5 | 34000 €  | IT      | TGN  |
+|  6 | 28000 €  | IT      | TGN  |
+|  7 | 300000 € | HC      | BCN  |
+|  8 | 45000 €  | HC      | BCN  |
+|  9 | 34000 €  | HC      | BCN  |
+| 10 | 45000 €  | HC      | TGN  |
+| 11 | 34000 €  | HC      | TGN  |
+| 12 | 24000 €  | HC      | TGN  |
+| 13 | 300000 € | Fin     | BCN  |
+| 14 | 350000 € | Fin     | BCN  |
+| 15 | 150000 € | Fin     | TGN  |
+
+```sql
+SELECT count() FROM table WHERE Salary > 100.000
+Result = 5
+SELECT sum(Salary) FROM table WHERE Sector = HC
+Result = 482.000
+SELECT count() FROM table WHERE Sector = IT and Region = TGN
+Result = 3
+SELECT count() FROM table WHERE Sector = Fin and Region = TGN
+Result = 1
+SELECT avg(Salary) FROM table WHERE Sector = Fin and Region = TGN
+Result = 150.000
+```
+
+This vulnerability leads to attacks analogous to those discussed for tabular data. If a query returns a count of one, the confidential attributes of that one respondent may be inferred. Even if counts are larger, cleverly constructed combinations of queries can enable difference attacks, where an attacker issues two overlapping queries and subtracts the results to isolate the contribution of one person. Such attacks exploit the interactive nature of the system: each result, even if individually harmless, may reveal information when combined with others.
+
+## Approaches to Protecting Interactive Queries
+
+Three broad strategies emerge for mitigating disclosure risk in interactive databases: query restriction, output generalization through intervals, and query perturbation.
+
+Query restriction involves refusing to answer queries that would reveal too much information. The curator monitors the set of respondents affected by each query—its query set size—and ensures that it always exceeds some threshold. The difficulty is that disclosure risk depends not only on the current query but also on previous queries. To decide whether a new query is safe, the curator must track the cumulative information the user has already learned, which is computationally expensive and practically unmanageable. While query restriction guarantees correct, unmodified results for all answered queries, the method becomes infeasible at scale because of the need to track large query histories and to guard against collusion or multiple coordinated users.
+
+A second approach is to provide generalized outputs: instead of returning exact numerical answers, the system returns intervals. This mirrors the idea of generalization in microdata anonymization, but applied to query results. For example, instead of stating that the average salary in a subset is 42,000€, the system might respond that it lies between 35,000€ and 50,000€. The width of the interval can be configured based on the desired privacy–utility trade-off. Wider intervals offer stronger privacy but reduce analytical precision. A key advantage is that queries can be answered without noise, and users can submit an unlimited number of queries, but the cost is reduced accuracy. The method becomes less effective when analysts require precise estimates or when multiple confidential attributes are involved.
+
+The third and most general approach is query perturbation, in which the curator modifies the result before returning it, usually by adding noise. This can be done either via input perturbation, where noise is added to the underlying data before any queries are answered, or output perturbation, where each query result is computed exactly and then noise is added. Output perturbation is the more flexible and widely used variant because it allows the curator to tailor the magnitude of noise to each specific query.
+
+### Randomized Response as an Intuition
+
+To introduce the rationale behind query perturbation, it is helpful to consider randomized response, a classical technique from the 1960s for conducting surveys on sensitive topics. Respondents might refuse to answer questions about drug use, sexual behavior, or other stigmatized activities, or they might lie. Randomized response provides respondents with plausible deniability by instructing them to randomize their answers according to a known protocol. For example, each person may flip a private coin: with probability \(1/2 + \gamma\), they answer truthfully; with probability \(1/2 - \gamma\), they lie and report the opposite. A researcher who knows the value of \(\gamma\) can estimate the true proportion of “yes” responses in the population, while no outsider can confidently determine any individual’s truthful answer because the respondent can always claim that the randomization dictated their response.
+
+When \(\gamma = 0\), the respondent answers truthfully half the time and lies half the time, so the responses contain almost no usable signal. When \(\gamma = 1/2\), respondents always tell the truth, which yields perfect utility but no privacy. Values in between provide a controllable trade-off between individual privacy and statistical accuracy. This balance serves as an intuition for the more formal framework of differential privacy.
+
+### Toward Differential Privacy
+
+Randomized response corresponds to a “local” privacy model, where individuals apply noise themselves. Differential privacy instead assumes that respondents provide their true data to a trusted curator, who stores all individual records and receives queries from external analysts. The goal is for the curator to answer analytics queries in a way that protects each respondent’s privacy, regardless of an analyst’s auxiliary knowledge or computational power.
+
+The key idea is that the output of any analysis should not change too much when the data of a single individual is added or removed. To formalize this, we consider neighboring datasets—datasets that differ in exactly one individual’s record. A differentially private algorithm ensures that the probability of producing any given output changes only slightly between neighboring datasets. This stability guarantees that no analyst can confidently infer whether a particular individual contributed to the dataset.
+
+:::{admonition} $\epsilon$-Differential privacy
+Differential privacy is a property of $M$ saying that no individual's data has a large impact on the output.
+Suppose we have an algorithm $M:X^n \rightarrow Y$. Consider any two datasets $X, X' \in X^n$ which differ in exactly one entry. We call these neighboring datasets. We say that $M$ is $\epsilon$-differentially private ($\epsilon$-DP) if, for all neighboring $X, X'$, and all $T \subseteq Y$, we have
+$$Pr⁡[M(X) \in T] \le e^\epsilon Pr⁡[M(X') \in T]$$
+where the randomness is over the choices made by $M$.
+:::
+
+To determine how much noise must be added to a query, one must compute its sensitivity: the maximum possible change in the query’s output when applied to neighboring datasets. For count queries, the sensitivity is 1, because removing or adding a single record changes the count by at most one. For averages, the sensitivity depends on the range of the attribute and the number of individuals included. For sums, the sensitivity equals the maximum possible value of the confidential attribute (for example, using an upper bound on age or salary). Bounding sensitivity is essential because differential privacy mechanisms calibrate their noise to this value.
+
+The sensitivity of a function $\Delta f$ (or $\Delta$ if $f$ is known) is the maximum distance between the results of $f$ computed on neighboring datasets.
+This can be defined as the $\ell_1$ distance between results of $M$ on neighboring datasets ($(\epsilon,\delta)$-DP requires the $\ell_2$ distance).
+For example:
+- Count queries have a $\Delta$ of 1.
+- Average queries have a $\Delta$ of $\max/n$.
+- Sum queries have a $\Delta$ of $\max$.
+
+One widely used mechanism for ensuring differential privacy is the Laplace mechanism, which adds noise drawn from the Laplace distribution. The scale of the Laplace distribution is proportional to the ratio of the query's sensitivity to the privacy parameter $\epsilon$. Larger $\epsilon$ allows less noise and weaker privacy; smaller $\epsilon$ requires more noise and yields stronger privacy. Graphically, decreasing noise corresponds to a sharply peaked distribution around zero, while increasing noise yields a broader distribution. By adjusting $\epsilon$, practitioners can tune the privacy–utility trade-off: more privacy requires more noise, and therefore less statistical accuracy.
+
+:::{admonition} The Laplace Mechanism
+The Laplace mechanism is a fundamental technique for achieving differential privacy. 
+Given a function $f: D \rightarrow R^d, where $D$ is the domain of the dataset and $d$ is the dimension of the output, the Laplace mechanism $M_{Laplace}$ adds Laplace noise to the output of $f$. That is $M_{Laplace}(D)=f(D)+Lap(\Delta/\epsilon)$ 
+Let $b$ be the scale parameter of the Laplace distribution, which is given by:
+$$Lap(b)=\frac{1}{2b} e^{-\frac{|x|}{b}}$$
+
+![alt text](figs/laplace.png)
+:::
+
+
+### The Privacy Budget and Repeated Queries
+
+Each differentially private response consumes a portion of a privacy budget. Because answering queries reveals information, even noisy answers accumulate privacy loss. Differential privacy provides composition theorems that quantify how privacy degrades across multiple queries. In practice, curators limit the total number of queries or allocate budget portions to maintain global privacy guarantees.
+
+This model addresses the primary weaknesses of earlier approaches. It does not rely on tracking overlapping query sets, does not prevent analysts from issuing many queries, and works even when attackers have extensive external knowledge. Instead, it provides mathematically provable guarantees that no single respondent’s data can be detected from the outputs, while still allowing analysts to extract meaningful aggregate information.

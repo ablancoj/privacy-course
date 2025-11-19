@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4. Privacy in databases &#8212; Privacy Engineering</title>
+    <title>5. Privacy in databases &#8212; Privacy Engineering</title>
   
   
   
@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'databases';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4.6. Anonymization library" href="anonymization-library.html" />
+    <link rel="next" title="6.8. Anonymization library" href="anonymization-library.html" />
     <link rel="prev" title="3. Privacy enhancing techniques" href="pets.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,23 +183,21 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro-gdpr.html">1. About this book</a></li>
-<li class="toctree-l1"><a class="reference internal" href="privacy-by-design.html">2. Privacy by design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privacy-by-design.html">2. Privacy by Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pets.html">3. Privacy enhancing techniques</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">4. Privacy in databases</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="anonymization-library.html">4.6. Anonymization library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/test_anonymization.html">4.7. Anonymization examples</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1"><a class="reference internal" href="unstructured.html">5. Privacy in unstructured data</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="privacy-ml.html">6. Privacy in machine learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/LipariSC_MIA.html">6.9. Salem paper attacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html">6.10. Federated Learning and Label Flipping attacks</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Privacy in databases</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="unstructured.html">7. Privacy in unstructured data</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="privacy-ml.html">8. Privacy in machine learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/LipariSC_MIA.html">8.9. Salem paper attacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html">8.10. Federated Learning and Label Flipping attacks</a></li>
 
 
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="notebooks/unlearning-CIFAR10.html">6.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/unlearning-CIFAR10.html">8.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
 
 
 
@@ -400,83 +398,110 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.1. Privacy in Databases</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#respondent-privacy-statistical-disclosure-control">4.1.1. Respondent Privacy: Statistical Disclosure Control</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#non-perturbative-masking">4.1.1.1. Non-perturbative Masking</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perturbative-masking">4.1.1.2. Perturbative Masking</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-microdata-generation">4.1.1.3. Synthetic Microdata Generation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-models">4.1.1.4. Privacy Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#k-anonymity-and-extensions">4.1.1.4.1. k-Anonymity and Extensions</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-privacy">4.1.1.4.2. Differential Privacy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">5. Privacy in databases</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protecting-structured-data-from-tables-to-queries">5.1. Protecting Structured Data: From Tables to Queries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.2. Privacy in Databases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#respondent-privacy-statistical-disclosure-control">5.2.1. Respondent Privacy: Statistical Disclosure Control</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#non-perturbative-masking">5.2.1.1. Non-perturbative Masking</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perturbative-masking">5.2.1.2. Perturbative Masking</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-microdata-generation">5.2.1.3. Synthetic Microdata Generation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-models">5.2.1.4. Privacy Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#k-anonymity-and-extensions">5.2.1.4.1. k-Anonymity and Extensions</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-privacy">5.2.1.4.2. Differential Privacy</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">4.2. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabular-data-protection">4.3. Tabular data protection</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-tables">4.3.1. Types of tables</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-attacks-in-tables">4.3.2. Disclosure attacks in tables</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdc-methods-for-tables">4.3.3. SDC Methods for tables</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cell-suppression">4.3.3.1. Cell suppression</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-rules">4.3.3.2. Sensitivity rules</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#secondary-suppressions">4.3.3.3. Secondary suppressions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#controlled-rounding-and-controlled-tabular-adjustment">4.3.3.4. Controlled rounding and Controlled tabular adjustment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">5.3. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabular-data-protection">5.4. Tabular data protection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-tables">5.4.1. Types of tables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-attacks-in-tables">5.4.2. Disclosure attacks in tables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdc-methods-for-tables">5.4.3. SDC Methods for tables</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cell-suppression">5.4.3.1. Cell suppression</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-rules">5.4.3.2. Sensitivity rules</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#secondary-suppressions">5.4.3.3. Secondary suppressions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#controlled-rounding-and-controlled-tabular-adjustment">5.4.3.4. Controlled rounding and Controlled tabular adjustment</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-loss-in-tabular-sdc">4.3.4. Utility loss in tabular SDC</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-in-tabular-sdc">4.3.5. Disclosure risk in tabular SDC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-loss-in-tabular-sdc">5.4.4. Utility loss in tabular SDC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-in-tabular-sdc">5.4.5. Disclosure risk in tabular SDC</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-databases">4.4. Interactive databases</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#issues">4.4.1. Issues</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-database-protection">4.4.2. Interactive database protection</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#query-restriction">4.4.2.1. Query restriction</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#camouflage">4.4.2.2. Camouflage</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#query-perturbation">4.4.2.3. Query perturbation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-response">4.4.2.4. Randomized response</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.4.2.5. Differential privacy</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#the-laplace-mechanism">4.4.2.5.1. The Laplace mechanism</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-dp">4.4.2.5.2. Properties of DP</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-loss-in-interactive-databases">4.4.3. Utility loss in interactive databases</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-in-interactive-databases">4.4.4. Disclosure risk in interactive databases</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microdata">4.5. Microdata</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.5.1. Non-perturbative masking</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recoding">4.5.1.1. Recoding</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#global-recoding">4.5.1.1.1. Global recoding</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#top-bottom-coding">4.5.1.1.2. Top/bottom coding</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#rounding">4.5.1.1.3. Rounding</a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#local-suppression">4.5.1.2. Local suppression</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#recoding-suppression-and-k-anonymity">4.5.1.2.1. Recoding, suppression, and 𝑘-anonymity</a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pram">4.5.1.3. PRAM</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#microaggregation">4.5.1.4. Microaggregation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#noise-addition">4.5.1.5. Noise addition</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#swapping">4.5.1.6. Swapping</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-data-generation">4.5.2. Synthetic data generation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-loss-in-microdata-protection">4.5.3. Utility loss in microdata protection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-in-microdata-protection">4.5.4. Disclosure risk in microdata protection</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-priori-disclosure-risk">4.5.4.1. A priori disclosure risk</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-posteriori-disclosure-risk">4.5.4.2. A posteriori disclosure risk</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owner-privacy-privacy-preserving-data-mining">4.5.5. Owner Privacy: Privacy-Preserving Data Mining</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-privacy-private-information-retrieval">4.5.6. User Privacy: Private Information Retrieval</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-databases">5.5. Interactive databases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#issues">5.5.1. Issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-database-protection">5.5.2. Interactive database protection</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#query-restriction">5.5.2.1. Query restriction</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#camouflage">5.5.2.2. Camouflage</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#query-perturbation">5.5.2.3. Query perturbation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-response">5.5.2.4. Randomized response</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.5.2.5. Differential privacy</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#the-laplace-mechanism">5.5.2.5.1. The Laplace mechanism</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-dp">5.5.2.5.2. Properties of DP</a></li>
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-loss-in-interactive-databases">5.5.3. Utility loss in interactive databases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-in-interactive-databases">5.5.4. Disclosure risk in interactive databases</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microdata">5.6. Microdata</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.6.1. Non-perturbative masking</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recoding">5.6.1.1. Recoding</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#global-recoding">5.6.1.1.1. Global recoding</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#top-bottom-coding">5.6.1.1.2. Top/bottom coding</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#rounding">5.6.1.1.3. Rounding</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#local-suppression">5.6.1.2. Local suppression</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#recoding-suppression-and-k-anonymity">5.6.1.2.1. Recoding, suppression, and 𝑘-anonymity</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pram">5.6.1.3. PRAM</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#microaggregation">5.6.1.4. Microaggregation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#noise-addition">5.6.1.5. Noise addition</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#swapping">5.6.1.6. Swapping</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-data-generation">5.6.2. Synthetic data generation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-loss-in-microdata-protection">5.6.3. Utility loss in microdata protection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-in-microdata-protection">5.6.4. Disclosure risk in microdata protection</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-priori-disclosure-risk">5.6.4.1. A priori disclosure risk</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-posteriori-disclosure-risk">5.6.4.2. A posteriori disclosure risk</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owner-privacy-privacy-preserving-data-mining">5.6.5. Owner Privacy: Privacy-Preserving Data Mining</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-privacy-private-information-retrieval">5.6.6. User Privacy: Private Information Retrieval</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymization-of-structured-databases">6. Anonymization of Structured Databases</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">6.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-data">6.2. Types of Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-tables-for-release">6.3. Types of Tables for Release</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-vs-disclosure-risk">6.4. Utility vs. Disclosure Risk</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabular-data-frequency-and-magnitude-tables">6.5. Tabular Data: Frequency and Magnitude Tables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attacks-on-tabular-data">6.5.1. Attacks on Tabular Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protection-methods">6.5.2. Protection Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cell-suppression-in-detail">6.5.3. Cell Suppression in Detail</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-and-risk-evaluation">6.5.4. Utility and Risk Evaluation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-use">6.5.5. Real-World Use</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-statistical-databases">6.6. Interactive Statistical Databases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approaches-to-protecting-interactive-queries">6.7. Approaches to Protecting Interactive Queries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-response-as-an-intuition">6.7.1. Randomized Response as an Intuition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toward-differential-privacy">6.7.2. Toward Differential Privacy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-privacy-budget-and-repeated-queries">6.7.3. The Privacy Budget and Repeated Queries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -488,7 +513,68 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="privacy-in-databases">
-<h1><span class="section-number">4. </span>Privacy in databases<a class="headerlink" href="#privacy-in-databases" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">5. </span>Privacy in databases<a class="headerlink" href="#privacy-in-databases" title="Link to this heading">#</a></h1>
+<section id="protecting-structured-data-from-tables-to-queries">
+<h2><span class="section-number">5.1. </span>Protecting Structured Data: From Tables to Queries<a class="headerlink" href="#protecting-structured-data-from-tables-to-queries" title="Link to this heading">#</a></h2>
+<p>Structured data, such as that collected in surveys or administrative databases, can often be transformed into tabular outputs for publication or analysis. Even aggregated tables, however, can leak sensitive information if small groups or unique combinations of attributes are disclosed. To mitigate this, statistical disclosure control (SDC) techniques modify or withhold risky cells.</p>
+<p>Common SDC methods include:</p>
+<ul class="simple">
+<li><p>Cell suppression, where small or sensitive counts are omitted, often with complementary suppression to prevent deduction from totals.</p></li>
+<li><p>Controlled rounding or adjustment, which slightly modifies numerical values to obscure exact counts while preserving overall consistency.</p></li>
+<li><p>Interval reporting, which replaces exact values with ranges (e.g., “between 3 and 7 cases”).</p></li>
+<li><p>Noise addition, which introduces random perturbations calibrated to protect individual contributions.</p></li>
+</ul>
+<p>The objective is to balance disclosure risk, i.e., the probability that an individual can be inferred, with information loss. Tabular data protection demonstrates that even aggregate statistics require careful anonymization to maintain confidentiality.</p>
+<p>When users can query data directly, as in queryable databases, new risks arise. Repeated or overlapping queries can reconstruct individual information. To prevent this, systems employ:</p>
+<p>Query restriction, refusing queries that affect too few records.</p>
+<p>Query camouflage, returning generalized intervals instead of precise numbers.</p>
+<p>Query perturbation, adding noise to query results.</p>
+<p>The last approach leads to differential privacy (DP)—a formal framework ensuring that the inclusion or exclusion of any single individual’s data has negligible impact on the output. DP quantifies privacy through a parameter ε (epsilon): smaller ε means stronger protection but greater noise. Differential privacy has become a global standard, applied in government censuses and major technology platforms. Its conceptual ancestor, randomized response, introduced in the 1960s, uses randomness in survey answers to protect individuals while allowing valid statistical estimates—an intuitive early form of privacy-preserving data collection.</p>
+<ol class="arabic simple" start="4">
+<li><p>Microdata Anonymization</p></li>
+</ol>
+<p>When individual-level data must be shared for research or statistical purposes, microdata anonymization transforms quasi-identifiers to prevent re-identification. The foundational model, k-anonymity, ensures that each record is indistinguishable from at least k–1 others. Extensions like l-diversity and t-closeness strengthen protection by maintaining diversity and distributional similarity in sensitive attributes, thus limiting attribute disclosure.</p>
+<p>Anonymization methods can be:</p>
+<p>Non-perturbative, preserving data correctness but reducing precision through generalization and suppression.</p>
+<p>Perturbative, introducing controlled randomness (e.g., data swapping, noise addition, or synthetic data generation).</p>
+<p>Risk–utility analysis guides the process: increasing privacy (higher k or tighter t) usually decreases analytical value, and the optimal balance depends on the use context. Microdata anonymization remains essential in health, social, and economic research, bridging classical statistical methods and modern privacy frameworks like differential privacy.</p>
+<ol class="arabic simple" start="5">
+<li><p>Privacy in Unstructured Data</p></li>
+</ol>
+<p>Unstructured data—images, text, video, location traces, genomic sequences—poses unique challenges because identifiers are embedded in complex content rather than explicit fields.</p>
+<p>For images, privacy risks arise from both content (faces, objects, backgrounds) and metadata (timestamps, GPS, device signatures). Common protections include blurring, pixelation, and masking, complemented by metadata cleaning. Newer methods use adversarial perturbations that fool face-recognition systems without perceptibly altering the image. In medicine, anonymization focuses on DICOM metadata removal and obscuring embedded text rather than modifying image content.</p>
+<p>For textual data, privacy-enhancing NLP tools automatically detect and mask names, dates, and other sensitive terms using Named Entity Recognition (NER). Redaction can be performed by deletion or generalization; however, excessive sanitization may compromise semantic meaning. Synthetic text generation using large language models can provide an alternative by rewriting sensitive passages without reproducing original identifiers.</p>
+<p>Location and genomic data pose especially high re-identification risks, as they are inherently unique. Location privacy is achieved through spatial and temporal generalization or the addition of noise, while genetic data typically relies on controlled access rather than anonymization, since true de-identification is infeasible.</p>
+<p>Unstructured data anonymization thus combines content editing, metadata sanitization, and increasingly AI-assisted generation to balance privacy and utility in multimedia and textual information.</p>
+<ol class="arabic simple" start="6">
+<li><p>Privacy in Machine Learning</p></li>
+</ol>
+<p>Machine learning systems amplify privacy challenges by processing vast, diverse datasets to extract predictive patterns. These models can unintentionally memorize or reveal sensitive data, creating new categories of attacks:</p>
+<p>Membership inference attacks, which determine whether a given record was part of the training set.</p>
+<p>Attribute inference, which deduces hidden features about individuals.</p>
+<p>Model inversion and reconstruction, which regenerate approximate training examples.</p>
+<p>Data poisoning, where malicious inputs alter the model or cause targeted leaks.</p>
+<p>Mitigations span multiple layers:</p>
+<p>Differentially Private Stochastic Gradient Descent (DP-SGD) injects noise during training to guarantee that model parameters reveal little about any single data point.</p>
+<p>Federated learning keeps data local and aggregates updates across devices, often combined with secure aggregation and DP to prevent server-side inference.</p>
+<p>Cryptographic computation (SMPC, homomorphic encryption) enables joint training or inference across institutions without sharing raw data.</p>
+<p>Regularization and access control reduce overfitting and limit adversarial probing.</p>
+<p>These approaches operationalize privacy by design in AI: models are trained and deployed under quantifiable privacy constraints rather than relying on post hoc anonymization.</p>
+<ol class="arabic simple" start="7">
+<li><p>Machine Unlearning and the Right to Be Forgotten</p></li>
+</ol>
+<p>Privacy protection does not end when training concludes. Under the GDPR’s right to erasure, individuals may request that their data—and its influence—be removed from systems. Machine unlearning addresses this requirement by designing models capable of “forgetting” specific training samples efficiently, without full retraining.</p>
+<p>Unlearning methods include:</p>
+<p>Selective retraining, recomputing only affected components (e.g., trees in ensembles).</p>
+<p>Influence-based rollback, estimating and reversing each record’s contribution to model parameters.</p>
+<p>Gradient ascent unlearning, which counteracts the learned effect of deleted data.</p>
+<p>Partitioned or modular training, designing models that can forget data partitions by design.</p>
+<p>Certified unlearning frameworks aim to provide verifiable guarantees that a model behaves as if specific data were never used, bridging AI practice with legal accountability. This capability embodies the ultimate stage of privacy by design—systems that can both learn and forget responsibly.</p>
+<ol class="arabic simple" start="8">
+<li><p>Conclusion: The Continuum of Privacy by Design</p></li>
+</ol>
+<p>Across these domains—structured, unstructured, and machine-learned data—the core challenge remains constant: balancing information utility with individual privacy. From risk assessment and anonymization to differential privacy and unlearning, each technique represents a step along a continuum from prevention to accountability.</p>
+<p>Privacy by design is thus not a single technology but an ecosystem of principles, methods, and tools. It integrates cryptography, statistics, and artificial intelligence into a coherent discipline: privacy engineering. As data-driven systems grow more pervasive and autonomous, this discipline ensures that technological innovation remains aligned with ethical responsibility and human dignity.</p>
 <p>Anonymization of structured databases is one of the central technical methods for protecting personal data while preserving its analytical or statistical value. Structured data, such as that stored in relational databases or spreadsheets, consists of well-defined attributes arranged in rows and columns—each row representing an individual and each column representing an attribute (such as age, income, or medical condition). These datasets are the foundation of much statistical, social, and biomedical research, yet they also pose serious privacy risks because individuals can often be identified or their attributes inferred, even after direct identifiers have been removed. The purpose of anonymization is to transform such data so that it can be used, published, or shared with third parties without revealing or allowing the inference of personal information.</p>
 <p>To understand how anonymization works, it is essential to distinguish between different types of data attributes. Direct identifiers are attributes that uniquely identify a person on their own—such as a name, personal identification number, email address, or phone number. These are typically removed entirely in any anonymization process. Quasi-identifiers (or indirect identifiers) are attributes that do not identify an individual by themselves but can do so when combined with other information. Common examples include combinations of birth date, postal code, and gender, which have been shown to uniquely identify large portions of a population when cross-referenced with external data sources. Confidential attributes are those that are sensitive in nature, such as salary, medical diagnosis, or political opinion; these are not used to identify individuals but must be protected against disclosure. Finally, non-confidential attributes are those that carry little privacy risk and can typically be retained as-is.</p>
 <p>When a dataset is released—either publicly or to specific researchers—the main risks are re-identification (linking data to an individual) and attribute disclosure (inferring confidential information about an identified person). These threats may arise from linkage attacks, in which an attacker combines anonymized data with external datasets, such as public voter registries or social media profiles, to re-establish identities. The well-known case of Latanya Sweeney’s re-identification of Massachusetts health records using public voter data illustrates this danger: even after names were removed, the combination of ZIP code, birth date, and sex uniquely identified a large percentage of individuals.</p>
@@ -499,12 +585,13 @@ document.write(`
 <p>While these formal models are primarily applied to microdata, their principles also guide the anonymization of other data forms, including tabular and queryable data. In tabular data, cell suppression and controlled rounding are used to prevent inferences about small subgroups, while complementary suppression ensures that suppressed cells cannot be reconstructed from totals. When publishing frequency tables or census data, for instance, agencies routinely withhold or adjust values in small population groups to prevent re-identification.</p>
 <p>An effective anonymization process typically begins with a detailed risk assessment. This includes identifying potential quasi-identifiers, estimating disclosure risk based on external data availability, and selecting appropriate transformation methods. After anonymization, utility evaluation ensures that the transformed data still supports the intended analyses—such as statistical inference, machine learning, or policy evaluation. Because anonymization is context-dependent, the same dataset might require different transformations depending on its intended use and audience: a public release requires stronger privacy, while restricted research access may allow more detail.</p>
 <p>Ultimately, anonymization of structured databases illustrates a core theme in privacy engineering: privacy is not achieved by deleting data but by transforming it intelligently. It is a balance between protecting individuals and preserving collective knowledge. In practice, achieving full anonymity is nearly impossible—especially as external data sources multiply—but well-designed anonymization greatly reduces risk while maintaining social and scientific value.</p>
+</section>
 <section id="id1">
-<h2><span class="section-number">4.1. </span>Privacy in Databases<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.2. </span>Privacy in Databases<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>An alternative strategy to protect data is to make them no longer linkable to individuals, that is, to anonymise them. Anonymised data are no longer considered personal, and thus the legal restrictions that apply to personal data are lifted. This
 section describes the state of the art in data anonymisation techniques and models.</p>
 <section id="respondent-privacy-statistical-disclosure-control">
-<h3><span class="section-number">4.1.1. </span>Respondent Privacy: Statistical Disclosure Control<a class="headerlink" href="#respondent-privacy-statistical-disclosure-control" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.2.1. </span>Respondent Privacy: Statistical Disclosure Control<a class="headerlink" href="#respondent-privacy-statistical-disclosure-control" title="Link to this heading">#</a></h3>
 <p>Traditionally, national statistical institutes and government agencies have systematically gathered information about individual respondents, either people or companies, with the aim of using it for policymaking and also distributing it for public and
 private research that may benefit their country. The most detailed way to disseminate this information is by releasing a microdata set, essentially a database table,
 each of whose records conveys information on a particular respondent. Although
@@ -524,7 +611,7 @@ disclosure).
 Several SDC methods have been proposed in the literature to protect microdata
 sets (Hundepool et al. 2012). Next, we briefly review the main ones.</p>
 <section id="non-perturbative-masking">
-<h4><span class="section-number">4.1.1.1. </span>Non-perturbative Masking<a class="headerlink" href="#non-perturbative-masking" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.2.1.1. </span>Non-perturbative Masking<a class="headerlink" href="#non-perturbative-masking" title="Link to this heading">#</a></h4>
 <p>In SDC, masking refers to the process of obtaining an anonymised data set X’ by
 modifying the original X. Masking can be perturbative or non-perturbative. In the
 former approach, the data values of X are perturbed to obtain X’. In contrast, in nonperturbative masking X’ is obtained by removing some values and/or by making
@@ -546,7 +633,7 @@ larger.</p></li>
 </ul>
 </section>
 <section id="perturbative-masking">
-<h4><span class="section-number">4.1.1.2. </span>Perturbative Masking<a class="headerlink" href="#perturbative-masking" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.2.1.2. </span>Perturbative Masking<a class="headerlink" href="#perturbative-masking" title="Link to this heading">#</a></h4>
 <p>Perturbative masking generates a modified version of the microdata set such that the
 privacy of the respondents is protected to a certain extent while simultaneously
 some statistical properties of the data are preserved. Well-known perturbative masking methods include:</p>
@@ -563,7 +650,7 @@ the records in a group, the more data utility is preserved.</p></li>
 </ul>
 </section>
 <section id="synthetic-microdata-generation">
-<h4><span class="section-number">4.1.1.3. </span>Synthetic Microdata Generation<a class="headerlink" href="#synthetic-microdata-generation" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.2.1.3. </span>Synthetic Microdata Generation<a class="headerlink" href="#synthetic-microdata-generation" title="Link to this heading">#</a></h4>
 <p>An anonymisation approach alternative to masking is synthetic data generation.
 That is, instead of modifying the original data set, a simulated data set is generated
 such that it preserves some properties of the original data set. The main advantage
@@ -579,7 +666,7 @@ are hybrid data, which mix original and synthetic data and are therefore more fl
 replaced by synthetic values.</p>
 </section>
 <section id="privacy-models">
-<h4><span class="section-number">4.1.1.4. </span>Privacy Models<a class="headerlink" href="#privacy-models" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.2.1.4. </span>Privacy Models<a class="headerlink" href="#privacy-models" title="Link to this heading">#</a></h4>
 <p>For an anonymised data set X’ to be safe/private enough, it needs to be sufficiently
 anonymised. The level of anonymisation can be assessed after the generation of X’
 or prior to it.
@@ -593,7 +680,7 @@ selecting the desired privacy level before producing X’. In this way, the outp
 set is always as private as specified by the model, although it may fail to provide
 enough utility if the model parameters are too strict.</p>
 <section id="k-anonymity-and-extensions">
-<h5><span class="section-number">4.1.1.4.1. </span>k-Anonymity and Extensions<a class="headerlink" href="#k-anonymity-and-extensions" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">5.2.1.4.1. </span>k-Anonymity and Extensions<a class="headerlink" href="#k-anonymity-and-extensions" title="Link to this heading">#</a></h5>
 <p>A well-known privacy model is k-anonymity (Samarati and Sweeney 1998), which
 requires that each tuple of key-attribute values be shared by at least k records in the
 database. This condition may be achieved through generalisation and suppression
@@ -611,7 +698,7 @@ between the distribution of each confidential attribute within each group and th
 whole data set is no more than a threshold t.</p>
 </section>
 <section id="differential-privacy">
-<h5><span class="section-number">4.1.1.4.2. </span>Differential Privacy<a class="headerlink" href="#differential-privacy" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">5.2.1.4.2. </span>Differential Privacy<a class="headerlink" href="#differential-privacy" title="Link to this heading">#</a></h5>
 <p>Another important privacy model is differential privacy (Dwork 2006). This
 model was originally defined for queryable databases and consists in perturbing
 the original query result of a database before outputting it. This may be viewed as
@@ -631,7 +718,7 @@ larger ε, the less privacy</p>
 </section>
 </section>
 <section id="introduction">
-<h2><span class="section-number">4.2. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.3. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>In healthcare, data is often collected from patients to better understand disease patterns, improve treatments, and develop new medications.
 Some common types of data that are often used in biomedical research include:
 Demographic data: age, address, marital status, gender, etc.
@@ -663,7 +750,7 @@ Utility-first anonymization: apply masking methods iteratively until a desired d
 Privacy-first anonymization: use a privacy model, such as 𝑘-anonymity or 𝜖-differential privacy, which sets a disclosure risk, to derive parameters for masking methods.</p>
 </section>
 <section id="tabular-data-protection">
-<h2><span class="section-number">4.3. </span>Tabular data protection<a class="headerlink" href="#tabular-data-protection" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.4. </span>Tabular data protection<a class="headerlink" href="#tabular-data-protection" title="Link to this heading">#</a></h2>
 <p>Tabular data is one of the most common ways in which statistical information is published. Government agencies, research institutions, and companies often release aggregated tables summarizing results from surveys, censuses, or databases—for example, the number of people by region and profession, or the average salary by sector. Although such tables appear harmless because they contain no individual records, they can still reveal sensitive information about individuals when analyzed carefully. Protecting privacy in tabular data publishing therefore requires specialized anonymization techniques that prevent both identity disclosure and attribute disclosure while maintaining the utility of the statistics.</p>
 <p>A statistical table is usually constructed from microdata, meaning a collection of individual records that include multiple attributes for each person. When a table is built, those records are grouped according to certain key variables or quasi-identifiers (for example, region, age group, or gender), and a summary statistic—such as a count, total income, or average—is computed for each combination of categories. The resulting table thus contains cells, each representing a subgroup of individuals. For example, one cell might correspond to “Women aged 40–49 working in Finance in Barcelona.” Even though only the count or average is shown, if that subgroup includes very few individuals, those numbers could reveal private details about them.</p>
 <p>Privacy risks in tabular data publishing can arise in two main ways. The first is the external attack: when an outside party uses publicly available information or background knowledge to deduce information about an individual. For instance, if a table reports that there is exactly one person in a specific region and category, an attacker who knows someone matching those conditions can infer that person’s confidential attribute (such as salary or health status). The second is the internal attack, which can occur even among respondents within the dataset. If two people appear in the same cell and one of them knows their own data, they can infer the other’s by comparing with the published cell value (for example, if they know the average salary of a two-person group and their own salary, they can deduce the other’s).</p>
@@ -682,7 +769,7 @@ Formally, given categorical attributes <span class="math notranslate nohighlight
 $<span class="math notranslate nohighlight">\(T : D(X_1) \times D(X_2) \times \cdots \times D(X_l) \rightarrow R \; or \; N\)</span><span class="math notranslate nohighlight">\(
 where \)</span>D(X_i)<span class="math notranslate nohighlight">\( is the domain where attribute \)</span>X_i$ takes its values.</p>
 <section id="types-of-tables">
-<h3><span class="section-number">4.3.1. </span>Types of tables<a class="headerlink" href="#types-of-tables" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.4.1. </span>Types of tables<a class="headerlink" href="#types-of-tables" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>id</p></th>
@@ -840,7 +927,7 @@ where \)</span>D(X_i)<span class="math notranslate nohighlight">\( is the domain
 </table>
 </section>
 <section id="disclosure-attacks-in-tables">
-<h3><span class="section-number">4.3.2. </span>Disclosure attacks in tables<a class="headerlink" href="#disclosure-attacks-in-tables" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.4.2. </span>Disclosure attacks in tables<a class="headerlink" href="#disclosure-attacks-in-tables" title="Link to this heading">#</a></h3>
 <p>External attack
 Let a released frequency table <strong>Ethnicity</strong> <span class="math notranslate nohighlight">\(\times\)</span> <strong>Town</strong> contain a single respondent for ethnicity <span class="math notranslate nohighlight">\(E_i\)</span> and town <span class="math notranslate nohighlight">\(T_j\)</span>.
 If a magnitude table is released with the average blood pressure for each ethnicity and each town, the exact blood pressure of the only respondent with ethnicity <span class="math notranslate nohighlight">\(𝐸_𝑖\)</span> in town <span class="math notranslate nohighlight">\(𝑇_𝑗\)</span> is publicly disclosed.
@@ -851,7 +938,7 @@ If one (or few) respondents dominate in the contribution to a cell in a magnitud
 <em>E.g.</em>, if the table displays the cumulative earnings for each job type and town, and one individual contributes 90% of a certain cell value, they know their colleagues in the town are not doing very well.</p>
 </section>
 <section id="sdc-methods-for-tables">
-<h3><span class="section-number">4.3.3. </span>SDC Methods for tables<a class="headerlink" href="#sdc-methods-for-tables" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.4.3. </span>SDC Methods for tables<a class="headerlink" href="#sdc-methods-for-tables" title="Link to this heading">#</a></h3>
 <p>Non-perturbative. They do not modify the values in the cells, but they may suppress or recode them.
 Best known methods:
 cell suppression (CS).
@@ -861,13 +948,13 @@ Best known methods:
 controlled rounding (CR).
 controlled tabular  adjustment (CTA).</p>
 <section id="cell-suppression">
-<h4><span class="section-number">4.3.3.1. </span>Cell suppression<a class="headerlink" href="#cell-suppression" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.4.3.1. </span>Cell suppression<a class="headerlink" href="#cell-suppression" title="Link to this heading">#</a></h4>
 <p>Identify sensitive cells, using a sensitivity rule.
 Suppress values in sensitive cells (primary suppressions).
 Perform additional suppressions (secondary suppressions) to prevent recovery of primary suppressions from row and/or column marginals.</p>
 </section>
 <section id="sensitivity-rules">
-<h4><span class="section-number">4.3.3.2. </span>Sensitivity rules<a class="headerlink" href="#sensitivity-rules" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.4.3.2. </span>Sensitivity rules<a class="headerlink" href="#sensitivity-rules" title="Link to this heading">#</a></h4>
 <p>Minimum frequency rule: the cell frequency is less than a pre-specified minimum frequency 𝑛.
 (𝒏,𝒌)-dominance rule: the sum of the 𝑛 largest contributors exceeds 𝑘% of the cell total.
 𝒑%-rule: the cell total minus the 2 biggest contributors is less than 𝑝% of the largest contribution.
@@ -908,7 +995,7 @@ Perform additional suppressions (secondary suppressions) to prevent recovery of 
 </table>
 </section>
 <section id="secondary-suppressions">
-<h4><span class="section-number">4.3.3.3. </span>Secondary suppressions<a class="headerlink" href="#secondary-suppressions" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.4.3.3. </span>Secondary suppressions<a class="headerlink" href="#secondary-suppressions" title="Link to this heading">#</a></h4>
 <p>Usually, one attempts to minimize either the number of secondary suppressions or their marginals.
 Optimization methods are heuristic, based on mixed linear integer programming or networks flows (the latter for 2-D tables only).</p>
 <table>
@@ -989,7 +1076,7 @@ The protection interval is computed according to the chosen sensitivity rule <sp
 <p><img alt="alt text" src="_images/protection_levels.png" /></p>
 </section>
 <section id="controlled-rounding-and-controlled-tabular-adjustment">
-<h4><span class="section-number">4.3.3.4. </span>Controlled rounding and Controlled tabular adjustment<a class="headerlink" href="#controlled-rounding-and-controlled-tabular-adjustment" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.4.3.4. </span>Controlled rounding and Controlled tabular adjustment<a class="headerlink" href="#controlled-rounding-and-controlled-tabular-adjustment" title="Link to this heading">#</a></h4>
 <p>CR rounds values in the table to multiples of a rounding base (marginals may have to be rounded as well).
 CTA modifies the values in the table to prevent inference of sensitive cell values within a prescribed protection interval.
 CTA attempts to find the closest table to the original one that protects all sensitive cells.
@@ -997,13 +1084,13 @@ CTA optimization is typically based on mixed linear integer programming and enta
 </section>
 </section>
 <section id="utility-loss-in-tabular-sdc">
-<h3><span class="section-number">4.3.4. </span>Utility loss in tabular SDC<a class="headerlink" href="#utility-loss-in-tabular-sdc" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.4.4. </span>Utility loss in tabular SDC<a class="headerlink" href="#utility-loss-in-tabular-sdc" title="Link to this heading">#</a></h3>
 <p>For cell suppression, utility loss is measured as the number of secondary suppressions or their pooled magnitude.
 For controlled tabular adjustment or rounding, it is measured as the sum of distances between true and perturbed cell values.
 The above loss measures may be weighted by cell costs, if not all cells have the same importance.</p>
 </section>
 <section id="disclosure-risk-in-tabular-sdc">
-<h3><span class="section-number">4.3.5. </span>Disclosure risk in tabular SDC<a class="headerlink" href="#disclosure-risk-in-tabular-sdc" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.4.5. </span>Disclosure risk in tabular SDC<a class="headerlink" href="#disclosure-risk-in-tabular-sdc" title="Link to this heading">#</a></h3>
 <p>Disclosure risk is evaluated by computing the feasibility intervals for sensitive cells (via linear programming constrained by the marginals).
 What could be the range of values of the suppressed cells given other cells, including marginals?
 The table is safe if the feasibility interval for any sensitive cell contains the protection interval defined for that cell.
@@ -1012,7 +1099,7 @@ The protection interval is the narrowest interval estimate of the sensitive cell
 </section>
 </section>
 <section id="interactive-databases">
-<h2><span class="section-number">4.4. </span>Interactive databases<a class="headerlink" href="#interactive-databases" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.5. </span>Interactive databases<a class="headerlink" href="#interactive-databases" title="Link to this heading">#</a></h2>
 <p>After discussing the protection of tabular data, which focuses on publishing static, aggregated statistics, this session turns to the more dynamic scenario of queryable databases—systems that do not publish raw or aggregated data directly but instead allow users to make statistical queries through controlled interfaces, such as APIs or query engines. These databases are increasingly common in government, research, and commercial environments because they promise flexibility: external analysts or applications can request statistics or summaries without the data ever leaving the controller’s server. However, this model still poses serious privacy challenges. Even when individual records are not exposed, the answers to queries can leak sensitive information, especially if users issue cleverly designed or repeated queries.</p>
 <p>A queryable database typically consists of three entities:</p>
 <p>A data controller or curator, who collects and stores data from respondents or participants (for example, through surveys, services, or sensors).</p>
@@ -1053,7 +1140,7 @@ The most powerful and conceptually advanced approach is to add controlled noise 
 <p>This model marks a conceptual shift from heuristic anonymization toward mathematically provable privacy. Rather than focusing on hiding or deleting specific identifiers, differential privacy ensures that the participation of any individual has an almost negligible effect on analytical outcomes. It is, therefore, the cornerstone of contemporary privacy-preserving data analytics and the natural evolution of statistical disclosure control in the age of big data and machine learning</p>
 <p><img alt="alt text" src="_images/interactive_db.png" /></p>
 <section id="issues">
-<h3><span class="section-number">4.4.1. </span>Issues<a class="headerlink" href="#issues" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.5.1. </span>Issues<a class="headerlink" href="#issues" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>id</p></th>
@@ -1155,20 +1242,20 @@ The most powerful and conceptually advanced approach is to add controlled noise 
 </div>
 </section>
 <section id="interactive-database-protection">
-<h3><span class="section-number">4.4.2. </span>Interactive database protection<a class="headerlink" href="#interactive-database-protection" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.5.2. </span>Interactive database protection<a class="headerlink" href="#interactive-database-protection" title="Link to this heading">#</a></h3>
 <p>Three main SDC approaches:
 Query restriction. The database refuses to answer certain queries.
 Camouflage. Deterministically correct non-exact answers (small interval answers) are returned by the database.
 Query perturbation. Perturbation (noise addition) can be applied to the microdata records on which queries are computed (input perturbation) or to the query result after computing it on the original data (output perturbation).</p>
 <section id="query-restriction">
-<h4><span class="section-number">4.4.2.1. </span>Query restriction<a class="headerlink" href="#query-restriction" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.5.2.1. </span>Query restriction<a class="headerlink" href="#query-restriction" title="Link to this heading">#</a></h4>
 <p>This is the right approach if the user does require deterministically correct answers and these answers must be exact (i.e., a number).
 Exact answers may be very disclosive, so it may be necessary to refuse answering certain queries at some stage.
 A common criterion to decide whether a query can be answered is query set size control: the answer to a query is refused if this query together with the previously answered ones isolates too small a set of records.
 Problems: computational burden to keep track of previous queries, collusion possible.</p>
 </section>
 <section id="camouflage">
-<h4><span class="section-number">4.4.2.2. </span>Camouflage<a class="headerlink" href="#camouflage" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.5.2.2. </span>Camouflage<a class="headerlink" href="#camouflage" title="Link to this heading">#</a></h4>
 <p>Interval answers are returned rather than point answers.
 No distortion of answers.
 Unlimited answers can be returned.
@@ -1178,14 +1265,14 @@ The data curator can set a global bound, e.g., 30% (𝑢_𝑖−ℓ_𝑖≥0.3�
 Respondents may request specific upper and lower bounds for their values.</p>
 </section>
 <section id="query-perturbation">
-<h4><span class="section-number">4.4.2.3. </span>Query perturbation<a class="headerlink" href="#query-perturbation" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.5.2.3. </span>Query perturbation<a class="headerlink" href="#query-perturbation" title="Link to this heading">#</a></h4>
 <p>Add noise to the values of confidential attributes in the original microdata (input perturbation).
 We will cover that when we talk about microdata protection.
 Add noise to the results of the queries after computing them on the original data (output perturbation).
 Under the differential privacy model, we can give theoretical guarantees on the privacy level achieved with output perturbation.</p>
 </section>
 <section id="randomized-response">
-<h4><span class="section-number">4.4.2.4. </span>Randomized response<a class="headerlink" href="#randomized-response" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.5.2.4. </span>Randomized response<a class="headerlink" href="#randomized-response" title="Link to this heading">#</a></h4>
 <p>There are <span class="math notranslate nohighlight">\(n\)</span> people, and individual <span class="math notranslate nohighlight">\(i\)</span> has a sensitive bit <span class="math notranslate nohighlight">\(X_i \in \{0,1\}\)</span>.
 Each person sends the analyst a message <span class="math notranslate nohighlight">\(Y_i\)</span>, which may depend on <span class="math notranslate nohighlight">\(X_i\)</span> and some random numbers which the individual can generate.
 Based on these <span class="math notranslate nohighlight">\(Y_i\)</span>, the analyst would like to estimate <span class="math notranslate nohighlight">\(p=1/n \sum_i X_i\)</span>.
@@ -1194,7 +1281,7 @@ Consider the following strategy, which we will call Randomized Response, paramet
 How private <span class="math notranslate nohighlight">\(Y_i\)</span> and how accurate will the estimation of <span class="math notranslate nohighlight">\(y\)</span>? It depends on <span class="math notranslate nohighlight">\(\gamma\)</span>. There is plausible deniability.</p>
 </section>
 <section id="id2">
-<h4><span class="section-number">4.4.2.5. </span>Differential privacy<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.5.2.5. </span>Differential privacy<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
 <p>We imagine there are <span class="math notranslate nohighlight">\(n\)</span> individuals, <span class="math notranslate nohighlight">\(X_1\)</span> through <span class="math notranslate nohighlight">\(X_n\)</span>, who each have their own datapoint.
 They send this point to a “trusted curator”.
 Given their data, the curator runs an algorithm <span class="math notranslate nohighlight">\(M\)</span>, and publicly outputs the result of this computation.
@@ -1211,7 +1298,7 @@ For example:</p>
 <li><p>Sum queries have a <span class="math notranslate nohighlight">\(\Delta\)</span> of <span class="math notranslate nohighlight">\(\max\)</span>.</p></li>
 </ul>
 <section id="the-laplace-mechanism">
-<h5><span class="section-number">4.4.2.5.1. </span>The Laplace mechanism<a class="headerlink" href="#the-laplace-mechanism" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">5.5.2.5.1. </span>The Laplace mechanism<a class="headerlink" href="#the-laplace-mechanism" title="Link to this heading">#</a></h5>
 <p>The Laplace mechanism is a fundamental technique for achieving differential privacy.
 Given a function <span class="math notranslate nohighlight">\(f: D \rightarrow R^d, where \)</span>D<span class="math notranslate nohighlight">\( is the domain of the dataset and \)</span>d<span class="math notranslate nohighlight">\( is the dimension of the output, the Laplace mechanism \)</span>M_{Laplace}<span class="math notranslate nohighlight">\( adds Laplace noise to the output of \)</span>f<span class="math notranslate nohighlight">\(. That is \)</span>M_{Laplace}(D)=f(D)+Lap(\Delta/\epsilon)<span class="math notranslate nohighlight">\( 
 Let \)</span>b<span class="math notranslate nohighlight">\( be the scale parameter of the Laplace distribution, which is given by:
@@ -1219,7 +1306,7 @@ Let \)</span>b<span class="math notranslate nohighlight">\( be the scale paramet
 <p><img alt="alt text" src="_images/laplace.png" /></p>
 </section>
 <section id="properties-of-dp">
-<h5><span class="section-number">4.4.2.5.2. </span>Properties of DP<a class="headerlink" href="#properties-of-dp" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">5.5.2.5.2. </span>Properties of DP<a class="headerlink" href="#properties-of-dp" title="Link to this heading">#</a></h5>
 <p><span class="math notranslate nohighlight">\(\epsilon\)</span> (privacy budget) should be small. Ideally in the range <span class="math notranslate nohighlight">\((0,1]\)</span>.
 Resistance to post-processing. Once a quantity is privatized, it can’t be “un-privatized,” if the data is not used again.
 Group differential privacy. When neighboring datasets differ in <span class="math notranslate nohighlight">\(k\)</span> positions, the guarantee goes to <span class="math notranslate nohighlight">\(k\epsilon-DP\)</span>.
@@ -1229,20 +1316,20 @@ We can assign a budget to each user.</p>
 </section>
 </section>
 <section id="utility-loss-in-interactive-databases">
-<h3><span class="section-number">4.4.3. </span>Utility loss in interactive databases<a class="headerlink" href="#utility-loss-in-interactive-databases" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.5.3. </span>Utility loss in interactive databases<a class="headerlink" href="#utility-loss-in-interactive-databases" title="Link to this heading">#</a></h3>
 <p>For query restriction, utility loss can be measured as the number of refused queries.
 For camouflage, utility loss is proportional to the width of the returned intervals.
 For query perturbation, the difference between the true query response and the perturbed query response is a measure of utility loss ⇒ this can be characterized in terms of the mean and variance of the noise being added (ideally, the mean should be zero and the variance small).</p>
 </section>
 <section id="disclosure-risk-in-interactive-databases">
-<h3><span class="section-number">4.4.4. </span>Disclosure risk in interactive databases<a class="headerlink" href="#disclosure-risk-in-interactive-databases" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.5.4. </span>Disclosure risk in interactive databases<a class="headerlink" href="#disclosure-risk-in-interactive-databases" title="Link to this heading">#</a></h3>
 <p>In query restriction, the query set size below which queries are refused is a measure of disclosure risk (a query set size 1 means total disclosure).
 In camouflage, disclosure risk is inversely proportional to the interval width.
 If query perturbation is used according to a privacy model like <span class="math notranslate nohighlight">\(\epsilon\)</span>-differential privacy, disclosure risk is controlled a priori by the <span class="math notranslate nohighlight">\(\epsilon\)</span> parameter (the lower, the less risk).</p>
 </section>
 </section>
 <section id="microdata">
-<h2><span class="section-number">4.5. </span>Microdata<a class="headerlink" href="#microdata" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.6. </span>Microdata<a class="headerlink" href="#microdata" title="Link to this heading">#</a></h2>
 <p>Microdata represents the most granular and detailed form of structured data: each record corresponds to an individual entity (a person, household, or organization), and each attribute describes some aspect of that entity—such as age, income, education, or health condition. Because microdata preserves individual-level information, it provides great analytical value for research and policymaking, but it also poses the highest privacy risks. Even after removing direct identifiers, individuals can often be re-identified by combining quasi-identifiers with external datasets. Microdata anonymization therefore seeks to transform such datasets to make re-identification or attribute inference practically impossible, while maintaining as much data utility as possible for statistical and analytical purposes.</p>
 <p>Types of Attributes and Privacy Threats</p>
 <p>As in previous discussions, attributes in microdata can be categorized into several classes:</p>
@@ -1283,26 +1370,26 @@ If query perturbation is used according to a privacy model like <span class="mat
 <p>A microdata file <span class="math notranslate nohighlight">\(X\)</span> with <span class="math notranslate nohighlight">\(s\)</span> respondents and <span class="math notranslate nohighlight">\(t\)</span> attributes is an <span class="math notranslate nohighlight">\(s \times t\)</span> matrix where <span class="math notranslate nohighlight">\(X_{ij}\)</span> is the value of attribute <span class="math notranslate nohighlight">\(j\)</span> for respondent <span class="math notranslate nohighlight">\(i\)</span>.</p>
 <p><img alt="alt text" src="_images/microdata_approaches.png" /></p>
 <section id="id3">
-<h3><span class="section-number">4.5.1. </span>Non-perturbative masking<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.6.1. </span>Non-perturbative masking<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <section id="recoding">
-<h4><span class="section-number">4.5.1.1. </span>Recoding<a class="headerlink" href="#recoding" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.6.1.1. </span>Recoding<a class="headerlink" href="#recoding" title="Link to this heading">#</a></h4>
 <p>Recoding is a non-perturbative, deterministic method for numeric and categorical attributes.
 Recoding is used to decrease the number of distinct categories or values for a variable.
 This is done by combining or grouping categories for categorical variables or constructing intervals for continuous variables.
 Recoding is applied to all observations of a certain variable and not only to those at risk of disclosure.
 There are two general types of recoding: global recoding and top and bottom coding.</p>
 <section id="global-recoding">
-<h5><span class="section-number">4.5.1.1.1. </span>Global recoding<a class="headerlink" href="#global-recoding" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">5.6.1.1.1. </span>Global recoding<a class="headerlink" href="#global-recoding" title="Link to this heading">#</a></h5>
 <p>Global recoding combines several categories of a categorical variables or constructs intervals for continuous variables.</p>
 <p><img alt="alt text" src="_images/global_recoding.png" /></p>
 </section>
 <section id="top-bottom-coding">
-<h5><span class="section-number">4.5.1.1.2. </span>Top/bottom coding<a class="headerlink" href="#top-bottom-coding" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">5.6.1.1.2. </span>Top/bottom coding<a class="headerlink" href="#top-bottom-coding" title="Link to this heading">#</a></h5>
 <p>Top and bottom coding are similar to global recoding, but instead of recoding all values, only the top and/or bottom values of the distribution or categories are recoded.</p>
 <p><img alt="alt text" src="_images/top_coding.png" /></p>
 </section>
 <section id="rounding">
-<h5><span class="section-number">4.5.1.1.3. </span>Rounding<a class="headerlink" href="#rounding" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">5.6.1.1.3. </span>Rounding<a class="headerlink" href="#rounding" title="Link to this heading">#</a></h5>
 <p>Rounding is similar to grouping but used for continuous variables.
 Rounding is useful to prevent exact matching with external data sources.
 In addition, it can be used to reduce the level of detail in the data.
@@ -1310,14 +1397,14 @@ Examples are removing decimal figures or rounding to the nearest 1,000.</p>
 </section>
 </section>
 <section id="local-suppression">
-<h4><span class="section-number">4.5.1.2. </span>Local suppression<a class="headerlink" href="#local-suppression" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.6.1.2. </span>Local suppression<a class="headerlink" href="#local-suppression" title="Link to this heading">#</a></h4>
 <p>Certain values of individual attributes are suppressed to increase the set of records agreeing on a combination of quasi-identifier values.
 Recoding reduces the number of necessary suppressions as well as the computation time needed for suppression.
 Local suppression is not suitable for continuous variables or variables with a very high number of categories.
 A possible solution in those cases might be to first recode to produce fewer categories.</p>
 <p><img alt="alt text" src="_images/local_suppression.png" /></p>
 <section id="recoding-suppression-and-k-anonymity">
-<h5><span class="section-number">4.5.1.2.1. </span>Recoding, suppression, and 𝑘-anonymity<a class="headerlink" href="#recoding-suppression-and-k-anonymity" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">5.6.1.2.1. </span>Recoding, suppression, and 𝑘-anonymity<a class="headerlink" href="#recoding-suppression-and-k-anonymity" title="Link to this heading">#</a></h5>
 <p>The computational approach originally proposed by Samarati and Sweeney to achieve 𝑘-anonymity combined recoding and suppression (the latter to reduce the need for the former).
 Most of the 𝑘-anonymity literature still relies on recoding, even though:
 Recoding cannot preserve the numerical semantics of continuous attributes.
@@ -1325,7 +1412,7 @@ It uses a domain-level recoding hierarchy, rather than a data-driven one.</p>
 </section>
 </section>
 <section id="pram">
-<h4><span class="section-number">4.5.1.3. </span>PRAM<a class="headerlink" href="#pram" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.6.1.3. </span>PRAM<a class="headerlink" href="#pram" title="Link to this heading">#</a></h4>
 <p>PRAM is a probabilistic perturbative method for categorical data.
 Each value of a categorical attribute is changed to a different value according to a prescribed Markov matrix (PRAM matrix).
 PRAM can afford transparency: publishing the PRAM matrix does not allow inverting anonymization.
@@ -1333,14 +1420,14 @@ PRAM is useful when a dataset contains many variables and applying other anonymi
 A disadvantage of using PRAM is that very unlikely combinations can be generated.</p>
 </section>
 <section id="microaggregation">
-<h4><span class="section-number">4.5.1.4. </span>Microaggregation<a class="headerlink" href="#microaggregation" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.6.1.4. </span>Microaggregation<a class="headerlink" href="#microaggregation" title="Link to this heading">#</a></h4>
 <p>Microaggregation is a statistical disclosure control technique that partitions a dataset into clusters of at least <span class="math notranslate nohighlight">\(k\)</span> similar records according to their quasi-identifiers. Then, it replaces each cluster with a representative, such as the cluster centroid, to mask individual values. Consequently, each released record becomes indistinguishable from at least <span class="math notranslate nohighlight">\(k-1\)</span> others, thus satisfying <span class="math notranslate nohighlight">\(k\)</span>-anonymity.</p>
 <p>The Maximum Distance to Average Vector (MDAV) algorithm is a heuristic for <span class="math notranslate nohighlight">\(k\)</span>-anonymous microaggregation~\cite{domingo2002practical}. Given a dataset <span class="math notranslate nohighlight">\(X = \{x_1,\dots,x_n\} \subset \mathbb{R}^m\)</span> with <span class="math notranslate nohighlight">\(n\)</span> records consisting on <span class="math notranslate nohighlight">\(m\)</span> quasi-identifier attributes, MDAV partitions <span class="math notranslate nohighlight">\(X\)</span> into disjoint clusters of at least <span class="math notranslate nohighlight">\(k\)</span> elements. Each record in a cluster is replaced by the cluster centroid, thus ensuring that each anonymized record is indistinguishable from at least <span class="math notranslate nohighlight">\(k-1\)</span> others with respect to its quasi-identifiers~\cite{domingo2002practical}.</p>
 <p>The algorithm works iteratively. At each step, the centroid <span class="math notranslate nohighlight">\(\bar{x}\)</span> of the remaining records in <span class="math notranslate nohighlight">\(X\)</span> is computed. The record <span class="math notranslate nohighlight">\(x_r\)</span> that lies farthest from <span class="math notranslate nohighlight">\(\bar{x}\)</span> is selected, and then the record <span class="math notranslate nohighlight">\(x_s\)</span> that lies farthest from <span class="math notranslate nohighlight">\(x_r\)</span> is chosen. A cluster is formed with <span class="math notranslate nohighlight">\(x_r\)</span> and its <span class="math notranslate nohighlight">\(k-1\)</span> nearest neighbors, and another with <span class="math notranslate nohighlight">\(x_s\)</span> and its <span class="math notranslate nohighlight">\(k-1\)</span> nearest neighbors. This process is repeated until fewer than <span class="math notranslate nohighlight">\(3k\)</span> records remain. If the remaining number of records is between <span class="math notranslate nohighlight">\(2k\)</span> and <span class="math notranslate nohighlight">\(3k\)</span>, they are split into two clusters; if it is less than <span class="math notranslate nohighlight">\(2k\)</span>, they form a single cluster.</p>
 <p>Euclidean distance is typically used in the clustering phase, and the arithmetic mean of the records in each cluster is employed as the cluster representative value.</p>
 </section>
 <section id="noise-addition">
-<h4><span class="section-number">4.5.1.5. </span>Noise addition<a class="headerlink" href="#noise-addition" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.6.1.5. </span>Noise addition<a class="headerlink" href="#noise-addition" title="Link to this heading">#</a></h4>
 <p>Noise addition means adding or subtracting values to the original values of a variable and is most suited to protect continuous variables.
 Noise addition can prevent exact matching of continuous variables.
 The simplest version of noise addition is uncorrelated additive normally distributed noise <span class="math notranslate nohighlight">\(z_j=x_j+r_j\)</span>, where <span class="math notranslate nohighlight">\(r_j ~ N(0,  \sigma_{r_j}^2)\)</span> and <span class="math notranslate nohighlight">\(\sigma_{r_j} = \alpha \cdot \sigma_j\)</span>
@@ -1348,7 +1435,7 @@ If the level of noise added, <span class="math notranslate nohighlight">\(\alpha
 Option: calibrate noise using <span class="math notranslate nohighlight">\(\epsilon\)</span>-differential privacy.</p>
 </section>
 <section id="swapping">
-<h4><span class="section-number">4.5.1.6. </span>Swapping<a class="headerlink" href="#swapping" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.6.1.6. </span>Swapping<a class="headerlink" href="#swapping" title="Link to this heading">#</a></h4>
 <p>Data swapping was presented for databases containing only categorical attributes.
 Values of confidential attributes are exchanged among individual records, so that low-order frequency counts or marginals are maintained.
 Rank swapping is a variant of data swapping, also applicable to numerical attributes.
@@ -1356,7 +1443,7 @@ Values of each attribute are ranked in ascending order and each value is swapped
 </section>
 </section>
 <section id="synthetic-data-generation">
-<h3><span class="section-number">4.5.2. </span>Synthetic data generation<a class="headerlink" href="#synthetic-data-generation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.6.2. </span>Synthetic data generation<a class="headerlink" href="#synthetic-data-generation" title="Link to this heading">#</a></h3>
 <p>Idea: Randomly generate data in such a way that some statistics or relationships of the original data set are preserved.
 Pros: No respondent re-identification seems possible, because data are synthetic.
 Cons:
@@ -1366,7 +1453,7 @@ Analyses on random subdomains are no longer preserved.
 Partially synthetic or hybrid data are more flexible.</p>
 </section>
 <section id="utility-loss-in-microdata-protection">
-<h3><span class="section-number">4.5.3. </span>Utility loss in microdata protection<a class="headerlink" href="#utility-loss-in-microdata-protection" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.6.3. </span>Utility loss in microdata protection<a class="headerlink" href="#utility-loss-in-microdata-protection" title="Link to this heading">#</a></h3>
 <p>Data utility:
 Data use-specific utility loss measures.
 Generic utility loss measures.
@@ -1384,9 +1471,9 @@ Predict <span class="math notranslate nohighlight">\(\hat{P}\)</span>, then
 $<span class="math notranslate nohighlight">\(U = 1 - \frac{1}{4} \sum_{i=1}^N \left( \hat{p}_i - \frac{1}{2} \right)^2\)</span>$</p>
 </section>
 <section id="disclosure-risk-in-microdata-protection">
-<h3><span class="section-number">4.5.4. </span>Disclosure risk in microdata protection<a class="headerlink" href="#disclosure-risk-in-microdata-protection" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.6.4. </span>Disclosure risk in microdata protection<a class="headerlink" href="#disclosure-risk-in-microdata-protection" title="Link to this heading">#</a></h3>
 <section id="a-priori-disclosure-risk">
-<h4><span class="section-number">4.5.4.1. </span>A priori disclosure risk<a class="headerlink" href="#a-priori-disclosure-risk" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.6.4.1. </span>A priori disclosure risk<a class="headerlink" href="#a-priori-disclosure-risk" title="Link to this heading">#</a></h4>
 <p>Using a privacy model like <span class="math notranslate nohighlight">\(k\)</span>-anonymity or differential privacy allows the tolerable disclosure risk to be selected at the outset.
 For <span class="math notranslate nohighlight">\(k\)</span>-anonymity the risk of identity disclosure is upper-bounded by <span class="math notranslate nohighlight">\(1/k\)</span>.
 <span class="math notranslate nohighlight">\(\epsilon\)</span>-Differential privacy can ensure a very low identity and disclosure (esp. for small <span class="math notranslate nohighlight">\(\epsilon\)</span>), but at the expense of a great utility loss.</p>
@@ -1395,7 +1482,7 @@ A data set is said to satisfy <span class="math notranslate nohighlight">\(\ell\
 A data set is said to satisfy <span class="math notranslate nohighlight">\(t\)</span>-closeness if, for each group of records sharing a combination of quasi-identifiers, the distance between the distribution of the confidential attribute in the group and the distribution of the attribute in the whole data set is no more than a threshold <span class="math notranslate nohighlight">\(t\)</span>.</p>
 </section>
 <section id="a-posteriori-disclosure-risk">
-<h4><span class="section-number">4.5.4.2. </span>A posteriori disclosure risk<a class="headerlink" href="#a-posteriori-disclosure-risk" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.6.4.2. </span>A posteriori disclosure risk<a class="headerlink" href="#a-posteriori-disclosure-risk" title="Link to this heading">#</a></h4>
 <p>The uniqueness approach
 Typically used with non-perturbative masking.
 It measures disclosure risk as the probability that rare combinations of attribute values in the released data are indeed rare in the original population the data come from.
@@ -1406,7 +1493,7 @@ It can even be applied to measure the actual disclosure risk of <span class="mat
 </section>
 </section>
 <section id="owner-privacy-privacy-preserving-data-mining">
-<h3><span class="section-number">4.5.5. </span>Owner Privacy: Privacy-Preserving Data Mining<a class="headerlink" href="#owner-privacy-privacy-preserving-data-mining" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.6.5. </span>Owner Privacy: Privacy-Preserving Data Mining<a class="headerlink" href="#owner-privacy-privacy-preserving-data-mining" title="Link to this heading">#</a></h3>
 <p>Privacy-Preserving Data Mining (PPDM) tries to solve the following question: can
 we develop accurate data mining models without access to the data at the record
 level? Therefore, it consists of techniques for modifying the original data in such a
@@ -1439,7 +1526,7 @@ been proposed. Furthermore, protocols to compute scalar products and matrix prod
 been given by Domingo-Ferrer et al. (2018).</p>
 </section>
 <section id="user-privacy-private-information-retrieval">
-<h3><span class="section-number">4.5.6. </span>User Privacy: Private Information Retrieval<a class="headerlink" href="#user-privacy-private-information-retrieval" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.6.6. </span>User Privacy: Private Information Retrieval<a class="headerlink" href="#user-privacy-private-information-retrieval" title="Link to this heading">#</a></h3>
 <p>Finally, we address the privacy of the users querying a database. A history of queries
 to a database, or to a web search engine, can be used by the database owner to learn
 the interests of users, that is, to profile them. In this scenario, we seek to protect
@@ -1465,6 +1552,206 @@ useful profile can be extracted. Finally, other proposals such as the one by Rei
 and Rubin (1998) make use of a P2P network in which users submit queries generated by other users to the web search engine, thus achieving the same results as
 TrackMeNot (flattened interest distributions) but without overloading the web
 search engines with fake queries.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="anonymization-of-structured-databases">
+<h1><span class="section-number">6. </span>Anonymization of Structured Databases<a class="headerlink" href="#anonymization-of-structured-databases" title="Link to this heading">#</a></h1>
+<section id="id4">
+<h2><span class="section-number">6.1. </span>Introduction<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p>In previous sessions we reviewed privacy-enhancing technologies for authentication, secure communication, and private computation. We now begin a three-week block dedicated to the anonymization of structured databases, which is one of the central technical approaches for publishing or sharing data while preserving individual privacy. Structured data refers to information stored in well-defined relational tables or spreadsheets, where each row corresponds to an individual and each column to an attribute. The purpose of anonymization in this context is to transform data so that it continues to provide useful statistical information while significantly reducing the risk that individuals can be re-identified or that confidential information about them can be inferred. When anonymization is carried out properly and linkability is broken, the resulting data is no longer considered personal data under the GDPR, although debates remain about what counts as “proper anonymization.”</p>
+</section>
+<section id="types-of-data">
+<h2><span class="section-number">6.2. </span>Types of Data<a class="headerlink" href="#types-of-data" title="Link to this heading">#</a></h2>
+<p>From a semantic perspective, structured data may include demographic information such as age or marital status, socioeconomic characteristics such as education and income, behavioural information describing habits or mobility patterns, and clinical or medical information such as diagnoses or treatments. Beyond these, there exist unstructured forms of data, such as text, images, genomic sequences, GPS traces, that will be addressed separately.</p>
+<p>The same dataset can also be classified by the type of data values it contains. Numeric data includes integers or real-valued measurements associated with individuals. Categorical data may be ordinal when categories follow a meaningful order, or nominal when categories have no order at all.</p>
+<p>Finally, structured data can be classified by its relevance to identifiability and sensitivity. Direct identifiers, such as names or phone numbers, uniquely identify individuals and are normally removed before any release. Quasi-identifiers, such as age, gender, or postal codes, do not identify a person on their own but can do so when combined with additional information. Confidential attributes include sensitive information that should not be disclosed, such as salary or medical conditions. Some attributes serve administrative purposes and carry no sensitive meaning; these are considered non-confidential.</p>
+</section>
+<section id="types-of-tables-for-release">
+<h2><span class="section-number">6.3. </span>Types of Tables for Release<a class="headerlink" href="#types-of-tables-for-release" title="Link to this heading">#</a></h2>
+<p>Organizations generally release structured data in three forms. Tabular data consists of static tables where each cell contains an aggregated count or numerical value. Queryable databases provide a controlled interface that allows users to perform statistical queries without exposing underlying individual records. Microdata releases, which provide one row per individual record, are the most detailed and sensitive.</p>
+</section>
+<section id="utility-vs-disclosure-risk">
+<h2><span class="section-number">6.4. </span>Utility vs. Disclosure Risk<a class="headerlink" href="#utility-vs-disclosure-risk" title="Link to this heading">#</a></h2>
+<p>Any anonymization procedure must balance two competing goals: preserving the usefulness of the released data and reducing the privacy risks associated with its disclosure. Utility loss measures how much statistical value is diminished by the anonymization process, while disclosure risk measures how much potential remains for re-identification or the inference of sensitive information. There are two general approaches to achieving this balance. In the utility-first approach, disclosure risk is estimated empirically—often by performing simulated attacks—and anonymization is progressively applied until risk falls below an acceptable level. In the privacy-first approach, theoretical privacy models such as k-anonymity or differential privacy are used to set target privacy parameters at the outset, and transformations are then chosen to meet those requirements.</p>
+</section>
+<section id="tabular-data-frequency-and-magnitude-tables">
+<h2><span class="section-number">6.5. </span>Tabular Data: Frequency and Magnitude Tables<a class="headerlink" href="#tabular-data-frequency-and-magnitude-tables" title="Link to this heading">#</a></h2>
+<p>Tabular releases are usually derived from an internal microdata file. For example, a dataset containing attributes such as salary, sector, and region can be transformed into a frequency table that counts how many individuals fall into each (sector × region) combination. Similarly, a magnitude table can be created in which each cell contains the sum, average, or another statistical compilation of a confidential attribute, such as salaries. These tables typically retain row totals, column totals, and grand totals, since such marginal information is often essential for statistical use.</p>
+<section id="attacks-on-tabular-data">
+<h3><span class="section-number">6.5.1. </span>Attacks on Tabular Data<a class="headerlink" href="#attacks-on-tabular-data" title="Link to this heading">#</a></h3>
+<p>Although aggregated, these tables may leak private information through several mechanisms. External attacks occur when only one person contributes to a cell, making their confidential value immediately exposed if a magnitude table is available. Internal attacks arise when exactly two contributors are present; in such cases each one can infer the other’s contribution by subtracting their own from the aggregate. Dominance attacks occur when one or a few individuals heavily influence a magnitude cell, permitting inferences about their confidential values even when the cell contains three or more people.</p>
+</section>
+<section id="protection-methods">
+<h3><span class="section-number">6.5.2. </span>Protection Methods<a class="headerlink" href="#protection-methods" title="Link to this heading">#</a></h3>
+<p>Methods for protecting tabular data may be non-perturbative or perturbative. Non-perturbative techniques do not distort the values but limit their detail. The most common method is cell suppression, which removes values from sensitive cells. Another non-perturbative option is recoding the categories of the attributes—such as merging similar regions or sectors—so that more individuals fall into each cell and sensitivity is reduced.</p>
+<p>Perturbative methods, in contrast, alter values directly. Controlled rounding modifies each cell to the nearest multiple of a chosen base, and controlled tabular adjustment uses linear optimisation to redistribute values while preserving the row and column totals. These perturbative approaches may be unsuitable in high-stakes environments, such as healthcare, where analysts rely on precise information.</p>
+</section>
+<section id="cell-suppression-in-detail">
+<h3><span class="section-number">6.5.3. </span>Cell Suppression in Detail<a class="headerlink" href="#cell-suppression-in-detail" title="Link to this heading">#</a></h3>
+<p>Cell suppression proceeds in two stages. The first stage, primary suppression, begins by identifying sensitive cells using predefined sensitivity rules. One such rule is the minimum frequency rule, which requires a cell to contain at least a certain number of contributors—commonly three—to avoid the risks associated with external or internal attacks. The next set of rules concerns dominance. Under the NK dominance rule, a cell is considered unsafe when the largest contributors account for more than a specified percentage of the total. The p-percent rule identifies a cell as unsafe when the contributions from all but the largest contributors fall below a certain fraction of the total. Once these sensitive cells are identified, their values are removed from the table.</p>
+<p>However, after such suppressions, the remaining published structure—especially row and column totals—may enable someone to reconstruct the missing values. This need for protection leads to the second stage, secondary suppression, in which additional non-sensitive cells are removed to prevent such reconstruction. Determining which additional cells to suppress requires computing feasibility intervals. A feasibility interval expresses the range of possible values a suppressed cell may take while satisfying all the linear constraints imposed by the table’s totals. These intervals are compared to protection intervals that are derived from the sensitivity rules themselves. A table is considered safe once every protection interval is fully contained within its corresponding feasibility interval, meaning no sensitive value can be inferred too precisely.</p>
+</section>
+<section id="utility-and-risk-evaluation">
+<h3><span class="section-number">6.5.4. </span>Utility and Risk Evaluation<a class="headerlink" href="#utility-and-risk-evaluation" title="Link to this heading">#</a></h3>
+<p>The quality of anonymization is assessed by examining both utility loss and residual disclosure risk. Utility loss in the context of cell suppression can be measured by the number of suppressed cells or the sum of their magnitudes. In perturbative methods, utility may be measured by the differences between the original and adjusted cell values. Disclosure risk is quantified by analysing how well the feasibility intervals shield the sensitive cells given the protection intervals. The chosen sensitivity rules effectively define the acceptable level of disclosure risk.</p>
+</section>
+<section id="real-world-use">
+<h3><span class="section-number">6.5.5. </span>Real-World Use<a class="headerlink" href="#real-world-use" title="Link to this heading">#</a></h3>
+<p>These anonymization techniques are widely used in practice. European statistical agencies, including Eurostat and national statistics offices such as that of the Netherlands, routinely apply minimum frequency rules and cell suppression to protect published regional tables. Software for suppressing tabular data, including tools developed through European research projects, incorporates the techniques discussed here. In the United States, the Census Bureau historically relied on methods such as data swapping but has recently transitioned to differential privacy to protect the underlying microdata before constructing published tables. This shift has sparked discussions about accuracy, fairness, and the impact on small or under-represented groups, illustrating the broader consequences of anonymization choices.</p>
+</section>
+</section>
+<section id="interactive-statistical-databases">
+<h2><span class="section-number">6.6. </span>Interactive Statistical Databases<a class="headerlink" href="#interactive-statistical-databases" title="Link to this heading">#</a></h2>
+<p>The previous discussion focused on anonymizing static tabular data. Another common scenario arises when organizations do not publish the data itself but instead provide a statistical interface through which external users can query aggregated information. These systems are known as interactive statistical databases. In this setting, the data remains with a curator or data controller, who collects information from respondents and stores it, while external users or analysts issue queries through an API. The curator receives the query, computes the requested statistic on the underlying microdata, and returns the result, possibly after applying privacy-preserving transformations.</p>
+<p><img alt="alt text" src="_images/interactive_db.png" /></p>
+<p>Typical queries include counts, sums, averages, variances, and combinations of categorical selections, much like SQL queries. For example, one may query how many individuals in the database earn over a certain salary threshold, or the total salary paid to all workers in a particular sector, or the number of employees in a given region and industry. These are straightforward computations, but when the conditions defining the subset are too specific, the result may correspond to only one individual or a small number of them. In that case, returning the exact aggregate value would reveal sensitive information, including the confidential attributes of identified persons.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>Salary</p></th>
+<th class="head"><p>Sector</p></th>
+<th class="head"><p>Region</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>500000€</p></td>
+<td><p>IT</p></td>
+<td><p>BCN</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>320000 €</p></td>
+<td><p>IT</p></td>
+<td><p>BCN</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>32000 €</p></td>
+<td><p>IT</p></td>
+<td><p>BCN</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>35000 €</p></td>
+<td><p>IT</p></td>
+<td><p>TGN</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>34000 €</p></td>
+<td><p>IT</p></td>
+<td><p>TGN</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>28000 €</p></td>
+<td><p>IT</p></td>
+<td><p>TGN</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>300000 €</p></td>
+<td><p>HC</p></td>
+<td><p>BCN</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>45000 €</p></td>
+<td><p>HC</p></td>
+<td><p>BCN</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>34000 €</p></td>
+<td><p>HC</p></td>
+<td><p>BCN</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>45000 €</p></td>
+<td><p>HC</p></td>
+<td><p>TGN</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>34000 €</p></td>
+<td><p>HC</p></td>
+<td><p>TGN</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>24000 €</p></td>
+<td><p>HC</p></td>
+<td><p>TGN</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>300000 €</p></td>
+<td><p>Fin</p></td>
+<td><p>BCN</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>350000 €</p></td>
+<td><p>Fin</p></td>
+<td><p>BCN</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>150000 €</p></td>
+<td><p>Fin</p></td>
+<td><p>TGN</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">count</span><span class="p">()</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">.</span><span class="mi">000</span>
+<span class="k">Result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">Salary</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Sector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HC</span>
+<span class="k">Result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">482</span><span class="p">.</span><span class="mi">000</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">count</span><span class="p">()</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Sector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IT</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">Region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TGN</span>
+<span class="k">Result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">count</span><span class="p">()</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Sector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Fin</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">Region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TGN</span>
+<span class="k">Result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">Salary</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Sector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Fin</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">Region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TGN</span>
+<span class="k">Result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">150</span><span class="p">.</span><span class="mi">000</span>
+</pre></div>
+</div>
+<p>This vulnerability leads to attacks analogous to those discussed for tabular data. If a query returns a count of one, the confidential attributes of that one respondent may be inferred. Even if counts are larger, cleverly constructed combinations of queries can enable difference attacks, where an attacker issues two overlapping queries and subtracts the results to isolate the contribution of one person. Such attacks exploit the interactive nature of the system: each result, even if individually harmless, may reveal information when combined with others.</p>
+</section>
+<section id="approaches-to-protecting-interactive-queries">
+<h2><span class="section-number">6.7. </span>Approaches to Protecting Interactive Queries<a class="headerlink" href="#approaches-to-protecting-interactive-queries" title="Link to this heading">#</a></h2>
+<p>Three broad strategies emerge for mitigating disclosure risk in interactive databases: query restriction, output generalization through intervals, and query perturbation.</p>
+<p>Query restriction involves refusing to answer queries that would reveal too much information. The curator monitors the set of respondents affected by each query—its query set size—and ensures that it always exceeds some threshold. The difficulty is that disclosure risk depends not only on the current query but also on previous queries. To decide whether a new query is safe, the curator must track the cumulative information the user has already learned, which is computationally expensive and practically unmanageable. While query restriction guarantees correct, unmodified results for all answered queries, the method becomes infeasible at scale because of the need to track large query histories and to guard against collusion or multiple coordinated users.</p>
+<p>A second approach is to provide generalized outputs: instead of returning exact numerical answers, the system returns intervals. This mirrors the idea of generalization in microdata anonymization, but applied to query results. For example, instead of stating that the average salary in a subset is 42,000€, the system might respond that it lies between 35,000€ and 50,000€. The width of the interval can be configured based on the desired privacy–utility trade-off. Wider intervals offer stronger privacy but reduce analytical precision. A key advantage is that queries can be answered without noise, and users can submit an unlimited number of queries, but the cost is reduced accuracy. The method becomes less effective when analysts require precise estimates or when multiple confidential attributes are involved.</p>
+<p>The third and most general approach is query perturbation, in which the curator modifies the result before returning it, usually by adding noise. This can be done either via input perturbation, where noise is added to the underlying data before any queries are answered, or output perturbation, where each query result is computed exactly and then noise is added. Output perturbation is the more flexible and widely used variant because it allows the curator to tailor the magnitude of noise to each specific query.</p>
+<section id="randomized-response-as-an-intuition">
+<h3><span class="section-number">6.7.1. </span>Randomized Response as an Intuition<a class="headerlink" href="#randomized-response-as-an-intuition" title="Link to this heading">#</a></h3>
+<p>To introduce the rationale behind query perturbation, it is helpful to consider randomized response, a classical technique from the 1960s for conducting surveys on sensitive topics. Respondents might refuse to answer questions about drug use, sexual behavior, or other stigmatized activities, or they might lie. Randomized response provides respondents with plausible deniability by instructing them to randomize their answers according to a known protocol. For example, each person may flip a private coin: with probability (1/2 + \gamma), they answer truthfully; with probability (1/2 - \gamma), they lie and report the opposite. A researcher who knows the value of (\gamma) can estimate the true proportion of “yes” responses in the population, while no outsider can confidently determine any individual’s truthful answer because the respondent can always claim that the randomization dictated their response.</p>
+<p>When (\gamma = 0), the respondent answers truthfully half the time and lies half the time, so the responses contain almost no usable signal. When (\gamma = 1/2), respondents always tell the truth, which yields perfect utility but no privacy. Values in between provide a controllable trade-off between individual privacy and statistical accuracy. This balance serves as an intuition for the more formal framework of differential privacy.</p>
+</section>
+<section id="toward-differential-privacy">
+<h3><span class="section-number">6.7.2. </span>Toward Differential Privacy<a class="headerlink" href="#toward-differential-privacy" title="Link to this heading">#</a></h3>
+<p>Randomized response corresponds to a “local” privacy model, where individuals apply noise themselves. Differential privacy instead assumes that respondents provide their true data to a trusted curator, who stores all individual records and receives queries from external analysts. The goal is for the curator to answer analytics queries in a way that protects each respondent’s privacy, regardless of an analyst’s auxiliary knowledge or computational power.</p>
+<p>The key idea is that the output of any analysis should not change too much when the data of a single individual is added or removed. To formalize this, we consider neighboring datasets—datasets that differ in exactly one individual’s record. A differentially private algorithm ensures that the probability of producing any given output changes only slightly between neighboring datasets. This stability guarantees that no analyst can confidently infer whether a particular individual contributed to the dataset.</p>
+<div class="admonition-epsilon-differential-privacy admonition">
+<p class="admonition-title"><span class="math notranslate nohighlight">\(\epsilon\)</span>-Differential privacy</p>
+<p>Differential privacy is a property of <span class="math notranslate nohighlight">\(M\)</span> saying that no individual’s data has a large impact on the output.
+Suppose we have an algorithm <span class="math notranslate nohighlight">\(M:X^n \rightarrow Y\)</span>. Consider any two datasets <span class="math notranslate nohighlight">\(X, X' \in X^n\)</span> which differ in exactly one entry. We call these neighboring datasets. We say that <span class="math notranslate nohighlight">\(M\)</span> is <span class="math notranslate nohighlight">\(\epsilon\)</span>-differentially private (<span class="math notranslate nohighlight">\(\epsilon\)</span>-DP) if, for all neighboring <span class="math notranslate nohighlight">\(X, X'\)</span>, and all <span class="math notranslate nohighlight">\(T \subseteq Y\)</span>, we have
+$<span class="math notranslate nohighlight">\(Pr⁡[M(X) \in T] \le e^\epsilon Pr⁡[M(X') \in T]\)</span><span class="math notranslate nohighlight">\(
+where the randomness is over the choices made by \)</span>M$.</p>
+</div>
+<p>To determine how much noise must be added to a query, one must compute its sensitivity: the maximum possible change in the query’s output when applied to neighboring datasets. For count queries, the sensitivity is 1, because removing or adding a single record changes the count by at most one. For averages, the sensitivity depends on the range of the attribute and the number of individuals included. For sums, the sensitivity equals the maximum possible value of the confidential attribute (for example, using an upper bound on age or salary). Bounding sensitivity is essential because differential privacy mechanisms calibrate their noise to this value.</p>
+<p>The sensitivity of a function <span class="math notranslate nohighlight">\(\Delta f\)</span> (or <span class="math notranslate nohighlight">\(\Delta\)</span> if <span class="math notranslate nohighlight">\(f\)</span> is known) is the maximum distance between the results of <span class="math notranslate nohighlight">\(f\)</span> computed on neighboring datasets.
+This can be defined as the <span class="math notranslate nohighlight">\(\ell_1\)</span> distance between results of <span class="math notranslate nohighlight">\(M\)</span> on neighboring datasets (<span class="math notranslate nohighlight">\((\epsilon,\delta)\)</span>-DP requires the <span class="math notranslate nohighlight">\(\ell_2\)</span> distance).
+For example:</p>
+<ul class="simple">
+<li><p>Count queries have a <span class="math notranslate nohighlight">\(\Delta\)</span> of 1.</p></li>
+<li><p>Average queries have a <span class="math notranslate nohighlight">\(\Delta\)</span> of <span class="math notranslate nohighlight">\(\max/n\)</span>.</p></li>
+<li><p>Sum queries have a <span class="math notranslate nohighlight">\(\Delta\)</span> of <span class="math notranslate nohighlight">\(\max\)</span>.</p></li>
+</ul>
+<p>One widely used mechanism for ensuring differential privacy is the Laplace mechanism, which adds noise drawn from the Laplace distribution. The scale of the Laplace distribution is proportional to the ratio of the query’s sensitivity to the privacy parameter <span class="math notranslate nohighlight">\(\epsilon\)</span>. Larger <span class="math notranslate nohighlight">\(\epsilon\)</span> allows less noise and weaker privacy; smaller <span class="math notranslate nohighlight">\(\epsilon\)</span> requires more noise and yields stronger privacy. Graphically, decreasing noise corresponds to a sharply peaked distribution around zero, while increasing noise yields a broader distribution. By adjusting <span class="math notranslate nohighlight">\(\epsilon\)</span>, practitioners can tune the privacy–utility trade-off: more privacy requires more noise, and therefore less statistical accuracy.</p>
+<div class="admonition-the-laplace-mechanism admonition">
+<p class="admonition-title">The Laplace Mechanism</p>
+<p>The Laplace mechanism is a fundamental technique for achieving differential privacy.
+Given a function <span class="math notranslate nohighlight">\(f: D \rightarrow R^d, where \)</span>D<span class="math notranslate nohighlight">\( is the domain of the dataset and \)</span>d<span class="math notranslate nohighlight">\( is the dimension of the output, the Laplace mechanism \)</span>M_{Laplace}<span class="math notranslate nohighlight">\( adds Laplace noise to the output of \)</span>f<span class="math notranslate nohighlight">\(. That is \)</span>M_{Laplace}(D)=f(D)+Lap(\Delta/\epsilon)<span class="math notranslate nohighlight">\( 
+Let \)</span>b<span class="math notranslate nohighlight">\( be the scale parameter of the Laplace distribution, which is given by:
+\)</span><span class="math notranslate nohighlight">\(Lap(b)=\frac{1}{2b} e^{-\frac{|x|}{b}}\)</span>$</p>
+<p><img alt="alt text" src="_images/laplace.png" /></p>
+</div>
+</section>
+<section id="the-privacy-budget-and-repeated-queries">
+<h3><span class="section-number">6.7.3. </span>The Privacy Budget and Repeated Queries<a class="headerlink" href="#the-privacy-budget-and-repeated-queries" title="Link to this heading">#</a></h3>
+<p>Each differentially private response consumes a portion of a privacy budget. Because answering queries reveals information, even noisy answers accumulate privacy loss. Differential privacy provides composition theorems that quantify how privacy degrades across multiple queries. In practice, curators limit the total number of queries or allocate budget portions to maintain global privacy guarantees.</p>
+<p>This model addresses the primary weaknesses of earlier approaches. It does not rely on tracking overlapping query sets, does not prevent analysts from issuing many queries, and works even when attackers have extensive external knowledge. Instead, it provides mathematically provable guarantees that no single respondent’s data can be detected from the outputs, while still allowing analysts to extract meaningful aggregate information.</p>
 </section>
 </section>
 <div class="toctree-wrapper compound">
@@ -1515,7 +1802,7 @@ search engines with fake queries.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4.6. </span>Anonymization library</p>
+        <p class="prev-next-title"><span class="section-number">6.8. </span>Anonymization library</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1535,83 +1822,110 @@ search engines with fake queries.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.1. Privacy in Databases</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#respondent-privacy-statistical-disclosure-control">4.1.1. Respondent Privacy: Statistical Disclosure Control</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#non-perturbative-masking">4.1.1.1. Non-perturbative Masking</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perturbative-masking">4.1.1.2. Perturbative Masking</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-microdata-generation">4.1.1.3. Synthetic Microdata Generation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-models">4.1.1.4. Privacy Models</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#k-anonymity-and-extensions">4.1.1.4.1. k-Anonymity and Extensions</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-privacy">4.1.1.4.2. Differential Privacy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">5. Privacy in databases</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protecting-structured-data-from-tables-to-queries">5.1. Protecting Structured Data: From Tables to Queries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.2. Privacy in Databases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#respondent-privacy-statistical-disclosure-control">5.2.1. Respondent Privacy: Statistical Disclosure Control</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#non-perturbative-masking">5.2.1.1. Non-perturbative Masking</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perturbative-masking">5.2.1.2. Perturbative Masking</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-microdata-generation">5.2.1.3. Synthetic Microdata Generation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-models">5.2.1.4. Privacy Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#k-anonymity-and-extensions">5.2.1.4.1. k-Anonymity and Extensions</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-privacy">5.2.1.4.2. Differential Privacy</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">4.2. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabular-data-protection">4.3. Tabular data protection</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-tables">4.3.1. Types of tables</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-attacks-in-tables">4.3.2. Disclosure attacks in tables</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdc-methods-for-tables">4.3.3. SDC Methods for tables</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cell-suppression">4.3.3.1. Cell suppression</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-rules">4.3.3.2. Sensitivity rules</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#secondary-suppressions">4.3.3.3. Secondary suppressions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#controlled-rounding-and-controlled-tabular-adjustment">4.3.3.4. Controlled rounding and Controlled tabular adjustment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">5.3. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabular-data-protection">5.4. Tabular data protection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-tables">5.4.1. Types of tables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-attacks-in-tables">5.4.2. Disclosure attacks in tables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdc-methods-for-tables">5.4.3. SDC Methods for tables</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cell-suppression">5.4.3.1. Cell suppression</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-rules">5.4.3.2. Sensitivity rules</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#secondary-suppressions">5.4.3.3. Secondary suppressions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#controlled-rounding-and-controlled-tabular-adjustment">5.4.3.4. Controlled rounding and Controlled tabular adjustment</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-loss-in-tabular-sdc">4.3.4. Utility loss in tabular SDC</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-in-tabular-sdc">4.3.5. Disclosure risk in tabular SDC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-loss-in-tabular-sdc">5.4.4. Utility loss in tabular SDC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-in-tabular-sdc">5.4.5. Disclosure risk in tabular SDC</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-databases">4.4. Interactive databases</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#issues">4.4.1. Issues</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-database-protection">4.4.2. Interactive database protection</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#query-restriction">4.4.2.1. Query restriction</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#camouflage">4.4.2.2. Camouflage</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#query-perturbation">4.4.2.3. Query perturbation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-response">4.4.2.4. Randomized response</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.4.2.5. Differential privacy</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#the-laplace-mechanism">4.4.2.5.1. The Laplace mechanism</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-dp">4.4.2.5.2. Properties of DP</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-loss-in-interactive-databases">4.4.3. Utility loss in interactive databases</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-in-interactive-databases">4.4.4. Disclosure risk in interactive databases</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microdata">4.5. Microdata</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.5.1. Non-perturbative masking</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recoding">4.5.1.1. Recoding</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#global-recoding">4.5.1.1.1. Global recoding</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#top-bottom-coding">4.5.1.1.2. Top/bottom coding</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#rounding">4.5.1.1.3. Rounding</a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#local-suppression">4.5.1.2. Local suppression</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#recoding-suppression-and-k-anonymity">4.5.1.2.1. Recoding, suppression, and 𝑘-anonymity</a></li>
-</ul>
-</li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pram">4.5.1.3. PRAM</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#microaggregation">4.5.1.4. Microaggregation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#noise-addition">4.5.1.5. Noise addition</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#swapping">4.5.1.6. Swapping</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-data-generation">4.5.2. Synthetic data generation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-loss-in-microdata-protection">4.5.3. Utility loss in microdata protection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-in-microdata-protection">4.5.4. Disclosure risk in microdata protection</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-priori-disclosure-risk">4.5.4.1. A priori disclosure risk</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-posteriori-disclosure-risk">4.5.4.2. A posteriori disclosure risk</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owner-privacy-privacy-preserving-data-mining">4.5.5. Owner Privacy: Privacy-Preserving Data Mining</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-privacy-private-information-retrieval">4.5.6. User Privacy: Private Information Retrieval</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-databases">5.5. Interactive databases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#issues">5.5.1. Issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-database-protection">5.5.2. Interactive database protection</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#query-restriction">5.5.2.1. Query restriction</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#camouflage">5.5.2.2. Camouflage</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#query-perturbation">5.5.2.3. Query perturbation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-response">5.5.2.4. Randomized response</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.5.2.5. Differential privacy</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#the-laplace-mechanism">5.5.2.5.1. The Laplace mechanism</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-dp">5.5.2.5.2. Properties of DP</a></li>
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-loss-in-interactive-databases">5.5.3. Utility loss in interactive databases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-in-interactive-databases">5.5.4. Disclosure risk in interactive databases</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microdata">5.6. Microdata</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.6.1. Non-perturbative masking</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recoding">5.6.1.1. Recoding</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#global-recoding">5.6.1.1.1. Global recoding</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#top-bottom-coding">5.6.1.1.2. Top/bottom coding</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#rounding">5.6.1.1.3. Rounding</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#local-suppression">5.6.1.2. Local suppression</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#recoding-suppression-and-k-anonymity">5.6.1.2.1. Recoding, suppression, and 𝑘-anonymity</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pram">5.6.1.3. PRAM</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#microaggregation">5.6.1.4. Microaggregation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#noise-addition">5.6.1.5. Noise addition</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#swapping">5.6.1.6. Swapping</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-data-generation">5.6.2. Synthetic data generation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-loss-in-microdata-protection">5.6.3. Utility loss in microdata protection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-in-microdata-protection">5.6.4. Disclosure risk in microdata protection</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-priori-disclosure-risk">5.6.4.1. A priori disclosure risk</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-posteriori-disclosure-risk">5.6.4.2. A posteriori disclosure risk</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owner-privacy-privacy-preserving-data-mining">5.6.5. Owner Privacy: Privacy-Preserving Data Mining</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-privacy-private-information-retrieval">5.6.6. User Privacy: Private Information Retrieval</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymization-of-structured-databases">6. Anonymization of Structured Databases</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">6.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-data">6.2. Types of Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-tables-for-release">6.3. Types of Tables for Release</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-vs-disclosure-risk">6.4. Utility vs. Disclosure Risk</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabular-data-frequency-and-magnitude-tables">6.5. Tabular Data: Frequency and Magnitude Tables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attacks-on-tabular-data">6.5.1. Attacks on Tabular Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protection-methods">6.5.2. Protection Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cell-suppression-in-detail">6.5.3. Cell Suppression in Detail</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-and-risk-evaluation">6.5.4. Utility and Risk Evaluation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-use">6.5.5. Real-World Use</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-statistical-databases">6.6. Interactive Statistical Databases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approaches-to-protecting-interactive-queries">6.7. Approaches to Protecting Interactive Queries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#randomized-response-as-an-intuition">6.7.1. Randomized Response as an Intuition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toward-differential-privacy">6.7.2. Toward Differential Privacy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-privacy-budget-and-repeated-queries">6.7.3. The Privacy Budget and Repeated Queries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

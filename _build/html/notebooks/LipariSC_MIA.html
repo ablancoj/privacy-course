@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6.9. Salem paper attacks &#8212; Privacy Engineering</title>
+    <title>8.9. Salem paper attacks &#8212; Privacy Engineering</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/LipariSC_MIA';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.10. Federated Learning and Label Flipping attacks" href="FederatedLearning-sklearn.html" />
-    <link rel="prev" title="6. Privacy in machine learning" href="../privacy-ml.html" />
+    <link rel="next" title="8.10. Federated Learning and Label Flipping attacks" href="FederatedLearning-sklearn.html" />
+    <link rel="prev" title="8. Privacy in machine learning" href="../privacy-ml.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,23 +181,21 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../intro-gdpr.html">1. About this book</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../privacy-by-design.html">2. Privacy by design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../privacy-by-design.html">2. Privacy by Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pets.html">3. Privacy enhancing techniques</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../databases.html">4. Privacy in databases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../anonymization-library.html">4.6. Anonymization library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="test_anonymization.html">4.7. Anonymization examples</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1"><a class="reference internal" href="../unstructured.html">5. Privacy in unstructured data</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../privacy-ml.html">6. Privacy in machine learning</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.9. Salem paper attacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="FederatedLearning-sklearn.html">6.10. Federated Learning and Label Flipping attacks</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../databases.html">5. Privacy in databases</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../unstructured.html">7. Privacy in unstructured data</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../privacy-ml.html">8. Privacy in machine learning</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.9. Salem paper attacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FederatedLearning-sklearn.html">8.10. Federated Learning and Label Flipping attacks</a></li>
 
 
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="unlearning-CIFAR10.html">6.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unlearning-CIFAR10.html">8.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
 
 
 
@@ -429,16 +427,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-the-datasets">6.9.1. Definition of the datasets</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-the-target-model">6.9.2. Train the target model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#towards-data-independent-membership-inference-attacks-adversary-2">6.9.3. TOWARDS DATA INDEPENDENT MEMBERSHIP INFERENCE ATTACKS (ADVERSARY 2)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#threat-model">6.9.3.1. Threat Model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">6.9.3.2. Methodology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-the-datasets">8.9.1. Definition of the datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-the-target-model">8.9.2. Train the target model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#towards-data-independent-membership-inference-attacks-adversary-2">8.9.3. TOWARDS DATA INDEPENDENT MEMBERSHIP INFERENCE ATTACKS (ADVERSARY 2)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#threat-model">8.9.3.1. Threat Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">8.9.3.2. Methodology</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-and-data-independent-membership-inference-attack-without-training-adversary-3">6.9.4. MODEL AND DATA INDEPENDENT MEMBERSHIP INFERENCE ATTACK WITHOUT TRAINING (ADVERSARY 3)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-threat-model">6.9.4.1. A. Threat Model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-methodology">6.9.4.2. B. Methodology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-and-data-independent-membership-inference-attack-without-training-adversary-3">8.9.4. MODEL AND DATA INDEPENDENT MEMBERSHIP INFERENCE ATTACK WITHOUT TRAINING (ADVERSARY 3)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-threat-model">8.9.4.1. A. Threat Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-methodology">8.9.4.2. B. Methodology</a></li>
 </ul>
 </li>
 </ul>
@@ -453,7 +451,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="salem-paper-attacks">
-<h1><span class="section-number">6.9. </span>Salem paper attacks<a class="headerlink" href="#salem-paper-attacks" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">8.9. </span>Salem paper attacks<a class="headerlink" href="#salem-paper-attacks" title="Link to this heading">#</a></h1>
 <p>This notebook showcases the three different scenarios presented in Salem <em>et al.</em> <a class="reference external" href="https://arxiv.org/abs/1806.01246">ML-Leaks: Model and Data Independent Membership Inference Attacks and Defenses on Machine Learning Models</a>.</p>
 <p>In summary the three presented adversaries are as follows:</p>
 <ol class="arabic simple">
@@ -487,7 +485,7 @@ document.write(`
 </div>
 </div>
 <section id="definition-of-the-datasets">
-<h2><span class="section-number">6.9.1. </span>Definition of the datasets<a class="headerlink" href="#definition-of-the-datasets" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.9.1. </span>Definition of the datasets<a class="headerlink" href="#definition-of-the-datasets" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>We draw data points from a distribution.</p></li>
 <li><p>We split these data points into the target dataset and a shadow dataset drawn from the same distribution.</p></li>
@@ -530,7 +528,7 @@ document.write(`
 </div>
 </section>
 <section id="train-the-target-model">
-<h2><span class="section-number">6.9.2. </span>Train the target model<a class="headerlink" href="#train-the-target-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.9.2. </span>Train the target model<a class="headerlink" href="#train-the-target-model" title="Link to this heading">#</a></h2>
 <p><em>Again, I’m using a rather big model (for the classification task) to favour overfitting.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2020,16 +2018,16 @@ weighted avg     0.8680    0.8640    0.8636       500
 </div>
 </section>
 <section id="towards-data-independent-membership-inference-attacks-adversary-2">
-<h2><span class="section-number">6.9.3. </span>TOWARDS DATA INDEPENDENT MEMBERSHIP INFERENCE ATTACKS (ADVERSARY 2)<a class="headerlink" href="#towards-data-independent-membership-inference-attacks-adversary-2" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.9.3. </span>TOWARDS DATA INDEPENDENT MEMBERSHIP INFERENCE ATTACKS (ADVERSARY 2)<a class="headerlink" href="#towards-data-independent-membership-inference-attacks-adversary-2" title="Link to this heading">#</a></h2>
 <p>In this section, we relax the assumption on the adversary having a dataset that comes from the same distribution as the
 target model’s dataset.</p>
 <p>We start by explaining the threat model, then describe the adversary’s attack methodology. In the end, we present a comprehensive experimental evaluation.</p>
 <section id="threat-model">
-<h3><span class="section-number">6.9.3.1. </span>Threat Model<a class="headerlink" href="#threat-model" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.9.3.1. </span>Threat Model<a class="headerlink" href="#threat-model" title="Link to this heading">#</a></h3>
 <p>Different from the threat model in Section III, we remove the assumption that the adversary has a dataset <code class="docutils literal notranslate"><span class="pre">(Xs,ys)</span></code> coming from the same distribution as the training data for the target model. We will use the dataset <code class="docutils literal notranslate"><span class="pre">(Xd,yd)</span></code> which comes from a different distribution. This largely reduces the attack capabilities of the adversary. For this scenario, Shokri et al. propose to query the target model multiple times to generate synthetic data to train the shadow model. However, this approach can only be applied when the dataset is assembled with binary features. In contrast, our approach can be applied to attack ML models trained on any kind of data.</p>
 </section>
 <section id="methodology">
-<h3><span class="section-number">6.9.3.2. </span>Methodology<a class="headerlink" href="#methodology" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.9.3.2. </span>Methodology<a class="headerlink" href="#methodology" title="Link to this heading">#</a></h3>
 <p>The strategy of the second adversary is very similar to the one of the first adversary. The only difference is that the
 second adversary utilizes an existing dataset that comes from a different distribution than the target model’s training data to train her shadow model. We refer to this attack as the data transferring attack.</p>
 <p>The shadow model here is not to mimic the target model’s behavior, but only to summarize the membership status of a
@@ -2996,15 +2994,15 @@ weighted avg     0.8703    0.8660    0.8656       500
 </section>
 </section>
 <section id="model-and-data-independent-membership-inference-attack-without-training-adversary-3">
-<h2><span class="section-number">6.9.4. </span>MODEL AND DATA INDEPENDENT MEMBERSHIP INFERENCE ATTACK WITHOUT TRAINING (ADVERSARY 3)<a class="headerlink" href="#model-and-data-independent-membership-inference-attack-without-training-adversary-3" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.9.4. </span>MODEL AND DATA INDEPENDENT MEMBERSHIP INFERENCE ATTACK WITHOUT TRAINING (ADVERSARY 3)<a class="headerlink" href="#model-and-data-independent-membership-inference-attack-without-training-adversary-3" title="Link to this heading">#</a></h2>
 <p>In this section, we present our third adversary, who does not need to train any shadow model and does not assume knowledge of model or data distribution. We start with the threat model description. Then, we list the attack methodology. In the end, we present the evaluation results.</p>
 <section id="a-threat-model">
-<h3><span class="section-number">6.9.4.1. </span>A. Threat Model<a class="headerlink" href="#a-threat-model" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.9.4.1. </span>A. Threat Model<a class="headerlink" href="#a-threat-model" title="Link to this heading">#</a></h3>
 <p>We relax the assumption that the adversary needs to train any shadow model to perform her attack. All she could rely on is the target model’s output posteriors <code class="docutils literal notranslate"><span class="pre">target_model.predict(Xt)</span></code> after querying her target data point <code class="docutils literal notranslate"><span class="pre">x_target</span></code>. Note that  Yeom et al. propose a similar attack, however, their membership inference attack requires the adversary to know the target data point’s class label which is hard to obtain in some cases, such as in biomedical settings. Therefore, our threat model
 covers a broader range of scenarios.</p>
 </section>
 <section id="b-methodology">
-<h3><span class="section-number">6.9.4.2. </span>B. Methodology<a class="headerlink" href="#b-methodology" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.9.4.2. </span>B. Methodology<a class="headerlink" href="#b-methodology" title="Link to this heading">#</a></h3>
 <p>The attack model for the third adversary is implemented as an unsupervised binary classification. Concretely, the adversary
 first obtains <code class="docutils literal notranslate"><span class="pre">target_model.predict(x_target)</span></code>. Then, she extracts the highest posterior and compares whether this maximum is above a certain threshold. If the answer is yes, then she predicts the data point is in the training set of the target model and vice versa. The reason we pick maximum as the feature follows the reasoning that an ML model is more confident, <em>i.e.</em>, one posterior is much higher than others, when facing a data point that it was trained on. In another words, the maximal posterior of a member data point is much higher than the one of a non-member data point.</p>
 <p><strong>Threshold Choosing.</strong> The attacker can pick the threshold for membership inference depending on her requirements, as in
@@ -3107,7 +3105,7 @@ weighted avg     0.8694    0.8540    0.8525       500
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Privacy in machine learning</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Privacy in machine learning</p>
       </div>
     </a>
     <a class="right-next"
@@ -3115,7 +3113,7 @@ weighted avg     0.8694    0.8540    0.8525       500
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6.10. </span>Federated Learning and Label Flipping attacks</p>
+        <p class="prev-next-title"><span class="section-number">8.10. </span>Federated Learning and Label Flipping attacks</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -3135,16 +3133,16 @@ weighted avg     0.8694    0.8540    0.8525       500
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-the-datasets">6.9.1. Definition of the datasets</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-the-target-model">6.9.2. Train the target model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#towards-data-independent-membership-inference-attacks-adversary-2">6.9.3. TOWARDS DATA INDEPENDENT MEMBERSHIP INFERENCE ATTACKS (ADVERSARY 2)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#threat-model">6.9.3.1. Threat Model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">6.9.3.2. Methodology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-the-datasets">8.9.1. Definition of the datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-the-target-model">8.9.2. Train the target model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#towards-data-independent-membership-inference-attacks-adversary-2">8.9.3. TOWARDS DATA INDEPENDENT MEMBERSHIP INFERENCE ATTACKS (ADVERSARY 2)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#threat-model">8.9.3.1. Threat Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">8.9.3.2. Methodology</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-and-data-independent-membership-inference-attack-without-training-adversary-3">6.9.4. MODEL AND DATA INDEPENDENT MEMBERSHIP INFERENCE ATTACK WITHOUT TRAINING (ADVERSARY 3)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-threat-model">6.9.4.1. A. Threat Model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-methodology">6.9.4.2. B. Methodology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-and-data-independent-membership-inference-attack-without-training-adversary-3">8.9.4. MODEL AND DATA INDEPENDENT MEMBERSHIP INFERENCE ATTACK WITHOUT TRAINING (ADVERSARY 3)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-threat-model">8.9.4.1. A. Threat Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-methodology">8.9.4.2. B. Methodology</a></li>
 </ul>
 </li>
 </ul>
