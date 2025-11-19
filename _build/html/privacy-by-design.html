@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Privacy by design &#8212; Privacy Engineering</title>
+    <title>2. Privacy by design &#8212; Privacy Engineering</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'privacy-by-design';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Privacy enhancing techniques" href="pets.html" />
-    <link rel="prev" title="Introduction and GDPR" href="intro-gdpr.html" />
+    <link rel="next" title="3. Privacy enhancing techniques" href="pets.html" />
+    <link rel="prev" title="1. Introduction and GDPR" href="intro-gdpr.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,24 +180,24 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro-gdpr.html">Introduction and GDPR</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Privacy by design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pets.html">Privacy enhancing techniques</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="databases.html">Privacy in databases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="anonymization-library.html">Anonymization library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/test_anonymization.html">Anonymization examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-gdpr.html">1. About this book</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Privacy by design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pets.html">3. Privacy enhancing techniques</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="databases.html">4. Privacy in databases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="anonymization-library.html">4.6. Anonymization library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/test_anonymization.html">4.7. Anonymization examples</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="unstructured.html">Privacy in unstructured data</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="privacy-ml.html">Privacy in machine learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/LipariSC_MIA.html">Salem paper attacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html">Federated Learning and Label Flipping attacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unstructured.html">5. Privacy in unstructured data</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="privacy-ml.html">6. Privacy in machine learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/LipariSC_MIA.html">6.9. Salem paper attacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html">6.10. Federated Learning and Label Flipping attacks</a></li>
 
 
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="notebooks/unlearning-CIFAR10.html">NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/unlearning-CIFAR10.html">6.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
 
 
 
@@ -401,7 +401,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="privacy-by-design">
-<h1>Privacy by design<a class="headerlink" href="#privacy-by-design" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">2. </span>Privacy by design<a class="headerlink" href="#privacy-by-design" title="Link to this heading">#</a></h1>
 <p>Privacy by design is a fundamental requirement of the GDPR that calls for integrating privacy and data protection considerations into every stage of the design and development process. Rather than treating privacy as an afterthought, systems and services that collect or process personal data must be built from the ground up with privacy in mind. This approach applies to all types of data-driven environments, including web platforms, mobile applications, wearable technologies, and research infrastructures.</p>
 <p>A central component of privacy by design is the Data Protection Impact Assessment (DPIA), which functions as a structured risk assessment. It identifies what personal data is collected, how it is stored and processed, the parties that have access to it, and the potential risks to individuals’ rights and freedoms. These assessments should be conducted not only at the start of a project but also throughout its life cycle, as systems evolve and new risks appear. Guidelines for conducting DPIAs are provided by organizations such as the Spanish Data Protection Agency (AEPD), ENISA, and NIST. Risk factors depend on the type of processing (for example, profiling or monitoring), the sensitivity of the data (such as health, biometric, or financial information), the retention period, and the vulnerability of the data subjects. Children, for instance, require special protection because they cannot give valid consent.</p>
 <p>Risk analysis combines the likelihood of a threat occurring with the potential impact it might have. High-risk scenarios typically involve sensitive data, poor access control, or the possibility of reidentifying individuals from anonymized datasets. Examples of real-world applications of this analysis include open data initiatives where authorities weigh the social benefits of publishing information against the privacy risks. For example, releasing data on emergency calls may have high public value but also poses significant reidentification risks, making it unsuitable for full disclosure without strong anonymization measures.</p>
@@ -793,7 +793,7 @@ strategy.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introduction and GDPR</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Introduction and GDPR</p>
       </div>
     </a>
     <a class="right-next"
@@ -801,7 +801,7 @@ strategy.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Privacy enhancing techniques</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Privacy enhancing techniques</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

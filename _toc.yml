@@ -3,11 +3,14 @@
 
 format: jb-book
 root: intro
+options:
+  numbered: true
 chapters:
 #- file: markdown
 #- file: notebooks
 #- file: markdown-notebooks
 - file: intro-gdpr
+  title: About this book
 - file: privacy-by-design
 - file: pets
 - file: databases

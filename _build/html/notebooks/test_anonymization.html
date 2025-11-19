@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Anonymization examples &#8212; Privacy Engineering</title>
+    <title>4.7. Anonymization examples &#8212; Privacy Engineering</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/test_anonymization';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Privacy in unstructured data" href="../unstructured.html" />
-    <link rel="prev" title="Anonymization library" href="../anonymization-library.html" />
+    <link rel="next" title="5. Privacy in unstructured data" href="../unstructured.html" />
+    <link rel="prev" title="4.6. Anonymization library" href="../anonymization-library.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,24 +180,24 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../intro-gdpr.html">Introduction and GDPR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../privacy-by-design.html">Privacy by design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pets.html">Privacy enhancing techniques</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../databases.html">Privacy in databases</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../anonymization-library.html">Anonymization library</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Anonymization examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro-gdpr.html">1. About this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../privacy-by-design.html">2. Privacy by design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pets.html">3. Privacy enhancing techniques</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../databases.html">4. Privacy in databases</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../anonymization-library.html">4.6. Anonymization library</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.7. Anonymization examples</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../unstructured.html">Privacy in unstructured data</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../privacy-ml.html">Privacy in machine learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="LipariSC_MIA.html">Salem paper attacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="FederatedLearning-sklearn.html">Federated Learning and Label Flipping attacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unstructured.html">5. Privacy in unstructured data</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../privacy-ml.html">6. Privacy in machine learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="LipariSC_MIA.html">6.9. Salem paper attacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FederatedLearning-sklearn.html">6.10. Federated Learning and Label Flipping attacks</a></li>
 
 
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="unlearning-CIFAR10.html">NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unlearning-CIFAR10.html">6.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
 
 
 
@@ -429,27 +429,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-example">1. Basic example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymizing-a-toy-data-set-that-includes-all-available-attribute-types-applying-k-anomymity-via-mdav">Anonymizing a Toy data set that includes all available attribute types applying k-Anomymity via MDAV</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-it-is-necessary-to-install-the-anonymization-library-in-the-active-environment">1.1 First it is necessary to install the anonymization library in the active environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-classes-and-methods">1.2 Import classes and methods</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#following-it-is-indicated-the-path-to-the-csv-file-containing-the-data-set-and-the-path-to-the-xml-file-describing-the-attributes-in-the-data-set-inside-the-xml-file-there-is-a-detailed-descritpion-about-how-to-fill-this-xml-file-in-order-to-properly-configure-the-different-attribute-types-in-the-data-set">1.3 Following, it is indicated the path to the csv file containing the data set and the path to the xml file describing the attributes in the data set. Inside the xml file, there is a detailed descritpion about how to fill this xml file in order to properly configure the different attribute types in the data set</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-set-is-loaded-from-a-dataframe-passed-as-parameter">1.4 The data set is loaded from a DataFrame passed as parameter</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-set-is-anonymized-in-this-case-applying-k-anonymity-via-mdav-with-a-privacy-level-of-k-3">1.5 The data set is anonymized, in this case, applying k_anonymity via MDAV with a privacy level of k=3</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#information-loss-metrics-are-calculated-by-comparing-original-and-anonymized-data-set">1.6 Information loss metrics are calculated by comparing original and anonymized data set</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-is-calculated-via-record-linkage-between-anonymized-and-original-data-set">1.7 Disclosure risk is calculated via record linkage between anonymized and original data set</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-can-be-saved-to-a-csv-formated-file">1.8 The anonymized data set can be saved to a csv formated file</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-can-be-converted-to-dataframe">1.9 The anonymized data set can be converted to DataFrame</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-previously-saved-anonymized-and-original-data-sets-can-be-loaded-in-order-to-calculate-the-privacy-metrics-a-posteriori">1.10 The previously saved anonymized and original data sets can be loaded in order to calculate the privacy metrics a posteriori</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#the-original-data-set-is-loaded">The original data set is loaded</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-is-loaded-from-the-previously-saved-data">The anonymized data set is loaded (from the previously saved data)</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#information-loss-and-disclosure-risk-metrics-are-calculated">Information loss and disclosure risk metrics are calculated</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">4.7.1. Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-example">4.7.2. 1. Basic example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymizing-a-toy-data-set-that-includes-all-available-attribute-types-applying-k-anomymity-via-mdav">4.7.2.1. Anonymizing a Toy data set that includes all available attribute types applying k-Anomymity via MDAV</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-it-is-necessary-to-install-the-anonymization-library-in-the-active-environment">4.7.2.2. 1.1 First it is necessary to install the anonymization library in the active environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-classes-and-methods">4.7.2.3. 1.2 Import classes and methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#following-it-is-indicated-the-path-to-the-csv-file-containing-the-data-set-and-the-path-to-the-xml-file-describing-the-attributes-in-the-data-set-inside-the-xml-file-there-is-a-detailed-descritpion-about-how-to-fill-this-xml-file-in-order-to-properly-configure-the-different-attribute-types-in-the-data-set">4.7.2.3.1. 1.3 Following, it is indicated the path to the csv file containing the data set and the path to the xml file describing the attributes in the data set. Inside the xml file, there is a detailed descritpion about how to fill this xml file in order to properly configure the different attribute types in the data set</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-set-is-loaded-from-a-dataframe-passed-as-parameter">4.7.2.3.2. 1.4 The data set is loaded from a DataFrame passed as parameter</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-set-is-anonymized-in-this-case-applying-k-anonymity-via-mdav-with-a-privacy-level-of-k-3">4.7.2.3.3. 1.5 The data set is anonymized, in this case, applying k_anonymity via MDAV with a privacy level of k=3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#information-loss-metrics-are-calculated-by-comparing-original-and-anonymized-data-set">4.7.2.3.4. 1.6 Information loss metrics are calculated by comparing original and anonymized data set</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-is-calculated-via-record-linkage-between-anonymized-and-original-data-set">4.7.2.3.5. 1.7 Disclosure risk is calculated via record linkage between anonymized and original data set</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-can-be-saved-to-a-csv-formated-file">4.7.2.3.6. 1.8 The anonymized data set can be saved to a csv formated file</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-can-be-converted-to-dataframe">4.7.2.3.7. 1.9 The anonymized data set can be converted to DataFrame</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-previously-saved-anonymized-and-original-data-sets-can-be-loaded-in-order-to-calculate-the-privacy-metrics-a-posteriori">4.7.2.3.8. 1.10 The previously saved anonymized and original data sets can be loaded in order to calculate the privacy metrics a posteriori</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#the-original-data-set-is-loaded">4.7.2.3.8.1. The original data set is loaded</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-is-loaded-from-the-previously-saved-data">4.7.2.3.8.2. The anonymized data set is loaded (from the previously saved data)</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#information-loss-and-disclosure-risk-metrics-are-calculated">4.7.2.3.8.3. Information loss and disclosure risk metrics are calculated</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">4.7.2.4. References:</a></li>
 </ul>
 </li>
 </ul>
@@ -464,9 +464,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="anonymization-examples">
-<h1>Anonymization examples<a class="headerlink" href="#anonymization-examples" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">4.7. </span>Anonymization examples<a class="headerlink" href="#anonymization-examples" title="Link to this heading">#</a></h1>
 <section id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.7.1. </span>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#basic"><span class="xref myst">Basic Example</span></a></p></li>
 <li><p><a class="reference internal" href="#k-anonymity_mdav"><span class="xref myst">k-Anomymity via MDAV</span></a></p></li>
@@ -478,12 +478,12 @@ document.write(`
 <p><a name="basic"></a></p>
 </section>
 <section id="basic-example">
-<h2>1. Basic example<a class="headerlink" href="#basic-example" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.7.2. </span>1. Basic example<a class="headerlink" href="#basic-example" title="Link to this heading">#</a></h2>
 <section id="anonymizing-a-toy-data-set-that-includes-all-available-attribute-types-applying-k-anomymity-via-mdav">
-<h3>Anonymizing a Toy data set that includes all available attribute types applying k-Anomymity via MDAV<a class="headerlink" href="#anonymizing-a-toy-data-set-that-includes-all-available-attribute-types-applying-k-anomymity-via-mdav" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.7.2.1. </span>Anonymizing a Toy data set that includes all available attribute types applying k-Anomymity via MDAV<a class="headerlink" href="#anonymizing-a-toy-data-set-that-includes-all-available-attribute-types-applying-k-anomymity-via-mdav" title="Link to this heading">#</a></h3>
 </section>
 <section id="first-it-is-necessary-to-install-the-anonymization-library-in-the-active-environment">
-<h3>1.1 First it is necessary to install the anonymization library in the active environment<a class="headerlink" href="#first-it-is-necessary-to-install-the-anonymization-library-in-the-active-environment" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.7.2.2. </span>1.1 First it is necessary to install the anonymization library in the active environment<a class="headerlink" href="#first-it-is-necessary-to-install-the-anonymization-library-in-the-active-environment" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install nltk</span>
@@ -507,7 +507,7 @@ document.write(`
 </div>
 </section>
 <section id="import-classes-and-methods">
-<h3>1.2 Import classes and methods<a class="headerlink" href="#import-classes-and-methods" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.7.2.3. </span>1.2 Import classes and methods<a class="headerlink" href="#import-classes-and-methods" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">anonymization.entities.dataset_CSV</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dataset_CSV</span>
@@ -533,7 +533,7 @@ document.write(`
 </div>
 </div>
 <section id="following-it-is-indicated-the-path-to-the-csv-file-containing-the-data-set-and-the-path-to-the-xml-file-describing-the-attributes-in-the-data-set-inside-the-xml-file-there-is-a-detailed-descritpion-about-how-to-fill-this-xml-file-in-order-to-properly-configure-the-different-attribute-types-in-the-data-set">
-<h4>1.3 Following, it is indicated the path to the csv file containing the data set and the path to the xml file describing the attributes in the data set. Inside the xml file, there is a detailed descritpion about how to fill this xml file in order to properly configure the different attribute types in the data set<a class="headerlink" href="#following-it-is-indicated-the-path-to-the-csv-file-containing-the-data-set-and-the-path-to-the-xml-file-describing-the-attributes-in-the-data-set-inside-the-xml-file-there-is-a-detailed-descritpion-about-how-to-fill-this-xml-file-in-order-to-properly-configure-the-different-attribute-types-in-the-data-set" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.7.2.3.1. </span>1.3 Following, it is indicated the path to the csv file containing the data set and the path to the xml file describing the attributes in the data set. Inside the xml file, there is a detailed descritpion about how to fill this xml file in order to properly configure the different attribute types in the data set<a class="headerlink" href="#following-it-is-indicated-the-path-to-the-csv-file-containing-the-data-set-and-the-path-to-the-xml-file-describing-the-attributes-in-the-data-set-inside-the-xml-file-there-is-a-detailed-descritpion-about-how-to-fill-this-xml-file-in-order-to-properly-configure-the-different-attribute-types-in-the-data-set" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_csv</span> <span class="o">=</span> <span class="s2">&quot;https://raw.github.com/CrisesUrv/SoBigDataTraining/master/anonymization/input_datasets/toy_all_types.csv&quot;</span>
@@ -547,7 +547,7 @@ document.write(`
 </div>
 </section>
 <section id="the-data-set-is-loaded-from-a-dataframe-passed-as-parameter">
-<h4>1.4 The data set is loaded from a DataFrame passed as parameter<a class="headerlink" href="#the-data-set-is-loaded-from-a-dataframe-passed-as-parameter" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.7.2.3.2. </span>1.4 The data set is loaded from a DataFrame passed as parameter<a class="headerlink" href="#the-data-set-is-loaded-from-a-dataframe-passed-as-parameter" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">Dataset_DataFrame</span><span class="p">(</span><span class="n">data_frame</span><span class="p">,</span> <span class="n">path_settings</span><span class="p">)</span>
@@ -736,7 +736,7 @@ Attributes:
 </div>
 </section>
 <section id="the-data-set-is-anonymized-in-this-case-applying-k-anonymity-via-mdav-with-a-privacy-level-of-k-3">
-<h4>1.5 The data set is anonymized, in this case, applying k_anonymity via MDAV with a privacy level of k=3<a class="headerlink" href="#the-data-set-is-anonymized-in-this-case-applying-k-anonymity-via-mdav-with-a-privacy-level-of-k-3" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.7.2.3.3. </span>1.5 The data set is anonymized, in this case, applying k_anonymity via MDAV with a privacy level of k=3<a class="headerlink" href="#the-data-set-is-anonymized-in-this-case-applying-k-anonymity-via-mdav-with-a-privacy-level-of-k-3" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>
@@ -757,7 +757,7 @@ Attributes:
 </div>
 </section>
 <section id="information-loss-metrics-are-calculated-by-comparing-original-and-anonymized-data-set">
-<h4>1.6 Information loss metrics are calculated by comparing original and anonymized data set<a class="headerlink" href="#information-loss-metrics-are-calculated-by-comparing-original-and-anonymized-data-set" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.7.2.3.4. </span>1.6 Information loss metrics are calculated by comparing original and anonymized data set<a class="headerlink" href="#information-loss-metrics-are-calculated-by-comparing-original-and-anonymized-data-set" title="Link to this heading">#</a></h4>
 <p>Metrics calculated: Sum of Square Error (SSE) and, for each attribute, mean and variance</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -869,7 +869,7 @@ SSE: 0.892
 </div>
 </section>
 <section id="disclosure-risk-is-calculated-via-record-linkage-between-anonymized-and-original-data-set">
-<h4>1.7 Disclosure risk is calculated via record linkage between anonymized and original data set<a class="headerlink" href="#disclosure-risk-is-calculated-via-record-linkage-between-anonymized-and-original-data-set" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.7.2.3.5. </span>1.7 Disclosure risk is calculated via record linkage between anonymized and original data set<a class="headerlink" href="#disclosure-risk-is-calculated-via-record-linkage-between-anonymized-and-original-data-set" title="Link to this heading">#</a></h4>
 <p>The disclosure risk estimates the percentage of anonymized records that correct match with the original ones</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -889,7 +889,7 @@ SSE: 0.892
 </div>
 </section>
 <section id="the-anonymized-data-set-can-be-saved-to-a-csv-formated-file">
-<h4>1.8 The anonymized data set can be saved to a csv formated file<a class="headerlink" href="#the-anonymized-data-set-can-be-saved-to-a-csv-formated-file" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.7.2.3.6. </span>1.8 The anonymized data set can be saved to a csv formated file<a class="headerlink" href="#the-anonymized-data-set-can-be-saved-to-a-csv-formated-file" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anonymization_scheme</span><span class="o">.</span><span class="n">save_anonymized_dataset</span><span class="p">(</span><span class="s2">&quot;toy_all_types_anom.csv&quot;</span><span class="p">)</span>
@@ -904,7 +904,7 @@ SSE: 0.892
 </div>
 </section>
 <section id="the-anonymized-data-set-can-be-converted-to-dataframe">
-<h4>1.9 The anonymized data set can be converted to DataFrame<a class="headerlink" href="#the-anonymized-data-set-can-be-converted-to-dataframe" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.7.2.3.7. </span>1.9 The anonymized data set can be converted to DataFrame<a class="headerlink" href="#the-anonymized-data-set-can-be-converted-to-dataframe" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_anonymized</span> <span class="o">=</span> <span class="n">anonymization_scheme</span><span class="o">.</span><span class="n">anonymized_dataset_to_dataframe</span><span class="p">()</span>
@@ -1003,9 +1003,9 @@ SSE: 0.892
 </div>
 </section>
 <section id="the-previously-saved-anonymized-and-original-data-sets-can-be-loaded-in-order-to-calculate-the-privacy-metrics-a-posteriori">
-<h4>1.10 The previously saved anonymized and original data sets can be loaded in order to calculate the privacy metrics a posteriori<a class="headerlink" href="#the-previously-saved-anonymized-and-original-data-sets-can-be-loaded-in-order-to-calculate-the-privacy-metrics-a-posteriori" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">4.7.2.3.8. </span>1.10 The previously saved anonymized and original data sets can be loaded in order to calculate the privacy metrics a posteriori<a class="headerlink" href="#the-previously-saved-anonymized-and-original-data-sets-can-be-loaded-in-order-to-calculate-the-privacy-metrics-a-posteriori" title="Link to this heading">#</a></h4>
 <section id="the-original-data-set-is-loaded">
-<h5>The original data set is loaded<a class="headerlink" href="#the-original-data-set-is-loaded" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">4.7.2.3.8.1. </span>The original data set is loaded<a class="headerlink" href="#the-original-data-set-is-loaded" title="Link to this heading">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_csv</span> <span class="o">=</span> <span class="s2">&quot;https://raw.github.com/CrisesUrv/SoBigDataTraining/master/anonymization/input_datasets/toy_all_types.csv&quot;</span>
@@ -1197,7 +1197,7 @@ Attributes:
 </div>
 </section>
 <section id="the-anonymized-data-set-is-loaded-from-the-previously-saved-data">
-<h5>The anonymized data set is loaded (from the previously saved data)<a class="headerlink" href="#the-anonymized-data-set-is-loaded-from-the-previously-saved-data" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">4.7.2.3.8.2. </span>The anonymized data set is loaded (from the previously saved data)<a class="headerlink" href="#the-anonymized-data-set-is-loaded-from-the-previously-saved-data" title="Link to this heading">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_csv</span> <span class="o">=</span> <span class="s2">&quot;toy_all_types_anom.csv&quot;</span>
@@ -1389,7 +1389,7 @@ Attributes:
 </div>
 </section>
 <section id="information-loss-and-disclosure-risk-metrics-are-calculated">
-<h5>Information loss and disclosure risk metrics are calculated<a class="headerlink" href="#information-loss-and-disclosure-risk-metrics-are-calculated" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">4.7.2.3.8.3. </span>Information loss and disclosure risk metrics are calculated<a class="headerlink" href="#information-loss-and-disclosure-risk-metrics-are-calculated" title="Link to this heading">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">information_loss</span> <span class="o">=</span> <span class="n">Anonymization_scheme</span><span class="o">.</span><span class="n">calculate_information_loss</span><span class="p">(</span><span class="n">dataset_original</span><span class="p">,</span> <span class="n">dataset_anomymized</span><span class="p">)</span>
@@ -1606,7 +1606,7 @@ SSE: 0.892
 </section>
 </section>
 <section id="references">
-<h3>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.7.2.4. </span>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Josep Domingo-Ferrer and Vicenç Torra, “Ordinal, continuous and heterogeneous k-anonymity through microaggregation”, Data Mining and Knowledge Discovery, Vol. 11, pp. 195-212, Sep 2005. DOI: <a class="reference external" href="https://doi.org/10.1007/s10618-005-0007-5">https://doi.org/10.1007/s10618-005-0007-5</a></p></li>
 <li><p>Jordi Soria-Comas, Josep Domingo-Ferrer, David Sánchez and Sergio Martínez, “t-Closeness through microaggregation: strict privacy with enhanced utility preservation”, IEEE Transactions on Knowledge and Data Engineering, Vol. 27, no. 11, pp. 3098-3110, Oct 2015. DOI: <a class="reference external" href="https://doi.org/10.1109/TKDE.2015.2435777">https://doi.org/10.1109/TKDE.2015.2435777</a></p></li>
@@ -1653,7 +1653,7 @@ SSE: 0.892
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Anonymization library</p>
+        <p class="prev-next-title"><span class="section-number">4.6. </span>Anonymization library</p>
       </div>
     </a>
     <a class="right-next"
@@ -1661,7 +1661,7 @@ SSE: 0.892
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Privacy in unstructured data</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Privacy in unstructured data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1681,27 +1681,27 @@ SSE: 0.892
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-example">1. Basic example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymizing-a-toy-data-set-that-includes-all-available-attribute-types-applying-k-anomymity-via-mdav">Anonymizing a Toy data set that includes all available attribute types applying k-Anomymity via MDAV</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-it-is-necessary-to-install-the-anonymization-library-in-the-active-environment">1.1 First it is necessary to install the anonymization library in the active environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-classes-and-methods">1.2 Import classes and methods</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#following-it-is-indicated-the-path-to-the-csv-file-containing-the-data-set-and-the-path-to-the-xml-file-describing-the-attributes-in-the-data-set-inside-the-xml-file-there-is-a-detailed-descritpion-about-how-to-fill-this-xml-file-in-order-to-properly-configure-the-different-attribute-types-in-the-data-set">1.3 Following, it is indicated the path to the csv file containing the data set and the path to the xml file describing the attributes in the data set. Inside the xml file, there is a detailed descritpion about how to fill this xml file in order to properly configure the different attribute types in the data set</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-set-is-loaded-from-a-dataframe-passed-as-parameter">1.4 The data set is loaded from a DataFrame passed as parameter</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-set-is-anonymized-in-this-case-applying-k-anonymity-via-mdav-with-a-privacy-level-of-k-3">1.5 The data set is anonymized, in this case, applying k_anonymity via MDAV with a privacy level of k=3</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#information-loss-metrics-are-calculated-by-comparing-original-and-anonymized-data-set">1.6 Information loss metrics are calculated by comparing original and anonymized data set</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-is-calculated-via-record-linkage-between-anonymized-and-original-data-set">1.7 Disclosure risk is calculated via record linkage between anonymized and original data set</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-can-be-saved-to-a-csv-formated-file">1.8 The anonymized data set can be saved to a csv formated file</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-can-be-converted-to-dataframe">1.9 The anonymized data set can be converted to DataFrame</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-previously-saved-anonymized-and-original-data-sets-can-be-loaded-in-order-to-calculate-the-privacy-metrics-a-posteriori">1.10 The previously saved anonymized and original data sets can be loaded in order to calculate the privacy metrics a posteriori</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#the-original-data-set-is-loaded">The original data set is loaded</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-is-loaded-from-the-previously-saved-data">The anonymized data set is loaded (from the previously saved data)</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#information-loss-and-disclosure-risk-metrics-are-calculated">Information loss and disclosure risk metrics are calculated</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">4.7.1. Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-example">4.7.2. 1. Basic example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymizing-a-toy-data-set-that-includes-all-available-attribute-types-applying-k-anomymity-via-mdav">4.7.2.1. Anonymizing a Toy data set that includes all available attribute types applying k-Anomymity via MDAV</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-it-is-necessary-to-install-the-anonymization-library-in-the-active-environment">4.7.2.2. 1.1 First it is necessary to install the anonymization library in the active environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-classes-and-methods">4.7.2.3. 1.2 Import classes and methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#following-it-is-indicated-the-path-to-the-csv-file-containing-the-data-set-and-the-path-to-the-xml-file-describing-the-attributes-in-the-data-set-inside-the-xml-file-there-is-a-detailed-descritpion-about-how-to-fill-this-xml-file-in-order-to-properly-configure-the-different-attribute-types-in-the-data-set">4.7.2.3.1. 1.3 Following, it is indicated the path to the csv file containing the data set and the path to the xml file describing the attributes in the data set. Inside the xml file, there is a detailed descritpion about how to fill this xml file in order to properly configure the different attribute types in the data set</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-set-is-loaded-from-a-dataframe-passed-as-parameter">4.7.2.3.2. 1.4 The data set is loaded from a DataFrame passed as parameter</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-set-is-anonymized-in-this-case-applying-k-anonymity-via-mdav-with-a-privacy-level-of-k-3">4.7.2.3.3. 1.5 The data set is anonymized, in this case, applying k_anonymity via MDAV with a privacy level of k=3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#information-loss-metrics-are-calculated-by-comparing-original-and-anonymized-data-set">4.7.2.3.4. 1.6 Information loss metrics are calculated by comparing original and anonymized data set</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#disclosure-risk-is-calculated-via-record-linkage-between-anonymized-and-original-data-set">4.7.2.3.5. 1.7 Disclosure risk is calculated via record linkage between anonymized and original data set</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-can-be-saved-to-a-csv-formated-file">4.7.2.3.6. 1.8 The anonymized data set can be saved to a csv formated file</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-can-be-converted-to-dataframe">4.7.2.3.7. 1.9 The anonymized data set can be converted to DataFrame</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-previously-saved-anonymized-and-original-data-sets-can-be-loaded-in-order-to-calculate-the-privacy-metrics-a-posteriori">4.7.2.3.8. 1.10 The previously saved anonymized and original data sets can be loaded in order to calculate the privacy metrics a posteriori</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#the-original-data-set-is-loaded">4.7.2.3.8.1. The original data set is loaded</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#the-anonymized-data-set-is-loaded-from-the-previously-saved-data">4.7.2.3.8.2. The anonymized data set is loaded (from the previously saved data)</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#information-loss-and-disclosure-risk-metrics-are-calculated">4.7.2.3.8.3. Information loss and disclosure risk metrics are calculated</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">4.7.2.4. References:</a></li>
 </ul>
 </li>
 </ul>
