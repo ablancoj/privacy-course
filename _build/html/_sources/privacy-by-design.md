@@ -382,4 +382,121 @@ To be able to demonstrate that data processing is respectful of privacy. TACTICS
 
 
 
+# Privacy by Design
+
+## Introduction
+
+The previous chapter outlined the ethical, legal, and technical foundations of privacy and data protection, culminating in the regulatory framework of the GDPR. This chapter continues from that point by examining one of the key operational requirements emerging from the GDPR and from contemporary best practices in privacy engineering: **privacy by design**.
+
+Privacy by design embodies a simple but powerful idea: privacy should not be an afterthought. It must be embedded into every phase of the system or research lifecycle—from the moment a project is conceived, through design and implementation, and continuing throughout operation, maintenance and eventual decommissioning. This is not merely a technical requirement but a shift in organizational culture and responsibility. It demands that the protection of personal data be treated as a primary design goal, rather than something to address only when problems arise.
+
+In practice, privacy by design connects high-level values such as human dignity, autonomy and fairness with the concrete structures of information systems. It bridges ethics, regulation and engineering, making privacy a discipline that begins long before any code is written.
+
+## Why Privacy Must Be Designed from the Start
+
+The GDPR underscores that organizations collecting or processing personal data must take appropriate measures to safeguard those data. Importantly, these measures cannot be retrofitted. The design of a system determines what data are collected, how those data flow through different components, how they are stored, who can access them, and how long they are retained. Once a system is deployed, changes to its architecture or data collection logic can be extremely costly or technically infeasible.
+
+This is especially clear in contemporary data-driven services. Many systems rely on continuous data collection, often through mobile devices, wearables, sensors, telehealth platforms or web-based services. If such systems are designed without attention to privacy, they may collect far more data than necessary, store them in insecure environments, or combine datasets in ways that increase the risk of re-identification. Considering privacy only after deployment is neither efficient nor compliant with regulatory standards.
+
+Privacy by design therefore requires that teams ask early questions: What data are actually needed? How will they be protected? What risks could arise? How would a breach affect individuals? These questions shape not just the technical architecture but also the organizational processes surrounding it.
+
+## The Software and Research Lifecycle
+
+A typical development lifecycle includes phases such as initial planning, requirements elicitation, analysis, design, implementation, testing, deployment and maintenance. Privacy by design maps directly onto this lifecycle by requiring that privacy considerations appear alongside functional and technical requirements. Instead of treating privacy as a “non-functional” requirement addressed late in the process, it becomes part of the core definition of what the system must achieve.
+
+In the planning phase, teams must articulate the purpose of their system or study and determine whether personal data are genuinely needed. During requirements gathering, they must determine what data are strictly necessary to fulfill those purposes and what constraints follow from regulation or internal policy. In the design phase, they must outline data flows, storage mechanisms, access control models, anonymization or pseudonymization strategies, and interfaces through which data subjects may exercise their rights.
+
+Privacy must also be considered iteratively. As systems evolve, new features or integrations may introduce risks not previously foreseen. Maintenance therefore includes periodically revisiting privacy assessments, updating documentation, reviewing access logs and adjusting protections as technologies or organizational needs change.
+
+## The Privacy Risk Assessment
+
+A central tool in privacy by design is the **privacy risk assessment**, sometimes referred to as a Data Protection Impact Assessment (DPIA) under the GDPR. Not every project requires a formal DPIA, but any system handling personal data should undergo a structured evaluation of potential privacy risks.
+
+A privacy risk assessment typically begins with understanding the context. What types of personal data will be collected? Are they direct identifiers such as names or identification numbers, or indirect identifiers such as dates, locations or demographic attributes? Will sensitive data—such as health, biometric or political information—be involved? Are data collected passively, derived from other sources or shared with third parties?
+
+The assessment then considers how these data are stored and transmitted. For example, if data reside on a server, how secure is that server? Who has access to it? Are logging mechanisms in place? Are backups encrypted? What vulnerabilities might exist?
+
+Evaluating risks involves examining both **likelihood** and **impact**. Likelihood refers to how probable a breach or misuse might be, given the system’s structure and the threat landscape. Impact refers to the harm that may occur if a breach takes place. Low-impact events might involve disclosure of trivial or non-sensitive information. High-impact events might expose medical conditions, financial details or locations of vulnerable individuals, potentially causing discrimination, economic loss, social stigma or threats to personal safety.
+
+Once likelihood and impact are evaluated, they are combined into an overall risk level. High-risk scenarios may require substantial mitigation, such as encryption, access restrictions or even a decision not to collect or publish certain data. Moderate risks might be addressable through techniques like anonymization, generalization or limiting precision. Low risks may simply require good documentation and minimal data collection.
+
+The privacy assessment guides design decisions and serves as a living document throughout the system’s lifecycle. It helps organizations justify their choices to supervisory authorities and demonstrates accountability and due diligence.
+
+## Lessons from Open Data Initiatives
+
+A practical illustration of privacy risk assessment comes from open data programs such as those conducted by municipal governments. Before releasing datasets, authorities must evaluate not only the benefits of public access but also the risks of re-identifying individuals.
+
+For example, emergency call data may include location information, timestamps and details about health or safety incidents. Even without names, such data can be highly identifying when combined with public knowledge about events or geographic uniqueness. In such cases, the risks may outweigh the public benefits, leading authorities to decide against publication.
+
+Other datasets, such as building permits or aggregated demographic data, may be assessed as high risk but offering substantial public value. Here, additional screening—such as removing precise locations, generalizing timestamps or excluding rare categories—can reduce risk to an acceptable level.
+
+These examples illustrate the practical workflow of privacy by design: assess context, evaluate risk, balance benefits and harms, and apply countermeasures proportionate to the risk.
+
+:::{admonition} [Seattle Model Open Data Benefit-Risk Analysis](https://fpf.org/wp-content/uploads/2018/01/FPF-Open-Data-Risk-Assessment-for-City-of-Seattle.pdf) 
+In the open data context, considering the risks of the dataset is merely one part of a balanced value equation; decision-makers must also take account of the project’s benefits in order to make a final determination about whether to proceed with publishing the dataset openly. For the purposes of this report, FPF developed this Model Analysis, which is based on risk assessment and de-identification frameworks developed by the National Institute of Standards and Technology and also builds on parallel efforts by researchers at the University of Washington, the Berkman Klein Center, and the City of San Francisco to develop robust risk-based frameworks for government data releases.
+
+This Model Analysis provides a structure for vetting potential open datasets in five steps: 
+    1. Evaluate the Information the Dataset Contains. This step includes identifying whether there are direct or indirect identifiers, sensitive attributes, or information that is difficult to de-identify present in the dataset; assessing how linkable the information might be to other datasets; and considering the context in which the data was obtained. 
+    2. Evaluate the Benefits Associated with Releasing the Dataset. This step considers the potential benefits and users of the dataset, and assesses the magnitude of the potential benefits against the likelihood of their occurring. 
+    3. Evaluate the Risks Associated with Releasing the Dataset. This step considers the potential privacy risks and negative users of the dataset, and assesses the magnitude of the potential risks against the likelihood of their occurring. 
+    4. Weigh the Benefits against the Risks of Releasing the Dataset. This step combines the overall scores from steps 2 and 3 to determine an appropriate method for releasing (or not releasing) the dataset. Recommendations include releasing as open data, in a limited access environment, or not publishing at the current time. This section also overviews common methods for reducing re-identification risk in terms of their privacy-protective, utility, and operational impacts. 
+    5. Evaluate Countervailing Factors. This step provides a final opportunity to document any countervailing factors that might justify releasing a dataset openly regardless of its privacy risk, such as when there is a compelling public interest in the information.
+:::
+
+## Privacy by Design Strategies
+
+To support privacy by design, several public bodies and research groups have articulated general strategies and associated design patterns. A widely adopted framework organizes these into **eight strategies**, of which the first four focus on data processing and the latter four on organizational processes.
+
+### Minimize
+
+The aim of minimization is simple: collect and process as little personal data as possible. Only those data necessary to perform a given task or offer a service should be gathered. Minimization can be achieved by reducing the number of data subjects, reducing the number of attributes collected, or reducing the precision or frequency of collection.
+
+Device-side filtering is one example of minimization. A mobile device may locally decide which data are necessary before transmitting anything to a server. Another common pattern is anonymization, which seeks to irreversibly remove identifying information, though its effectiveness depends on the context and the data structure.
+
+### Hide
+
+The hide strategy seeks to protect data from unnecessary visibility. Confidentiality technologies such as encryption, access control, secure channels and pseudonymization help ensure that only authorized parties can view or link data. The strategy also seeks to reduce linkability between datasets so that data from different sources cannot easily be combined to identify individuals.
+
+Techniques such as mixed networks, privacy-preserving credentials and pseudonymous identifiers support this strategy. Hiding does not eliminate the need for good governance but reinforces technical protection.
+
+### Separate
+
+Separation reduces risk by avoiding unnecessary aggregation of data. Instead of storing all information in a central repository, data may be partitioned according to purpose, sensitivity or type. A single organization may legitimately hold financial data and health data about the same person, but combining these datasets into a single database would increase risk without increasing operational need.
+
+Separation also extends to distributed processing. Local preprocessing on devices, distributed computation across multiple nodes and architectures that minimize centralization all reduce the attack surface and limit the consequences of breaches.
+
+A prominent example is **federated learning**, a machine learning paradigm in which models are trained on decentralized data stored by individual clients or institutions. Only model updates are shared with a central aggregator, reducing the need to pool raw data.
+
+### Aggregate
+
+Aggregation aims to make individual-level data less exposed by summarizing them into groups or statistical results. Unlike hiding, aggregation transforms data so that detailed information is either removed or generalized. This might involve releasing counts instead of individual records, reducing geographic granularity, or applying anonymization techniques that enforce group-level indistinguishability.
+
+Aggregation is especially important in open data and research contexts, where sharing insights is desirable but sharing raw data is too risky.
+
+### Inform
+
+The first of the process-oriented strategies, inform requires organizations to communicate clearly with data subjects about what data are collected, how they are used, what rights individuals have and how those rights may be exercised. This strategy seeks to address the longstanding challenge that privacy policies are often unreadable or overly vague. Although regulatory compliance demands transparency, meaningful transparency requires careful design, accessible language and user-centered communication strategies.
+
+### Control
+
+Control means giving data subjects meaningful choices about how their data are processed. This includes mechanisms for managing consent, selecting preferences, correcting errors or deleting data. Control mechanisms must not merely exist but must be easy to use and integrated into system workflows. The right to data portability, for example, requires not only legal provisions but also technical solutions that enable individuals to download or transfer their data.
+
+### Enforce
+
+Enforcement refers to internal organizational processes ensuring that privacy rules are actually followed. This includes implementing internal policies, training personnel, restricting access, maintaining secure configurations and ensuring that contracts with external processors align with privacy requirements. Enforcement bridges the gap between documented procedures and day-to-day operations.
+
+### Demonstrate
+
+Finally, the demonstrate strategy requires organizations to be accountable. They must document decisions, conduct audits, maintain logs, record consent, keep track of incidents and be prepared to demonstrate compliance to supervisory authorities. Demonstration is not only a defensive practice but also a proactive one, reinforcing trust with users, partners and regulators.
+
+## Bringing It All Together
+
+Privacy by design is more than a checklist; it is a mindset embedded in every stage of a system’s conception and operation. It requires understanding data flows, anticipating risks, balancing benefits and harms, and adopting both technical and organizational measures. The strategies described above offer guidance but must be adapted to each context, as no two systems are identical.
+
+As data volumes grow and systems become increasingly interconnected, the importance of integrating privacy protections early and consistently becomes even more critical. Privacy by design ensures that systems remain respectful of individuals’ rights and resilient to evolving threats, laying the foundation for trustworthy data-driven innovation.
+
+In the next chapters, we will explore concrete privacy-enhancing technologies, including anonymization methods, cryptographic tools and distributed learning techniques, that operationalize these strategies in practice.
+
+
+
 
