@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Privacy engineering course &#8212; Privacy Book</title>
+    <title>Privacy engineering &#8212; Privacy Engineering</title>
   
   
   
@@ -156,8 +156,8 @@
       
     
     
-    <img src="_static/logo_v01-original.png" class="logo__image only-light" alt="Privacy Book - Home"/>
-    <script>document.write(`<img src="_static/logo_v01-original.png" class="logo__image only-dark" alt="Privacy Book - Home"/>`);</script>
+    <img src="_static/logo_v01-original.png" class="logo__image only-light" alt="Privacy Engineering - Home"/>
+    <script>document.write(`<img src="_static/logo_v01-original.png" class="logo__image only-dark" alt="Privacy Engineering - Home"/>`);</script>
   
   
 </a></div>
@@ -178,7 +178,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Privacy engineering course
+                    Privacy engineering
                 </a>
             </li>
         </ul>
@@ -391,7 +391,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Privacy engineering course</h1>
+    <h1>Privacy engineering</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -401,9 +401,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-enhancing-techniques-pets">Privacy-Enhancing Techniques (PETs)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protecting-structured-data-from-tables-to-queries">Protecting Structured Data: From Tables to Queries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-book">About the book</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
 </ul>
 </li>
 </ul>
@@ -417,168 +416,19 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="privacy-engineering-course">
-<h1>Privacy engineering course<a class="headerlink" href="#privacy-engineering-course" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="privacy-engineering">
+<h1>Privacy engineering<a class="headerlink" href="#privacy-engineering" title="Link to this heading">#</a></h1>
+<section id="about-the-book">
+<h2>About the book<a class="headerlink" href="#about-the-book" title="Link to this heading">#</a></h2>
+<section id="contents">
+<h3>Contents<a class="headerlink" href="#contents" title="Link to this heading">#</a></h3>
+<p>The first chapter is introduces to the General Data Protection Regulation, including its ethical and legal motivations, and detailing relevant articles, especially those dedicated to the rights of the data subjects and the obligations of the data controllers and processors.</p>
+<p>One of the obligations of data controllers is to adhere to privacy by design and by default principles, which we introduce in the second chapter. These principles include a collection of data and process strategies that tie in the processing principles laid out by the GDPR with specific practices, software architectures, tools, and techniques. We also include details on data protection impact analysis.</p>
+<p>The rest of the book is dedicated to the technical measures that limit access to personal information or the risk of disclosure while still allowing useful processing. We start with a collection of privacy enhancing techniques, mostly cryptographic, which allow private interactions between subjects and controllers and that allow controllers to make computations on protected data. Then, we move on to anonymization, detailing principles and techniques applicable to structured data like microdata and statistical tables and to semi and unstructured data, like images, text, locations, and genetic data. We end the book with privacy considerations in machine learning, including threats, attacks, and countermeasures.</p>
+</section>
+</section>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="intro-gdpr.html">Introduction and GDPR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="privacy-by-design.html">Privacy by design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pets.html">Privacy enhancing techniques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="databases.html">Privacy in databases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="unstructured.html">Privacy in unstructured data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="privacy-ml.html">Privacy in machine learning</a></li>
-</ul>
 </div>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>Modern data processing systems increasingly rely on vast, heterogeneous datasets that can reveal intimate details about individuals’ behavior, preferences, and identities. The General Data Protection Regulation (GDPR) established a new paradigm for safeguarding personal information: data protection by design and by default. This principle requires that privacy considerations be integrated into system architecture and decision-making from the very beginning, not added later as a corrective measure.</p>
-<p>Privacy by Design (PbD) entails anticipating and mitigating privacy risks throughout the entire lifecycle of data processing: from collection and storage to analysis, sharing, and deletion. Instead of treating privacy as a compliance box, PbD makes it a fundamental design objective. The key mechanism to achieve this is the Data Protection Impact Assessment (DPIA), a structured risk analysis that identifies what personal data are processed, for what purposes, and under which security and governance conditions. The DPIA evaluates potential threats (e.g., unauthorized access, misuse, or re-identification) by estimating their likelihood and impact, then defines mitigation strategies proportional to the risk.</p>
-<p>National and international guidelines from bodies like the AEPD, ENISA, and NIST emphasize that risk must be evaluated not only by technical factors but also by contextual ones, such as the sensitivity of the data, the vulnerability of the subjects (e.g., minors), and the intended data uses. Privacy by design, therefore, is both a technical and ethical framework: it seeks to preserve individuals’ autonomy and dignity by embedding privacy into the structure of information systems.</p>
-<p>PbD principles can be grouped into eight strategies:</p>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-4 docutils">
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-header docutils">
-<p class="sd-card-text">Minimize</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">Collect and retain only the data strictly necessary for the purpose.</p>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-header docutils">
-<p class="sd-card-text">Hide</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">Secure data through encryption and limit access to authorized parties.</p>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-header docutils">
-<p class="sd-card-text">Separate</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">Avoid unnecessary data linkage; process data in distributed or federated form when possible.</p>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-header docutils">
-<p class="sd-card-text">Aggregate</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">Work with the least granular data needed for a given analysis.</p>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-header docutils">
-<p class="sd-card-text">Inform</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">Ensure transparency about data use in clear, accessible language.</p>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-header docutils">
-<p class="sd-card-text">Control</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">Provide mechanisms for individuals to exercise their data rights.</p>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-header docutils">
-<p class="sd-card-text">Enforce</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">Align technical controls and organizational practices with privacy policies.</p>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-header docutils">
-<p class="sd-card-text">Demonstrate</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">Keep documentation and logs that show compliance and accountability.</p>
-</div>
-</div>
-</div>
-</div>
-<p>From these principles emerges the entire field of privacy engineering, which translates legal obligations into concrete technical mechanisms.</p>
-<section id="privacy-enhancing-techniques-pets">
-<h3>Privacy-Enhancing Techniques (PETs)<a class="headerlink" href="#privacy-enhancing-techniques-pets" title="Link to this heading">#</a></h3>
-<p>Privacy-Enhancing Techniques are technological enablers of privacy by design. They allow organizations to provide core digital functions such as authentication, communication, and data analysis, while revealing minimal information about users. Most PETs are rooted in cryptography, which ensures confidentiality, integrity, and accountability without compromising anonymity.</p>
-<p>Among these techniques, digital signatures guarantee authenticity but may expose identities. To address this, several privacy-preserving variants exist:</p>
-<ul class="simple">
-<li><p>Blind signatures enable a party to sign a message without reading it, allowing anonymous yet verifiable transactions (as in early e-cash and e-voting systems).</p></li>
-<li><p>Group signatures allow any member of a group to sign on behalf of all, ensuring anonymity within the group while enabling accountability through a trusted manager.</p></li>
-<li><p>Attribute-based signatures prove possession of a property (e.g., being over 18 or a licensed physician) without revealing identity.</p></li>
-<li><p>Zero-Knowledge Proofs (ZKPs) let someone prove that they know a secret or satisfy a condition without disclosing any details—key for authentication and blockchain privacy protocols.</p></li>
-</ul>
-<p>Beyond authentication, PETs also support anonymous credentials and pseudonymization, enabling continuity of interaction without persistent identification. In communication systems, mix networks, onion routing, and the Tor network protect metadata, hiding who communicates with whom. More advanced approaches, like homomorphic encryption, secure multiparty computation (SMPC), and trusted execution environments (TEEs), allow computation on encrypted or distributed data without exposing its contents.</p>
-</section>
-<section id="protecting-structured-data-from-tables-to-queries">
-<h3>Protecting Structured Data: From Tables to Queries<a class="headerlink" href="#protecting-structured-data-from-tables-to-queries" title="Link to this heading">#</a></h3>
-<p>Structured data, such as that collected in surveys or administrative databases, can often be transformed into tabular outputs for publication or analysis. Even aggregated tables, however, can leak sensitive information if small groups or unique combinations of attributes are disclosed. To mitigate this, statistical disclosure control (SDC) techniques modify or withhold risky cells.</p>
-<p>Common SDC methods include:</p>
-<ul class="simple">
-<li><p>Cell suppression, where small or sensitive counts are omitted, often with complementary suppression to prevent deduction from totals.</p></li>
-<li><p>Controlled rounding or adjustment, which slightly modifies numerical values to obscure exact counts while preserving overall consistency.</p></li>
-<li><p>Interval reporting, which replaces exact values with ranges (e.g., “between 3 and 7 cases”).</p></li>
-<li><p>Noise addition, which introduces random perturbations calibrated to protect individual contributions.</p></li>
-</ul>
-<p>The objective is to balance disclosure risk, i.e., the probability that an individual can be inferred, with information loss. Tabular data protection demonstrates that even aggregate statistics require careful anonymization to maintain confidentiality.</p>
-<p>When users can query data directly, as in queryable databases, new risks arise. Repeated or overlapping queries can reconstruct individual information. To prevent this, systems employ:</p>
-<p>Query restriction, refusing queries that affect too few records.</p>
-<p>Query camouflage, returning generalized intervals instead of precise numbers.</p>
-<p>Query perturbation, adding noise to query results.</p>
-<p>The last approach leads to differential privacy (DP)—a formal framework ensuring that the inclusion or exclusion of any single individual’s data has negligible impact on the output. DP quantifies privacy through a parameter ε (epsilon): smaller ε means stronger protection but greater noise. Differential privacy has become a global standard, applied in government censuses and major technology platforms. Its conceptual ancestor, randomized response, introduced in the 1960s, uses randomness in survey answers to protect individuals while allowing valid statistical estimates—an intuitive early form of privacy-preserving data collection.</p>
-<ol class="arabic simple" start="4">
-<li><p>Microdata Anonymization</p></li>
-</ol>
-<p>When individual-level data must be shared for research or statistical purposes, microdata anonymization transforms quasi-identifiers to prevent re-identification. The foundational model, k-anonymity, ensures that each record is indistinguishable from at least k–1 others. Extensions like l-diversity and t-closeness strengthen protection by maintaining diversity and distributional similarity in sensitive attributes, thus limiting attribute disclosure.</p>
-<p>Anonymization methods can be:</p>
-<p>Non-perturbative, preserving data correctness but reducing precision through generalization and suppression.</p>
-<p>Perturbative, introducing controlled randomness (e.g., data swapping, noise addition, or synthetic data generation).</p>
-<p>Risk–utility analysis guides the process: increasing privacy (higher k or tighter t) usually decreases analytical value, and the optimal balance depends on the use context. Microdata anonymization remains essential in health, social, and economic research, bridging classical statistical methods and modern privacy frameworks like differential privacy.</p>
-<ol class="arabic simple" start="5">
-<li><p>Privacy in Unstructured Data</p></li>
-</ol>
-<p>Unstructured data—images, text, video, location traces, genomic sequences—poses unique challenges because identifiers are embedded in complex content rather than explicit fields.</p>
-<p>For images, privacy risks arise from both content (faces, objects, backgrounds) and metadata (timestamps, GPS, device signatures). Common protections include blurring, pixelation, and masking, complemented by metadata cleaning. Newer methods use adversarial perturbations that fool face-recognition systems without perceptibly altering the image. In medicine, anonymization focuses on DICOM metadata removal and obscuring embedded text rather than modifying image content.</p>
-<p>For textual data, privacy-enhancing NLP tools automatically detect and mask names, dates, and other sensitive terms using Named Entity Recognition (NER). Redaction can be performed by deletion or generalization; however, excessive sanitization may compromise semantic meaning. Synthetic text generation using large language models can provide an alternative by rewriting sensitive passages without reproducing original identifiers.</p>
-<p>Location and genomic data pose especially high re-identification risks, as they are inherently unique. Location privacy is achieved through spatial and temporal generalization or the addition of noise, while genetic data typically relies on controlled access rather than anonymization, since true de-identification is infeasible.</p>
-<p>Unstructured data anonymization thus combines content editing, metadata sanitization, and increasingly AI-assisted generation to balance privacy and utility in multimedia and textual information.</p>
-<ol class="arabic simple" start="6">
-<li><p>Privacy in Machine Learning</p></li>
-</ol>
-<p>Machine learning systems amplify privacy challenges by processing vast, diverse datasets to extract predictive patterns. These models can unintentionally memorize or reveal sensitive data, creating new categories of attacks:</p>
-<p>Membership inference attacks, which determine whether a given record was part of the training set.</p>
-<p>Attribute inference, which deduces hidden features about individuals.</p>
-<p>Model inversion and reconstruction, which regenerate approximate training examples.</p>
-<p>Data poisoning, where malicious inputs alter the model or cause targeted leaks.</p>
-<p>Mitigations span multiple layers:</p>
-<p>Differentially Private Stochastic Gradient Descent (DP-SGD) injects noise during training to guarantee that model parameters reveal little about any single data point.</p>
-<p>Federated learning keeps data local and aggregates updates across devices, often combined with secure aggregation and DP to prevent server-side inference.</p>
-<p>Cryptographic computation (SMPC, homomorphic encryption) enables joint training or inference across institutions without sharing raw data.</p>
-<p>Regularization and access control reduce overfitting and limit adversarial probing.</p>
-<p>These approaches operationalize privacy by design in AI: models are trained and deployed under quantifiable privacy constraints rather than relying on post hoc anonymization.</p>
-<ol class="arabic simple" start="7">
-<li><p>Machine Unlearning and the Right to Be Forgotten</p></li>
-</ol>
-<p>Privacy protection does not end when training concludes. Under the GDPR’s right to erasure, individuals may request that their data—and its influence—be removed from systems. Machine unlearning addresses this requirement by designing models capable of “forgetting” specific training samples efficiently, without full retraining.</p>
-<p>Unlearning methods include:</p>
-<p>Selective retraining, recomputing only affected components (e.g., trees in ensembles).</p>
-<p>Influence-based rollback, estimating and reversing each record’s contribution to model parameters.</p>
-<p>Gradient ascent unlearning, which counteracts the learned effect of deleted data.</p>
-<p>Partitioned or modular training, designing models that can forget data partitions by design.</p>
-<p>Certified unlearning frameworks aim to provide verifiable guarantees that a model behaves as if specific data were never used, bridging AI practice with legal accountability. This capability embodies the ultimate stage of privacy by design—systems that can both learn and forget responsibly.</p>
-<ol class="arabic simple" start="8">
-<li><p>Conclusion: The Continuum of Privacy by Design</p></li>
-</ol>
-<p>Across these domains—structured, unstructured, and machine-learned data—the core challenge remains constant: balancing information utility with individual privacy. From risk assessment and anonymization to differential privacy and unlearning, each technique represents a step along a continuum from prevention to accountability.</p>
-<p>Privacy by design is thus not a single technology but an ecosystem of principles, methods, and tools. It integrates cryptography, statistics, and artificial intelligence into a coherent discipline: privacy engineering. As data-driven systems grow more pervasive and autonomous, this discipline ensures that technological innovation remains aligned with ethical responsibility and human dignity.</p>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -636,9 +486,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-enhancing-techniques-pets">Privacy-Enhancing Techniques (PETs)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protecting-structured-data-from-tables-to-queries">Protecting Structured Data: From Tables to Queries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-book">About the book</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
 </ul>
 </li>
 </ul>
