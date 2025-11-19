@@ -1,8 +1,5 @@
 # Privacy engineering course
 
-```{tableofcontents}
-```
-
 ## Introduction
 
 Modern data processing systems increasingly rely on vast, heterogeneous datasets that can reveal intimate details about individuals’ behavior, preferences, and identities. The General Data Protection Regulation (GDPR) established a new paradigm for safeguarding personal information: data protection by design and by default. This principle requires that privacy considerations be integrated into system architecture and decision-making from the very beginning, not added later as a corrective measure.
