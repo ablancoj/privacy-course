@@ -6,9 +6,6 @@ root: intro
 options:
   numbered: true
 chapters:
-#- file: markdown
-#- file: notebooks
-#- file: markdown-notebooks
 - file: intro-gdpr 
 - file: privacy-by-design
 - file: pets

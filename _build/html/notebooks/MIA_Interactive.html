@@ -182,20 +182,19 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../intro-gdpr.html">1. Foundations of Privacy and Data Protection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../privacy-by-design.html">2. Privacy by Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pets.html">3. Privacy enhancing techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pets.html">3. Privacy-Enhancing Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../databases.html">4. Privacy in databases</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../databases.html">5. Privacy in databases</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../unstructured.html">7. Privacy in unstructured data</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../privacy-ml.html">8. Privacy in machine learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="LipariSC_MIA.html">8.9. Salem paper attacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="FederatedLearning-sklearn.html">8.10. Federated Learning and Label Flipping attacks</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../unstructured.html">6. Privacy in unstructured data</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../privacy-ml.html">7. Privacy in machine learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="LipariSC_MIA.html">7.9. Salem paper attacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FederatedLearning-sklearn.html">7.10. Federated Learning and Label Flipping attacks</a></li>
 
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="unlearning-CIFAR10.html">8.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="unlearning-CIFAR10.html">7.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
 
 
 
@@ -489,7 +488,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0c5ec1471eeefbd573f70929bba6cb2b4bcf5e12ee423f98e2aa35354841701c.png" src="../_images/0c5ec1471eeefbd573f70929bba6cb2b4bcf5e12ee423f98e2aa35354841701c.png" />
+<img alt="../_images/be52082372344cd159869a933ea2900ec226f4abca806eeeb94c4f669450ff14.png" src="../_images/be52082372344cd159869a933ea2900ec226f4abca806eeeb94c4f669450ff14.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -505,7 +504,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/50380bcaadd7a62c43d8f1043ef50244f65d7fcc23dd1e47012ecbafa83fc3c2.png" src="../_images/50380bcaadd7a62c43d8f1043ef50244f65d7fcc23dd1e47012ecbafa83fc3c2.png" />
+<img alt="../_images/3406262989f864673609522bfe5338b7e390ab0e770e45d6dfb84188de88bb96.png" src="../_images/3406262989f864673609522bfe5338b7e390ab0e770e45d6dfb84188de88bb96.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -943,12 +942,12 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.99      0.97      0.98       994
-           1       0.98      0.99      0.98      1006
+           0       0.90      0.97      0.93      1001
+           1       0.96      0.89      0.93       999
 
-    accuracy                           0.98      2000
-   macro avg       0.98      0.98      0.98      2000
-weighted avg       0.98      0.98      0.98      2000
+    accuracy                           0.93      2000
+   macro avg       0.93      0.93      0.93      2000
+weighted avg       0.93      0.93      0.93      2000
 </pre></div>
 </div>
 </div>
@@ -964,7 +963,7 @@ weighted avg       0.98      0.98      0.98      2000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6a2f567d712d8d3b1ebb880bb5adb898b8d0eb3048a64a39821876163c610f97.png" src="../_images/6a2f567d712d8d3b1ebb880bb5adb898b8d0eb3048a64a39821876163c610f97.png" />
+<img alt="../_images/999a698c780052c6c7b68a43a0ccb943c665094a15b86a951915a10d97fbf860.png" src="../_images/999a698c780052c6c7b68a43a0ccb943c665094a15b86a951915a10d97fbf860.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1035,18 +1034,18 @@ weighted avg       0.98      0.98      0.98      2000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 0 0 ... 0 0 0]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1 1 1 ... 0 1 1]
               precision    recall  f1-score   support
 
-           0       0.50      0.98      0.66      1000
-           1       0.47      0.02      0.03      1000
+           0       0.49      0.17      0.25      1000
+           1       0.50      0.83      0.62      1000
 
     accuracy                           0.50      2000
-   macro avg       0.49      0.50      0.35      2000
-weighted avg       0.49      0.50      0.35      2000
+   macro avg       0.49      0.50      0.43      2000
+weighted avg       0.49      0.50      0.43      2000
 </pre></div>
 </div>
-<img alt="../_images/b7d0ba7df02f455da2cf41a25f163582dbe06751da503d2c633ab969bd622410.png" src="../_images/b7d0ba7df02f455da2cf41a25f163582dbe06751da503d2c633ab969bd622410.png" />
+<img alt="../_images/b2d130b761bbba2e3cc291cae89c9c658a9d0f218b01b854e14f2f89e3dacebc.png" src="../_images/b2d130b761bbba2e3cc291cae89c9c658a9d0f218b01b854e14f2f89e3dacebc.png" />
 </div>
 </div>
 <div class="cell docutils container">

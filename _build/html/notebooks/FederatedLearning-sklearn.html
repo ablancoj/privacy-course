@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>8.10. Federated Learning and Label Flipping attacks &#8212; Privacy Engineering</title>
+    <title>7.10. Federated Learning and Label Flipping attacks &#8212; Privacy Engineering</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/FederatedLearning-sklearn';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit" href="unlearning-CIFAR10.html" />
-    <link rel="prev" title="8.9. Salem paper attacks" href="LipariSC_MIA.html" />
+    <link rel="next" title="7.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit" href="unlearning-CIFAR10.html" />
+    <link rel="prev" title="7.9. Salem paper attacks" href="LipariSC_MIA.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,20 +182,19 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../intro-gdpr.html">1. Foundations of Privacy and Data Protection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../privacy-by-design.html">2. Privacy by Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pets.html">3. Privacy enhancing techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pets.html">3. Privacy-Enhancing Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../databases.html">4. Privacy in databases</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../databases.html">5. Privacy in databases</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../unstructured.html">7. Privacy in unstructured data</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../privacy-ml.html">8. Privacy in machine learning</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="LipariSC_MIA.html">8.9. Salem paper attacks</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.10. Federated Learning and Label Flipping attacks</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../unstructured.html">6. Privacy in unstructured data</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../privacy-ml.html">7. Privacy in machine learning</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="LipariSC_MIA.html">7.9. Salem paper attacks</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.10. Federated Learning and Label Flipping attacks</a></li>
 
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="unlearning-CIFAR10.html">8.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="unlearning-CIFAR10.html">7.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
 
 
 
@@ -427,14 +426,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">8.10. Federated Learning and Label Flipping attacks</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-a-centralized-model">8.11. Testing a centralized model</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#auxiliary-methods-for-federated-learning">8.12. Auxiliary methods for federated learning</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#auxiliary-methods-for-attackers">8.13. Auxiliary methods for attackers</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#local-training">8.14. Local training</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fl-testbed">8.15. FL Testbed</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-parameters">8.15.1. Test parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-execution">8.15.2. Test execution</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7.10. Federated Learning and Label Flipping attacks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-a-centralized-model">7.11. Testing a centralized model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#auxiliary-methods-for-federated-learning">7.12. Auxiliary methods for federated learning</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#auxiliary-methods-for-attackers">7.13. Auxiliary methods for attackers</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#local-training">7.14. Local training</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fl-testbed">7.15. FL Testbed</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-parameters">7.15.1. Test parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-execution">7.15.2. Test execution</a></li>
 </ul>
 </li>
 </ul>
@@ -450,7 +449,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="federated-learning-and-label-flipping-attacks">
-<h1><span class="section-number">8.10. </span>Federated Learning and Label Flipping attacks<a class="headerlink" href="#federated-learning-and-label-flipping-attacks" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">7.10. </span>Federated Learning and Label Flipping attacks<a class="headerlink" href="#federated-learning-and-label-flipping-attacks" title="Link to this heading">#</a></h1>
 <p>In this notebook we train a machine learning model for MNIST classification.
 We then train the same model in a federated learning setting.
 In this setting, we test label flipping attacks and some defence mechanisms.</p>
@@ -573,7 +572,7 @@ In this setting, we test label flipping attacks and some defence mechanisms.</p>
 </div>
 </section>
 <section id="testing-a-centralized-model">
-<h1><span class="section-number">8.11. </span>Testing a centralized model<a class="headerlink" href="#testing-a-centralized-model" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">7.11. </span>Testing a centralized model<a class="headerlink" href="#testing-a-centralized-model" title="Link to this heading">#</a></h1>
 <p>We train a Scikit-learn multilayer perceptron to stablish a baseline
 accuracy for our following experiments.</p>
 <div class="cell docutils container">
@@ -635,7 +634,7 @@ accuracy for our following experiments.</p>
 </div>
 </section>
 <section id="auxiliary-methods-for-federated-learning">
-<h1><span class="section-number">8.12. </span>Auxiliary methods for federated learning<a class="headerlink" href="#auxiliary-methods-for-federated-learning" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">7.12. </span>Auxiliary methods for federated learning<a class="headerlink" href="#auxiliary-methods-for-federated-learning" title="Link to this heading">#</a></h1>
 <p>The following functions are used to:</p>
 <ul class="simple">
 <li><p>get and set the NN’s weights and biases,</p></li>
@@ -725,7 +724,7 @@ accuracy for our following experiments.</p>
 </div>
 </section>
 <section id="auxiliary-methods-for-attackers">
-<h1><span class="section-number">8.13. </span>Auxiliary methods for attackers<a class="headerlink" href="#auxiliary-methods-for-attackers" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">7.13. </span>Auxiliary methods for attackers<a class="headerlink" href="#auxiliary-methods-for-attackers" title="Link to this heading">#</a></h1>
 <p>The following to functions are used to:</p>
 <ul class="simple">
 <li><p>flip the labels from an origin class to a target class, and</p></li>
@@ -750,7 +749,7 @@ accuracy for our following experiments.</p>
 </div>
 </section>
 <section id="local-training">
-<h1><span class="section-number">8.14. </span>Local training<a class="headerlink" href="#local-training" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">7.14. </span>Local training<a class="headerlink" href="#local-training" title="Link to this heading">#</a></h1>
 <p>The following function implements the local training at the clients’ side. Clients can be either good or malicious. Good peers will just run a few local training steps and return the updates. Malicious clients will also poison their data before training, and optionally boost their updates before sending them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -793,9 +792,9 @@ accuracy for our following experiments.</p>
 </div>
 </section>
 <section id="fl-testbed">
-<h1><span class="section-number">8.15. </span>FL Testbed<a class="headerlink" href="#fl-testbed" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">7.15. </span>FL Testbed<a class="headerlink" href="#fl-testbed" title="Link to this heading">#</a></h1>
 <section id="test-parameters">
-<h2><span class="section-number">8.15.1. </span>Test parameters<a class="headerlink" href="#test-parameters" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.15.1. </span>Test parameters<a class="headerlink" href="#test-parameters" title="Link to this heading">#</a></h2>
 <p>The following code contains the configuration of the FL tests.</p>
 <p>The configuration includes:</p>
 <ul class="simple">
@@ -883,7 +882,7 @@ accuracy for our following experiments.</p>
 </div>
 </section>
 <section id="test-execution">
-<h2><span class="section-number">8.15.2. </span>Test execution<a class="headerlink" href="#test-execution" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.15.2. </span>Test execution<a class="headerlink" href="#test-execution" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Global model initialization</p></li>
 <li><p>Peer initialization</p></li>
@@ -1187,7 +1186,7 @@ Round 10.
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8.9. </span>Salem paper attacks</p>
+        <p class="prev-next-title"><span class="section-number">7.9. </span>Salem paper attacks</p>
       </div>
     </a>
     <a class="right-next"
@@ -1195,7 +1194,7 @@ Round 10.
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8.16. </span>NeurIPS 2023 Machine Unlearning Challenge Starting Kit</p>
+        <p class="prev-next-title"><span class="section-number">7.16. </span>NeurIPS 2023 Machine Unlearning Challenge Starting Kit</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1215,14 +1214,14 @@ Round 10.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">8.10. Federated Learning and Label Flipping attacks</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-a-centralized-model">8.11. Testing a centralized model</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#auxiliary-methods-for-federated-learning">8.12. Auxiliary methods for federated learning</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#auxiliary-methods-for-attackers">8.13. Auxiliary methods for attackers</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#local-training">8.14. Local training</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fl-testbed">8.15. FL Testbed</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-parameters">8.15.1. Test parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-execution">8.15.2. Test execution</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">7.10. Federated Learning and Label Flipping attacks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-a-centralized-model">7.11. Testing a centralized model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#auxiliary-methods-for-federated-learning">7.12. Auxiliary methods for federated learning</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#auxiliary-methods-for-attackers">7.13. Auxiliary methods for attackers</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#local-training">7.14. Local training</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fl-testbed">7.15. FL Testbed</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-parameters">7.15.1. Test parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-execution">7.15.2. Test execution</a></li>
 </ul>
 </li>
 </ul>

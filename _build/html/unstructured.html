@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7. Privacy in unstructured data &#8212; Privacy Engineering</title>
+    <title>6. Privacy in unstructured data &#8212; Privacy Engineering</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'unstructured';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="8. Privacy in machine learning" href="privacy-ml.html" />
-    <link rel="prev" title="6.9. Anonymization examples" href="notebooks/test_anonymization.html" />
+    <link rel="next" title="7. Privacy in machine learning" href="privacy-ml.html" />
+    <link rel="prev" title="5.9. Anonymization examples" href="notebooks/test_anonymization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,20 +182,19 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro-gdpr.html">1. Foundations of Privacy and Data Protection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="privacy-by-design.html">2. Privacy by Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pets.html">3. Privacy enhancing techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pets.html">3. Privacy-Enhancing Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">4. Privacy in databases</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="databases.html">5. Privacy in databases</a></li>
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Privacy in unstructured data</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="privacy-ml.html">8. Privacy in machine learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/LipariSC_MIA.html">8.9. Salem paper attacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html">8.10. Federated Learning and Label Flipping attacks</a></li>
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Privacy in unstructured data</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="privacy-ml.html">7. Privacy in machine learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/LipariSC_MIA.html">7.9. Salem paper attacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html">7.10. Federated Learning and Label Flipping attacks</a></li>
 
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="notebooks/unlearning-CIFAR10.html">8.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="notebooks/unlearning-CIFAR10.html">7.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
 
 
 
@@ -396,17 +395,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-of-image-data">7.1. Privacy of image data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medical-images-dicom">7.1.1. Medical images (DICOM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-of-image-data">6.1. Privacy of image data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medical-images-dicom">6.1.1. Medical images (DICOM)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-of-text-data">7.2. Privacy of text data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#redaction-and-sanitisation-of-documents">7.2.1. Redaction and Sanitisation of Documents</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-entity-recognition">7.2.2. Named entity recognition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-of-text-data">6.2. Privacy of text data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#redaction-and-sanitisation-of-documents">6.2.1. Redaction and Sanitisation of Documents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-entity-recognition">6.2.2. Named entity recognition</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-of-location-data">7.3. Privacy of location data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-of-genetic-data">7.4. Privacy of genetic data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-of-location-data">6.3. Privacy of location data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-of-genetic-data">6.4. Privacy of genetic data</a></li>
 </ul>
             </nav>
         </div>
@@ -419,13 +418,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="privacy-in-unstructured-data">
-<h1><span class="section-number">7. </span>Privacy in unstructured data<a class="headerlink" href="#privacy-in-unstructured-data" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">6. </span>Privacy in unstructured data<a class="headerlink" href="#privacy-in-unstructured-data" title="Link to this heading">#</a></h1>
 <p>After several sessions focused on structured data—organized in tables with defined attributes—this lecture shifted attention to unstructured data, which includes information that does not conform to the row–column structure of databases. This encompasses a wide variety of content types: images, text, audio, video, location traces, and even genetic sequences. Such data is increasingly central to modern analytics and artificial intelligence but presents distinct privacy challenges because identifiers and sensitive attributes are not confined to specific fields or formats. Instead, personally identifiable information can appear in unpredictable ways: in pixels, words, metadata, or inferred patterns. The goal of privacy protection in unstructured data is therefore to prevent re-identification or attribute disclosure while maintaining the data’s usefulness for analysis, training, or sharing.</p>
 <p>The Nature of Unstructured Data and Its Risks</p>
 <p>Unlike tabular microdata, where the boundaries between attributes are explicit, unstructured data embeds information across multiple dimensions. A photograph, for example, may reveal not only the identity of the person it depicts but also contextual clues such as location, activity, or social connections. A text document can contain names, addresses, and descriptions of private situations scattered throughout natural language. Location trajectories can expose personal habits, routines, and even religious or medical visits. Genomic data uniquely identifies individuals and, by extension, their biological relatives.</p>
 <p>The primary privacy threats remain the same—re-identification (linking a piece of data to an individual) and attribute disclosure (inferring sensitive facts about that individual)—but the mechanisms of these threats differ. In unstructured data, identifiers can be hidden in metadata, embedded in content, or inferred by machine learning models. For instance, digital photographs contain EXIF metadata such as timestamp, GPS coordinates, device brand, and camera model. Even if this metadata is stripped, image content itself can betray information: landmarks or building facades can reveal where the photo was taken, and unique sensor imperfections (like dead pixels) can identify the specific camera used—techniques exploited in forensic investigations and by intelligence agencies.</p>
 <section id="privacy-of-image-data">
-<h2><span class="section-number">7.1. </span>Privacy of image data<a class="headerlink" href="#privacy-of-image-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.1. </span>Privacy of image data<a class="headerlink" href="#privacy-of-image-data" title="Link to this heading">#</a></h2>
 <p>Image Data and Visual Anonymization</p>
 <p>Image data is one of the most privacy-sensitive forms of unstructured information, particularly when it contains human faces or other identifiable features. A person’s face is a direct biometric identifier, meaning that any image containing it can be linked to that individual with high confidence, especially given the sophistication of modern face recognition systems.</p>
 <p>The traditional approach to protecting image privacy is masking or obfuscation—typically through blurring, pixelation, or blackening regions of an image that reveal identity, such as faces, license plates, or other sensitive objects. Backgrounds can also be blurred to prevent location inference. However, such techniques are increasingly insufficient. Deep learning–based recognition models have become capable of identifying individuals even from heavily blurred or low-resolution images, or from partial views such as silhouettes or unique clothing patterns.</p>
@@ -457,7 +456,7 @@ Generative models, such as GANs or diffusion models, can generate whole or parti
 <p>In the case of medical images, while it is possible to generate synthetic data, it is not always desirable.
 Additionally, medical images, such as X-Rays, are not really disclosive, except for any metadata shipped along the image data.</p>
 <section id="medical-images-dicom">
-<h3><span class="section-number">7.1.1. </span>Medical images (DICOM)<a class="headerlink" href="#medical-images-dicom" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.1.1. </span>Medical images (DICOM)<a class="headerlink" href="#medical-images-dicom" title="Link to this heading">#</a></h3>
 <p>DICOM (Digital Imaging and Communications in Medicine) is a standard for handling, storing, printing, and transmitting information in medical imaging.
 It includes a file format definition and a network communications protocol.
 The communication protocol is an application protocol that uses TCP/IP to communicate between systems.
@@ -487,9 +486,9 @@ Sante DICOM Editor, <a class="reference external" href="https://www.santesoft.co
 </section>
 </section>
 <section id="privacy-of-text-data">
-<h2><span class="section-number">7.2. </span>Privacy of text data<a class="headerlink" href="#privacy-of-text-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.2. </span>Privacy of text data<a class="headerlink" href="#privacy-of-text-data" title="Link to this heading">#</a></h2>
 <section id="redaction-and-sanitisation-of-documents">
-<h3><span class="section-number">7.2.1. </span>Redaction and Sanitisation of Documents<a class="headerlink" href="#redaction-and-sanitisation-of-documents" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.2.1. </span>Redaction and Sanitisation of Documents<a class="headerlink" href="#redaction-and-sanitisation-of-documents" title="Link to this heading">#</a></h3>
 <p>Document redaction consists of removing or blacking out sensitive terms in plain
 textual documents. Alternatively, when sensitive terms are replaced (instead of
 removed) by generalisations (e.g. AIDS → disease), the process is more generically
@@ -547,7 +546,7 @@ Statistical approaches subsequently took over. In statistical NER systems, model
 With the development of deep learning neural networks, recurrent neural networks (RNN) and extensions of them such as long short-term memory (LSTM), and now Transformers, surpassed the accuracy of statistical NER systems.</p>
 </section>
 <section id="named-entity-recognition">
-<h3><span class="section-number">7.2.2. </span>Named entity recognition<a class="headerlink" href="#named-entity-recognition" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.2.2. </span>Named entity recognition<a class="headerlink" href="#named-entity-recognition" title="Link to this heading">#</a></h3>
 <p><img alt="alt text" src="_images/ner.png" /></p>
 <p>State of the art is based on transformers like BERT and ELMo.
 These are pre-rained on large amounts of data and characterize words according to their context.
@@ -560,7 +559,7 @@ Their method limits the semantic loss of the document by replacing disclosive te
 </section>
 </section>
 <section id="privacy-of-location-data">
-<h2><span class="section-number">7.3. </span>Privacy of location data<a class="headerlink" href="#privacy-of-location-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.3. </span>Privacy of location data<a class="headerlink" href="#privacy-of-location-data" title="Link to this heading">#</a></h2>
 <p>Location, Trajectory, and Genetic Data</p>
 <p>Although discussed briefly, location and movement data are particularly sensitive because they reveal patterns of behavior. Repeated location points or trajectories can re-identify individuals even when names are removed; for example, a few geolocation points often suffice to identify a person’s home and workplace. Techniques to anonymize location data include spatial generalization (reducing coordinate precision), temporal aggregation (grouping events into time intervals), and random perturbation (adding noise to coordinates).</p>
 <p>Genetic data, while technically structured, behaves like unstructured data in terms of privacy because it uniquely identifies individuals and their relatives. True anonymization of genomic data is virtually impossible, as even small segments of DNA can act as identifiers. Thus, privacy protection in genomics often relies more on controlled access and strict governance than on technical anonymization.</p>
@@ -575,7 +574,7 @@ Knowing only a few locations may allow attackers to re-identify persons and to 
 <p><img alt="alt text" src="_images/location_protection.png" /></p>
 </section>
 <section id="privacy-of-genetic-data">
-<h2><span class="section-number">7.4. </span>Privacy of genetic data<a class="headerlink" href="#privacy-of-genetic-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.4. </span>Privacy of genetic data<a class="headerlink" href="#privacy-of-genetic-data" title="Link to this heading">#</a></h2>
 <p>Genomic data is collected from biological samples in the health-care system and often shared with research organizations.
 Other sources of genetic data come from direct-to-consumer tests (e.g., <a class="reference external" href="http://MyHeritage.com">MyHeritage.com</a>) or from law enforcement or forensic investigations.</p>
 <p>SNPs (single nucleotide polymorphism) are locations within the human genome where the type of nucleotide present (A,T,G, or C) can differ between individuals.
@@ -630,7 +629,7 @@ Reconstruction and familial search. Due to the similarity of relatives’ genomi
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6.9. </span>Anonymization examples</p>
+        <p class="prev-next-title"><span class="section-number">5.9. </span>Anonymization examples</p>
       </div>
     </a>
     <a class="right-next"
@@ -638,7 +637,7 @@ Reconstruction and familial search. Due to the similarity of relatives’ genomi
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Privacy in machine learning</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Privacy in machine learning</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -658,17 +657,17 @@ Reconstruction and familial search. Due to the similarity of relatives’ genomi
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-of-image-data">7.1. Privacy of image data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medical-images-dicom">7.1.1. Medical images (DICOM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-of-image-data">6.1. Privacy of image data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medical-images-dicom">6.1.1. Medical images (DICOM)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-of-text-data">7.2. Privacy of text data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#redaction-and-sanitisation-of-documents">7.2.1. Redaction and Sanitisation of Documents</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-entity-recognition">7.2.2. Named entity recognition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-of-text-data">6.2. Privacy of text data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#redaction-and-sanitisation-of-documents">6.2.1. Redaction and Sanitisation of Documents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-entity-recognition">6.2.2. Named entity recognition</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-of-location-data">7.3. Privacy of location data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-of-genetic-data">7.4. Privacy of genetic data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-of-location-data">6.3. Privacy of location data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-of-genetic-data">6.4. Privacy of genetic data</a></li>
 </ul>
   </nav></div>
 
