@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7. Privacy in machine learning &#8212; Privacy Engineering</title>
+    <title>6. Privacy in machine learning &#8212; Privacy Engineering</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'privacy-ml';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="7.9. Salem paper attacks" href="notebooks/LipariSC_MIA.html" />
-    <link rel="prev" title="6. Privacy in unstructured data" href="unstructured.html" />
+    <link rel="next" title="6.9. Salem paper attacks" href="notebooks/LipariSC_MIA.html" />
+    <link rel="prev" title="5. Privacy in unstructured data" href="unstructured.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,18 +185,21 @@
 <li class="toctree-l1"><a class="reference internal" href="intro-gdpr.html">1. Foundations of Privacy and Data Protection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="privacy-by-design.html">2. Privacy by Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pets.html">3. Privacy-Enhancing Techniques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="databases.html">4. Privacy in databases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="databases.html">4. Privacy in databases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="anonymization-library.html">4.15. Anonymization library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/test_anonymization.html">4.16. Anonymization examples</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="unstructured.html">5. Privacy in unstructured data</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">6. Privacy in machine learning</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/LipariSC_MIA.html">6.9. Salem paper attacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html">6.10. Federated Learning and Label Flipping attacks</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="unstructured.html">6. Privacy in unstructured data</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">7. Privacy in machine learning</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/LipariSC_MIA.html">7.9. Salem paper attacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html">7.10. Federated Learning and Label Flipping attacks</a></li>
 
 
 
 
-
-<li class="toctree-l2"><a class="reference internal" href="notebooks/unlearning-CIFAR10.html">7.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/unlearning-CIFAR10.html">6.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
 
 
 
@@ -397,20 +400,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-pipeline">7.1. Machine learning pipeline</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threats">7.2. Threats</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#threat-model">7.2.1. Threat model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-pipeline">6.1. Machine learning pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threats">6.2. Threats</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#threat-model">6.2.1. Threat model</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mia">7.3. MIA</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-overfitting">7.3.1. Connection to overfitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mia">6.3. MIA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-overfitting">6.3.1. Connection to overfitting</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attribute-inference-attacks">7.4. Attribute inference attacks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruction-attacks">7.5. Reconstruction attacks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximate-differential-privacy">7.6. Approximate differential privacy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-unlearning">7.7. Machine unlearning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#federated-learning">7.8. Federated learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attribute-inference-attacks">6.4. Attribute inference attacks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruction-attacks">6.5. Reconstruction attacks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximate-differential-privacy">6.6. Approximate differential privacy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-unlearning">6.7. Machine unlearning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#federated-learning">6.8. Federated learning</a></li>
 </ul>
             </nav>
         </div>
@@ -423,7 +426,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="privacy-in-machine-learning">
-<h1><span class="section-number">7. </span>Privacy in machine learning<a class="headerlink" href="#privacy-in-machine-learning" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">6. </span>Privacy in machine learning<a class="headerlink" href="#privacy-in-machine-learning" title="Link to this heading">#</a></h1>
 <p>Machine learning (ML) has become a cornerstone of modern data processing, powering applications from recommendation systems and medical diagnostics to language models and autonomous vehicles. However, as these systems rely heavily on large volumes of data—often including sensitive personal information—they introduce new vectors of privacy risk. Privacy in machine learning concerns not only the protection of data during training but also the potential leakage of private information through the trained model itself. This session explored the privacy threats across the machine learning lifecycle and the technical approaches developed to mitigate them.</p>
 <p>Privacy Risks in the ML Lifecycle</p>
 <p>The privacy risks in machine learning can be grouped according to the stages of the model lifecycle:</p>
@@ -487,11 +490,11 @@ Another promising direction involves designing models that are unlearning-friend
 <p>Machine unlearning represents the next step in the evolution of privacy-preserving machine learning — complementing preventive techniques like differential privacy and federated learning with corrective ones that restore privacy retroactively. In an ideal privacy-aware ecosystem, users could not only trust that their data is protected during training but also exercise ongoing control: contributing, modifying, or removing data at will, with immediate effect on deployed models.</p>
 <p>Conceptually, unlearning closes the loop between data protection principles (such as purpose limitation, minimization, and the right to erasure) and technical machine learning practices. It ensures that models remain compliant, ethical, and adaptive to user control throughout their lifecycle. Although efficient unlearning is still an open research challenge—particularly for large deep networks and generative models—it embodies the ultimate vision of privacy by design: systems that can both learn and forget responsibly.</p>
 <section id="machine-learning-pipeline">
-<h2><span class="section-number">7.1. </span>Machine learning pipeline<a class="headerlink" href="#machine-learning-pipeline" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.1. </span>Machine learning pipeline<a class="headerlink" href="#machine-learning-pipeline" title="Link to this heading">#</a></h2>
 <p><img alt="alt text" src="_images/ml_pipeline.png" /></p>
 </section>
 <section id="threats">
-<h2><span class="section-number">7.2. </span>Threats<a class="headerlink" href="#threats" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.2. </span>Threats<a class="headerlink" href="#threats" title="Link to this heading">#</a></h2>
 <p>Several studies, such as Shokri et al. (2017), among many others, have shown that trained ML models may leak personal information from the data used to train them.</p>
 <ul class="simple">
 <li><p>Membership inference attacks</p></li>
@@ -504,7 +507,7 @@ Most classification models output the decisions’ confidence.
 Other models directly leak private information, such as kNN and SVMs, which include some (or all) training data as part of the model.
 DP techniques easily apply to differentiable model training (e.g., SGD).</p>
 <section id="threat-model">
-<h3><span class="section-number">7.2.1. </span>Threat model<a class="headerlink" href="#threat-model" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.2.1. </span>Threat model<a class="headerlink" href="#threat-model" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Type of access to the model</p>
 <ul>
@@ -527,7 +530,7 @@ DP techniques easily apply to differentiable model training (e.g., SGD).</p>
 </section>
 </section>
 <section id="mia">
-<h2><span class="section-number">7.3. </span>MIA<a class="headerlink" href="#mia" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.3. </span>MIA<a class="headerlink" href="#mia" title="Link to this heading">#</a></h2>
 <p>MIAs aim to determine whether a data point was present in the training data used to build a model.
 Given a point in the distribution and a trained model, the attack returns 1 bit of information.</p>
 <p><img alt="alt text" src="_images/mia.png" /></p>
@@ -551,7 +554,7 @@ Let <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> be an adve
 \[ Adv^M = \Pr[\mathcal{A}=0|b=0] - \Pr[\mathcal{A}=0|b=1]\]</div>
 <p>where <span class="math notranslate nohighlight">\(Adv^M\)</span> is shortcut for <span class="math notranslate nohighlight">\(Adv^M(\mathcal{A}, A, n, \mathcal{D})\)</span>.</p>
 <section id="connection-to-overfitting">
-<h3><span class="section-number">7.3.1. </span>Connection to overfitting<a class="headerlink" href="#connection-to-overfitting" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.3.1. </span>Connection to overfitting<a class="headerlink" href="#connection-to-overfitting" title="Link to this heading">#</a></h3>
 <p>Overfitting has been shown to predict attacker advantage (Yeom et al. 2018).
 In black-box attacks, prediction probabilities (for any classifier) or prediction loss are used to determine membership.
 Models, especially when overfit to the training data, display different behavior when encountered with previously seen data.</p>
@@ -562,21 +565,21 @@ Models, especially when overfit to the training data, display different behavior
 </section>
 </section>
 <section id="attribute-inference-attacks">
-<h2><span class="section-number">7.4. </span>Attribute inference attacks<a class="headerlink" href="#attribute-inference-attacks" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.4. </span>Attribute inference attacks<a class="headerlink" href="#attribute-inference-attacks" title="Link to this heading">#</a></h2>
 <p>In an attribute inference attack, the adversary uses a machine learning model and incomplete information about a data point to infer missing information.
 For example, the adversary is given partial information about an individual’s medical record and attempts to infer the individual’s genotype by using a model trained on similar medical records.
 Can be obtained from successful MIA.</p>
 <p><img alt="alt text" src="_images/aia.png" /></p>
 </section>
 <section id="reconstruction-attacks">
-<h2><span class="section-number">7.5. </span>Reconstruction attacks<a class="headerlink" href="#reconstruction-attacks" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.5. </span>Reconstruction attacks<a class="headerlink" href="#reconstruction-attacks" title="Link to this heading">#</a></h2>
 <p>Reconstruction or model inversion attacks attempt to build the whole training dataset from the information leaked by the trained model.
 Can also be obtained from MIAs.
 Often use GANs.</p>
 <p><img alt="alt text" src="_images/reconstruction.png" /></p>
 </section>
 <section id="approximate-differential-privacy">
-<h2><span class="section-number">7.6. </span>Approximate differential privacy<a class="headerlink" href="#approximate-differential-privacy" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.6. </span>Approximate differential privacy<a class="headerlink" href="#approximate-differential-privacy" title="Link to this heading">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\epsilon\)</span> be a positive real number and <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> be a randomized algorithm that takes a dataset as input. Let  <span class="math notranslate nohighlight">\(im \mathcal{A}\)</span> denote the image of <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>. The algorithm <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is said to provide <span class="math notranslate nohighlight">\((\epsilon,\delta)\)</span>-differential privacy if, for all datasets <span class="math notranslate nohighlight">\(D_1\)</span> and <span class="math notranslate nohighlight">\(D_2\)</span> that differ on a single element (i.e., the data of one person), and all subsets <span class="math notranslate nohighlight">\(S \subset im \mathcal{A}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\Pr[\mathcal{A}(D_1) \in S] \le e^{\epsilon}\Pr[\mathcal{A}(D_2) \in S]+\delta \]</div>
@@ -617,7 +620,7 @@ Often use GANs.</p>
 <img alt="alt text" src="_images/dpfy3.png" /></p>
 </section>
 <section id="machine-unlearning">
-<h2><span class="section-number">7.7. </span>Machine unlearning<a class="headerlink" href="#machine-unlearning" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.7. </span>Machine unlearning<a class="headerlink" href="#machine-unlearning" title="Link to this heading">#</a></h2>
 <p>An unlearning algorithm takes as input a pre-trained model and one or more samples from the train set to unlearn (the “forget set”).
 From the model, forget set, and retain set, the unlearning algorithm produces an updated model.
 An ideal unlearning algorithm produces a model that is indistinguishable from the model trained without the forget set.
@@ -625,7 +628,7 @@ MIA advantage used as a metric.</p>
 <p><img alt="alt text" src="_images/unlearning.png" /></p>
 </section>
 <section id="federated-learning">
-<h2><span class="section-number">7.8. </span>Federated learning<a class="headerlink" href="#federated-learning" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.8. </span>Federated learning<a class="headerlink" href="#federated-learning" title="Link to this heading">#</a></h2>
 <p>Federated learning (FL) is a machine learning setting where many clients (e.g., mobile devices or whole organizations) collaboratively train a model under the orchestration of a central server, while keeping the training data decentralized.
 FL embodies the principles of focused data collection, minimization, separation, and aggregation and can mitigate many of the systemic privacy risks and costs resulting from traditional, centralized machine learning and data science approaches.</p>
 <p><img alt="alt text" src="_images/fl.png" /></p>
@@ -680,7 +683,7 @@ Secure aggregation may prevent the model manager from protecting against securit
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Privacy in unstructured data</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Privacy in unstructured data</p>
       </div>
     </a>
     <a class="right-next"
@@ -688,7 +691,7 @@ Secure aggregation may prevent the model manager from protecting against securit
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7.9. </span>Salem paper attacks</p>
+        <p class="prev-next-title"><span class="section-number">6.9. </span>Salem paper attacks</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -708,20 +711,20 @@ Secure aggregation may prevent the model manager from protecting against securit
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-pipeline">7.1. Machine learning pipeline</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threats">7.2. Threats</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#threat-model">7.2.1. Threat model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-pipeline">6.1. Machine learning pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threats">6.2. Threats</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#threat-model">6.2.1. Threat model</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mia">7.3. MIA</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-overfitting">7.3.1. Connection to overfitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mia">6.3. MIA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-overfitting">6.3.1. Connection to overfitting</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attribute-inference-attacks">7.4. Attribute inference attacks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruction-attacks">7.5. Reconstruction attacks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximate-differential-privacy">7.6. Approximate differential privacy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-unlearning">7.7. Machine unlearning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#federated-learning">7.8. Federated learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attribute-inference-attacks">6.4. Attribute inference attacks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reconstruction-attacks">6.5. Reconstruction attacks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximate-differential-privacy">6.6. Approximate differential privacy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-unlearning">6.7. Machine unlearning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#federated-learning">6.8. Federated learning</a></li>
 </ul>
   </nav></div>
 

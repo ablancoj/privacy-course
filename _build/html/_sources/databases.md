@@ -1081,7 +1081,7 @@ search engines with fake queries.
 
 
 
-# Anonymization of Structured Databases  
+## (TEMP) Anonymization of Structured Databases  
 
 ## Introduction
 
@@ -1217,7 +1217,7 @@ One widely used mechanism for ensuring differential privacy is the Laplace mecha
 
 :::{admonition} The Laplace Mechanism
 The Laplace mechanism is a fundamental technique for achieving differential privacy. 
-Given a function $f: D \rightarrow R^d, where $D$ is the domain of the dataset and $d$ is the dimension of the output, the Laplace mechanism $M_{Laplace}$ adds Laplace noise to the output of $f$. That is $M_{Laplace}(D)=f(D)+Lap(\Delta/\epsilon)$ 
+Given a function $f: D \rightarrow R^d$, where $D$ is the domain of the dataset and $d$ is the dimension of the output, the Laplace mechanism $M_{Laplace}$ adds Laplace noise to the output of $f$. That is $M_{Laplace}(D)=f(D)+Lap(\Delta/\epsilon)$ 
 Let $b$ be the scale parameter of the Laplace distribution, which is given by:
 $$Lap(b)=\frac{1}{2b} e^{-\frac{|x|}{b}}$$
 

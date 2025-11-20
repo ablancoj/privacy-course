@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5.8. Anonymization library &#8212; Privacy Engineering</title>
+    <title>4.15. Anonymization library &#8212; Privacy Engineering</title>
   
   
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'anonymization-library';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5.9. Anonymization examples" href="notebooks/test_anonymization.html" />
+    <link rel="next" title="4.16. Anonymization examples" href="notebooks/test_anonymization.html" />
     <link rel="prev" title="4. Privacy in databases" href="databases.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,18 +183,21 @@
 <li class="toctree-l1"><a class="reference internal" href="intro-gdpr.html">1. Foundations of Privacy and Data Protection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="privacy-by-design.html">2. Privacy by Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pets.html">3. Privacy-Enhancing Techniques</a></li>
-<li class="toctree-l1"><a class="reference internal" href="databases.html">4. Privacy in databases</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="databases.html">4. Privacy in databases</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.15. Anonymization library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/test_anonymization.html">4.16. Anonymization examples</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="unstructured.html">5. Privacy in unstructured data</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="privacy-ml.html">6. Privacy in machine learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/LipariSC_MIA.html">6.9. Salem paper attacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html">6.10. Federated Learning and Label Flipping attacks</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="unstructured.html">6. Privacy in unstructured data</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="privacy-ml.html">7. Privacy in machine learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/LipariSC_MIA.html">7.9. Salem paper attacks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/FederatedLearning-sklearn.html">7.10. Federated Learning and Label Flipping attacks</a></li>
 
 
 
 
-
-<li class="toctree-l2"><a class="reference internal" href="notebooks/unlearning-CIFAR10.html">7.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/unlearning-CIFAR10.html">6.16. NeurIPS 2023 Machine Unlearning Challenge Starting Kit</a></li>
 
 
 
@@ -395,8 +398,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">5.8.1. Prerequisites</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-parameters">5.8.1.1. Configuration parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">4.15.1. Prerequisites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-parameters">4.15.1.1. Configuration parameters</a></li>
 </ul>
 </li>
 </ul>
@@ -411,7 +414,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="anonymization-library">
-<h1><span class="section-number">5.8. </span>Anonymization library<a class="headerlink" href="#anonymization-library" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">4.15. </span>Anonymization library<a class="headerlink" href="#anonymization-library" title="Link to this heading">#</a></h1>
 <p>The availability of individual data is crucial for researchers; yet, legal frameworks such as the recent EU GDPR state that personally identifiable information cannot be released unless
 it is subjected to anonymization; which prevents the identities of subjects from being associated with the released data, while preserving utility as much as possible.
 The members of the Universitat Rovira I Virgili (URV) have developed and implement a python library for the properly anonymization of data to be published.
@@ -426,13 +429,13 @@ anonymize a data set, how to indicate the required privacy parameters and how to
 in the methods to the utility and privacy of the resulting data.
 This training notebook will be public available as Jupyter notebook that will be able for downloaded to be executed locally.</p>
 <section id="prerequisites">
-<h2><span class="section-number">5.8.1. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.15.1. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
 <p>The input dataset is a CSV formatted file where each row corresponds to a record and each column corresponds to an attribute.
 Within the CSV file, a first line (header) stating the name of the attributes is required in order to map the attributes to features in the configuration file.
 The software does not currently support missing data points. Hence, preprocessing would be needed to either remove records with missing values or replace missing values by averages.</p>
 <p>The dataset configuration parameters are specified in an XML file, so that they can be reused for several datasets that share the same schema (see Dataset description section).</p>
 <section id="configuration-parameters">
-<h3><span class="section-number">5.8.1.1. </span>Configuration parameters<a class="headerlink" href="#configuration-parameters" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.15.1.1. </span>Configuration parameters<a class="headerlink" href="#configuration-parameters" title="Link to this heading">#</a></h3>
 <p>The parameters needed to configure the anonymization system are stored in an XML file.
 This xml file stores parameters necessary to the configuration of the different parts of the anonymization system, so that the system can support
 different attribute types.
@@ -572,7 +575,7 @@ in function of the input data of the attribute.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5.9. </span>Anonymization examples</p>
+        <p class="prev-next-title"><span class="section-number">4.16. </span>Anonymization examples</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -592,8 +595,8 @@ in function of the input data of the attribute.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">5.8.1. Prerequisites</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-parameters">5.8.1.1. Configuration parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">4.15.1. Prerequisites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-parameters">4.15.1.1. Configuration parameters</a></li>
 </ul>
 </li>
 </ul>

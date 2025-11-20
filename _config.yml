@@ -36,6 +36,10 @@ html:
     <p style="text-align: center;">
       <img src="./logos.png" alt="Logos"/>
     </p>
+  extra_navbar: |
+        <div>
+            <a href="www.crises-deim.urv.cat">CRISES</a>
+        </div>
 
 sphinx:
   config:
