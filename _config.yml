@@ -3,6 +3,7 @@
 
 title: Privacy Engineering
 author: Alberto Blanco-Justicia
+copyright: 2025
 logo: logo_v01-original.png
 
 # Force re-execution of notebooks on each build.
@@ -32,14 +33,13 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  home_page_in_navbar: false
+  extra_navbar: Back to <a href="crises-deim.urv.cat">CRISES</a>
   extra_footer: |
     <p style="text-align: center;">
       <img src="./logos.png" alt="Logos"/>
     </p>
-  extra_navbar: |
-        <div>
-            <a href="www.crises-deim.urv.cat">CRISES</a>
-        </div>
+  
 
 sphinx:
   config:
