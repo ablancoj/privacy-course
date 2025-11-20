@@ -182,7 +182,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro-gdpr.html">1. About this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro-gdpr.html">1. Foundations of Privacy and Data Protection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="privacy-by-design.html">2. Privacy by Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pets.html">3. Privacy enhancing techniques</a></li>
 
@@ -1725,9 +1725,10 @@ search engines with fake queries.</p>
 <div class="admonition-epsilon-differential-privacy admonition">
 <p class="admonition-title"><span class="math notranslate nohighlight">\(\epsilon\)</span>-Differential privacy</p>
 <p>Differential privacy is a property of <span class="math notranslate nohighlight">\(M\)</span> saying that no individual’s data has a large impact on the output.
-Suppose we have an algorithm <span class="math notranslate nohighlight">\(M:X^n \rightarrow Y\)</span>. Consider any two datasets <span class="math notranslate nohighlight">\(X, X' \in X^n\)</span> which differ in exactly one entry. We call these neighboring datasets. We say that <span class="math notranslate nohighlight">\(M\)</span> is <span class="math notranslate nohighlight">\(\epsilon\)</span>-differentially private (<span class="math notranslate nohighlight">\(\epsilon\)</span>-DP) if, for all neighboring <span class="math notranslate nohighlight">\(X, X'\)</span>, and all <span class="math notranslate nohighlight">\(T \subseteq Y\)</span>, we have
-$<span class="math notranslate nohighlight">\(Pr⁡[M(X) \in T] \le e^\epsilon Pr⁡[M(X') \in T]\)</span><span class="math notranslate nohighlight">\(
-where the randomness is over the choices made by \)</span>M$.</p>
+Suppose we have an algorithm <span class="math notranslate nohighlight">\(M:X^n \rightarrow Y\)</span>. Consider any two datasets <span class="math notranslate nohighlight">\(X, X' \in X^n\)</span> which differ in exactly one entry. We call these neighboring datasets. We say that <span class="math notranslate nohighlight">\(M\)</span> is <span class="math notranslate nohighlight">\(\epsilon\)</span>-differentially private (<span class="math notranslate nohighlight">\(\epsilon\)</span>-DP) if, for all neighboring <span class="math notranslate nohighlight">\(X, X'\)</span>, and all <span class="math notranslate nohighlight">\(T \subseteq Y\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[Pr⁡[M(X) \in T] \le e^\epsilon Pr⁡[M(X') \in T]\]</div>
+<p>where the randomness is over the choices made by <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </div>
 <p>To determine how much noise must be added to a query, one must compute its sensitivity: the maximum possible change in the query’s output when applied to neighboring datasets. For count queries, the sensitivity is 1, because removing or adding a single record changes the count by at most one. For averages, the sensitivity depends on the range of the attribute and the number of individuals included. For sums, the sensitivity equals the maximum possible value of the confidential attribute (for example, using an upper bound on age or salary). Bounding sensitivity is essential because differential privacy mechanisms calibrate their noise to this value.</p>
 <p>The sensitivity of a function <span class="math notranslate nohighlight">\(\Delta f\)</span> (or <span class="math notranslate nohighlight">\(\Delta\)</span> if <span class="math notranslate nohighlight">\(f\)</span> is known) is the maximum distance between the results of <span class="math notranslate nohighlight">\(f\)</span> computed on neighboring datasets.

@@ -1198,7 +1198,9 @@ The key idea is that the output of any analysis should not change too much when 
 :::{admonition} $\epsilon$-Differential privacy
 Differential privacy is a property of $M$ saying that no individual's data has a large impact on the output.
 Suppose we have an algorithm $M:X^n \rightarrow Y$. Consider any two datasets $X, X' \in X^n$ which differ in exactly one entry. We call these neighboring datasets. We say that $M$ is $\epsilon$-differentially private ($\epsilon$-DP) if, for all neighboring $X, X'$, and all $T \subseteq Y$, we have
+
 $$Pr⁡[M(X) \in T] \le e^\epsilon Pr⁡[M(X') \in T]$$
+
 where the randomness is over the choices made by $M$.
 :::
 
