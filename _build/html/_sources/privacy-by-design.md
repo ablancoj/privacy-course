@@ -47,14 +47,20 @@ For example, emergency call data may include location information, timestamps an
 Other datasets, such as building permits or aggregated demographic data, may be assessed as high risk but offering substantial public value. Here, additional screening, such as removing precise locations, generalizing timestamps or excluding rare categories, can reduce risk to an acceptable level.
 
 :::{admonition} [Seattle Model Open Data Benefit-Risk Analysis](https://fpf.org/wp-content/uploads/2018/01/FPF-Open-Data-Risk-Assessment-for-City-of-Seattle.pdf) 
+:class: note
 In the open data context, considering the risks of the dataset is merely one part of a balanced value equation; decision-makers must also take account of the project’s benefits in order to make a final determination about whether to proceed with publishing the dataset openly. For the purposes of this report, FPF developed this Model Analysis, which is based on risk assessment and de-identification frameworks developed by the National Institute of Standards and Technology and also builds on parallel efforts by researchers at the University of Washington, the Berkman Klein Center, and the City of San Francisco to develop robust risk-based frameworks for government data releases.
 
 This Model Analysis provides a structure for vetting potential open datasets in five steps: 
-    1. Evaluate the Information the Dataset Contains. This step includes identifying whether there are direct or indirect identifiers, sensitive attributes, or information that is difficult to de-identify present in the dataset; assessing how linkable the information might be to other datasets; and considering the context in which the data was obtained. 
-    2. Evaluate the Benefits Associated with Releasing the Dataset. This step considers the potential benefits and users of the dataset, and assesses the magnitude of the potential benefits against the likelihood of their occurring. 
-    3. Evaluate the Risks Associated with Releasing the Dataset. This step considers the potential privacy risks and negative users of the dataset, and assesses the magnitude of the potential risks against the likelihood of their occurring. 
-    4. Weigh the Benefits against the Risks of Releasing the Dataset. This step combines the overall scores from steps 2 and 3 to determine an appropriate method for releasing (or not releasing) the dataset. Recommendations include releasing as open data, in a limited access environment, or not publishing at the current time. This section also overviews common methods for reducing re-identification risk in terms of their privacy-protective, utility, and operational impacts. 
-    5. Evaluate Countervailing Factors. This step provides a final opportunity to document any countervailing factors that might justify releasing a dataset openly regardless of its privacy risk, such as when there is a compelling public interest in the information.
+
+1. Evaluate the Information the Dataset Contains. This step includes identifying whether there are direct or indirect identifiers, sensitive attributes, or information that is difficult to de-identify present in the dataset; assessing how linkable the information might be to other datasets; and considering the context in which the data was obtained. 
+
+2. Evaluate the Benefits Associated with Releasing the Dataset. This step considers the potential benefits and users of the dataset, and assesses the magnitude of the potential benefits against the likelihood of their occurring. 
+
+3. Evaluate the Risks Associated with Releasing the Dataset. This step considers the potential privacy risks and negative users of the dataset, and assesses the magnitude of the potential risks against the likelihood of their occurring. 
+
+4. Weigh the Benefits against the Risks of Releasing the Dataset. This step combines the overall scores from steps 2 and 3 to determine an appropriate method for releasing (or not releasing) the dataset. Recommendations include releasing as open data, in a limited access environment, or not publishing at the current time. This section also overviews common methods for reducing re-identification risk in terms of their privacy-protective, utility, and operational impacts. 
+
+5. Evaluate Countervailing Factors. This step provides a final opportunity to document any countervailing factors that might justify releasing a dataset openly regardless of its privacy risk, such as when there is a compelling public interest in the information.
 :::
 
 ## Privacy by Design Strategies
@@ -123,29 +129,31 @@ Device-side filtering is one example of minimization. A mobile device may locall
 
 The amount of personal data processed should be restricted to the minimum necessary. By avoiding collection of unnecessary data, the system limits potential privacy impacts. Key questions include: Is the data processing proportional to the purpose? Are there less invasive means to achieve the same goal? Typical design patterns supporting minimisation include *select before you collect*, exclude, strip and destroy. anonymisation, or pseudonymisation
 
-Tactics suggested by [AEPD](https://www.aepd.es/guides/guide-to-privacy-by-design.pdf)
+Tactics suggested by [AEPD](https://www.aepd.es/guides/guide-to-privacy-by-design.pdf):
 
 :::{admonition} Select
+:class: note
 Select only the sample of relevant individuals and the attributes
 required, with a conservative approach when establishing the selection criteria
 and processing only the data that satisfy the selection criteria (white list).
 :::
 
 :::{admonition} Exclude
+:class: note
 Exclude is the reverse of the earlier approach and consists of excluding
 beforehand subjects and attributes that are irrelevant to the processing (black
 list). In this case, an open attitude must be adopted, excluding as much information as possible unless their inclusion can be justified as being absolutely necessary for the intended goal.
 :::
 
 :::{admonition} Strip 
+:class: note
 Partially eliminate personal data as soon as they cease to be necessary, which requires establishing beforehand the storage period of each of the collected data, and to establish automatic deleting mechanisms when said period is over. In case the data are part of a record that has more information than is necessary, the value of the unnecessary fields can be modified to a prefixed default value.
 :::
 
 :::{admonition} Destroy
+:class: note
 Completely delete personal data as soon as they cease to be relevant, ensuring that it is impossible to recover both the data and any backup copies.
 :::
-
-It is also important to remember that only strictly necessary data must be communicated and shared, and in case of processing where new personal information is extrapolated, generated data that is not necessary to achieve the intended purpose must also be deleted.
 
 
 ### Hide
@@ -156,21 +164,25 @@ Techniques such as mixed networks, privacy-preserving credentials and pseudonymo
 
 Any personal data and their interrelationships should be hidden from plain view (reflecting the information security dimension). This strategy seeks unlinkability and unobservability: to ensure that personal data cannot be easily abused because they are concealed, encrypted or otherwise protected. Design patterns include encryption (data at rest or in transit), mixing networks to hide traffic patterns, attribute-based credentials, pseudonyms and anonymisation.
 
-Tactics suggested by [AEPD](https://www.aepd.es/guides/guide-to-privacy-by-design.pdf)
+Tactics suggested by [AEPD](https://www.aepd.es/guides/guide-to-privacy-by-design.pdf):
 
 :::{admonition} Restrict
+:class: note
 Restrict access to personal data by setting limits through an access control policy that implements a “need to know" principle both in space (details and type of data accessed) and in time (processing stages).
 :::
 
 :::{admonition} Obfuscate
+:class: note
 Make personal data unintelligible for those who are not authorised to consult it, using encryption techniques and hashing, both for storage operations as well as information transmission.
 :::
 
 :::{admonition} Dissociate 
+:class: note
 Eliminate the link between datasets that should be kept independent, as well as the identification attributes of data records to avert correlations between them, with special attention to metadata.
 :::
 
 :::{admonition} Mix
+:class: note
 Group together information on various subjects using generalisation and
 suppression techniques to avoid correlations.
 :::
@@ -186,13 +198,15 @@ A prominent example is **federated learning**, a machine learning paradigm in wh
 
 Personal data should be processed in a distributed fashion, and data from separate sources should be stored or processed in distinct compartments where possible. The underlying rationale is that by separating storage or processing of data that belong to the same individual, you reduce the ability to build comprehensive profiles. Examples include storing different data types in separate databases, processing data locally rather than centrally, splitting database tables, and using federated learning or blockchain‐based approaches.
 
-Tactics suggested by [AEPD](https://www.aepd.es/guides/guide-to-privacy-by-design.pdf)
+Tactics suggested by [AEPD](https://www.aepd.es/guides/guide-to-privacy-by-design.pdf):
 
 :::{admonition} Isolate
+:class: note
 Collect and store personal data in different databases or applications that are independent, either logically or are executed on different physical systems, adopting additional measures to guarantee unlinkability, such as the programmed deletion of database indexes.
 :::
 
 :::{admonition} Distribute
+:class: note
 Spread out the collection and processing of different subsets of personal data corresponding to different types of processing over management and handling units that are physically independent within the system, and use different systems and applications to implement decentralised and distributed architectures that process the information locally whenever possible, instead of using centralised solutions with unified access which may depend on a single control unit.
 :::
 
@@ -204,17 +218,20 @@ Aggregation is especially important in open data and research contexts, where sh
 
 Personal data should be processed at the highest level of aggregation and with the least detail necessary for the purpose. When data refer only to groups rather than to individuals, the sensitivity is reduced. Examples of supporting design patterns include k-anonymity, temporal aggregation (for example in smart metering), location coarsening in location-based services, and differential privacy.
 
-Tactics suggested by [AEPD](https://www.aepd.es/guides/guide-to-privacy-by-design.pdf)
+Tactics suggested by [AEPD](https://www.aepd.es/guides/guide-to-privacy-by-design.pdf):
 
 :::{admonition} Summarise
+:class: note
 Generalise the values of the attributes using value ranges or intervals, instead of a concrete field value.
 :::
 
 :::{admonition} Group
+:class: note
 Aggregate information of a group of records into categories instead of using the detailed information on each of the subjects that belong to the group, by using average or general values.
 :::
 
 :::{admonition} Perturb
+:class: note
 Use approximate values or modify the real data using some type of
 random noise instead of employing the exact value of the personal data.
 :::
@@ -226,9 +243,10 @@ The first of the process-oriented strategies, inform requires organizations to c
 
 Data subjects should be clearly informed about what information is being processed, for what purpose, by which means, and how it is protected. Transparency means providing clear documentation, notices, and informing subjects if data are shared with third parties. Also informing them about their access rights and how to exercise them. Design patterns include the Platform for Privacy Preferences (P3P), transparency enhancing tools.
 
-Tactics suggested by [AEPD](https://www.aepd.es/guides/guide-to-privacy-by-design.pdf)
+Tactics suggested by [AEPD](https://www.aepd.es/guides/guide-to-privacy-by-design.pdf):
 
 :::{admonition} Supply
+:class: note
 Provide data subjects with all the information required by the GDPR on what personal data is processed, how it is processed and why, by identifying the motive and goal. Details on data storage periods must be provided, as well
 as on the sharing of this data with third parties. Along with this information,
 which must be accessible and continually provided in order to promote an authentic transparency, it must also indicate who can be contacted by the data
@@ -237,6 +255,7 @@ rights with regard to personal data protection.
 :::
 
 :::{admonition} Explain
+:class: note
 Provide information on data processing in a concise, transparent, intelligible and easily accessible fashion in clear and simple language. To avoid
 dense, complex and unwieldy information policies, it is worth adopting a
 layered approach which first provides basic information at the same time and
@@ -245,6 +264,7 @@ information available at a second level.
 :::
 
 :::{admonition} Notify
+:class: note
 Inform data subjects of the processing when the data are not derived directly from them, at the time these have been obtained and within a maximum of one month, or if they are going to be used for communication with them, in the first message. Subjects must also be informed if their data is going to be transferred to third parties. Mechanisms to notify subjects of security breaches that may have happened and may pose a serious risk to their freedoms and rights must also be implemented, using clear and simple language to describe the nature of the breach. Considering that data collection procedures are varied, the means of notification must be adapted to the circumstances of each method used including, additionally, the possible use of standardised icons that offer an overall view of the anticipated processing.
 ::: 
 
@@ -254,9 +274,10 @@ Control means giving data subjects meaningful choices about how their data are p
 
 Subjects should be given agency over the processing of their personal data, this ties to individual rights. Informing alone is insufficient unless the subject has some control, and control is impossible without being informed. Control includes enabling subjects to view, update, or delete their data; control interfaces should be easy to use. Design patterns include user-centric identity management, end-to-end encryption to give users control, intervenability.
 
-Tactics suggested by [AEPD](https://www.aepd.es/guides/guide-to-privacy-by-design.pdf)
+Tactics suggested by [AEPD](https://www.aepd.es/guides/guide-to-privacy-by-design.pdf):
 
 :::{admonition} Consent
+:class: note
 Acquire the consent of data subjects, in cases without any other basis
 of legitimacy, and which must be given unambiguously, by demonstrating
 either a clear affirmative action which must be explicit in certain situations
@@ -267,20 +288,24 @@ procedures that make it as easy to withdraw consent as it is to give it.
 :::
 
 :::{admonition} Alert
+:class: note
 To provide real-time notification to the user when personal data is being
 collected, even when general information on the legal basis of the processing
 has been provided or even when the subject has already given their consent.
 :::
 
 :::{admonition} Choose
+:class: note
 Provide granular functionality of applications and services, especially when it comes to basic functionality, without it being contingent on the user's consent to process personal data that is not required for execution.
 :::
 
 :::{admonition} Update
+:class: note
 Implement mechanism that make it easy for users to or even lets them directly make revisions, updates and rectifications of the provided data for a specific processing, so that they are accurate and reflect reality.
 :::
 
 :::{admonition} Retract
+:class: note
 Provide mechanisms for users to withdraw or ask for the deletion of their personal data provided to a controller for processing.
 :::
 
@@ -290,9 +315,10 @@ Enforcement refers to internal organizational processes ensuring that privacy ru
 
 A privacy policy compatible with legal requirements should be in place and must be enforced. This strategy ensures that the system respects privacy commitments. Technical protection mechanisms should exist to prevent policy violations, and governance structures must enforce the policy. Design patterns include access control, privacy rights management (a form of DRM for personal data).
 
-Tactics suggested by [AEPD](https://www.aepd.es/guides/guide-to-privacy-by-design.pdf)
+Tactics suggested by [AEPD](https://www.aepd.es/guides/guide-to-privacy-by-design.pdf):
 
 :::{admonition} Create
+:class: note
 Specify a data protection policy that reflects internally the privacy clauses that are communicated to data subjects. The necessary structures must be created, and resources assigned to support this policy and ensure that
 the organisation’s processing activities respect and comply with data
 protection regulations. A training and awareness plan must also be developed
@@ -301,10 +327,12 @@ part of accountability.
 :::
 
 :::{admonition} Maintain
+:class: note
 Support the policy defined by establishing procedures and implementing the necessary technical and organisational measures. The existence of effective mechanisms and procedures must be reviewed in order to guarantee the exercise of rights, the handling and notifying of security incidents, adjusting possible processing activities to legal requirements and providing proof of compliance with the obligations imposed by regulations.
 :::
 
 :::{admonition} Uphold
+:class: note
 Ensure the compliance, effectiveness and efficiency of the privacy
 policy and the procedures, measures and controls implemented so that they
 account for all processing activities carried out and for the day to day activities of the organisation.
@@ -318,17 +346,20 @@ Finally, the demonstrate strategy requires organizations to be accountable. They
 
 The organisation (data controller) must be able to demonstrate compliance with the privacy policy and applicable legal requirements – this entails accountability. It goes beyond enforcement: not only must privacy be enforced, but the organisation must show demonstrably that it is being enforced. Design patterns include logging, auditing, privacy-management systems.
 
-Tactics suggested by [AEPD](https://www.aepd.es/guides/guide-to-privacy-by-design.pdf)
+Tactics suggested by [AEPD](https://www.aepd.es/guides/guide-to-privacy-by-design.pdf):
 
 :::{admonition} Record
+:class: note
 Document each and every decision taken even when they contradict each other, identifying who took the decision, when and why.
 :::
 
 :::{admonition} Audit
+:class: note
 Carry out a systematic, independent and documented review of the degree of compliance with the data protection policy.
 :::
 
 :::{admonition} Report
+:class: note
 Document audit results and any other incident regarding personal data processing operations and make them available to the supervisory authorities whenever required. In case of new data processing and if the result of the data protection impact evaluation shows that processing involves a high degree of risk to the rights and freedoms of the data subjects if the controller
 does not adopt measures to mitigate it, perform the prior consultation referred
 to in Article 36 of the GDPR.
