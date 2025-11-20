@@ -401,12 +401,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-and-legal-evolution-of-privacy">1.4. Historical and Legal Evolution of Privacy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-counts-as-personal-data">1.5. What Counts as Personal Data?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contemporary-threats-to-privacy">1.6. Contemporary Threats to Privacy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-general-data-protection-regulation-gdpr">1.7. The General Data Protection Regulation (GDPR)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-and-roles-in-the-gdpr">1.8. Key Concepts and Roles in the GDPR</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-for-lawful-data-processing">1.9. Principles for Lawful Data Processing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rights-of-the-data-subject">1.10. Rights of the Data Subject</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obligations-of-controllers-and-processors">1.11. Obligations of Controllers and Processors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-considerations-and-open-questions">1.12. Practical Considerations and Open Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-general-data-protection-regulation-gdpr">1.7. The General Data Protection Regulation (GDPR)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-and-roles-in-the-gdpr">1.7.1. Key Concepts and Roles in the GDPR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-for-lawful-data-processing">1.7.2. Principles for Lawful Data Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rights-of-the-data-subject">1.7.3. Rights of the Data Subject</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obligations-of-controllers-and-processors">1.7.4. Obligations of Controllers and Processors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-considerations">1.7.5. Practical Considerations</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -604,9 +606,8 @@ document.write(`
 <p>The GDPR is the main legal framework governing personal data protection in the European Union. It applies not only to organizations established in the EU, but also to any organization worldwide that offers goods or services to people in the EU or monitors their behavior. As a result, many non-European companies align their practices with the GDPR in order to operate in the European market.</p>
 <p>One of the aims of the GDPR is to harmonize data protection laws across EU member states, allowing personal data to flow freely within the EU while maintaining a high and uniform level of protection. The regulation also establishes conditions under which data may be transferred to countries outside the EU, namely when those countries provide an <em>adequate</em> level of protection or when specific safeguards are in place.</p>
 <p>Over time, the GDPR has influenced legislation in other jurisdictions. Several countries and regions have adopted privacy laws that borrow concepts, structures and terminology from the GDPR, making it a <em>de facto</em> reference model for data protection worldwide.</p>
-</section>
 <section id="key-concepts-and-roles-in-the-gdpr">
-<h2><span class="section-number">1.8. </span>Key Concepts and Roles in the GDPR<a class="headerlink" href="#key-concepts-and-roles-in-the-gdpr" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">1.7.1. </span>Key Concepts and Roles in the GDPR<a class="headerlink" href="#key-concepts-and-roles-in-the-gdpr" title="Link to this heading">#</a></h3>
 <p>The GDPR introduces a set of definitions that structure how we think about personal data and its processing. At the center is the <strong>data subject</strong>, the identifiable natural person whose personal data are being processed. Around the data subject are two main types of organizations: <strong>controllers</strong> and <strong>processors</strong>.</p>
 <p>A <strong>controller</strong> is the entity that determines the purposes and means of processing personal data. It decides which data to collect, what to use them for, how long to keep them and to whom they may be disclosed. Because of this decision-making power, the <strong>controller</strong> bears primary responsibility for ensuring compliance with the GDPR.</p>
 <p>A <strong>processor</strong> is an entity that processes personal data on behalf of a controller. A typical example would be a cloud service provider that stores or computes over personal data collected by a hospital, a university or a company. Even though the processor acts on instructions from the controller, it still has its own obligations under the GDPR and must implement appropriate technical and organizational measures to protect the data.</p>
@@ -615,7 +616,7 @@ document.write(`
 <p>The GDPR distinguishes between <strong>pseudonymization</strong> and <strong>anonymization</strong> as techniques for protecting data. <strong>Pseudonymization</strong> usually refers to replacing direct identifiers with artificial identifiers or codes while keeping the possibility of reversing the process under controlled conditions. This can reduce risk but does not remove the data from the scope of the GDPR. <strong>Anonymization</strong>, in contrast, aims at transforming the data in such a way that individuals are no longer identifiable, even when indirect identifiers are considered. Truly anonymized data are not subject to the GDPR, but achieving this in practice is difficult, especially with high-dimensional or rich datasets.</p>
 </section>
 <section id="principles-for-lawful-data-processing">
-<h2><span class="section-number">1.9. </span>Principles for Lawful Data Processing<a class="headerlink" href="#principles-for-lawful-data-processing" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">1.7.2. </span>Principles for Lawful Data Processing<a class="headerlink" href="#principles-for-lawful-data-processing" title="Link to this heading">#</a></h3>
 <p>Beyond definitions, the GDPR sets out fundamental principles that must guide all processing of personal data. These principles encapsulate the spirit of the regulation and provide a framework against which concrete practices can be evaluated.</p>
 <p>Processing must be <strong>lawful</strong>, which means there must be a valid legal basis such as consent, performance of a contract, compliance with a legal obligation, protection of vital interests, performance of a task carried out in the public interest or legitimate interests pursued by the controller or a third party. What counts as legitimate interest is intentionally broad, but controllers must balance their interests against the rights and freedoms of data subjects.</p>
 <p>Processing must be <strong>fair</strong>. This principle addresses the imbalance of power between individuals and organizations. Even if processing is technically legal, it may still be unfair if it exploits users’ lack of information, locks them into undesirable arrangements or treats them essentially as raw material rather than as rights-bearing individuals.</p>
@@ -627,7 +628,7 @@ document.write(`
 <p>The GDPR also imposes special restrictions on certain categories of data, including <em>health data</em>, <em>biometric data</em>, <em>genetic data</em>, <em>racial</em> or <em>ethnic origin</em>, <em>political opinions</em>, <em>religious</em> or <em>philosophical beliefs</em> and <em>trade union membership</em>. Processing of these special categories is generally prohibited unless specific conditions are met, such as explicit consent, important public interest, preventive or occupational medicine, public health or scientific research with appropriate safeguards. <strong>Genetic data</strong>, in particular, are highly sensitive because they reveal information <em>not only about the individual</em> data subject but also about <em>family members and potentially descendants</em>.</p>
 </section>
 <section id="rights-of-the-data-subject">
-<h2><span class="section-number">1.10. </span>Rights of the Data Subject<a class="headerlink" href="#rights-of-the-data-subject" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">1.7.3. </span>Rights of the Data Subject<a class="headerlink" href="#rights-of-the-data-subject" title="Link to this heading">#</a></h3>
 <p>One of the most visible contributions of the GDPR is the set of rights it grants to data subjects. These rights are intended to give individuals more control over their personal data and to increase transparency and accountability.</p>
 <p>The <strong>right of access</strong> allows individuals to obtain confirmation that their personal data are being processed, and to receive a copy of those data along with information about the purposes of processing, the categories of data, the recipients, storage periods and other relevant details. In principle, this should enable people to understand who holds information about them and what is being done with it.</p>
 <p>The <strong>right to rectification</strong> allows individuals to correct inaccurate or incomplete personal data. For example, if someone’s address or health record contains errors, they should be able to have those errors fixed.</p>
@@ -636,17 +637,18 @@ document.write(`
 <p>The effectiveness of these rights depends heavily on how organizations implement them. Some, such as <a class="reference external" href="https://myaccount.google.com/dashboard">Google</a>, provide user-friendly dashboards and tools that make it easy to download, correct or delete data. Others require complex procedures or make the process obscure. Nonetheless, the legal framework establishes a clear baseline of what people can legitimately demand.</p>
 </section>
 <section id="obligations-of-controllers-and-processors">
-<h2><span class="section-number">1.11. </span>Obligations of Controllers and Processors<a class="headerlink" href="#obligations-of-controllers-and-processors" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">1.7.4. </span>Obligations of Controllers and Processors<a class="headerlink" href="#obligations-of-controllers-and-processors" title="Link to this heading">#</a></h3>
 <p>To support these rights and principles, the GDPR imposes concrete obligations on controllers and processors. They must implement appropriate technical and organizational measures to ensure and to be able to demonstrate that processing is performed in accordance with the regulation. This includes keeping detailed records of processing activities, defining policies and procedures, training staff and regularly reviewing their practices.</p>
 <p>For processing operations that are likely to result in a high risk to the rights and freedoms of individuals, controllers must carry out <strong>Data Protection Impact Assessments (DPIAs)</strong>. These assessments analyze the necessity and proportionality of processing operations, the risks they pose and the measures taken to address those risks. DPIAs are particularly relevant in contexts involving new technologies, large-scale processing of sensitive data or systematic monitoring of public areas.</p>
 <p>The GDPR also introduces the concepts of <strong>privacy by design</strong> and <strong>privacy by default</strong>. <strong>Privacy by design</strong> means that data protection principles and safeguards should be incorporated into the design of systems, services and business processes from the outset, rather than bolted on as an afterthought. <strong>Privacy by default</strong> means that, by default, only the minimum amount of personal data necessary for each specific purpose should be processed, and that default settings should favor privacy rather than exposure.</p>
 <p>Many organizations are required to appoint a <strong>Data Protection Officer (DPO)</strong>. The DPO is an independent internal role responsible for informing and advising the controller or processor about their obligations, monitoring compliance, providing advice on DPIAs and acting as a contact point for supervisory authorities and data subjects.</p>
 <p>When data breaches occur, controllers have an obligation to <em>notify</em> the relevant supervisory authority without undue delay, and in some cases to <em>inform the affected data subjects</em> as well, especially when the breach is likely to result in a high risk to their rights and freedoms. The extent to which a company cooperates and the seriousness of its preventive measures can influence the fines and other sanctions that may follow.</p>
 </section>
-<section id="practical-considerations-and-open-questions">
-<h2><span class="section-number">1.12. </span>Practical Considerations and Open Questions<a class="headerlink" href="#practical-considerations-and-open-questions" title="Link to this heading">#</a></h2>
+<section id="practical-considerations">
+<h3><span class="section-number">1.7.5. </span>Practical Considerations<a class="headerlink" href="#practical-considerations" title="Link to this heading">#</a></h3>
 <p>Although the GDPR provides a detailed legal framework, many practical questions remain. For example, the regulation states that withdrawing consent should be as easy as giving it, but does not define exact standards. As a result, some services offer a simple <em>one-click</em> mechanism to revoke consent, while others require users to navigate several layers of menus or send formal letters. Enforcement in this area is still evolving.</p>
 <p>When personal data have been breached and made public, the law can impose fines and require changes in behavior, but it cannot make the leaked information disappear. Individuals can withdraw consent for future processing, change passwords, monitor their accounts and so on, but the underlying fact remains that the data are <em>in the wild</em>. This reality underscores the importance of preventive measures and data minimization, as well as the need to think carefully before collecting or sharing sensitive information in the first place.</p>
+</section>
 </section>
 </section>
 
@@ -720,12 +722,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-and-legal-evolution-of-privacy">1.4. Historical and Legal Evolution of Privacy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-counts-as-personal-data">1.5. What Counts as Personal Data?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contemporary-threats-to-privacy">1.6. Contemporary Threats to Privacy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-general-data-protection-regulation-gdpr">1.7. The General Data Protection Regulation (GDPR)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-and-roles-in-the-gdpr">1.8. Key Concepts and Roles in the GDPR</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-for-lawful-data-processing">1.9. Principles for Lawful Data Processing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rights-of-the-data-subject">1.10. Rights of the Data Subject</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obligations-of-controllers-and-processors">1.11. Obligations of Controllers and Processors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-considerations-and-open-questions">1.12. Practical Considerations and Open Questions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-general-data-protection-regulation-gdpr">1.7. The General Data Protection Regulation (GDPR)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-and-roles-in-the-gdpr">1.7.1. Key Concepts and Roles in the GDPR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-for-lawful-data-processing">1.7.2. Principles for Lawful Data Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rights-of-the-data-subject">1.7.3. Rights of the Data Subject</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obligations-of-controllers-and-processors">1.7.4. Obligations of Controllers and Processors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-considerations">1.7.5. Practical Considerations</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

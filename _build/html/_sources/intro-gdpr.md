@@ -159,7 +159,7 @@ One of the aims of the GDPR is to harmonize data protection laws across EU membe
 
 Over time, the GDPR has influenced legislation in other jurisdictions. Several countries and regions have adopted privacy laws that borrow concepts, structures and terminology from the GDPR, making it a *de facto* reference model for data protection worldwide.
 
-## Key Concepts and Roles in the GDPR
+### Key Concepts and Roles in the GDPR
 
 The GDPR introduces a set of definitions that structure how we think about personal data and its processing. At the center is the **data subject**, the identifiable natural person whose personal data are being processed. Around the data subject are two main types of organizations: **controllers** and **processors**.
 
@@ -173,7 +173,7 @@ The regulation also defines **processing** very broadly. Any operation performed
 
 The GDPR distinguishes between **pseudonymization** and **anonymization** as techniques for protecting data. **Pseudonymization** usually refers to replacing direct identifiers with artificial identifiers or codes while keeping the possibility of reversing the process under controlled conditions. This can reduce risk but does not remove the data from the scope of the GDPR. **Anonymization**, in contrast, aims at transforming the data in such a way that individuals are no longer identifiable, even when indirect identifiers are considered. Truly anonymized data are not subject to the GDPR, but achieving this in practice is difficult, especially with high-dimensional or rich datasets.
 
-## Principles for Lawful Data Processing
+### Principles for Lawful Data Processing
 
 Beyond definitions, the GDPR sets out fundamental principles that must guide all processing of personal data. These principles encapsulate the spirit of the regulation and provide a framework against which concrete practices can be evaluated.
 
@@ -193,7 +193,7 @@ Finally, **integrity** and **confidentiality** require that personal data be pro
 
 The GDPR also imposes special restrictions on certain categories of data, including *health data*, *biometric data*, *genetic data*, *racial* or *ethnic origin*, *political opinions*, *religious* or *philosophical beliefs* and *trade union membership*. Processing of these special categories is generally prohibited unless specific conditions are met, such as explicit consent, important public interest, preventive or occupational medicine, public health or scientific research with appropriate safeguards. **Genetic data**, in particular, are highly sensitive because they reveal information *not only about the individual* data subject but also about *family members and potentially descendants*.
 
-## Rights of the Data Subject
+### Rights of the Data Subject
 
 One of the most visible contributions of the GDPR is the set of rights it grants to data subjects. These rights are intended to give individuals more control over their personal data and to increase transparency and accountability.
 
@@ -207,7 +207,7 @@ The **right to restrict processing** allows individuals to request that their da
 
 The effectiveness of these rights depends heavily on how organizations implement them. Some, such as [Google](https://myaccount.google.com/dashboard), provide user-friendly dashboards and tools that make it easy to download, correct or delete data. Others require complex procedures or make the process obscure. Nonetheless, the legal framework establishes a clear baseline of what people can legitimately demand.
 
-## Obligations of Controllers and Processors
+### Obligations of Controllers and Processors
 
 To support these rights and principles, the GDPR imposes concrete obligations on controllers and processors. They must implement appropriate technical and organizational measures to ensure and to be able to demonstrate that processing is performed in accordance with the regulation. This includes keeping detailed records of processing activities, defining policies and procedures, training staff and regularly reviewing their practices.
 
@@ -219,7 +219,7 @@ Many organizations are required to appoint a **Data Protection Officer (DPO)**. 
 
 When data breaches occur, controllers have an obligation to *notify* the relevant supervisory authority without undue delay, and in some cases to *inform the affected data subjects* as well, especially when the breach is likely to result in a high risk to their rights and freedoms. The extent to which a company cooperates and the seriousness of its preventive measures can influence the fines and other sanctions that may follow.
 
-## Practical Considerations and Open Questions
+### Practical Considerations
 
 Although the GDPR provides a detailed legal framework, many practical questions remain. For example, the regulation states that withdrawing consent should be as easy as giving it, but does not define exact standards. As a result, some services offer a simple *one-click* mechanism to revoke consent, while others require users to navigate several layers of menus or send formal letters. Enforcement in this area is still evolving.
 
