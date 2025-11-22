@@ -37,14 +37,14 @@ html:
   extra_navbar: Back to <a href="crises-deim.urv.cat">CRISES</a>
   extra_footer: |
     <p style="text-align: center;">
-      <img src="./logos.png" alt="Logos"/>
+      <img src="./BandaLogos_INCIBE_URV_es.png" alt="Logos"/>
     </p>
   
 
 sphinx:
   config:
     html_show_copyright: false
-    html_extra_path: ["./figs/logos.png"]
+    html_extra_path: ["./figs/BandaLogos_INCIBE_URV_es.png"]
 
 # Enable Jupyter Notebook launch buttons
 launch_buttons:

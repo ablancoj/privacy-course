@@ -11,4 +11,8 @@ One of the obligations of data controllers is to adhere to privacy by design and
 The rest of the book is dedicated to the technical measures that limit access to personal information or the risk of disclosure while still allowing useful processing. We start with a collection of privacy enhancing techniques, mostly cryptographic, which allow private interactions between subjects and controllers and that allow controllers to make computations on protected data. Then, we move on to anonymization, detailing principles and techniques applicable to structured data like microdata and statistical tables and to semi and unstructured data, like images, text, locations, and genetic data. We end the book with privacy considerations in machine learning, including threats, attacks, and countermeasures.
 
 
+### Acknowledgements
 
+This course is a result of the *INCIBE-URV Chair in Cybersecurity* (C067/23), a collaboration agreement between the [National Cybersecurity Institute (INCIBE)](https://www.incibe.es/) and the [Universitat Rovira i Virgili](www.urv.cat). This initiative is carried out within the framework of the Recovery, Transformation, and Resilience Plan funds, financed by the European Union (Next Generation), the Government of Spain's project that outlines the roadmap for the modernization of the Spanish economy, the recovery of economic growth and job creation, for solid, inclusive, and resilient economic reconstruction after the COVID-19 crisis, and to address the challenges of the next decade.
+
+[CRISES](crises-deim.urv.cat)
